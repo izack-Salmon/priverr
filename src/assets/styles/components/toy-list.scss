@@ -1,0 +1,15 @@
+.toy-list-contaioner{
+  
+}
+.list-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+    gap: 30px;
+    grid-auto-flow: dense;
+}
+.list-grid > *{
+    text-align: center;
+}
+.card{
+    border: 1px solid black;
+}

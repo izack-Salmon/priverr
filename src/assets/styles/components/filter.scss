@@ -1,0 +1,19 @@
+.filter-container{
+    display: flex;
+    margin: 20px;
+   
+}
+.filter-container > *{
+
+ margin: 10px;
+ height: 30px;
+}
+
+.list-tiltle{
+    text-align: center;
+}
+
+.filter-fieldset{
+    background-color:#F3F0D7;
+    margin-bottom: 20px;
+}
