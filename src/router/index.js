@@ -2,6 +2,8 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import home from '../views/piverr-app.vue'
 import explore from '../views/explore.vue'
+import gigDetails from '../views/gig-details.vue'
+import gigEdit from '../views/gig-edit.vue'
 
 Vue.use(VueRouter)
 
@@ -13,13 +15,13 @@ const routes = [
   },
   {
     path: '/explore',
-    name: 'Home',
+    name: 'explore',
     component: explore
   },
   {
     path: '/gig/Details/:id',
-    name: 'Home',
-    component: home
+    name: 'gigDetails',
+    component: gigDetails
   },
   {
     path: '/gig/edit',
