@@ -8,11 +8,13 @@
 <script>
 // @ is an alias to /src
 import HelloWorld from "@/cmps/HelloWorld.vue";
+import { gigService } from "../services/gig.service.js";
 
 export default {
   name: "Home",
   components: {
     HelloWorld,
   },
+  created() {},
 };
 </script>

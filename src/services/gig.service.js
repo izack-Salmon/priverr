@@ -1,5 +1,5 @@
 import { asyncStorageService } from "./async-storage.service.js";
-// import { storageService } from "./storage.service.js";
+import { storageService } from "./storage.service.js";
 import { utilService } from "./util.service.js";
 import { userService } from "./user.service.js";
 // import axios from "axios";
@@ -7,13 +7,18 @@ import Axios from "axios";
 var axios = Axios.create({ withCredentials: true, });
 
 const KEY = 'gigsDB';
-var users = userService.getUsers()
+
+var gUsers = null;
+getUsers()
+console.log('im here');
+_createGigs()
+
+
 
 const BASE_URL =
     process.env.NODE_ENV !== "development"
         ? "/api/gig"
         : "//localhost:3030/api/gig";
-
 
 export const gigService = {
     query,
@@ -25,7 +30,10 @@ export const gigService = {
 
 
 
-_createGigs();
+function getUsers() {
+    gUsers = userService.getUsers()
+    return gUsers
+}
 
 function query(filterBy = {}) {
     return asyncStorageService.query(KEY);
@@ -64,22 +72,25 @@ function getEmptyGig() {
 
 
 
-function _createGigs() {
+async function _createGigs() {
+    console.log('im heere to ');
     var gigs = storageService.load(KEY);
     if (!gigs || !gigs.length) {
         gigs = [_createGig('music'), _createGig('web dev'), _createGig('art')];
+        var gigs = await Promise.all(gigs)
+        console.log(gigs);
         storageService.store(KEY, gigs);
     }
     return gigs;
 }
 
-function _createGig(title, description) {
+async function _createGig(title, description) {
     return {
         _id: utilService.makeId(),
         title,
         inStock: true,
         price: utilService.getRandomInt(10, 100),
-        owner: users.shift(),
+        owner: await gUsers.shift(),
         createdAt: Date.now(),
         daysToMake: utilService.getRandomInt(1, 10),
         description,
