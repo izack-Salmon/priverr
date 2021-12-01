@@ -1,6 +1,6 @@
 <template>
     <section> 
-      <h2>Popular Gigs</h2>
+      <h2>Categories</h2>
     </section>
 </template>
 
