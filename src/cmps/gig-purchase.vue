@@ -1,7 +1,7 @@
 <template>
   <section>
     <h1>gigPurchase</h1>
-    <div class="purchase-details">
+    <div v-if="gig" class="purchase-details">
       <h4>Package details</h4>
       <span> {{ gig.price }}</span>
       <p>upto 5 logo designs</p>
@@ -18,7 +18,7 @@
 export default {
   name: "gigPurchase",
   props: {
-    gig,
+    gig: Object,
   },
 };
 </script>

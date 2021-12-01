@@ -4,6 +4,7 @@ import { gigService } from '../services/gig.service.js';
 export const gigStore = {
     state: {
         gigs: [],
+        currGig: null,
         // order: false,
         // labels: gigService.getLabes(),
         // filterBy: {},
@@ -25,7 +26,9 @@ export const gigStore = {
         },
         gigs(state) {
             return JSON.parse(JSON.stringify(state.gigs))
-        }
+        },
+        currGig({ currGig }) { return currGig }
+
     },
     mutations: {
         addGig(state, { savedGig }) {
@@ -59,6 +62,9 @@ export const gigStore = {
         setFilterBy(state, { filterBy }) {
             state.filterBy = filterBy;
         },
+        setCurrGig(state, { gig }) {
+            state.currGig = gig;
+        }
 
     },
     actions: {
@@ -94,5 +100,15 @@ export const gigStore = {
             dispatch({ type: 'loadGigs' })
             // })
         },
+        async getGigByid({ commit }, { gigId }) {
+            try {
+                const gig = await gigService.getById(gigId);
+                commit({ type: 'setCurrGig', gig })
+
+            } catch (err) {
+                console.log('userStore: Error in getGigByid', err)
+                throw err
+            }
+        }
     },
 }
