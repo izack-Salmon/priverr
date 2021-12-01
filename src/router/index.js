@@ -4,6 +4,8 @@ import home from '../views/piverr-app.vue'
 import explore from '../views/explore.vue'
 import gigDetails from '../views/gig-details.vue'
 import gigEdit from '../views/gig-edit.vue'
+import userDetails from '../views/gig-details.vue'
+import dashboard from '../views/dashboard.vue'
 
 Vue.use(VueRouter)
 
@@ -57,18 +59,18 @@ const routes = [
   },
   {
     path: '/gig/edit',
-    name: 'Home',
-    component: home
+    name: 'gigEdit',
+    component: gigEdit
   },
   {
     path: '/user/:id',
-    name: 'Home',
-    component: home
+    name: 'userDetails',
+    component: userDetails
   },
   {
     path: '/user/dashboard/',
     name: 'dashboard',
-    component: home
+    component: dashboard
   },
 >>>>>>> fa0f7436f2e6b0575919d71c9dc7f3686e84f760
 ]
