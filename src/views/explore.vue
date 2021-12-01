@@ -1,10 +1,23 @@
 <template>
-  <h1>hi</h1>
+  <section>
+    <h1>hi</h1>
+    <gig-list :gigs="gigs" />
+  </section>
 </template>
 
 <script>
-export default {};
-</script>
+// import gigService from "../services/gig-service.js"
+import giglist from "../cmps/gig-list.vue";
 
-<style>
-</style>
+export default {
+  name: explore,
+  components: {
+    giglist,
+  },
+  data(){
+
+  },
+  created(){},
+  mounteds:{},
+};
+</script>

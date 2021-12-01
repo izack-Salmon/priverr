@@ -1,9 +1,17 @@
 <template>
-  <h1>hello</h1>
+  <section>
+  <h1>gig details</h1>
+  
+
+
+  </section>
 </template>
 
 <script>
-export default {};
+export default {
+  name: gigDetails,
+
+};
 </script>
 
 <style>
