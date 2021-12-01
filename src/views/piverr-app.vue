@@ -21,6 +21,7 @@ import GigCategories from '../cmps/gig-categories.vue'
 import appHeader from '../cmps/app-header.vue'
 import appFooter from '../cmps/app-footer.vue'
 import cloudinary from '../services/cloudinary.service.js'
+import { gigService } from "../services/gig.service.js";
 
 export default {
   name: "Home",
@@ -35,6 +36,8 @@ export default {
     appHeader,
     appFooter,
   },
-
+  created() {
+    this.$store.dispatch({ type: "loadGigs" });
+  },
 };
 </script>
