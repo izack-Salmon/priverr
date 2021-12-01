@@ -7,14 +7,13 @@
 
 <script>
 // import gigService from "../services/gig-service.js"
-import giglist from "../cmps/gig-list.vue";
+import giglist from "@/cmps/gig-list.vue";
 import { gigService } from "../services/gig.service.js";
 export default {
   name: "explore",
-  components: {
-    giglist,
+  data() {
+    return {};
   },
-  data() {},
   created() {},
   computed: {
     gigsToShow() {
@@ -22,5 +21,8 @@ export default {
     },
   },
   mounteds: {},
+  components: {
+    giglist,
+  },
 };
 </script>
