@@ -33,15 +33,32 @@
         </div>
       </div>
     </div>
-    <!-- <gig-purchase :gig="gig" /> -->
+    <gig-purchase :gig="gig" @purchaseMsg="purchaseMsg" />
+    
+    <div v-if="isPurchase">
+      <h4>Order Complited</h4>
+      <p>
+        Order: #FO68C780E5A9
+        <span>Item: {{ gig.discription }}</span>
+      </p>
+      <div>
+
+        <p>Total: ${{ gig.price }}</p>
+      </div>
+    </div>
   </section>
 </template>
 
 <script>
-// import gigPurchase from "../cmps/gig-purchase.vue";
+import gigPurchase from "../cmps/gig-purchase.vue";
 export default {
-  // components: { gigPurchase },
+  components: { gigPurchase },
   name: "gigDetails",
+  data() {
+    return {
+      isPurchase: false,
+    };
+  },
   created() {
     // this.getGigById();
   },
@@ -53,13 +70,16 @@ export default {
       immediate: true,
     },
   },
+  methods: {
+    purchaseMsg() {
+      this.isPurchase = true;
+    },
+  },
   computed: {
     gig() {
       return this.$store.getters.currGig;
     },
     gigId() {
-      console.log('hi-details-getbyid');
-      console.log();
       return this.$route.params.id;
     },
   },

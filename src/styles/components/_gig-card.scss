@@ -1,8 +1,10 @@
-.card-toy {
+.gig-card {
     // position: relative;
-    background-color: $clr1;
+    // background-color: $clr1;
+    border: 1px solid $clr4;
+    padding: 0px,9px;
 
-    img.toy-image {
+    img.gig-image {
         aspect-ratio: 1 / 1;
         // height: 100%;
         object-fit: cover;
@@ -10,19 +12,19 @@
         filter: grayscale(1) contrast(1.3);
     }
 
-    .toy-tag {
+    .gig-tag {
         font-family: GreatVibes;
         font-size: rem(64px);
         color: $clr5;
         position: relative;
     }
 
-    @for $i from 1 through 6 {
+    // @for $i from 1 through 6 {
 
-        &:nth-child(6n + #{$i}) {
-            background-color: adjust-hue($clr1, $i * 4deg);
-        }
-    }
+    //     &:nth-child(6n + #{$i}) {
+    //         background-color: adjust-hue($clr1, $i * 4deg);
+    //     }
+    // }
 
     &:nth-child(4n + 0) {
         grid-column: span 2;
