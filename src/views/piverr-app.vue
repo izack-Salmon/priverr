@@ -20,13 +20,21 @@ import popularGigs from '../cmps/popular-gigs.vue'
 import GigCategories from '../cmps/gig-categories.vue'
 import appHeader from '../cmps/app-header.vue'
 import appFooter from '../cmps/app-footer.vue'
+import cloudinary from '../services/cloudinary.service.js'
+
 export default {
   name: "Home",
+  data(){
+    return{
+      heroImgs: []
+    }
+  },
   components: {
     popularGigs,
     GigCategories,
     appHeader,
     appFooter,
   },
+
 };
 </script>
