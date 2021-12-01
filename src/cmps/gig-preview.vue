@@ -8,17 +8,22 @@
           <a href="">{{ gig.owner.fullname }}</a>
           <span>level 3 seller</span>
         </div>
-        <a href="/gig/details/gig._id">{{ gig.description }}</a>
+        <router-link :to="'/gig/details/' + gig._id">
+          {{ gig.title }}
+        </router-link>
+
         <div class="gig-rating">
           <span>⭐4.8</span>
           <span>(1k+)</span>
         </div>
+        
         <div class="gig-footer">
           <span>🤍</span>
-          <a href="/gig/details/gig._id">
+          <router-link :to="'/gig/details/' + gig._id">
+            {{ gig.title }}
             <span>STARTING AT</span>
             <span>{{ gig.price }}</span>
-          </a>
+          </router-link>
         </div>
       </div>
     </div>

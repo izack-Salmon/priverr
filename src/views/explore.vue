@@ -6,7 +6,6 @@
 </template>
 
 <script>
-// import gigService from "../services/gig-service.js"
 import giglist from "../cmps/gig-list.vue";
 import { gigService } from "../services/gig.service.js";
 export default {
