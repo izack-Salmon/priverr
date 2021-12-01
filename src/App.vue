@@ -1,9 +1,18 @@
 <template>
   <div id="app">
-    <router-view/>
+    <router-view />
   </div>
 </template>
 
-<style lang="scss">
+<script>
+export default {
+  setup() {},
+  created() {
+    this.$store.dispatch({ type: "loadGigs" });
+    this.$store.dispatch({ type: "loadUser" });
+  },
+};
+</script>
 
+<style lang="scss">
 </style>

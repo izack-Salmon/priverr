@@ -36,8 +36,5 @@ export default {
     appHeader,
     appFooter,
   },
-  created() {
-    this.$store.dispatch({ type: "loadGigs" });
-  },
 };
 </script>

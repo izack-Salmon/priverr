@@ -1,7 +1,7 @@
 import { gigService } from '../services/gig.service.js';
 
 
-export const gigStorge = {
+export const gigStore = {
     state: {
         gigs: [],
         // order: false,
@@ -10,9 +10,23 @@ export const gigStorge = {
 
 
     },
-    mounted() {
+    getters: {
+        getLabes(state) {
+            return state.labels
+        },
+        gigsToShow(state) {
+            return gigService.filterGigs(state.gigs, state.filterBy);
+        },
+        activeGigsLeft(state) {
+            return state.gigs.filter((gig) => gig.isActive).length;
+        },
+        totalGigs(state) {
+            return state.gigs.length;
+        },
+        gigs(state) {
+            return JSON.parse(JSON.stringify(state.gigs))
+        }
     },
-
     mutations: {
         addGig(state, { savedGig }) {
             state.gigs.push(savedGig);
@@ -27,8 +41,6 @@ export const gigStorge = {
             state.gigs.splice(idx, 1);
         },
         setGigs(state, { gigs }) {
-            console.log('this');
-            console.log('gigs', gigs);
             state.gigs = gigs;
         },
         setGigsSort(state, { sortBy }) {
@@ -48,23 +60,6 @@ export const gigStorge = {
             state.filterBy = filterBy;
         },
 
-    },
-    getters: {
-        getLabes(state) {
-            return state.labels
-        },
-        gigsToShow(state) {
-            return gigService.filterGigs(state.gigs, state.filterBy);
-        },
-        activeGigsLeft(state) {
-            return state.gigs.filter((gig) => gig.isActive).length;
-        },
-        totalGigs(state) {
-            return state.gigs.length;
-        },
-        gigs(state) {
-            return JSON.parse(JSON.stringify(state.gigs))
-        }
     },
     actions: {
         loadGigs({ commit, state }) {
