@@ -15,6 +15,8 @@ export default {
   components: {
     HelloWorld,
   },
-  created() {},
+  created() {
+    this.$store.dispatch({ type: "loadGigs" });
+  },
 };
 </script>

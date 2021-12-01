@@ -1,7 +1,7 @@
 <template>
   <section class="gig-list">
-    <div v-for="gig in gigs" :key="gig._id" >
-        <gig-preview :gig="gig"></gig-preview>
+    <div v-for="gig in gigs" :key="gig._id">
+      <gig-preview :gig="gig"></gig-preview>
     </div>
   </section>
 </template>
@@ -10,12 +10,12 @@
 import gigPreview from "../cmps/gig-preview.vue";
 
 export default {
-  name: gigList,
-   props: {
+  name: "gigList",
+  props: {
     gigs: Array,
   },
-  components:{
+  components: {
     gigPreview,
-  }
+  },
 };
 </script>

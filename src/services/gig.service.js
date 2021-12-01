@@ -9,7 +9,7 @@ var axios = Axios.create({ withCredentials: true, });
 const KEY = 'gigsDB';
 
 var gUsers = null;
-getUsers()
+var users = await getUsers()
 console.log('im here');
 _createGigs()
 

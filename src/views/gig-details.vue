@@ -1,16 +1,12 @@
 <template>
   <section>
-  <h1>gig details</h1>
-  
-
-
+    <h1>gig details</h1>
   </section>
 </template>
 
 <script>
 export default {
-  name: gigDetails,
-
+  name: "gigDetails",
 };
 </script>
 
