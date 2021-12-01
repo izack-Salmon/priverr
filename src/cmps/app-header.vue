@@ -11,7 +11,7 @@
                 <div class="join-box"> 
                     <span>join</span>
                 </div>
-                <div class="avatar">
+                <div hidden class="avatar">
                     avatar
                 </div>
             </div>
@@ -27,5 +27,14 @@ export default {
 </script>
 
 <style>
-
+.app-header{
+    color: #fff;
+    display: flex;
+}
+.nav-bar{
+    display: flex;
+}
+.join-box{
+    border:solid #fff 1px;
+}
 </style>
