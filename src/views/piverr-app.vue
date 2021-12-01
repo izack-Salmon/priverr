@@ -2,7 +2,6 @@
   <section class="homepage">
     <appHeader/>
     <div class="hero-container">
-      <h1>Hero pictures</h1>
     </div>
     <div class="trust-contaner">
       Trusted by: facebook Google NETFLIX P&#38;G PayPal
@@ -46,3 +45,10 @@ export default {
   },
 };
 </script>
+
+<style>
+.hero-container{
+  width: 100%;
+  
+}
+</style>

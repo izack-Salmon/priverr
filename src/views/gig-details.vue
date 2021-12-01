@@ -48,7 +48,8 @@
         </div>
       </div>
     </div>
-    <gig-purchase :gig="gig" />
+    </div>
+    <!-- <gig-purchase :gig="gig" /> -->
   </section>
 </template>
 
