@@ -8,11 +8,8 @@ var axios = Axios.create({ withCredentials: true, });
 
 const KEY = 'gigsDB';
 
-var gUsers = null;
-var users = await getUsers()
-console.log('im here');
+//for the start with no backend
 _createGigs()
-
 
 
 const BASE_URL =
@@ -26,13 +23,6 @@ export const gigService = {
     remove,
     save,
     getLabes,
-}
-
-
-
-function getUsers() {
-    gUsers = userService.getUsers()
-    return gUsers
 }
 
 function query(filterBy = {}) {
@@ -73,24 +63,32 @@ function getEmptyGig() {
 
 
 async function _createGigs() {
-    console.log('im heere to ');
+    // console.log('im heere to ');
     var gigs = storageService.load(KEY);
+    var gUsers = await userService.getUsers()
     if (!gigs || !gigs.length) {
-        gigs = [_createGig('music'), _createGig('web dev'), _createGig('art')];
-        var gigs = await Promise.all(gigs)
-        console.log(gigs);
+        gigs = [_createGig('music', gUsers.shift()), _createGig('web dev', gUsers.shift()), _createGig('art', gUsers.shift())];
+        gigs = await Promise.all(gigs)
+        // console.log(gigs);
         storageService.store(KEY, gigs);
     }
     return gigs;
 }
 
-async function _createGig(title, description) {
+async function _createGig(description, user) {
+    var { _id, fullname, imgUrl } = user
+    const miniUser = {
+        _id,
+        fullname,
+        imgUrl,
+    }
+    // console.log(miniUser);
     return {
         _id: utilService.makeId(),
-        title,
+        title: 'i will',
         inStock: true,
         price: utilService.getRandomInt(10, 100),
-        owner: await gUsers.shift(),
+        owner: miniUser,
         createdAt: Date.now(),
         daysToMake: utilService.getRandomInt(1, 10),
         description,
@@ -100,10 +98,5 @@ async function _createGig(title, description) {
             "proffesional",
             "accessible"
         ],
-        reviews: [],
-
-
-
-
     };
 }

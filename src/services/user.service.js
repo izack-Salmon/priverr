@@ -12,7 +12,7 @@ const KEY = 'userDB';
 _createUsers()
 
 export const userService = {
-    asyncGetUsers,
+    // asyncGetUsers,
     login,
     logout,
     signup,
@@ -27,11 +27,11 @@ export const userService = {
 // Debug technique
 window.userService = userService
 
-function getUsers() {
-    return storageService.load(KEY)
-}
+// function getUsers() {
+//     return storageService.load(KEY)
+// }
 
-async function asyncGetUsers() {
+async function getUsers() {
     var users = await asyncStorageService.query(KEY)
     return users
     // return httpService.get(`user`)
@@ -134,9 +134,9 @@ function _createUser(fullname) {
         username: fullname,
         password: '123',
         isSeller: false,
+        reviews: ['good', 'back', 'ok'],
     }
 }
-
 function _createUsers() {
     var users = storageService.load(KEY);
     if (!users || !users.length) {
