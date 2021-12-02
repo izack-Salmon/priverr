@@ -7,7 +7,7 @@ export const gigStore = {
         currGig: null,
         // order: false,
         // labels: gigService.getLabes(),
-        // filterBy: {},
+        filterBy: {},
 
 
     },
@@ -98,7 +98,7 @@ export const gigStore = {
             // return gigService.filterBy(state.gigs, filterBy).then((filterGigs) => {
             commit({ type: 'setFilterBy', filterBy });
             dispatch({ type: 'loadGigs' })
-            // })
+                // })
         },
         async getGigByid({ commit }, { gigId }) {
             try {

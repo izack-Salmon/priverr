@@ -1,19 +1,18 @@
 <template>
-  <carousel
+  <carousel 
     :perPageCustom="[
       [480, 2],
       [768, 3],
       [1060, 5],
     ]"
-    style="width: 62.68%"
     class="carousel"
     :speed="1000"
-    :per-page="5"
+    :per-page="1"
     :loop="true"
   >
     <slide class="carsal img" v-for="car in cars" :key="car">
       <img
-        style="width: 288px;  height: 345px; outline: none: padding: 0px 18px;"
+        style="   outline: none: padding: 0px 18px;"
         :src="car"
         alt=""
       />
@@ -60,4 +59,12 @@ export default {
 .VueCarousel-inner {
   flex-basis: 0;
 }
+.carousel{
+
+}
+.carousel img{
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  cursor: pointer;
+}
+
 </style>
