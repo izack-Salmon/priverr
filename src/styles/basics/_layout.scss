@@ -1,6 +1,8 @@
 .main-layout {
     margin-left: 32px;
     margin-right: 32px;
+    max-width: 1400px;
+    margin: 0 auto;
     @include for-narrow-layout {
     }
     
@@ -8,8 +10,6 @@
     }
     
     @include for-wide-layout {
-        max-width: 1400px;
-        margin: 0 auto;
     }
     
 }
