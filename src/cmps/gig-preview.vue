@@ -31,7 +31,7 @@
 </template>
 
 <script>
-// import gigPreview from "./gig-preview.vue";
+
 export default {
   name: "gigPreview",
   props: {
