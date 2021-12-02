@@ -9,7 +9,7 @@
           <p>level 3 seller</p>
         </div>
       </div>
-      <router-link :to="'/gig/details/' + gig._id">
+      <router-link class="gig-title" :to="'/gig/details/' + gig._id">
         {{ gig.title }}
       </router-link>
 

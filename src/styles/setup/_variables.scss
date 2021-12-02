@@ -17,6 +17,8 @@ $layoutPadding: 20px;
 $break-narrow: 600px;
 $break-normal: 900px;
 $break-wide: 1160px;
+$break-between: 1480px;
+$break-widest: 1760px;
 // $break-wider: 1900px;
 
 $padded-break-narrow: $break-narrow + $layoutPadding * 2;

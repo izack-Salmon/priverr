@@ -1,5 +1,5 @@
 <template>
-  <div class="carousel-continer">
+  <div class="carousel-continer main-layout">
     <h2>Popular professional services</h2>
     <VueSlickCarousel
       :variableWidth="true"

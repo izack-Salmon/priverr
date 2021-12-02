@@ -1,24 +1,25 @@
-.app{
+.app {
     max-width: 1900;
 }
+
 .brand-campaign {
     color: #fff;
-    position: relative;
-    top: 80px;
     padding: 0 32px;
     padding: 96px 0;
-  }
-  .hero-tiltle {
+}
+
+.hero-tiltle {
     font-size: 48px;
     line-height: 56px;
     height: 140px;
     max-width: 617px;
     font-weight: 600;
-    i{
-      font-family: domaine;
-      letter-spacing: 3px;
+    i {
+        font-family: domaine;
+        letter-spacing: 3px;
     }
-  }
+}
+
 .home-search-box {
     width: 650px;
     font: 400 16px/24px Macan, Helvetica Neue, Helvetica, Arial, sans-serif;
@@ -73,7 +74,7 @@
 @keyframes fade {
     0% {
         background-image: url("https://res.cloudinary.com/pivarr/image/upload/v1638379118/hero/1_c9jihn.jpg");
-    } 
+    }
     18% {
         background-image: url("https://res.cloudinary.com/pivarr/image/upload/v1638379118/hero/1_c9jihn.jpg");
     }
