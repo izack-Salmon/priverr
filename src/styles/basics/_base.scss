@@ -3,14 +3,15 @@
 }
 
 html {
-//    font-family: Montserrat; 
+   font-family: Helvetica; 
 //    font-family: Opensans, sans-serif; 
    color: $clr2;
    line-height: 1.8;
 }
 
 body {
-    margin: 0;
+    margin-left: 32px;
+    margin-right: 32px;    
     // background-image: url(~@/assets/images/seamless-cute-cats-pattern-with-2206818.jpg);
     // background-size: 400px;
     // background-attachment: fixed;

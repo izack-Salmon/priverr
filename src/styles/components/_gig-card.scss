@@ -1,8 +1,11 @@
 .gig-card {
     // position: relative;
     // background-color: $clr1;
-    border: 1px solid $clr4;
-    padding: 0px,9px;
+    border: 1px solid #e4e5e7;
+    padding-left: 9px;
+    padding-right: 9px;
+    width: 100%;
+    min-width: 245px;
 
     img.gig-image {
         aspect-ratio: 1 / 1;

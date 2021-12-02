@@ -1,7 +1,7 @@
 <template>
   <section class="gig-preview">
     <div class="gig-card">
-      <!-- <img src="gig.imgUrl" /> -->
+      <img src="gig.imgUrl" />
       <div class="seller-info">
         <img src="gig.owner.imgUrl" />
         <div>
@@ -20,7 +20,6 @@
         <div class="gig-footer">
           <span>🤍</span>
           <router-link :to="'/gig/details/' + gig._id">
-            {{ gig.title }}
             <span>STARTING AT</span>
             <span>{{ gig.price }}</span>
           </router-link>
