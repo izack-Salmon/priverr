@@ -1,0 +1,65 @@
+.page-nav {
+    border-bottom: solid rgb(214, 214, 214) 1px;
+    display: flex;
+}
+
+.page-nav-container {
+    display: flex;
+}
+
+.page-nav ul {
+    padding: 0;
+    margin: 0;
+}
+
+.page-nav li {
+    margin: 0 12px;
+    list-style: none;
+    padding: 0;
+}
+
+.page-nav a {
+    text-decoration: none;
+    color: #95979d;
+}
+
+.page-nav a:active {
+    border-bottom: solid 3px olivedrab;
+}
+
+.gig-detail-title {
+    font-size: 28px;
+    width: 615px;
+    font-family: Macan, Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    color: #404145;
+}
+
+.gig-page-holder {
+    padding: 32px 32px 0;
+    display: flex;
+}
+
+.details-avatar {
+    height: 32px;
+    width: 32px;
+    border-radius: 30px;
+}
+
+.seller-overview {
+    display: flex;
+}
+
+.profile-name {
+    padding-left: 12px;
+}
+
+.seller-main-pic {
+    margin-top: 110px;
+    height: 427px;
+    width: 660px;
+}
+
+.side-bar-content {
+    border: 1px solid rgb(214, 214, 214);
+}
