@@ -1,7 +1,6 @@
 <template>
   <section>
     <h1>hi</h1>
-    <car />
     <gig-list :gigs="gigsToShow" />
   </section>
 </template>
@@ -9,7 +8,6 @@
 <script>
 // import gigService from "../services/gig-service.js"
 import gigList from "@/cmps/gig-list.vue";
-import car from "@/cmps/car.vue";
 import { gigService } from "../services/gig.service.js";
 export default {
   name: "explore",
@@ -24,7 +22,6 @@ export default {
   },
   mounteds: {},
   components: {
-    car,
     gigList,
   },
 };
