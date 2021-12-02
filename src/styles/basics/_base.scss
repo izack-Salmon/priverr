@@ -3,10 +3,11 @@
 }
 
 html {
-//    font-family: Montserrat; 
-//    font-family: Opensans, sans-serif; 
-   color: $clr2;
-   line-height: 1.8;
+    //    font-family: Montserrat; 
+    //    font-family: Opensans, sans-serif; 
+    color: $clr2;
+    line-height: 1.8;
+    -webkit-font-smoothing: antialiased;
 }
 
 body {
@@ -16,7 +17,12 @@ body {
     // background-attachment: fixed;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-weight: 500;
     margin: 0 0 1rem;
 }
