@@ -1,9 +1,10 @@
-.carousel-continer button {
+.carousel-continer button::before {
     width: 3rem;
     height: 3rem;
     background: #fefeff;
     border-radius: 1.625rem;
     z-index: 3;
+
   }
   .popular-label {
     position: absolute;
@@ -23,11 +24,11 @@
   }
   .carousel-continer {
     margin: auto;
-    width: 67%;
+    width: 66.2%;
   }
   .slick-prev:before,
   .slick-next:before {
-    /* color: red !important;  */
+     color: red !important;  
     size: 48px;
     border-radius: 30px;
   }

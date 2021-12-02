@@ -1,5 +1,6 @@
 <template>
   <div class="carousel-continer">
+    <h2>Popular professional services</h2>
     <VueSlickCarousel
       :variableWidth="true"
       v-bind="settings"

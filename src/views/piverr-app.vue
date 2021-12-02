@@ -17,7 +17,6 @@
     <div class="trust-contaner">
       Trusted by: facebook Google NETFLIX P&#38;G PayPal
     </div>
-    <h2>Popular professional services</h2>
     <!-- <popular-gigs :gigs="gigsToShow" /> -->
     <Carousel-popular :gigs="gigsToShow" />
     <gig-categories />
@@ -61,13 +60,4 @@ export default {
 </script>
 
 <style>
-.home-search-box {
-  width: 650px;
-  /* position: absolute; */
-  top: 36%;
-  left: 10.5%;
-  font: 400 16px/24px Macan, Helvetica Neue, Helvetica, Arial, sans-serif;
-  color: #62646a;
-  display: flex;
-}
 </style>
