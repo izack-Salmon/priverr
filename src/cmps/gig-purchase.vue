@@ -23,7 +23,7 @@ export default {
   methods: {
     purchaseMsg(){
       console.log('hi');
-      this.$emit('q');
+      this.$emit('purchaseMsg');
     },
   },
 };

@@ -1,6 +1,5 @@
 <template>
   <section>
-    <h1>hi</h1>
     <gig-list :gigs="gigsToShow" />
   </section>
 </template>
