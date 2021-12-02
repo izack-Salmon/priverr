@@ -1,7 +1,5 @@
 <template>
-  <section>
-    <gig-list :gigs="gigsToShow" />
-  </section>
+    <gig-list class="main-layout" :gigs="gigsToShow" />
 </template>
 
 <script>
