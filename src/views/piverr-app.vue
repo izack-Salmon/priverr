@@ -2,7 +2,7 @@
   <section class="homepage">
     <appHeader class="home-header" />
     <div class="hero-container">
-      <div class="brand-campaign">
+      <div class="brand-campaign main-layout">
         <h1 class="hero-tiltle">
           <span
             >Find the perfect <i>freelance</i> services for your business</span
@@ -61,13 +61,9 @@ export default {
 </script>
 
 <style>
-.hero-tiltle {
-  font-size: 48px;
-  line-height: 56px;
-}
 .home-search-box {
   width: 650px;
-  position: absolute;
+  /* position: absolute; */
   top: 36%;
   left: 10.5%;
   font: 400 16px/24px Macan, Helvetica Neue, Helvetica, Arial, sans-serif;
