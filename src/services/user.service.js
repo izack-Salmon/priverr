@@ -129,7 +129,7 @@ function _createUser(fullname) {
     return {
         _id: utilService.makeId(),
         fullname,
-        imgUrl: "",
+        imgUrl: 'https://res.cloudinary.com/pivarr/image/upload/v1638435059/logo%20design/seller-2/avatar_z3dsdo.jpg',
         isAdmin: false,
         username: fullname,
         password: '123',
@@ -140,7 +140,7 @@ function _createUser(fullname) {
 function _createUsers() {
     var users = storageService.load(KEY);
     if (!users || !users.length) {
-        users = [_createUser('paz'), _createUser('revital'), _createUser('izack'), _createUser('iaron')];
+        users = [_createUser('paz'), _createUser('revital'), _createUser('izack'), _createUser('yaron')];
         storageService.store(KEY, users);
     }
     return users;

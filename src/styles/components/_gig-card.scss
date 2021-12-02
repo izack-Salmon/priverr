@@ -7,33 +7,37 @@
     width: 100%;
     min-width: 245px;
 
-    img.gig-image {
-        aspect-ratio: 1 / 1;
-        // height: 100%;
-        object-fit: cover;
-        mix-blend-mode: multiply;
-        filter: grayscale(1) contrast(1.3);
+    .seller-info {
+        img {
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+        }
+        
     }
 
-    .gig-tag {
-        font-family: GreatVibes;
-        font-size: rem(64px);
-        color: $clr5;
-        position: relative;
+    a {
+        text-decoration: none;
+        color: #222325;
     }
 
-    // @for $i from 1 through 6 {
-
-    //     &:nth-child(6n + #{$i}) {
-    //         background-color: adjust-hue($clr1, $i * 4deg);
-    //     }
-    // }
-
-    &:nth-child(4n + 0) {
-        grid-column: span 2;
-        grid-row: span 2;
+    a:hover {
+        color: #1dbf73;
     }
 
+.gig-rating {
+    :nth-child(1){
+        color: #ffbe5b; 
+    }
+    :nth-child(2){
+        color: #b5b6ba; 
+    }
+}
+
+.gig-card :not(:nth-child(1)){
+    padding-left: 9px;
+    padding-right: 9px;
+}
     // &::before {
     //     content: "";
     //     background: linear-gradient(to top, $clr1 0%, rgba($clr1, 0) 100%);;
