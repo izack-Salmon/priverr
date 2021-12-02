@@ -23,7 +23,7 @@
 
     <div class="gig-details-container">
 
-      <h1 class="gig-detail-title">{{ gig.title }}</h1>
+      <h1 class="gig-details-title">{{ gig.title }}</h1>
 
       <div class="seller-overview">
         <div class="details-avatar"> 

@@ -27,7 +27,7 @@
     border-bottom: solid 3px olivedrab;
 }
 
-.gig-detail-title {
+.gig-details-title {
     font-size: 28px;
     width: 615px;
     font-family: Macan, Helvetica Neue, Helvetica, Arial, sans-serif;
@@ -38,6 +38,11 @@
 .gig-page-holder {
     padding: 32px 32px 0;
     display: flex;
+}
+
+.gig-details-container {
+    margin-right: 9.15%;
+    width: 57.42%;
 }
 
 .details-avatar {
@@ -61,5 +66,7 @@
 }
 
 .side-bar-content {
-    border: 1px solid rgb(214, 214, 214);
+    width: 33.6%;
+    border: rgb(196, 196, 196) 1px solid;
+    color: #62646a;
 }
