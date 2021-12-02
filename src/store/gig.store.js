@@ -7,7 +7,7 @@ export const gigStore = {
         currGig: null,
         // order: false,
         // labels: gigService.getLabes(),
-        filterBy: {},
+        // filterBy: {},
 
 
     },

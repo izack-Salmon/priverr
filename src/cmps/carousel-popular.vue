@@ -1,31 +1,46 @@
 <template>
-  <carousel 
-    :perPageCustom="[
-      [480, 2],
-      [768, 3],
-      [1060, 5],
-    ]"
-    class="carousel"
-    :speed="1000"
-    :per-page="1"
-    :loop="true"
-  >
-    <slide class="carsal img" v-for="car in cars" :key="car">
-      <img
-        style="   outline: none: padding: 0px 18px;"
-        :src="car"
-        alt=""
-      />
-    </slide>
-  </carousel>
+  <div>
+    <VueSlickCarousel
+      :variableWidth="true"
+      v-bind="settings"
+      ;slidesToShow:
+      5,
+      :style="{ height: '372px' }"
+      class="carousel"
+      :arrows="true"
+      :dots="true"
+    >
+      <div class="divq" v-for="img in images" :key="img">
+        <img class="img" :src="img" alt="" />
+      </div>
+    </VueSlickCarousel>
+  </div>
 </template>
 
 <script>
+import VueSlickCarousel from "vue-slick-carousel";
+import "vue-slick-carousel/dist/vue-slick-carousel.css";
+import "vue-slick-carousel/dist/vue-slick-carousel-theme.css";
+
 export default {
   props: ["carosel"],
   data() {
     return {
-      cars: [
+      settings: {
+        dots: true,
+        focusOnSelect: true,
+        infinite: true,
+        accessibility: true,
+        // centerMode: true,
+        speed: 500,
+        slidesToShow: 5,
+        // centerPadding: "10px",
+        slidesToScroll: 5,
+        // slidesPerRow: 5,
+        // touchThreshold: 5,
+      },
+
+      images: [
         "https://fiverr-res.cloudinary.com/q_auto,f_auto,w_255,dpr_2.0/v1/attachments/generic_asset/asset/055f758c1f5b3a1ab38c047dce553860-1598561741678/logo-design-2x.png",
         "https://fiverr-res.cloudinary.com/q_auto,f_auto,w_255,dpr_2.0/v1/attachments/generic_asset/asset/ae11e2d45410b0eded7fba0e46b09dbd-1598561917003/wordpress-2x.png",
         "https://fiverr-res.cloudinary.com/q_auto,f_auto,w_255,dpr_2.0/v1/attachments/generic_asset/asset/055f758c1f5b3a1ab38c047dce553860-1598561741669/voiceover-2x.png",
@@ -39,32 +54,36 @@ export default {
       ],
     };
   },
+  components: { VueSlickCarousel },
 };
 </script>
 
 <style>
-.h {
-  position: relative;
+.slick-track {
 }
-.carsal img {
-  padding: 0px 18px !important;
+.slick-slide {
+  margin: 0 18px;
+  /* padding: 0 18px; */
 }
-.VueCarousel-slide .carsal img {
-  padding: 18px;
-  width: 299px;
-  height: 200px;
-  /* max-height: 345px;
-  width: 252px; */
+.slick-list {
+  padding-right: 50px;
+  /* margin: 0 -27px; */
 }
-.VueCarousel-inner {
-  flex-basis: 0;
+.img {
+  width: 288px;
+  /* height: 345px; */
+}
+.carousel {
+  /* width: 89%; */
+  /* width: 288px; */
+  /* padding: 0 18px; */
 }
 .carousel{
 
 }
-.carousel img{
+/* .carousel img{
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   cursor: pointer;
-}
+}  */
 
 </style>
