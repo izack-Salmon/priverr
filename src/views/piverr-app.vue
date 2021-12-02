@@ -3,7 +3,7 @@
     <appHeader class="home-header"/>
     <div class="hero-container">
       <form class="home-search-box">
-        <input type="search" placeholder='Try "building mobile app"'>
+        <input type="search" placeholder='Try "building mobile app"' value>
         <button >Search</button>
       </form>
     </div>
@@ -23,7 +23,6 @@ import popularGigs from "../cmps/popular-gigs.vue";
 import GigCategories from "../cmps/gig-categories.vue";
 import appHeader from "../cmps/app-header.vue";
 import appFooter from "../cmps/app-footer.vue";
-import { uploadImg } from "../services/cloudinary.service";
 import { gigService } from "../services/gig.service.js";
 
 export default {
@@ -53,7 +52,6 @@ export default {
 
 <style>
 .home-search-box{
- 
   width: 650px;
   position: absolute;
   top: 36%;
@@ -64,7 +62,8 @@ export default {
 }
 
 .home-search-box input{
-   border-radius: 5px 0px 0px 5px;
+  outline: none;
+  border-radius: 5px 0px 0px 5px;
   box-sizing: border-box;
   font-size: 16px;
   height: 48px;
@@ -75,14 +74,16 @@ export default {
   
 }
 .home-search-box button{
+  text-decoration: none;
+  border: none;
   border-radius: 0px 5px 5px 0px ;
   background-color: #1dbf73;
   color: #fff;
   height: 48px;
   padding: 12px 24px;
 }
-html{
-  -webkit-font-smoothing: antialiased;
+.home-search-box button:hover{
+  background-color: #169e5e;
 }
 .home-header{
   position: fixed;

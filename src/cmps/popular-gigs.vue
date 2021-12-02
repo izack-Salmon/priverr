@@ -31,4 +31,7 @@ export default {
     margin-right: 10px;
     list-style-type: none;
 }
+
+
+
 </style>
