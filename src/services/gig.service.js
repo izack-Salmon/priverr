@@ -66,8 +66,9 @@ async function _createGigs() {
     // console.log('im heere to ');
     var gigs = storageService.load(KEY);
     var gUsers = await userService.getUsers()
+    console.log(gUsers);
     if (!gigs || !gigs.length) {
-        gigs = [_createGig('music', gUsers.shift()), _createGig('web dev', gUsers.shift()), _createGig('art', gUsers.shift())];
+        gigs = [_createGig('music', gUsers.shift()), _createGig('music', gUsers.shift()), _createGig('web dev', gUsers.shift()), _createGig('art', gUsers.shift())];
         gigs = await Promise.all(gigs)
         // console.log(gigs);
         storageService.store(KEY, gigs);
@@ -76,6 +77,7 @@ async function _createGigs() {
 }
 
 async function _createGig(description, user) {
+    console.log('user-gig-serv', user);
     var { _id, fullname, imgUrl } = user
     const miniUser = {
         _id,
@@ -85,14 +87,18 @@ async function _createGig(description, user) {
     // console.log(miniUser);
     return {
         _id: utilService.makeId(),
-        title: 'i will',
+        title: 'i will do 2 minimalist logo design for your buisness',
         inStock: true,
         price: utilService.getRandomInt(10, 100),
         owner: miniUser,
         createdAt: Date.now(),
         daysToMake: utilService.getRandomInt(1, 10),
-        description,
-        imgUrl: [],
+        description: 'This Gig is of one of many design kinds we offer. Flat design concepts are one of our fortes. For the logo to be timeless it doesn’t need to be with complex structures or patterns. It just needs to be simple, memorable and which gives a distinctive essence to your business',
+        imgUrl: [
+            'https://res.cloudinary.com/pivarr/image/upload/v1638435142/logo%20design/seller-2/1_ti4k8o.png',
+            'https://res.cloudinary.com/pivarr/image/upload/v1638435210/logo%20design/seller-2/2_fo1hs6.png',
+            'https://res.cloudinary.com/pivarr/image/upload/v1638434790/logo%20design/seller-1/1_har5gl.jpg'
+        ],
         tags: [
             "artisitic",
             "proffesional",
