@@ -2,7 +2,7 @@
   <section class="homepage">
     <appHeader class="home-header" />
     <div class="hero-container">
-      <div class="brand-campaign">
+      <div class="brand-campaign main-layout">
         <h1 class="hero-tiltle">
           <span
             >Find the perfect <i>freelance</i> services for your business</span
@@ -17,7 +17,6 @@
     <div class="trust-contaner">
       Trusted by: facebook Google NETFLIX P&#38;G PayPal
     </div>
-    <h2>Popular professional services</h2>
     <!-- <popular-gigs :gigs="gigsToShow" /> -->
     <Carousel-popular :gigs="gigsToShow" />
     <gig-categories />
@@ -61,5 +60,4 @@ export default {
 </script>
 
 <style>
-
 </style>

@@ -1,6 +1,25 @@
+.app {
+    max-width: 1900;
+}
+
+.brand-campaign {
+    color: #fff;
+    position: relative;
+    top: 80px;
+    padding: 0 32px;
+    padding: 96px 0;
+}
+
 .hero-tiltle {
     font-size: 48px;
     line-height: 56px;
+    height: 140px;
+    max-width: 617px;
+    font-weight: 600;
+    i {
+        font-family: domaine;
+        letter-spacing: 3px;
+    }
 }
 
 .home-search-box {
@@ -50,7 +69,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     /* animation: change 10s infinite ease-in-out; */
-    animation: infinite fade 3s cubic-bezier(0.91, 0.04, 0.9, 1);
+    animation: infinite fade 36s cubic-bezier(0.91, 0.04, 0.9, 1);
     /* animation: fade 2s linear ; */
 }
 
@@ -58,16 +77,31 @@
     0% {
         background-image: url("https://res.cloudinary.com/pivarr/image/upload/v1638379118/hero/1_c9jihn.jpg");
     }
+    18% {
+        background-image: url("https://res.cloudinary.com/pivarr/image/upload/v1638379118/hero/1_c9jihn.jpg");
+    }
     20% {
+        background-image: url("https://res.cloudinary.com/pivarr/image/upload/v1638387421/hero/2_i0r5wm.jpg");
+    }
+    38% {
         background-image: url("https://res.cloudinary.com/pivarr/image/upload/v1638387421/hero/2_i0r5wm.jpg");
     }
     40% {
         background-image: url("https://res.cloudinary.com/pivarr/image/upload/v1638379447/hero/3_jwygvs.jpg");
     }
+    58% {
+        background-image: url("https://res.cloudinary.com/pivarr/image/upload/v1638379447/hero/3_jwygvs.jpg");
+    }
     60% {
         background-image: url("https://res.cloudinary.com/pivarr/image/upload/v1638379344/hero/4_hfzpys.jpg");
     }
+    78% {
+        background-image: url("https://res.cloudinary.com/pivarr/image/upload/v1638379344/hero/4_hfzpys.jpg");
+    }
     80% {
+        background-image: url("https://res.cloudinary.com/pivarr/image/upload/v1638379631/hero/5_vajd7a.jpg");
+    }
+    98% {
         background-image: url("https://res.cloudinary.com/pivarr/image/upload/v1638379631/hero/5_vajd7a.jpg");
     }
 }
