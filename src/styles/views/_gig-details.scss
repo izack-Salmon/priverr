@@ -24,7 +24,7 @@
 }
 
 .page-nav a:active {
-    border-bottom: solid 3px olivedrab;
+    border-bottom: solid 3px #1dbf73(196, 196, 196);
 }
 
 .gig-details-title {
@@ -67,6 +67,50 @@
 
 .side-bar-content {
     width: 33.6%;
-    border: rgb(196, 196, 196) 1px solid;
     color: #62646a;
+}
+
+.invoicing-box {
+    background-color: #fafafa;
+    border: rgb(196, 196, 196) 1px solid;
+    margin-bottom: 16px;
+}
+
+.package-container {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    border-bottom: solid 3px rgb(196, 196, 196);
+}
+
+.package-container span {
+    padding: 20px;
+}
+
+.puchase-details-holder {
+    padding: 32px 20px 32px 20px;
+}
+
+.contact-box {
+    background-color: #fafafa;
+    padding: 24px;
+}
+
+.contact-btn {
+    width: 100%;
+    color: #62646a;
+    padding: 12px 24px;
+    border-radius: 4px;
+    line-height: 100%;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: 70ms;
+    border-color: #62646a;
+}
+
+.contact-btn:hover {
+    background-color: #62646a;
+    color: #fff;
 }

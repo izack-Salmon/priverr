@@ -19,7 +19,7 @@
       </nav>
     </div>
     
-  <main class="gig-page-holder">
+  <main class="gig-page-holder main-layout">
 
     <div class="gig-details-container">
 
@@ -64,8 +64,14 @@
     </div>
   
       <div class="side-bar-content">
-        <gig-purchase :gig="gig" @purchaseMsg="purchaseMsg" />
-    
+        <div class="invoicing-box">
+        <div class="package-container">
+          <span>Basic</span>
+        </div>
+        <div class="puchase-details-holder">
+          <gig-purchase :gig="gig" @purchaseMsg="purchaseMsg" />
+        </div>
+        
         <div v-if="isPurchase">
 
           <h4>Order Complited</h4>
@@ -78,7 +84,12 @@
             <p>Total: ${{ gig.price }}</p>
           </div>
         </div>
+        </div>
+      <div class="contact-box">
+        <button class="contact-btn">Contact Seller</button>
       </div>
+      </div>
+     
 
   </main>
 

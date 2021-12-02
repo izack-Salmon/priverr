@@ -1,0 +1,45 @@
+.purchase-details {
+    font: Macan, Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+
+.pack-and-price {
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pack-and-price .pack {
+    color: #404145;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.pack-and-price .price {
+    font-size: 22px;
+    color: #404145;
+    font-weight: 400;
+}
+
+.seller-service span {
+    font-weight: 600;
+    font-size: 14px;
+    color: #62646A;
+    margin-left: 5px;
+}
+
+.purch-btn {
+    color: #fff;
+    background-color: #1dbf73;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 100%;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 4px;
+    border: 1px solid transparent;
+    padding: 12px 24px;
+    width: 100%;
+}
+
+.purch-btn:hover {
+    background-color: #169e5e;
+}

@@ -1,15 +1,23 @@
 <template>
   <section>
     <div v-if="gig" class="purchase-details">
-      <h4>Package details</h4>
-      <span> ${{ gig.price }}</span>
-      <p>upto 5 logo designs</p>
+      <div class="pack-and-price flex">
+        <span class="pack">Package details</span>
+        <span class="price"> ${{ gig.price }}</span>
+      </div>
+      <div>
+        <span>upto 5 logo designs</span>
+      </div>
       <!-- need to add offer to json? -->
     <div class="additional-info">
-      <div><p>7 Days Delivery</p></div>
-      <div><p>Unlimited Revisions</p></div>
+
+      <div class="seller-service"> 
+        ⏱️<span>7 Days Delivery</span>
+        ♻️<span>Unlimited Revisions</span>
+      </div>
+
     </div>
-    <button @click="purchaseMsg">Continue (${{gig.price}})</button>
+    <button class="purch-btn" @click="purchaseMsg">Continue (${{gig.price}})</button>
     </div>
   </section>
 </template>
@@ -28,4 +36,8 @@ export default {
   },
 };
 </script>
+
+<style>
+ 
+</style>
 
