@@ -1,7 +1,7 @@
 <template>
   <section>
     <h1>hi</h1>
-    <car />
+    <car class="car-box"/>
     <gig-list :gigs="gigsToShow" />
   </section>
 </template>
@@ -29,3 +29,8 @@ export default {
   },
 };
 </script>
+<style>
+.car-box{
+  margin-left: 200px;
+}
+</style>
