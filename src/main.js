@@ -4,7 +4,6 @@ import './registerServiceWorker'
 import router from './router'
 import store from './store'
 import './styles/styles.scss'
-import $ from 'jquery'
 import VueCarousel from 'vue-carousel';
 
 
