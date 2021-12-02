@@ -5,6 +5,7 @@
 </template>
 
 <script>
+require("slick-carousel");
 export default {
   setup() {},
   created() {
