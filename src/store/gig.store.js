@@ -98,7 +98,7 @@ export const gigStore = {
             // return gigService.filterBy(state.gigs, filterBy).then((filterGigs) => {
             commit({ type: 'setFilterBy', filterBy });
             dispatch({ type: 'loadGigs' })
-            // })
+                // })
         },
         async getGigByid({ commit }, { gigId }) {
             try {

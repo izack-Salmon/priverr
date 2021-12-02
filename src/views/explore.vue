@@ -26,3 +26,8 @@ export default {
   },
 };
 </script>
+<style>
+.car-box{
+  margin-left: 200px;
+}
+</style>

@@ -3,7 +3,7 @@
     <appHeader class="home-header" />
     <div class="hero-container">
       <form class="home-search-box">
-        <input type="search" placeholder='Try "building mobile app"' value />
+        <input type="search" placeholder='Try "building mobile app"' value>
         <button>Search</button>
       </form>
     </div>
@@ -32,7 +32,9 @@ export default {
   data() {
     return {};
   },
-  methods: {},
+  methods: {
+    
+  },
   computed: {
     gigsToShow() {
       return this.$store.getters.gigs;

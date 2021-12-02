@@ -78,4 +78,12 @@ export default {
   /* width: 288px; */
   /* padding: 0 18px; */
 }
+.carousel{
+
+}
+/* .carousel img{
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  cursor: pointer;
+}  */
+
 </style>
