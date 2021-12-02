@@ -88,9 +88,9 @@ export default {
 .home-search-box button:hover {
   background-color: #169e5e;
 }
-.home-header {
+/* .home-header {
   position: fixed;
-}
+} */
 .hero-container {
   width: 100%;
   height: 85vh;
