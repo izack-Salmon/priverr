@@ -2,16 +2,24 @@
   <section class="homepage">
     <appHeader class="home-header" />
     <div class="hero-container">
-      <form class="home-search-box">
-        <input type="search" placeholder='Try "building mobile app"' value>
-        <button>Search</button>
-      </form>
+      <div class="brand-campaign">
+        <h1 class="hero-tiltle">
+          <span
+            >Find the perfect <i>freelance</i> services for your business</span
+          >
+        </h1>
+        <form class="home-search-box">
+          <input type="search" placeholder='Try "building mobile app"' value />
+          <button>Search</button>
+        </form>
+      </div>
     </div>
     <div class="trust-contaner">
       Trusted by: facebook Google NETFLIX P&#38;G PayPal
     </div>
-    <Carousel-popular />
-    <popular-gigs :gigs="gigsToShow" />
+    <h2>Popular professional services</h2>
+    <!-- <popular-gigs :gigs="gigsToShow" /> -->
+    <Carousel-popular :gigs="gigsToShow" />
     <gig-categories />
     <app-footer />
   </section>
@@ -32,9 +40,7 @@ export default {
   data() {
     return {};
   },
-  methods: {
-    
-  },
+  methods: {},
   computed: {
     gigsToShow() {
       return this.$store.getters.gigs;
@@ -55,6 +61,10 @@ export default {
 </script>
 
 <style>
+.hero-tiltle {
+  font-size: 48px;
+  line-height: 56px;
+}
 .home-search-box {
   width: 650px;
   position: absolute;
@@ -88,9 +98,9 @@ export default {
 .home-search-box button:hover {
   background-color: #169e5e;
 }
-.home-header {
+/* .home-header {
   position: fixed;
-}
+} */
 .hero-container {
   width: 100%;
   height: 85vh;

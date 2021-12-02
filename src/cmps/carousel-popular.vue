@@ -1,17 +1,27 @@
 <template>
-  <div>
+  <div class="carousel-continer">
     <VueSlickCarousel
       :variableWidth="true"
       v-bind="settings"
-      ;slidesToShow:
-      5,
-      :style="{ height: '372px' }"
+      :style="{ height: '350px', width: '100%' }"
       class="carousel"
-      :arrows="true"
-      :dots="true"
     >
-      <div class="divq" v-for="img in images" :key="img">
-        <img class="img" :src="img" alt="" />
+      <div
+        class="imgage-contariner"
+        v-for="popularPro in professionalList"
+        :key="popularPro._id"
+      >
+        <h4 class="popular-label">
+          <small>{{ popularPro.des }}</small>
+          {{ popularPro.name }}
+        </h4>
+
+        <img
+          @click="routeExplore"
+          class="popular-img"
+          :src="popularPro.img"
+          alt=""
+        />
       </div>
     </VueSlickCarousel>
   </div>
@@ -26,40 +36,79 @@ export default {
   props: ["carosel"],
   data() {
     return {
+      popularPros: [],
+
       settings: {
-        dots: true,
-        focusOnSelect: true,
+        arrows: true,
         infinite: true,
-        accessibility: true,
-        // centerMode: true,
+        responsive: [1000, 3],
         speed: 500,
         slidesToShow: 5,
-        // centerPadding: "10px",
         slidesToScroll: 5,
+        // dots: true,
+        // fade: true,
+        // focusOnSelect: true,
+        // initialSlide: 2,
+        // accessibility: true,
         // slidesPerRow: 5,
         // touchThreshold: 5,
       },
-
-      images: [
-        "https://fiverr-res.cloudinary.com/q_auto,f_auto,w_255,dpr_2.0/v1/attachments/generic_asset/asset/055f758c1f5b3a1ab38c047dce553860-1598561741678/logo-design-2x.png",
-        "https://fiverr-res.cloudinary.com/q_auto,f_auto,w_255,dpr_2.0/v1/attachments/generic_asset/asset/ae11e2d45410b0eded7fba0e46b09dbd-1598561917003/wordpress-2x.png",
-        "https://fiverr-res.cloudinary.com/q_auto,f_auto,w_255,dpr_2.0/v1/attachments/generic_asset/asset/055f758c1f5b3a1ab38c047dce553860-1598561741669/voiceover-2x.png",
-        "https://fiverr-res.cloudinary.com/q_auto,f_auto,w_255,dpr_2.0/v1/attachments/generic_asset/asset/055f758c1f5b3a1ab38c047dce553860-1598561741663/animated-explainer-2x.png",
-        "https://fiverr-res.cloudinary.com/q_auto,f_auto,w_255,dpr_2.0/v1/attachments/generic_asset/asset/055f758c1f5b3a1ab38c047dce553860-1598561741667/social-2x.png",
-        "https://fiverr-res.cloudinary.com/q_auto,f_auto,w_255,dpr_2.0/v1/attachments/generic_asset/asset/055f758c1f5b3a1ab38c047dce553860-1598561741664/illustration-2x.png",
-        "https://fiverr-res.cloudinary.com/q_auto,f_auto,w_255,dpr_2.0/v1/attachments/generic_asset/asset/055f758c1f5b3a1ab38c047dce553860-1598561741674/translation-2x.png",
-        "https://fiverr-res.cloudinary.com/q_auto,f_auto,w_255,dpr_2.0/v1/attachments/generic_asset/asset/055f758c1f5b3a1ab38c047dce553860-1598561741664/data-entry-2x.png",
-        "https://fiverr-res.cloudinary.com/q_auto,f_auto,w_255,dpr_2.0/v1/attachments/generic_asset/asset/055f758c1f5b3a1ab38c047dce553860-1598561741678/book-covers-2x.png",
-        "https://fiverr-res.cloudinary.com/q_auto,f_auto,w_255,dpr_2.0/v1/attachments/generic_asset/asset/055f758c1f5b3a1ab38c047dce553860-1598561741668/seo-2x.png",
-      ],
     };
+  },
+  methods: {
+    routeExplore() {
+      this.$router.push("/explore");
+    },
+  },
+  computed: {
+    professionalList() {
+      console.log(this.$store.getters.professional);
+      return this.$store.getters.professional;
+    },
   },
   components: { VueSlickCarousel },
 };
 </script>
 
 <style>
-.slick-track {
+.carousel-continer button {
+  width: 3rem;
+  height: 3rem;
+  background: #fefeff;
+  border-radius: 1.625rem;
+  z-index: 3;
+}
+.popular-label {
+  position: absolute;
+  /* top: 100px; */
+  /* position: relative; */
+  z-index: 1;
+  color: #fff;
+  padding: 16px;
+  font-size: 24px;
+  line-height: 130%;
+}
+.popular-label small {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 500;
+  display: block;
+}
+.carousel-continer {
+  margin: auto;
+  width: 67%;
+}
+.slick-prev:before,
+.slick-next:before {
+  /* color: red !important;  */
+  size: 48px;
+  border-radius: 30px;
+}
+
+.slick-arrow {
+  position: absolute;
+  display: block;
+  color: #000;
 }
 .slick-slide {
   margin: 0 18px;
@@ -67,23 +116,15 @@ export default {
 }
 .slick-list {
   padding-right: 50px;
-  /* margin: 0 -27px; */
+  margin: 0 -181px;
 }
-.img {
-  width: 288px;
+.popular-img {
+  width: 252px;
   /* height: 345px; */
 }
-.carousel {
-  /* width: 89%; */
-  /* width: 288px; */
-  /* padding: 0 18px; */
-}
-.carousel{
-
-}
-/* .carousel img{
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+.imgage-contariner :hover {
+  -webkit-transition: opacity 0.3s ease-in-out;
   cursor: pointer;
-}  */
-
+  opacity: 0.85;
+}
 </style>
