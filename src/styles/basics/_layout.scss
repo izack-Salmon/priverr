@@ -5,10 +5,11 @@
     }
     
     @include for-normal-layout {
+    }
+    
+    @include for-wide-layout {
         max-width: 1400px;
         margin: 0 auto;
     }
     
-    @include for-wide-layout {
-    }
 }
