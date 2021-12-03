@@ -1,99 +1,68 @@
 .home-header {
   position: fixed;
-  display: flex;
-  justify-content: center;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
   width: 100%;
-  margin: 0 auto;
-  text-align: center;
 } 
-
+// #7a7d85
 .main-header {
     display: flex;
     justify-content: space-between;
-    width: 1400px;
+    align-items: center;
     height: 80px;
-    padding: 0 32px;
-
     a{
         text-decoration: none;
         color: #62646a;
     }
 
     .nav-bar{
+        color: #62646a;
+        font-weight: 600;
         button {
             width: 4em;
             margin-left: 10px;
-            border: 1px solid #62646a;
+            border: 1px solid $clr1;
             border-radius: 5px;
             background-color: #fff;
             &:hover{
                 background-color: $clr1;
             }
         }
-       
+        
         &>*{            
-            color: #62646a;
             font-stretch: normal;
             font-size: 16px;
             line-height: 24px;
         }
+    
     }
     
-    .nav-bar >*:not(:nth-child(4)){
-        padding: 0 10px;
-        &:hover{
-            color: $clr1;
-        }
+    
+    
+    .white {
+        color: #fff;
     }
-
+    
 }
+
+.main-header .white a{
+    color: #fff;
+}
+
+.nav-bar >*:not(:nth-child(4)){
+    padding: 0 10px;
+    &:hover{
+        color: $clr1;
+    }
+}
+.nav-bar .white >*:not(:nth-child(4)){
+        color: #fff;   
+    }
 
 
 .logo {
     span {
         color: $clr1;
     }
-}
-
-
-// .app-header {
-//     color: #fff;
-//     display: flex;
-//   }
-//   .nav-bar {
-//     display: flex;
-//   }
-//   .join-box {
-//     border: solid #fff 1px;
-//   }
-
-header.main-header {
-    min-height: 100vh;
-    // display: flex;
-    justify-items: center;
-    align-content: center;
-
-    background: linear-gradient(to bottom, $clr5 0%,$clr5 80%, rgba($clr5, 0) 100%);
-
-    .logo {
-        max-width: 260px;
-        transform: rotate(-11deg);
-        mix-blend-mode: multiply;
-        
-        @include for-narrow-layout {
-            max-width: 356px;
-        }
-    }
-}
-
-.logo{
-    width: 150px;
-}
-
-.nav{
-    background-color: #CEE5D0;
-    display: flex;
-    justify-content: space-around;
-    height: 100px;
-    align-items: center;
 }

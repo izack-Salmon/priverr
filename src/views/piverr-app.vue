@@ -1,6 +1,5 @@
 <template>
   <section class="homepage">
-    <appHeader class="home-header" />
     <div class="hero-container">
       <div class="brand-campaign main-layout">
         <h1 class="hero-tiltle">
