@@ -1,8 +1,10 @@
 <template>
   <!-- <section class=""> -->
-    <div class="gig-list">
+    <div class="gig-list-container">
+      <div class="gig-list">
       <div v-for="gig in gigs" :key="gig._id">
         <gig-preview :gig="gig"></gig-preview>
+      </div>
       </div>
     </div>
   <!-- </section> -->

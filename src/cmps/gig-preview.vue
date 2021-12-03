@@ -4,9 +4,11 @@
       <img :src="gig.imgUrl[0]" />
       <div class="seller-info flex align-center">
         <img :src="gig.owner.imgUrl" />
-        <div>
+        <div class="seller-identifiers">
+          <div class="seller-name">
           <a href="">{{ gig.owner.fullname }}</a>
-          <p>level 3 seller</p>
+          </div>
+          <span class="seller-level">level 3 seller</span>
         </div>
       </div>
       <router-link class="gig-title" :to="'/gig/details/' + gig._id">
