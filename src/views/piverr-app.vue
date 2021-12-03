@@ -11,6 +11,18 @@
           <input type="search" placeholder='Try "building mobile app"' value />
           <button>Search</button>
         </form>
+        <div class="popular">
+          <ul>
+            <span>Popular:</span>
+            <span
+              class="span-popular"
+              v-for="popular in populars"
+              :key="popular"
+            >
+              {{ popular }}
+            </span>
+          </ul>
+        </div>
       </div>
     </div>
     <div class="trust-contaner">
@@ -19,6 +31,7 @@
     <!-- <popular-gigs :gigs="gigsToShow" /> -->
     <Carousel-popular :gigs="gigsToShow" />
     <gig-categories />
+
     <app-footer />
   </section>
 </template>
@@ -36,7 +49,9 @@ import CarouselPopular from "../cmps/carousel-popular.vue";
 export default {
   name: "Home",
   data() {
-    return {};
+    return {
+      populars: ["WebSite Design", "WordPress", "Logo Design", "NFT Art"],
+    };
   },
   methods: {},
   computed: {

@@ -30,8 +30,12 @@
   .slick-next:before {
      color: rgb(110, 110, 110) !important;  
     font-size:  48px;
-    z-index: 10;
+    // z-index: 10;
     border-radius: 30px;
+  }
+
+  .slick-prev{
+    left: -45px;
   }
   
   .slick-arrow {
