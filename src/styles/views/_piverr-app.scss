@@ -4,13 +4,13 @@
 
 .brand-campaign {
     color: #fff;
-    position: relative;
-    top: 80px;
     padding: 0 32px;
-    padding: 96px 0;
+    padding: 160px 0;
 }
 
 .hero-tiltle {
+    margin: 0;
+    padding-bottom: 24px;
     font-size: 48px;
     line-height: 56px;
     height: 140px;
@@ -112,4 +112,35 @@
     font: 400 16px/24px Macan, Helvetica Neue, Helvetica, Arial, sans-serif;
     background: rgb(250, 250, 250);
     text-align: center;
+}
+
+// popular
+
+.popular{
+    padding-top: 24px;
+ ul {
+    display: flex;
+    width: 100%;
+    margin: 0;
+    padding-left: 0;
+    span{
+
+        margin-right: 12px;
+    }
+    span:hover{
+        background-color: #fff;
+        color: $clr3;
+        cursor: pointer;
+    }
+    }
+}
+
+.span-popular{
+    border-radius: 40px;
+    background-color: transparent;
+    line-height: 24px;
+    font-weight: 600;
+    color: #fff;
+    padding: 1px 12px 0;
+    border: 1px solid #fff;
 }

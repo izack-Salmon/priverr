@@ -21,9 +21,6 @@
         color: #222325;
     }
 
-    a:hover {
-        color: #1dbf73;
-    }
 
 .gig-rating {
     :nth-child(1){
@@ -38,6 +35,7 @@
     padding-left: 9px;
     padding-right: 9px;
 }
+
     // &::before {
     //     content: "";
     //     background: linear-gradient(to top, $clr1 0%, rgba($clr1, 0) 100%);;
@@ -47,4 +45,8 @@
     //     width: 100%;
     //     height: 100%;
     // }
+    
+}
+.gig-card:hover .gig-title{
+    color:#1dbf73;
 }

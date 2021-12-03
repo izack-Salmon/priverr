@@ -28,9 +28,14 @@
   }
   .slick-prev:before,
   .slick-next:before {
-     color: red !important;  
-    size: 48px;
+     color: rgb(110, 110, 110) !important;  
+    font-size:  48px;
+    // z-index: 10;
     border-radius: 30px;
+  }
+
+  .slick-prev{
+    left: -45px;
   }
   
   .slick-arrow {
@@ -48,7 +53,7 @@
   }
   .popular-img {
     width: 252px;
-    /* height: 345px; */
+     height: 345px; 
   }
   .imgage-contariner :hover {
     -webkit-transition: opacity 0.3s ease-in-out;

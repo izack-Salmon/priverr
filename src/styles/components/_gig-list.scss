@@ -1,7 +1,7 @@
 .gig-list{
 
-    margin-left: 32px;
-    margin-right: 32px;
+    // margin-left: 32px;
+    // margin-right: 32px;
     //need to add mobile
     display: grid;
     @include for-narrow-layout {
@@ -10,12 +10,12 @@
     }
     
     @include for-normal-layout {
-        grid-template-columns: repeat(3, 1fr);        
+        grid-template-columns: repeat(3, 1fr); 
     }
     
     @include for-wide-layout {
-        margin: 0 auto;
         grid-template-columns: repeat(4, 1fr);
+        margin: 0 auto;       
         gap: 32px;
     }
 }
