@@ -26,7 +26,30 @@
       </div>
     </div>
     <div class="trust-contaner">
-      Trusted by: facebook Google NETFLIX P&#38;G PayPal
+      <span class="trusted-by-text">Trusted by:</span>
+      <ul>
+        <img
+          class="trust-facebook"
+          src="https://res.cloudinary.com/pivarr/image/upload/v1638461625/trustedBy/facebook.31d5f92_co1oi9.png"
+        />
+        <img
+          class="trust-google"
+          src="https://res.cloudinary.com/pivarr/image/upload/v1638461624/trustedBy/google.517da09_nmculq.png"
+        />
+        <img
+          class="trust-netflix"
+          src="https://res.cloudinary.com/pivarr/image/upload/v1638461625/trustedBy/netflix.e3ad953_rloyww.png"
+        />
+        <img
+          class="trust-pg"
+          src="https://res.cloudinary.com/pivarr/image/upload/v1638461625/trustedBy/pandg.8b7310b_ybptae.png"
+        />
+        <img
+          class="trust-paypal"
+          src="https://res.cloudinary.com/pivarr/image/upload/v1638461625/trustedBy/paypal.ec56157_mdfif2.png"
+        />
+      </ul>
+      <!-- Trusted by: facebook Google NETFLIX P&#38;G PayPal -->
     </div>
     <!-- <popular-gigs :gigs="gigsToShow" /> -->
     <Carousel-popular :gigs="gigsToShow" />

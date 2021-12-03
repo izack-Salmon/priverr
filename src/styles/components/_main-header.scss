@@ -14,7 +14,10 @@
     a{
         text-decoration: none;
         color: #62646a;
+        // font-weight: 800;
     }
+
+    
 
     .nav-bar{
         color: #62646a;
@@ -24,10 +27,17 @@
             margin-left: 10px;
             border: 1px solid $clr1;
             border-radius: 5px;
-            background-color: #fff;
+            color: $clr1;
+            
+            background-color: transparent;
             &:hover{
                 background-color: $clr1;
             }
+        }
+        button .white {
+            color: #fff ;
+            border: 1px solid #fff ;
+            background-color: #404145;
         }
         
         &>*{            
@@ -37,8 +47,6 @@
         }
     
     }
-    
-    
     
     .white {
         color: #fff;
@@ -62,7 +70,53 @@
 
 
 .logo {
+    font-size: 2rem;
+    font-stretch: normal;
+    letter-spacing: -2.5px;
+    font-weight: 600;
     span {
+        font-size:30px;
+        font-stretch: normal;
+        font-weight: 600;
         color: $clr1;
+        border-radius: 50%;
     }
+}
+
+.nav-search {
+    .search-form{
+        display: flex;
+        width: 400px;
+        height: 34px;
+        input[type=search]{
+            background-color: #fff;
+            font: inherit;
+            color: #404145;
+            border: 1px solid #c5c6c9;       
+            border-right: 0;
+            border-radius: 3px 0 0 3px;
+            transition: .15s ease-in-out;
+            font-size: 15px;
+            padding: 8px 7px 7px 28px;
+            width: 100%;
+    
+       }
+       button {
+        padding: 8px 16px;
+        display: block;
+        font-size: 14px;
+        font-weight: 700;
+        border: 1px solid $clr1;
+        border-radius: 0 3px 3px 0;
+        background-color: $clr1;
+        color: #fff;
+        width: 80px;
+
+    }
+  
+   
+    }
+
+    @include for-wide-layout{}
+    @include for-normal-layout{}
 }
