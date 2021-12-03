@@ -21,7 +21,7 @@
   <div class="sticky-wrapper"> 
   <main class="gig-page-holder main-layout">
     
-      <div class="gig-details-container">
+      <div class="gig-details-container left-float">
 
         <h1 class="gig-details-title">{{ gig.title }}</h1>
 
@@ -42,7 +42,14 @@
         </div>
 
         <!-- <div class="small-carusell"></div> -->
-        
+        <div class="covert-purchase">
+            <div class="invoicing-box">
+            <div class="package-container">
+              <span>Basic</span>
+            </div>
+           </div>
+          <gig-purchase :gig="gig" @purchaseMsg="purchaseMsg" />
+        </div>
         <div class="seller-description">
 
           <div>
@@ -62,8 +69,7 @@
         </div>
           
       </div>
-  
-      <div class="side-bar-content">
+      <div class="side-bar-content stickit">
         <div class="invoicing-box">
         <div class="package-container">
           <span>Basic</span>
@@ -85,9 +91,9 @@
           </div>
         </div>
         </div>
-      <div class="contact-box">
-        <button class="contact-btn">Contact Seller</button>
-      </div>
+        <div class="contact-box">
+          <button class="contact-btn">Contact Seller</button>
+        </div>
       </div>
      
   </main>
