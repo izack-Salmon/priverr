@@ -111,20 +111,55 @@
 }
 
 .trust-contaner {
+    // padding-bottom: 100px;
+    margin-bottom: 100px;
     width: 100%;
     height: 95px;
     color: #62646a;
     // font: 400 16px/24px Helvetica Neue, Helvetica, Arial, sans-serif;
-    font-weight: 700;
+    font-weight: 600;
     background: rgb(250, 250, 250);
     text-align: center;
     padding-top: 0;
     padding-bottom: 0;
     display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    ul{
+        padding: 0 24px;
+    }
+    .trusted-by-text{
+        opacity: 0.5;
+        padding-right: 24px;
+        position: relative;
+        top: -5px;
+    }
+    .trust-facebook{
+        width: 160px;
+
+    }
+    .trust-google{
+        width: 130px;
+
+    }
+    .trust-netflix{
+        width: 131px;
+
+    }
+    .trust-pg{
+        width: 107px;
+
+    }
+    .trust-paypal{
+        width: 144px;
+
+    }
     img{
         height: 60px;
-        width: 160px;
-        padding-left: 60px;
+        // width: 160px;
+        padding-right: 60px;
     }
 }
 
