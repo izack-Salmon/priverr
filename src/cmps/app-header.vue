@@ -10,7 +10,7 @@
         </router-link> -->
       </div>
       <div class="nav-search" v-if="!isHome">
-        <form  class="search-form" action="">
+        <form class="search-form" action="">
           <input type="search" placeholder="Find Services" />
           <button>Search</button>
         </form>
