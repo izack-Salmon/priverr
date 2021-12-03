@@ -71,7 +71,6 @@
 }
 
 .invoicing-box {
-    background-color: #fafafa;
     border: rgb(196, 196, 196) 1px solid;
     margin-bottom: 16px;
 }
@@ -85,18 +84,21 @@
 
 .package-container span {
     padding: 20px;
+    font-size: 16px;
+    font-weight: 600;
 }
 
-.puchase-details-holder {
+.purchase-details-holder {
     padding: 32px 20px 32px 20px;
 }
 
 .contact-box {
-    background-color: #fafafa;
     padding: 24px;
+    background-color: #fafafa;
 }
 
 .contact-btn {
+    background-color: #fafafa;
     width: 100%;
     color: #62646a;
     padding: 12px 24px;
@@ -107,6 +109,7 @@
     font-size: 16px;
     font-weight: 600;
     transition: 70ms;
+    border: 1px solid transparent;
     border-color: #62646a;
 }
 

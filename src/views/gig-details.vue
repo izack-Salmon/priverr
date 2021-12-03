@@ -18,57 +18,57 @@
         </ul>
       </nav>
     </div>
-    
+  <div class="sticky-wrapper"> 
   <main class="gig-page-holder main-layout">
+    
+      <div class="gig-details-container">
 
-    <div class="gig-details-container">
+        <h1 class="gig-details-title">{{ gig.title }}</h1>
 
-      <h1 class="gig-details-title">{{ gig.title }}</h1>
-
-      <div class="seller-overview">
-        <div class="details-avatar"> 
-          <img :src="gig.owner.imgUrl" />
-        </div>
-        <div class="profile-name">
-        <a href="">{{ gig.owner.fullname }}</a>
-          <span>level 3 seller</span>
-        </div>
-         |<span> ⭐4.8</span>
-          <span>(1k+)</span>|
-      </div>
-
-      <div class="seller-main-pic">
-          <img :src="gig.imgUrl[0]"/>  
-      </div>
-
-      <div class="small-carusell"></div>
-      
-      <div class="seller-description">
-
-        <div>
-          <p>Professional Logo Designer</p>
-          <button>Contact Me</button>
+        <div class="seller-overview">
+          <div class="details-avatar"> 
+            <img :src="gig.owner.imgUrl" />
+          </div>
+          <div class="profile-name">
+          <a href="">{{ gig.owner.fullname }}</a>
+            <span>level 3 seller</span>
+          </div>
+          |<span> ⭐4.8</span>
+            <span>(1k+)</span>|
         </div>
 
-        <div>
-          <ul>
-            <li>From <span>United State</span></li>
-            <li>Member since <span>Aug 2011</span></li>
-            <li>Avg.response time <span>1 hour</span></li>
-            <li>Last delivery <span>about 8 hours</span></li>
-          </ul>
+        <div class="seller-main-pic">
+            <img :src="gig.imgUrl[0]"/>  
+        </div>
+
+        <!-- <div class="small-carusell"></div> -->
+        
+        <div class="seller-description">
+
+          <div>
+            <p>Professional Logo Designer</p>
+            <button>Contact Me</button>
+          </div>
+
+          <div>
+            <ul>
+              <li>From <span>United State</span></li>
+              <li>Member since <span>Aug 2011</span></li>
+              <li>Avg.response time <span>1 hour</span></li>
+              <li>Last delivery <span>about 8 hours</span></li>
+            </ul>
+          </div>
+            
         </div>
           
       </div>
-        
-    </div>
   
       <div class="side-bar-content">
         <div class="invoicing-box">
         <div class="package-container">
           <span>Basic</span>
         </div>
-        <div class="puchase-details-holder">
+        <div class="purchase-details-holder">
           <gig-purchase :gig="gig" @purchaseMsg="purchaseMsg" />
         </div>
         
@@ -90,9 +90,8 @@
       </div>
       </div>
      
-
   </main>
-
+  </div>
   </section>
 </template>
 
