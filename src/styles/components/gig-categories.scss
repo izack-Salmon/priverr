@@ -52,17 +52,12 @@
         .categories-data{
             padding-bottom: 15px;
         }
-        
-
-        
-
     }
 }
 
 @include for-normal-layout {
     .categories-list{
     li{
-        // background-color: #1dbf73;
         width: 50%;
        
     }
