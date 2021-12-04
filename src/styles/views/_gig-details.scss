@@ -98,7 +98,7 @@
     display: flex;
     width: 100%;
     justify-content: center;
-    border-bottom: solid 3px rgb(196, 196, 196);
+    border-bottom: solid 1px rgb(196, 196, 196);
 }
 
 .package-container span {
@@ -164,6 +164,7 @@
         display: block;
     }
 }
+
 $break-narrow: 600px;
 $break-normal: 900px;
 $break-wide: 1160px;
@@ -173,21 +174,19 @@ $break-widest: 1760px;
     display: block;
     @include for-normal-layout {
         display: none;
-        
     }
 }
 
 @include for-wide-layout {
-    .stickit{
+    .stickit {
         transform: translateX(171%);
     }
-    
 }
 
 @include for-between-layout {
-    .stickit{
+    .stickit {
         transform: translateX(217%);
     }
- 
 }
+
 // @include for-widest-layout {}

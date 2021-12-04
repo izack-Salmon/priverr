@@ -29,11 +29,7 @@
     </div>
     <button class="purch-btn" @click="purchaseMsg">Continue (${{gig.price}})</button>
     </div>
-    <div class="sign-in">
-      <!-- <div>
-        asdasdasdasd
-      </div> -->
-    </div>
+   
   </section>
 </template>
 
@@ -53,12 +49,5 @@ export default {
 </script>
 
 <style>
-/* .sign-in{
-  z-index: 9999;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.65);
-  position: absolute;
-} */
 </style>
 
