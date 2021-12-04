@@ -1,6 +1,6 @@
 <template>
-  <section v-if="gig" class="gig-details">
-    <div class="page-nav">
+  <section v-if="gig" class="gig-details main-layout">
+    <!-- <div class="page-nav">
       <nav class="page-nav-container">
         <ul class="flex">
           <li>
@@ -17,87 +17,79 @@
           </li>
         </ul>
       </nav>
-    </div>
-  <div class="sticky-wrapper"> 
-  <main class="gig-page-holder main-layout">
-    
-      <div class="gig-details-container left-float">
+    </div> -->
+    <div class="sticky-wrapper">
+      <main class="gig-page-holder main-layout">
+        <div class="gig-details-container left-float">
+          <h1 class="gig-details-title">{{ gig.title }}</h1>
 
-        <h1 class="gig-details-title">{{ gig.title }}</h1>
-
-        <div class="seller-overview">
-          <div class="details-avatar"> 
-            <img :src="gig.owner.imgUrl" />
+          <div class="seller-overview">
+            <div class="details-avatar">
+              <img :src="gig.owner.imgUrl" />
+            </div>
+            <div class="profile-name">
+              <a href="">{{ gig.owner.fullname }}</a>
+              <span>level 3 seller</span>
+            </div>
+            |<span> ⭐4.8</span> <span>(1k+)</span>|
           </div>
-          <div class="profile-name">
-          <a href="">{{ gig.owner.fullname }}</a>
-            <span>level 3 seller</span>
+
+          <div class="seller-main-pic">
+            <img :src="gig.imgUrl[0]" />
           </div>
-          |<span> ⭐4.8</span>
-            <span>(1k+)</span>|
-        </div>
 
-        <div class="seller-main-pic">
-            <img :src="gig.imgUrl[0]"/>  
-        </div>
-
-        <!-- <div class="small-carusell"></div> -->
-        <div class="covert-purchase">
+          <!-- <div class="small-carusell"></div> -->
+          <div class="covert-purchase">
             <div class="invoicing-box">
+              <div class="package-container">
+                <span>Basic</span>
+              </div>
+            </div>
+            <gig-purchase :gig="gig" @purchaseMsg="purchaseMsg" />
+          </div>
+          <div class="seller-description">
+            <div>
+              <p>Professional Logo Designer</p>
+              <button>Contact Me</button>
+            </div>
+
+            <div>
+              <ul>
+                <li>From <span>United State</span></li>
+                <li>Member since <span>Aug 2011</span></li>
+                <li>Avg.response time <span>1 hour</span></li>
+                <li>Last delivery <span>about 8 hours</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="side-bar-content stickit">
+          <div class="invoicing-box">
             <div class="package-container">
               <span>Basic</span>
             </div>
-           </div>
-          <gig-purchase :gig="gig" @purchaseMsg="purchaseMsg" />
-        </div>
-        <div class="seller-description">
+            <div class="purchase-details-holder">
+              <gig-purchase :gig="gig" @purchaseMsg="purchaseMsg" />
+            </div>
 
-          <div>
-            <p>Professional Logo Designer</p>
-            <button>Contact Me</button>
+            <div v-if="isPurchase">
+              <h4>Order Complited</h4>
+              <p>
+                Order: #FO68C780E5A9
+                <span>Item: {{ gig.discription }}</span>
+              </p>
+
+              <div>
+                <p>Total: ${{ gig.price }}</p>
+              </div>
+            </div>
           </div>
-
-          <div>
-            <ul>
-              <li>From <span>United State</span></li>
-              <li>Member since <span>Aug 2011</span></li>
-              <li>Avg.response time <span>1 hour</span></li>
-              <li>Last delivery <span>about 8 hours</span></li>
-            </ul>
-          </div>
-            
-        </div>
-          
-      </div>
-      <div class="side-bar-content stickit">
-        <div class="invoicing-box">
-        <div class="package-container">
-          <span>Basic</span>
-        </div>
-        <div class="purchase-details-holder">
-          <gig-purchase :gig="gig" @purchaseMsg="purchaseMsg" />
-        </div>
-        
-        <div v-if="isPurchase">
-
-          <h4>Order Complited</h4>
-          <p>
-            Order: #FO68C780E5A9
-            <span>Item: {{ gig.discription }}</span>
-          </p>
-
-          <div>
-            <p>Total: ${{ gig.price }}</p>
+          <div class="contact-box">
+            <button class="contact-btn">Contact Seller</button>
           </div>
         </div>
-        </div>
-        <div class="contact-box">
-          <button class="contact-btn">Contact Seller</button>
-        </div>
-      </div>
-     
-  </main>
-  </div>
+      </main>
+    </div>
   </section>
 </template>
 
@@ -139,5 +131,4 @@ export default {
 </script>
 
 <style>
-
 </style>

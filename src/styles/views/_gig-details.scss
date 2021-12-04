@@ -28,13 +28,14 @@
 }
 
 .gig-details-title {
+    line-height: 100%;
+    padding: 0 0 16px;
     font-size: 28px;
     width: 90%;
     font-family: Macan, Helvetica Neue, Helvetica, Arial, sans-serif;
     font-weight: 700;
     color: #404145;
     margin: 0;
-    margin-bottom: 46px;
 }
 
 .gig-page-holder {
@@ -65,11 +66,18 @@
 }
 
 .profile-name {
-    padding-left: 12px;
+    padding: 0 0 0 12px;
+    a {
+        padding: 0px 5px 0px 0px;
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 600;
+        color: #404145;
+    }
 }
 
 .seller-main-pic {
-    margin-top: 110px;
+    margin-top: 105px;
     height: 427px;
     width: 100%;
 }
@@ -146,31 +154,40 @@
 
 .stickit {
     position: fixed;
-    right: 6%;
+    // position: absolute;
+    display: flex;
+    // position: sticky;
+    transform: translateX(158%);
+    // right: 6%;
     display: none;
     @include for-normal-layout {
         display: block;
     }
 }
-
+$break-narrow: 600px;
+$break-normal: 900px;
+$break-wide: 1160px;
+$break-between: 1480px;
+$break-widest: 1760px;
 .covert-purchase {
     display: block;
     @include for-normal-layout {
         display: none;
+        
     }
 }
 
-// @include for-normal-layout {
-//     min-width: 560px;
-//     max-width: 860px;
-// }
-// @include for-wide-layout {
-//     max-width: 1100px;
-//     min-width: 860px;
-// }
-// @include for-between-layout {
-//     margin: 0 auto;
-//     max-width: 1400px;
-//     min-width: 1100px;
-// }
+@include for-wide-layout {
+    .stickit{
+        transform: translateX(171%);
+    }
+    
+}
+
+@include for-between-layout {
+    .stickit{
+        transform: translateX(217%);
+    }
+ 
+}
 // @include for-widest-layout {}

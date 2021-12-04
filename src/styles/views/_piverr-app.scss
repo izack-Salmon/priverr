@@ -23,6 +23,16 @@
     }
 }
 
+.home-search-box{
+    .search-svg{
+        position: relative;
+        left: 30px;
+        top : 15px;
+        opacity: 0.5;
+
+    }
+}
+
 .home-search-box {
     width: 650px;
     font: 400 16px/24px Helvetica Neue, Helvetica, Arial, sans-serif;
