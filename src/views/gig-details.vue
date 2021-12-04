@@ -1,5 +1,5 @@
 <template>
-  <section v-if="gig" class="gig-details ">
+  <section v-if="gig" class="gig-details">
     <!-- <div class="page-nav">
       <nav class="page-nav-container">
         <ul class="flex">
@@ -29,9 +29,10 @@
             </div>
             <div class="profile-name">
               <a href="">{{ gig.owner.fullname }}</a>
-              <span>level 3 seller</span>
+              <span class="gig-owner-level">{{ gig.owner.level }}</span>
             </div>
-            |<span> ⭐4.8</span> <span>(1k+)</span>|
+            <gigStars :gig="gig" />
+            | <span>(1k+)</span>|
           </div>
 
           <div class="seller-main-pic">
@@ -78,27 +79,36 @@
         </div>
       </main>
     </div>
-      <div v-if="isPurchase" :class="['sign-in',{ 'fade-in': isPurchase }, { 'fade-out': !isPurchase}]"  @click="exitPurchase($event)">
-        <div class="sing-in-box">
-          <div class="sing-in-contant">
+    <div
+      v-if="isPurchase"
+      :class="[
+        'sign-in',
+        { 'fade-in': isPurchase },
+        { 'fade-out': !isPurchase },
+      ]"
+      @click="exitPurchase($event)"
+    >
+      <div class="sing-in-box">
+        <div class="sing-in-contant">
           <h4>Order Complited!</h4>
-          <p> Order: #FO68C780E5A9
+          <p>
+            Order: #FO68C780E5A9
             <span>Item: {{ gig.discription }}</span>
           </p>
-        <div>
-          <p>Total: ${{ gig.price }}</p>
-        </div>
+          <div>
+            <p>Total: ${{ gig.price }}</p>
           </div>
         </div>
-        
       </div>
+    </div>
   </section>
 </template>
 
 <script>
 import gigPurchase from "../cmps/gig-purchase.vue";
+import gigStars from "../cmps/gig-stars.vue";
 export default {
-  components: { gigPurchase },
+  components: { gigPurchase, gigStars },
   name: "gigDetails",
   data() {
     return {
@@ -120,11 +130,11 @@ export default {
     purchaseMsg() {
       this.isPurchase = true;
     },
-    exitPurchase(ev){
-      if(ev.srcElement.childElementCount < 2) {
-          this.isPurchase =false;
-      }    
-    }
+    exitPurchase(ev) {
+      if (ev.srcElement.childElementCount < 2) {
+        this.isPurchase = false;
+      }
+    },
   },
   computed: {
     gig() {

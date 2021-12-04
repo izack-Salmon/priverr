@@ -134,7 +134,38 @@ function _createUser(fullname) {
         username: fullname,
         password: '123',
         isSeller: false,
-        reviews: ['good', 'back', 'ok'],
+        reviews: [
+            {
+                "id": utilService.makeId(),
+                "txt": "Very kind and works fast and still shit Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus inventore nisi obcaecati officia libero aperiam id nesciunt dolorum debitis dolor error dolorem placeat fugit, explicabo voluptates neque, asperiores dolore officiis?",
+                "rate": 5,
+                "by": {
+                    "_id": "u102",
+                    "fullname": "yaron",
+                    "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_thumb,q_auto,f_auto/attachments/profile/photo/3ec0d56f436079ef157dbcc1d21c4c62-1625030446037/1c926a30-7aa5-4de8-9a3b-6565be7ddd5b.jpg"
+                }
+            },
+            {
+                "id": utilService.makeId(),
+                "txt": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus inventore nisi obcaecati officia libero aperiam id nesciunt dolorum debitis dolor error dolorem placeat fugit, explicabo voluptates neque, asperiores dolore officiis?                ",
+                "rate": 4.5,
+                "by": {
+                    "_id": "u102",
+                    "fullname": "code acadmy",
+                    "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_thumb,q_auto,f_auto/attachments/profile/photo/3ec0d56f436079ef157dbcc1d21c4c62-1625030446037/1c926a30-7aa5-4de8-9a3b-6565be7ddd5b.jpg"
+                },
+            },
+            {
+                "id": utilService.makeId(),
+                "txt": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus inventore nisi obcaecati officia libero aperiam id nesciunt dolorum debitis dolor error dolorem placeat fugit, explicabo voluptates neque, asperiores dolore officiis?                ",
+                "rate": 4.5,
+                "by": {
+                    "_id": "u102",
+                    "fullname": "hard code",
+                    "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_thumb,q_auto,f_auto/attachments/profile/photo/3ec0d56f436079ef157dbcc1d21c4c62-1625030446037/1c926a30-7aa5-4de8-9a3b-6565be7ddd5b.jpg"
+                },
+            },
+        ]
     }
 }
 function _createUsers() {
