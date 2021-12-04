@@ -63,6 +63,8 @@
 
 .seller-overview {
     display: flex;
+    align-items: center;
+
 }
 
 .profile-name {
@@ -80,6 +82,10 @@
     margin-top: 105px;
     height: 427px;
     width: 100%;
+}
+
+.gig-owner-level{
+    padding: 0 5px;
 }
 
 .side-bar-content {

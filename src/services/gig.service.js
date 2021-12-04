@@ -83,6 +83,8 @@ async function _createGig(description, user) {
         _id,
         fullname,
         imgUrl,
+        rate: utilService.getRandomInt(3, 5),
+        level: 'level 2 seller',
     }
     // console.log(miniUser);
     return {

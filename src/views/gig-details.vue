@@ -1,5 +1,5 @@
 <template>
-  <section v-if="gig" class="gig-details ">
+  <section v-if="gig" class="gig-details">
     <!-- <div class="page-nav">
       <nav class="page-nav-container">
         <ul class="flex">
@@ -29,9 +29,10 @@
             </div>
             <div class="profile-name">
               <a href="">{{ gig.owner.fullname }}</a>
-              <span>level 3 seller</span>
+              <span class="gig-owner-level">{{ gig.owner.level }}</span>
             </div>
-            |<span> ⭐4.8</span> <span>(1k+)</span>|
+            <gigStars :gig="gig" />
+            | <span>(1k+)</span>|
           </div>
 
           <div class="seller-main-pic">
@@ -81,30 +82,37 @@
 
       </main>
     </div>
-      <section v-if="isPurchase" :class="['sign-in',{ 'fade-in': isPurchase }, { 'fade-out': !isPurchase}]"  @click="exitPurchase($event)">
-        <div class="sing-in-box">
-          <div class="sing-in-contant">
-            <h4>Order Complited!</h4>
-            <p> Order: #FO68C780E5A9
-              <span>Item: {{ gig.discription }}</span>
-            </p>
-            <div>
-              <p>Total: ${{ gig.price }}</p>
-            </div>
+    <div
+      v-if="isPurchase"
+      :class="[
+        'sign-in',
+        { 'fade-in': isPurchase },
+        { 'fade-out': !isPurchase },
+      ]"
+      @click="exitPurchase($event)"
+    >
+      <div class="sing-in-box">
+        <div class="sing-in-contant">
+          <h4>Order Complited!</h4>
+          <p>
+            Order: #FO68C780E5A9
+            <span>Item: {{ gig.discription }}</span>
+          </p>
+          <div>
+            <p>Total: ${{ gig.price }}</p>
           </div>
         </div>
-      </section>
-
+      </div>
+    </div>
   </section>
 </template>
 
 <script>
 import gigPurchase from "../cmps/gig-purchase.vue";
+import gigStars from "../cmps/gig-stars.vue";
 import gigReviewsList from "../cmps/gig-reviews-list.vue"
 export default {
-  components: 
-  { gigPurchase },
-    gigReviewsList,
+  components: { gigPurchase, gigStars,gigReviewsList },
   name: "gigDetails",
   data() {
     return {
