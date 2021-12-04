@@ -39,6 +39,7 @@
           </div>
 
           <!-- <div class="small-carusell"></div> -->
+
           <div class="covert-purchase">
             <div class="invoicing-box">
               <div class="package-container">
@@ -62,6 +63,7 @@
               </ul>
             </div>
           </div>
+          <gig-reviews-list/>
         </div>
         <div class="side-bar-content stickit">
           <div class="invoicing-box">
@@ -76,29 +78,33 @@
             <button class="contact-btn">Contact Seller</button>
           </div>
         </div>
+
       </main>
     </div>
-      <div v-if="isPurchase" :class="['sign-in',{ 'fade-in': isPurchase }, { 'fade-out': !isPurchase}]"  @click="exitPurchase($event)">
+      <section v-if="isPurchase" :class="['sign-in',{ 'fade-in': isPurchase }, { 'fade-out': !isPurchase}]"  @click="exitPurchase($event)">
         <div class="sing-in-box">
           <div class="sing-in-contant">
-          <h4>Order Complited!</h4>
-          <p> Order: #FO68C780E5A9
-            <span>Item: {{ gig.discription }}</span>
-          </p>
-        <div>
-          <p>Total: ${{ gig.price }}</p>
-        </div>
+            <h4>Order Complited!</h4>
+            <p> Order: #FO68C780E5A9
+              <span>Item: {{ gig.discription }}</span>
+            </p>
+            <div>
+              <p>Total: ${{ gig.price }}</p>
+            </div>
           </div>
         </div>
-        
-      </div>
+      </section>
+
   </section>
 </template>
 
 <script>
 import gigPurchase from "../cmps/gig-purchase.vue";
+import gigReviewsList from "../cmps/gig-reviews-list.vue"
 export default {
-  components: { gigPurchase },
+  components: 
+  { gigPurchase },
+    gigReviewsList,
   name: "gigDetails",
   data() {
     return {
@@ -121,8 +127,8 @@ export default {
       this.isPurchase = true;
     },
     exitPurchase(ev){
-      if(ev.srcElement.childElementCount < 2) {
-          this.isPurchase =false;
+      if(ev.srcElement.localName ==="section") {
+        this.isPurchase = false;
       }    
     }
   },
