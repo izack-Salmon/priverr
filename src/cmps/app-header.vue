@@ -38,7 +38,7 @@ export default {
   },
   watch: {
     $route({ name }) {
-      this.isHome = (name === "Home") ? true : false;
+      this.isHome = name === "Home" ? true : false;
     },
   },
 };
