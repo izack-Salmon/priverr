@@ -1,5 +1,5 @@
 <template>
-  <section v-if="gig" class="gig-details main-layout">
+  <section v-if="gig" class="gig-details ">
     <!-- <div class="page-nav">
       <nav class="page-nav-container">
         <ul class="flex">
@@ -18,7 +18,7 @@
         </ul>
       </nav>
     </div> -->
-    <div class="sticky-wrapper">
+    <div class="sticky-wrapper main-layout">
       <main class="gig-page-holder main-layout">
         <div class="gig-details-container left-float">
           <h1 class="gig-details-title">{{ gig.title }}</h1>
@@ -71,18 +71,6 @@
             <div class="purchase-details-holder">
               <gig-purchase :gig="gig" @purchaseMsg="purchaseMsg" />
             </div>
-
-            <div v-if="isPurchase">
-              <h4>Order Complited</h4>
-              <p>
-                Order: #FO68C780E5A9
-                <span>Item: {{ gig.discription }}</span>
-              </p>
-
-              <div>
-                <p>Total: ${{ gig.price }}</p>
-              </div>
-            </div>
           </div>
           <div class="contact-box">
             <button class="contact-btn">Contact Seller</button>
@@ -90,6 +78,20 @@
         </div>
       </main>
     </div>
+      <div v-if="isPurchase" :class="['sign-in',{ 'fade-in': isPurchase }, { 'fade-out': !isPurchase}]"  @click="exitPurchase($event)">
+        <div class="sing-in-box">
+          <div class="sing-in-contant">
+          <h4>Order Complited!</h4>
+          <p> Order: #FO68C780E5A9
+            <span>Item: {{ gig.discription }}</span>
+          </p>
+        <div>
+          <p>Total: ${{ gig.price }}</p>
+        </div>
+          </div>
+        </div>
+        
+      </div>
   </section>
 </template>
 
@@ -118,6 +120,11 @@ export default {
     purchaseMsg() {
       this.isPurchase = true;
     },
+    exitPurchase(ev){
+      if(ev.srcElement.childElementCount < 2) {
+          this.isPurchase =false;
+      }    
+    }
   },
   computed: {
     gig() {
