@@ -9,11 +9,11 @@
 }
 
 .hero-tiltle {
-    font-size: 40px;
-    line-height: 48px;
+    font-size: 32px;
+    line-height: 40px;
     margin: 0;
-    padding-bottom: 24px;
-    height: 140px;
+    padding-bottom: 0px;
+    height: 100px;
     max-width: 617px;
     font-weight: 600;
 
@@ -23,51 +23,54 @@
     }
 }
 
-.home-search-box{
-    .search-svg{
-        position: relative;
-        left: 30px;
-        top : 15px;
-        opacity: 0.5;
+.search-svg{
+    position: relative;
+    left: 17px;
+    top : 31px;
+    opacity: 0.5;
 
-    }
 }
 
 .home-search-box {
-    width: 650px;
+    position: relative;
+    right: 15px;
+    width: 100%;
     font: 400 16px/24px Helvetica Neue, Helvetica, Arial, sans-serif;
     color: #62646a;
     display: flex;
+    flex-direction: column;
+    input {
+        
+        outline: none;
+        border-radius: 4px;
+        box-sizing: border-box;
+        font-size: 16px;
+        height: 48px;
+        padding-left: 44px;
+        margin-bottom: 0;
+        border: 1px solid #c5c6c9;
+        width: 100%;
+    }
+    button {
+        margin-top: 15px;
+        text-decoration: none;
+        border: none;
+        border-radius: 4px;
+        background-color: #1dbf73;
+        color: #fff;
+        height: 48px;
+        padding: 12px 24px;
+        font-size: 16px;
+        font-weight: 700;
+        border: 1px solid transparent;
+    }
+    button:hover{
+        background-color: #169e5e;
+    }
 }
 
-.home-search-box input {
-    outline: none;
-    border-radius: 5px 0px 0px 5px;
-    box-sizing: border-box;
-    font-size: 16px;
-    height: 48px;
-    padding-left: 44px;
-    margin-bottom: 0;
-    border: 1px solid #c5c6c9;
-    width: 450px;
-}
 
-.home-search-box button {
-    text-decoration: none;
-    border: none;
-    border-radius: 0px 5px 5px 0px;
-    background-color: #1dbf73;
-    color: #fff;
-    height: 48px;
-    padding: 12px 24px;
-    font-size: 16px;
-    font-weight: 700;
-    border: 1px solid transparent;
-}
 
-.home-search-box button:hover {
-    background-color: #169e5e;
-}
 
 
 /* .home-header {
@@ -142,40 +145,38 @@
     }
     .trusted-by-text{
         opacity: 0.5;
-        padding-right: 24px;
+        padding-right: 0px;
         position: relative;
         top: -5px;
+        display: none
     }
     .trust-facebook{
-        width: 160px;
 
+        width: 111px;
     }
     .trust-google{
-        width: 130px;
-
+        width: 86px;
     }
     .trust-netflix{
-        width: 131px;
-
+        width: 90px;
     }
     .trust-pg{
-        width: 107px;
-
+        width: 70px;
     }
     .trust-paypal{
-        width: 144px;
-
+        display: none;
     }
     img{
         height: 60px;
         // width: 160px;
-        padding-right: 60px;
+        padding-right: 10px;
     }
 }
 
 // popular
 
 .popular{
+    display: none;
     padding-top: 24px;
  ul {
     display: flex;
@@ -205,12 +206,75 @@
     border: 1px solid #fff;
 }
 @include for-normal-layout {
- .brand-campaign{
+    .hero-tiltle{
+        font-size: 40px;
+        height: 140px;
+        line-height: 48px;
+        padding-bottom: 24px;
+
+    }
+    .home-search-box{
+        flex-direction: row;
+        width: 650px;
+        .search-svg{
+            position: relative;
+            left: 30px;
+            top : 15px;
+            opacity: 0.5;
+        
+        }
+        input{
+            margin-bottom: 0px;
+            width: 450px;
+            border-radius: 5px 0px 0px 5px;
+        }
+        button{
+            margin-top: 0px;
+            border-radius: 0px 5px 5px 0px;
+
+        }
+        
+    }
+    .popular{
+        display: block;
+    }
+    .trust-contaner{
+        .trusted-by-text{
+            display: block;
+            padding-right: 24px;
+
+        }
+        img{
+            padding-right: 60px;
+        }
+        .trust-facebook{
+        width: 160px;
+        }
+        .trust-google{
+            width: 130px;
+    
+        }
+        .trust-netflix{
+            width: 131px;
+    
+        }
+        .trust-pg{
+            width: 107px;
+    
+        }
+        .trust-paypal{
+            width: 144px;
+    
+        }
+      
+        
+    }
+    .brand-campaign{
 
     //   padding: 32px 32px 64px;
  }
  .hero-tiltle{
-     height: 120px;
+    //  height: 120px;
  }
 }
 
