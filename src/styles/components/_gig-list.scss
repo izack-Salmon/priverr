@@ -4,7 +4,7 @@
     // margin-right: 32px;
     //need to add mobile
     display: grid;
-    margin-top: 120px;
+    margin-top: 50px;
     @include for-narrow-layout {
         grid-template-columns: repeat(2, 1fr);
         gap: 16px;
@@ -19,6 +19,9 @@
         margin: 0 auto;       
         gap: 32px;
     }
+    // @include for-between-layout{}
+
+    // @include for-widest-layout{}
 }
 // .list-grid{
 //     display: grid;

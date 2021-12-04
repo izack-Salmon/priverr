@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <appHeader :class="['home-header', { 'fixed-header': isFixed },{'rel-header': !isFixed}]" />
+    <appHeader :class="['home-header', { 'fixed-header': isFixed },{'rel-header': !isFixed},{'gray-border': !isFixed}]" />
     <router-view />
   </div>
 </template>
@@ -26,6 +26,8 @@ export default {
   created() {
     this.$store.dispatch({ type: "loadGigs" });
     this.$store.dispatch({ type: "loadUser" });
+    this.isFixed = (this.$route.name === "Home") ? true : false;
+
   },
 };
 </script>

@@ -2,25 +2,41 @@
   <section>
     <!-- <div class="main-header flex align-center space-between"> -->
     <div :class="['main-header', 'main-layout', { white: isHome }]">
-      <div class="logo">
-        <router-link :class="{ white: isHome }" :to="'/'"> Piverr </router-link>
-        <span>.</span>
-        <!-- <router-link :to="'/'">
-          <img src="https://res.cloudinary.com/pivarr/image/upload/v1638461660/logopiver/Piverr_Logo_lzsrld.png"/>
-        </router-link> -->
+      <div class="nav-warp">
+        <div class="logo-warp">
+          <router-link :class="{ white: isHome }" :to="'/'">
+            <img
+              v-if="isHome"
+              class="logo"
+              src="../assets/imgs/Piverr_w_Logo.png"
+              alt="logo"
+            />
+            <img
+              v-else
+              class="logo"
+              src="../assets/imgs/Piverr_Logo.png"
+              alt="logo"
+            />
+          </router-link>
+        </div>
+        <div
+          class="nav-search"
+          :style="{ visibility: !isHome ? 'visible' : 'hidden' }"
+        >
+          <form class="search-form" action="">
+            <input type="search" placeholder="Find Services" />
+            <button>Search</button>
+          </form>
+        </div>
       </div>
-      <div class="nav-search" v-if="!isHome">
-        <form class="search-form" action="">
-          <input type="search" placeholder="Find Services" />
-          <button>Search</button>
-        </form>
-      </div>
-      <div :class="['nav-bar', { white: isHome }]">
+      <div :class="['nav-bar', { white: isHome }, { 'hover-nav': !isHome }]">
         <router-link :to="'/explore'">Explore</router-link>
         <span>Become a Seller</span> <span>Sign in</span>
         <!-- <div> -->
         <!-- <div class="join-box"> -->
-        <button :class="{ white: isHome }">Join</button>
+        <button :class="[{ 'btn-white': isHome }, { 'btn-green': !isHome }]">
+          Join
+        </button>
         <!-- </div> -->
         <div hidden class="avatar">avatar</div>
         <!-- </div> -->
@@ -36,10 +52,22 @@ export default {
       isHome: true,
     };
   },
+  created() {
+    this.isHome = (this.$route.name === "Home") ? true : false;
+  },
   watch: {
     $route({ name }) {
       this.isHome = name === "Home" ? true : false;
     },
   },
+methods: {
+
+},
+
+  computed: {
+
+  },
 };
 </script>
+
+ 
