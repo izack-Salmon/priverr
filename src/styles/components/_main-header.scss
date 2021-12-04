@@ -10,10 +10,15 @@
     position: relative;
 }
 
+.nav-warp {
+    width: 1400px;
+    display: flex;
+    align-items: center;
+}
 // #7a7d85
 .main-header {
     display: flex;
-    justify-content: space-between;
+    // justify-content: space-between;
     align-items: center;
     height: 80px;
     a{
@@ -22,27 +27,25 @@
         // font-weight: 800;
     }
 
-    
-
     .nav-bar{
         color: #62646a;
         font-weight: 600;
+        width: 825px;
+        height: 30px;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        margin: 0px 0px 0px 16px;
+       
         button {
-            width: 4em;
+            width: 70.7px;
             margin-left: 10px;
-            border: 1px solid $clr1;
             border-radius: 5px;
-            color: $clr1;
-            
             background-color: transparent;
+           
             &:hover{
                 background-color: $clr1;
             }
-        }
-        button .white {
-            color: #fff ;
-            border: 1px solid #fff ;
-            background-color: #404145;
         }
         
         &>*{            
@@ -59,33 +62,68 @@
     
 }
 
+.gray-border {
+    border-bottom: 1px solid #e4e5e7;
+}
+
+.hover-nav >*:not(:nth-child(4)){
+    &:hover{
+        color: $clr1;
+    }
+}
+
 .main-header .white a{
     color: #fff;
 }
 
 .nav-bar >*:not(:nth-child(4)){
     padding: 0 10px;
-    &:hover{
-        color: $clr1;
-    }
+    // &:hover{
+    //     color: $clr1;
+    // }
 }
 .nav-bar .white >*:not(:nth-child(4)){
         color: #fff;   
     }
 
+.btn-white {
+    color: #fff;
+    border: 1px solid #fff;
+    &:hover {
+        color: #fff;
+        border: 1px solid $clr1;
+    }
+
+}
+.btn-green {
+    color: $clr1;
+    border: 1px solid $clr1;
+      
+    &:hover {
+    color: #fff;
+    }
+}
+
+.logo-warp {
+    height: auto;
+    min-width: 121px;
+    margin: 4px 0 0;  
+}
 
 .logo {
-    font-size: 2rem;
-    font-stretch: normal;
-    letter-spacing: -2.5px;
-    font-weight: 600;
-    span {
-        font-size:30px;
-        font-stretch: normal;
-        font-weight: 600;
-        color: $clr1;
-        border-radius: 50%;
-    }
+    width: 89px;
+    height: 27px;
+    // font-size: 2rem;
+    // font-stretch: normal;
+    // letter-spacing: -2.5px;
+    // font-weight: 600;
+    // span {
+    //     font-size:30px;
+    //     font-stretch: normal;
+    //     font-weight: 600;
+    //     color: $clr1;
+    //     border-radius: 50%;
+    // }
 }
 
 .nav-search {
@@ -116,10 +154,8 @@
         background-color: $clr1;
         color: #fff;
         width: 80px;
-
-    }
+      }
   
-   
     }
 
     @include for-wide-layout{}
