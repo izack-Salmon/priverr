@@ -1,6 +1,6 @@
 <template>
-  <section v-if="gig" class="gig-details">
-    <div class="page-nav">
+  <section v-if="gig" class="gig-details main-layout">
+    <!-- <div class="page-nav">
       <nav class="page-nav-container">
         <ul class="flex">
           <li>
@@ -17,8 +17,8 @@
           </li>
         </ul>
       </nav>
-    </div>
-  <div class="sticky-wrapper"> 
+    </div> -->
+  <div class="sticky-wrapper "> 
   <main class="gig-page-holder main-layout">
     
       <div class="gig-details-container left-float">
