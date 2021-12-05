@@ -3,6 +3,11 @@
     display: flex;
 }
 
+.line{
+    margin: 5px 0;
+    border-top: 1px solid #efeff0;
+}
+
 .page-nav-container {
     display: flex;
 }
@@ -64,7 +69,6 @@
 .seller-overview {
     display: flex;
     align-items: center;
-
 }
 
 .profile-name {
@@ -79,13 +83,13 @@
 }
 
 .seller-main-pic {
-    margin-top: 105px;
-    height: 427px;
+    margin-top: 20px;
+    height: 500px;
     width: 100%;
 }
 
 .gig-owner-level{
-    padding: 0 5px;
+    padding: 0 5px ;
 }
 
 .side-bar-content {

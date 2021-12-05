@@ -52,6 +52,7 @@
     color: #000;
   }
   .slick-slide {
+    height: inherit !important;
     margin: 0 18px;
     /* padding: 0 18px; */
   }
@@ -63,6 +64,11 @@
     width: 252px;
      height: 345px; 
   }
+  .slick-track
+{
+    display: flex !important;
+}
+
   .imgage-contariner :hover {
     -webkit-transition: opacity 0.3s ease-in-out;
     cursor: pointer;

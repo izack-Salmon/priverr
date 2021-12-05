@@ -7,7 +7,6 @@ export const gigStore = {
     state: {
         gigs: [],
         currGig: null,
-        currReviews: [],
         professional: [{
                 img: "https://res.cloudinary.com/pivarr/image/upload/v1638380308/tagsimg/logo-design_cuoszf.jpg",
                 name: 'Logo Design',
@@ -92,7 +91,10 @@ export const gigStore = {
         gigs(state) {
             return JSON.parse(JSON.stringify(state.gigs))
         },
-        currGig({ currGig }) { return currGig },
+        currGig({ currGig }) {
+
+            return currGig
+        },
 
         professional(state) {
             return state.professional
@@ -115,6 +117,7 @@ export const gigStore = {
         setGigs(state, { gigs }) {
             state.gigs = gigs;
         },
+
         setGigsSort(state, { sortBy }) {
             if (sortBy === 'txt') {
                 state.gigs.sort((a, b) => {
@@ -133,8 +136,7 @@ export const gigStore = {
         },
         setCurrGig(state, { gig }) {
             state.currGig = gig;
-        }
-
+        },
     },
     actions: {
         loadGigs({ commit, state }) {

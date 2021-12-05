@@ -1,6 +1,6 @@
 .categories-tiltle{
-    margin-bottom: 40px;
-    padding-bottom: 24px;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
     padding-top: 96px;
     font-size: 32px;
     line-height: 120px;
@@ -15,7 +15,7 @@
     li{
         width: 50%;
         padding-bottom: 55px;
-        padding: 0 10px 32px;
+        padding: 0 10px 48px;
     
         a{
             padding-top: 8px;
@@ -51,6 +51,7 @@
         }
         .categories-data{
             padding-bottom: 15px;
+            top: 7px;
         }
     }
 }
