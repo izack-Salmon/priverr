@@ -64,7 +64,7 @@
               </ul>
             </div>
           </div>
-          <gig-reviews-list/>
+          <gig-reviews-list :owner="getUserReviews"/>
         </div>
         <div class="side-bar-content stickit">
           <div class="invoicing-box">
@@ -82,7 +82,7 @@
 
       </main>
     </div>
-    <div
+    <section
       v-if="isPurchase"
       :class="[
         'sign-in',
@@ -103,7 +103,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </section>
   </section>
 </template>
 
@@ -121,6 +121,8 @@ export default {
   },
   created() {
     this.getGigById();
+    this.getUserReviews();
+    
   },
   watch: {
     gigId: {
@@ -131,6 +133,11 @@ export default {
     },
   },
   methods: {
+    async getUserReviews(){
+      await this.$store.dispatch({type:"getUserReviews",ownerId: this.gig.owner._id})
+      return this.$store.getters.currOwner
+      
+    },
     purchaseMsg() {
       this.isPurchase = true;
     },

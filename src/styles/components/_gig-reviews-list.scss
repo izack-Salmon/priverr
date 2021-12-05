@@ -1,0 +1,33 @@
+//  border-top: 1px solid #dadbdd;
+.review-list {
+    width: 100%;
+    list-style: none;
+    list-style-image: none;
+    padding: 0;
+    margin: 0;
+}
+
+.review-item {
+    list-style: none;
+    h5 {
+        font-family: Helvetica;
+        font-weight: 700;
+        color: #404145;
+        font-size: 16px;
+        line-height: 120%;
+        margin: 0;
+        margin-right: 10px;
+    }
+}
+
+.reviewer-details {
+    color: #62646a;
+    display: flex;
+    align-items: center;
+    padding: 4px 0;
+}
+
+.review-item {
+    padding: 32px 0 20px 44px;
+    position: relative;
+}
