@@ -37,7 +37,10 @@
           <div class="line"></div>
 
           <div class="seller-main-pic">
-            <img :src="gig.imgUrl[0]" />
+            <caroselDatails ref="c1" :gig="gig" />
+            <!-- <caroselSmall ref="c2" :gig="gig" /> -->
+
+            <!-- <img :src="gig.imgUrl[0]" /> -->
           </div>
 
           <!-- <div class="small-carusell"></div> -->
@@ -65,7 +68,7 @@
               </ul>
             </div>
           </div>
-          <gig-reviews-list/>
+          <gig-reviews-list />
         </div>
         <div class="side-bar-content stickit">
           <div class="invoicing-box">
@@ -80,7 +83,6 @@
             <button class="contact-btn">Contact Seller</button>
           </div>
         </div>
-
       </main>
     </div>
     <div
@@ -111,9 +113,17 @@
 <script>
 import gigPurchase from "../cmps/gig-purchase.vue";
 import gigStars from "../cmps/gig-stars.vue";
-import gigReviewsList from "../cmps/gig-reviews-list.vue"
+import gigReviewsList from "../cmps/gig-reviews-list.vue";
+import caroselDatails from "../cmps/carousel-details.vue";
+import caroselSmall from "../cmps/carousel-small.vue";
 export default {
-  components: { gigPurchase, gigStars,gigReviewsList },
+  components: {
+    gigPurchase,
+    gigStars,
+    gigReviewsList,
+    caroselDatails,
+    caroselSmall,
+  },
   name: "gigDetails",
   data() {
     return {
@@ -135,11 +145,11 @@ export default {
     purchaseMsg() {
       this.isPurchase = true;
     },
-    exitPurchase(ev){
-      if(ev.srcElement.localName ==="section") {
+    exitPurchase(ev) {
+      if (ev.srcElement.localName === "section") {
         this.isPurchase = false;
-      }    
-    }
+      }
+    },
   },
   computed: {
     gig() {

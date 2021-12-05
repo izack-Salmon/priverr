@@ -188,10 +188,13 @@
 
         margin-right: 12px;
     }
-    span:hover{
+    span:not(:first-child):hover{
         background-color: #fff;
         color: $clr3;
         cursor: pointer;
+    }
+    span:first-child {
+        font-weight: 600;
     }
     }
 }
