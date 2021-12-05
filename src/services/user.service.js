@@ -1,9 +1,12 @@
 import { asyncStorageService } from './async-storage.service.js'
 import { storageService } from './storage.service'
-
 import { httpService } from './http.service'
 import { socketService, SOCKET_EVENT_USER_UPDATED } from './socket.service'
 import { utilService } from "./util.service.js";
+
+import Axios from "axios";
+var axios = Axios.create({ withCredentials: true, });
+
 const STORAGE_KEY_LOGGEDIN_USER = 'loggedinUser'
 
 var gWatchedUser = null;
@@ -23,6 +26,10 @@ export const userService = {
     update,
     // changeScore
 }
+const BASE_URL =
+    process.env.NODE_ENV !== "development"
+        ? "/api/user"
+        : "//localhost:3030/api/user";
 
 // Debug technique
 window.userService = userService
@@ -38,18 +45,21 @@ async function getUsers() {
 }
 
 async function getById(userId) {
-    const user = await asyncStorageService.get('user', userId)
+    console.log(userId);
+    const user = await asyncStorageService.get(KEY, userId)
+    console.log(KEY);
+    console.log('user', user);
     // const user = await httpService.get(`user/${userId}`)
     gWatchedUser = user;
     return user;
 }
 function remove(userId) {
-    return asyncStorageService.remove('user', userId)
+    return asyncStorageService.remove(KEY, userId)
     // return httpService.delete(`user/${userId}`)
 }
 
 async function update(user) {
-    await asyncStorageService.put('user', user)
+    await asyncStorageService.put(KEY, user)
     // user = await httpService.put(`user/${user._id}`, user)
     // Handle case in which admin updates other user's details
     if (getLoggedinUser()._id === user._id) _saveLocalUser(user)
@@ -57,7 +67,7 @@ async function update(user) {
 }
 
 async function login(userCred) {
-    const users = await asyncStorageService.query('user')
+    const users = await asyncStorageService.query(KEY)
     const user = users.find(user => user.username === userCred.username)
     return _saveLocalUser(user)
 
@@ -67,7 +77,7 @@ async function login(userCred) {
 }
 async function signup(userCred) {
     userCred.score = 10000;
-    const user = await asyncStorageService.post('user', userCred)
+    const user = await asyncStorageService.post(KEY, userCred)
     // const user = await httpService.post('auth/signup', userCred)
     // socketService.emit('set-user-socket', user._id);
     return _saveLocalUser(user)
@@ -171,7 +181,7 @@ function _createUser(fullname) {
 function _createUsers() {
     var users = storageService.load(KEY);
     if (!users || !users.length) {
-        users = [_createUser('paz'), _createUser('revital'), _createUser('izack'), _createUser('yaron'),_createUser('Baba')];
+        users = [_createUser('paz'), _createUser('revital'), _createUser('izack'), _createUser('yaron'), _createUser('Baba')];
         storageService.store(KEY, users);
     }
     return users;

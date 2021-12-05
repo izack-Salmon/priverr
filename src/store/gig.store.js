@@ -6,7 +6,7 @@ import { utilService } from "../services/util.service.js";
 export const gigStore = {
     state: {
         gigs: [],
-        currGig: null,
+        currGig: '',
         professional: [{
             img: "https://res.cloudinary.com/pivarr/image/upload/v1638380308/tagsimg/logo-design_cuoszf.jpg",
             name: 'Logo Design',
@@ -91,9 +91,8 @@ export const gigStore = {
         gigs(state) {
             return JSON.parse(JSON.stringify(state.gigs))
         },
-        currGig({ currGig }) {
-
-            return currGig
+        currGig(state) {
+            return state.currGig
         },
 
         professional(state) {
@@ -174,8 +173,8 @@ export const gigStore = {
         async getGigByid({ commit }, { gigId }) {
             try {
                 const gig = await gigService.getById(gigId);
+                // console.log(gig);
                 commit({ type: 'setCurrGig', gig })
-
             } catch (err) {
                 console.log('userStore: Error in getGigByid', err)
                 throw err

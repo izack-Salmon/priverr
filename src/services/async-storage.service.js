@@ -14,7 +14,6 @@ function query(entityType, delay = 500) {
     }, delay);
   });
 }
-
 function get(entityType, entityId) {
   return query(entityType).then((entities) => entities.find((entity) => entity._id === entityId));
 }
