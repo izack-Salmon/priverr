@@ -34,6 +34,7 @@
             <gigStars :gig="gig" />
             | <span>(1k+)</span>|
           </div>
+          <div class="line"></div>
 
           <div class="seller-main-pic">
             <img :src="gig.imgUrl[0]" />
@@ -116,7 +117,7 @@ export default {
     };
   },
   created() {
-    this.getGigById();
+    // this.getGigById();
   },
   watch: {
     gigId: {
