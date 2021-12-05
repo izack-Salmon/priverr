@@ -41,6 +41,7 @@
           </div>
 
           <!-- <div class="small-carusell"></div> -->
+
           <div class="covert-purchase">
             <div class="invoicing-box">
               <div class="package-container">
@@ -64,6 +65,7 @@
               </ul>
             </div>
           </div>
+          <gig-reviews-list/>
         </div>
         <div class="side-bar-content stickit">
           <div class="invoicing-box">
@@ -78,6 +80,7 @@
             <button class="contact-btn">Contact Seller</button>
           </div>
         </div>
+
       </main>
     </div>
     <div
@@ -108,8 +111,9 @@
 <script>
 import gigPurchase from "../cmps/gig-purchase.vue";
 import gigStars from "../cmps/gig-stars.vue";
+import gigReviewsList from "../cmps/gig-reviews-list.vue"
 export default {
-  components: { gigPurchase, gigStars },
+  components: { gigPurchase, gigStars,gigReviewsList },
   name: "gigDetails",
   data() {
     return {
@@ -131,11 +135,11 @@ export default {
     purchaseMsg() {
       this.isPurchase = true;
     },
-    exitPurchase(ev) {
-      if (ev.srcElement.childElementCount < 2) {
+    exitPurchase(ev){
+      if(ev.srcElement.localName ==="section") {
         this.isPurchase = false;
-      }
-    },
+      }    
+    }
   },
   computed: {
     gig() {
