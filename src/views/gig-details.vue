@@ -96,7 +96,7 @@
     >
       <div class="sing-in-box">
         <div class="sing-in-contant">
-          <h4>Order Complited!</h4>
+          <h4>Order Completed!</h4>
           <p>
             Order: #FO68C780E5A9
             <span>Item: {{ gig.discription }}</span>
