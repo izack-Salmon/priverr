@@ -156,6 +156,7 @@
         input[type=search]{
             width: 100%;
             resize: none;
+            outline: none;
             background-color: #fff;
             font: inherit;
             font-weight: 500;
@@ -210,5 +211,5 @@ input[type=search]::-webkit-search-decoration,
 input[type=search]::-webkit-search-cancel-button,
 input[type=search]::-webkit-search-results-button,
 input[type=search]::-webkit-search-results-decoration {
-  display: none; 
+  display: none;
 }
