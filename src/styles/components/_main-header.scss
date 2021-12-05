@@ -11,7 +11,8 @@
 }
 
 .nav-warp {
-    width: 1400px;
+    // width: 1400px;
+    width: 100%;
     display: flex;
     align-items: center;
 }
@@ -42,9 +43,9 @@
             margin-left: 10px;
             border-radius: 5px;
             background-color: transparent;
-           
+            cursor: pointer;           
             &:hover{
-                background-color: $clr1;
+                background-color: #169e5e;
             }
         }
         
@@ -60,6 +61,22 @@
         color: #fff;
     }
     
+}
+
+.srch-visible {
+    opacity: 1;
+    visibility: visible;
+    transition: .15s ease-in-out
+}
+
+.srch-hidden {
+    opacity: 0;
+    visibility: hidden;
+    transition: .15s ease-in-out
+}
+
+.bgc-white {
+    background-color: #fff;
 }
 
 .gray-border {
@@ -82,6 +99,7 @@
     //     color: $clr1;
     // }
 }
+
 .nav-bar .white >*:not(:nth-child(4)){
         color: #fff;   
     }
@@ -95,6 +113,7 @@
     }
 
 }
+
 .btn-green {
     color: $clr1;
     border: 1px solid $clr1;
@@ -106,13 +125,14 @@
 
 .logo-warp {
     height: auto;
-    min-width: 121px;
+    min-width: 106px;
     margin: 4px 0 0;  
 }
 
 .logo {
     width: 89px;
     height: 27px;
+    margin-top: 5px;
     // font-size: 2rem;
     // font-stretch: normal;
     // letter-spacing: -2.5px;
@@ -127,13 +147,18 @@
 }
 
 .nav-search {
+    min-width: 412px;
     .search-form{
         display: flex;
-        width: 400px;
+        position: relative;
+        // width: 90%;
         height: 34px;
         input[type=search]{
+            width: 100%;
+            resize: none;
             background-color: #fff;
             font: inherit;
+            font-weight: 500;
             color: #404145;
             border: 1px solid #c5c6c9;       
             border-right: 0;
@@ -141,9 +166,8 @@
             transition: .15s ease-in-out;
             font-size: 15px;
             padding: 8px 7px 7px 28px;
-            width: 100%;
-    
        }
+
        button {
         padding: 8px 16px;
         display: block;
@@ -154,10 +178,37 @@
         background-color: $clr1;
         color: #fff;
         width: 80px;
+        cursor: pointer;           
       }
-  
+
+      button:hover {
+        background-color: #169e5e
+      }
     }
 
-    @include for-wide-layout{}
+    .search-svg-header {
+        position: relative;
+        left: 20px;
+        top : 7px;
+        opacity: 0.5;
+    }
+    @include for-narrow-layout{}
     @include for-normal-layout{}
+    @include for-wide-layout{}
+}
+
+/* clears the 'X' from Internet Explorer */
+input[type=search]::-ms-clear,
+input[type=search]::-ms-reveal {
+  display: none;
+  width: 0;
+  height: 0; 
+}
+
+/* clears the 'X' from Chrome */
+input[type=search]::-webkit-search-decoration,
+input[type=search]::-webkit-search-cancel-button,
+input[type=search]::-webkit-search-results-button,
+input[type=search]::-webkit-search-results-decoration {
+  display: none; 
 }

@@ -6,11 +6,18 @@
     // padding-right: 9px;
     width: 100%;
     min-width: 245px;
-
+    
+    .gig-img {
+        width: 100%;
+        object-fit: cover;
+        display: block;
+    }
     .seller-info {
+        line-height: 120%;
         padding: 12px 12px 8px;
         height: 54px;
         width: 100%;
+
         img {
             border-radius: 50%;
             width: 24px;
@@ -19,7 +26,6 @@
             justify-content: center;
             min-width: 1em;
         }
-
         .seller-identifiers {
             margin-left: 8px;
             width: calc(100% - 24px);
@@ -30,6 +36,7 @@
         }
         a {
             font-weight: 600; 
+            color: #222325;
         }
         .seller-level {
             color: #7a7d85;
@@ -37,7 +44,6 @@
             line-height: 21px;
         }
     }
-
     .gig-title {
         display: flex;
         flex-wrap: wrap;
@@ -52,24 +58,62 @@
         word-wrap: break-word;
         word-break: break-word;
     }
-
     a {
         text-decoration: none;
-        color: #222325;
+        // color: #222325;
         line-height: 18px;
         
     }
 
 
-.gig-rating {
+ .gig-rating {
+    // display: flex;
+    font-size: 14px;
+    line-height: 21px;
+    padding: 10px 12px;
+    // vertical-align: -0.16em;
+
     :nth-child(1){
         color: #ffbe5b; 
-    }
+        font-weight: 700;
+        width: 15px;
+        height: 15px;
+        // margin-right: 2px;  
+    } 
     :nth-child(2){
         color: #b5b6ba; 
+        font-weight: 400;
+        margin: 0px 0px 0px 2px;
     }
+
+  
 }
 
+
+.gig-footer {
+    padding: 10px 12px;
+    border-top: 1px solid #efeff0;
+    
+    .heart-icon {
+        color: #b5b6ba;
+    }
+    .text-price {
+        color: #7a7d85;
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: .5px;
+        text-transform: uppercase;
+        display: inline-block;
+        vertical-align: top;
+        padding: 2px 0 0;
+    }
+    .price-span {
+        font-size: 18px;
+        line-height: 20px;
+        color: #404145;
+        text-align: right;
+    }
+}
 .gig-card :not(:nth-child(1)){
     padding-left: 9px;
     padding-right: 9px;

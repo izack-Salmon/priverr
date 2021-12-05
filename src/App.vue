@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <appHeader :class="['home-header', { 'fixed-header': isFixed },{'rel-header': !isFixed},{'gray-border': !isFixed}]" />
+    <appHeader :class="['home-header', { 'fixed-header': isFixed },{'rel-header': !isFixed}]" />
     <router-view />
   </div>
 </template>

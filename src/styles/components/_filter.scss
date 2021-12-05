@@ -1,3 +1,24 @@
+
+.el-popper[x-placement^=bottom] .popper__arrow {
+    display: none;
+}
+
+// .el-input__inner {
+//     color: #222325;
+// }
+
+
+.el-input.is-focus {
+    border-color:#dadbdd ; 
+}
+
+.el-input__inner:focus {
+    border-color:#dadbdd ; 
+
+}
+
+
+
 .filter-container{
     display: flex;
     margin: 20px;

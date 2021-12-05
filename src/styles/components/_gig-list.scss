@@ -1,13 +1,15 @@
 .gig-list{
 
-    // margin-left: 32px;
-    // margin-right: 32px;
-    //need to add mobile
+    //need to add diffrent mobile style?
     display: grid;
     margin-top: 50px;
+    // grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
+
+    grid-template-columns: repeat(1, 1fr);
+    gap: 16px;
+    
     @include for-narrow-layout {
         grid-template-columns: repeat(2, 1fr);
-        gap: 16px;
     }
     
     @include for-normal-layout {
@@ -16,7 +18,6 @@
     
     @include for-wide-layout {
         grid-template-columns: repeat(4, 1fr);
-        margin: 0 auto;       
         gap: 32px;
     }
     // @include for-between-layout{}

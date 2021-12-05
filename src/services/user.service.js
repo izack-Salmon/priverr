@@ -140,7 +140,7 @@ function _createUser(fullname) {
 function _createUsers() {
     var users = storageService.load(KEY);
     if (!users || !users.length) {
-        users = [_createUser('paz'), _createUser('revital'), _createUser('izack'), _createUser('yaron')];
+        users = [_createUser('paz'), _createUser('revital'), _createUser('izack'), _createUser('yaron'),_createUser('Baba')];
         storageService.store(KEY, users);
     }
     return users;
