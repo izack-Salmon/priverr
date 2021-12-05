@@ -7,6 +7,8 @@ export const gigStore = {
     state: {
         gigs: [],
         currGig: null,
+        searchTerm: null,
+        filterBy: {},
         professional: [{
                 img: "https://res.cloudinary.com/pivarr/image/upload/v1638380308/tagsimg/logo-design_cuoszf.jpg",
                 name: 'Logo Design',
@@ -71,7 +73,6 @@ export const gigStore = {
         ],
         // order: false,
         // labels: gigService.getLabes(),
-        // filterBy: {},
 
 
     },
@@ -134,14 +135,23 @@ export const gigStore = {
         setFilterBy(state, { filterBy }) {
             state.filterBy = filterBy;
         },
+        setSearchTerm(state, { searchTerm }) {
+            state.searchTerm = searchTerm
+            state.filterBy.searchTerm = searchTerm;
+            // const gigsToShow= state.gigs.filter(gig=>{
+            //    return ((gig.title).toLowerCase().includes(searchTerm))
+            // })
+            // console.log('gigsToShow', gigsToShow);
+
+        },
         setCurrGig(state, { gig }) {
             state.currGig = gig;
         },
     },
     actions: {
-        loadGigs({ commit, state }) {
-            gigService.query(state.filterBy).then((gigs) => {
-                console.log('gigs in store', gigs);
+      loadGigs({ commit, state }) {
+          gigService.query(state.filterBy).then((gigs) => {
+              console.log('gigs in store', gigs);
                 commit({ type: 'setGigs', gigs });
             });
         },
@@ -170,6 +180,11 @@ export const gigStore = {
             commit({ type: 'setFilterBy', filterBy });
             dispatch({ type: 'loadGigs' })
                 // })
+        },
+        setSearch({ commit, dispatch }, { searchTerm }){
+            console.log('set-search-store', searchTerm);
+            commit({ type: 'setSearchTerm', searchTerm });
+            dispatch({ type: 'loadGigs' })
         },
         async getGigByid({ commit }, { gigId }) {
             try {
