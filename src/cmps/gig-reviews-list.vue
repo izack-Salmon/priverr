@@ -25,8 +25,10 @@
 
 <script>
 export default {
-  props:["user"],
-  created(){},
+  props:["owner"],
+  created(){
+   
+  },
 
 }
 </script>

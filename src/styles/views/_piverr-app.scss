@@ -16,19 +16,17 @@
     height: 100px;
     max-width: 617px;
     font-weight: 600;
-
     i {
         font-family: domaine;
         letter-spacing: 3px;
     }
 }
 
-.search-svg{
+.search-svg {
     position: relative;
     left: 17px;
-    top : 31px;
+    top: 31px;
     opacity: 0.5;
-
 }
 
 .home-search-box {
@@ -40,7 +38,6 @@
     display: flex;
     flex-direction: column;
     input {
-        
         outline: none;
         border-radius: 4px;
         box-sizing: border-box;
@@ -64,13 +61,10 @@
         font-weight: 700;
         border: 1px solid transparent;
     }
-    button:hover{
+    button:hover {
         background-color: #169e5e;
     }
 }
-
-
-
 
 
 /* .home-header {
@@ -140,33 +134,32 @@
     justify-content: center;
     flex-direction: row;
     flex-wrap: wrap;
-    ul{
+    ul {
         padding: 0 24px;
     }
-    .trusted-by-text{
+    .trusted-by-text {
         opacity: 0.5;
         padding-right: 0px;
         position: relative;
         top: -5px;
         display: none
     }
-    .trust-facebook{
-
+    .trust-facebook {
         width: 111px;
     }
-    .trust-google{
+    .trust-google {
         width: 86px;
     }
-    .trust-netflix{
+    .trust-netflix {
         width: 90px;
     }
-    .trust-pg{
+    .trust-pg {
         width: 70px;
     }
-    .trust-paypal{
+    .trust-paypal {
         display: none;
     }
-    img{
+    img {
         height: 60px;
         // width: 160px;
         padding-right: 10px;
@@ -174,32 +167,30 @@
 }
 
 // popular
-
-.popular{
+.popular {
     display: none;
     padding-top: 24px;
- ul {
-    display: flex;
-    width: 100%;
-    margin: 0;
-    padding-left: 0;
-    font-size: 14px;
-    span{
-
-        margin-right: 12px;
-    }
-    span:not(:first-child):hover{
-        background-color: #fff;
-        color: $clr3;
-        cursor: pointer;
-    }
-    span:first-child {
-        font-weight: 600;
-    }
+    ul {
+        display: flex;
+        width: 100%;
+        margin: 0;
+        padding-left: 0;
+        font-size: 14px;
+        span {
+            margin-right: 12px;
+        }
+        span:not(:first-child):hover {
+            background-color: #fff;
+            color: $clr3;
+            cursor: pointer;
+        }
+        span:first-child {
+            font-weight: 600;
+        }
     }
 }
 
-.span-popular{
+.span-popular {
     border-radius: 40px;
     background-color: transparent;
     line-height: 24px;
@@ -208,108 +199,96 @@
     padding: 1px 12px 0;
     border: 1px solid #fff;
 }
+
 @include for-normal-layout {
-    .hero-tiltle{
+    .hero-tiltle {
         font-size: 40px;
         height: 140px;
         line-height: 48px;
         padding-bottom: 24px;
-
     }
-    .home-search-box{
+    .home-search-box {
         flex-direction: row;
         width: 650px;
-        .search-svg{
+        .search-svg {
             position: relative;
             left: 30px;
-            top : 15px;
+            top: 15px;
             opacity: 0.5;
-        
         }
-        input{
+        input {
             margin-bottom: 0px;
             width: 450px;
             border-radius: 5px 0px 0px 5px;
         }
-        button{
+        button {
             margin-top: 0px;
             border-radius: 0px 5px 5px 0px;
-
         }
-        
     }
-    .popular{
+    .popular {
         display: block;
     }
-    .trust-contaner{
-        .trusted-by-text{
+    .trust-contaner {
+        .trusted-by-text {
             display: block;
             padding-right: 24px;
-
         }
-        img{
+        img {
             padding-right: 60px;
         }
-        .trust-facebook{
-        width: 160px;
+        .trust-facebook {
+            width: 160px;
         }
-        .trust-google{
+        .trust-google {
             width: 130px;
-    
         }
-        .trust-netflix{
+        .trust-netflix {
             width: 131px;
-    
         }
-        .trust-pg{
+        .trust-pg {
             width: 107px;
-    
         }
-        .trust-paypal{
+        .trust-paypal {
             width: 144px;
-    
         }
-      
-        
     }
-    .brand-campaign{
-
-    //   padding: 32px 32px 64px;
- }
- .hero-tiltle{
-    //  height: 120px;
- }
+    .brand-campaign {
+        //   padding: 32px 32px 64px;
+    }
+    .hero-tiltle {
+        //  height: 120px;
+    }
 }
 
 @include for-wide-layout {
-.hero-tiltle{
-    font-size: 40px;
-    line-height: 48px;
-    padding-bottom: 24px;
- 
+    .hero-tiltle {
+        font-size: 40px;
+        line-height: 48px;
+        padding-bottom: 24px;
+    }
 }
-}
+
 @include for-between-layout {
-    .hero-tiltle{
+    .hero-tiltle {
         font-size: 48px;
         line-height: 56px;
         // padding-bottom: 24px;
-      height: 140px;
+        height: 140px;
     }
-    .brand-campaign{
-    }
+    .brand-campaign {}
 }
+
 @include for-wide-layout {
-    .home-search-box input{
+    .home-search-box input {
         width: 550px;
     }
-    .brand-campaign{
- 
-     }
+    .brand-campaign {}
 }
+
 @include for-widest-layout {
-    .brand-campaign{
+    .brand-campaign {
         // padding-left: 32px;
         // padding-right: 32px;
-     }
+    }
 }

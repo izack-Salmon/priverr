@@ -53,8 +53,18 @@
             </div>
             <gig-purchase :gig="gig" @purchaseMsg="purchaseMsg" />
           </div>
-          <div class="seller-description">
-            <div>
+          <div class="about-the-seller">
+            <div class="line"></div>
+            <h2>About The Seller</h2>
+
+            <div class="about-profile-info">
+              <div>
+                
+              </div>
+            <a href="">{{ gig.owner.fullname }}</a>
+            </div>
+           
+            <!-- <div>
               <p>Professional Logo Designer</p>
               <button>Contact Me</button>
             </div>
@@ -66,9 +76,11 @@
                 <li>Avg.response time <span>1 hour</span></li>
                 <li>Last delivery <span>about 8 hours</span></li>
               </ul>
-            </div>
+            </div> -->
           </div>
+
           <gig-reviews-list :owner="getUserReviews"/>
+
         </div>
         <div class="side-bar-content stickit">
           <div class="invoicing-box">
@@ -96,7 +108,7 @@
     >
       <div class="sing-in-box">
         <div class="sing-in-contant">
-          <h4>Order Complited!</h4>
+          <h4>Order Completed!</h4>
           <p>
             Order: #FO68C780E5A9
             <span>Item: {{ gig.discription }}</span>
@@ -147,7 +159,6 @@ export default {
     async getUserReviews(){
       await this.$store.dispatch({type:"getUserReviews",ownerId: this.gig.owner._id})
       return this.$store.getters.currOwner
-      
     },
     purchaseMsg() {
       this.isPurchase = true;

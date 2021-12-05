@@ -32,6 +32,7 @@ export const userStore = {
             state.loginUser = '';
         },
         setCurrOwner(state, { owner }) {
+            console.log(owner)
             state.currOwner = owner;
         }
     },
