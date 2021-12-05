@@ -2,7 +2,6 @@
   <div class="carousel-continer main-layout">
     <h2>Popular professional services</h2>
     <VueSlickCarousel
-      :variableWidth="true"
       v-bind="settings"
       :style="{ height: '350px', width: '100%' }"
       class="carousel"
@@ -32,6 +31,7 @@
 import VueSlickCarousel from "vue-slick-carousel";
 import "vue-slick-carousel/dist/vue-slick-carousel.css";
 import "vue-slick-carousel/dist/vue-slick-carousel-theme.css";
+// import caroselSmall from "../cmps/carousel-small.vue";
 
 export default {
   props: ["carosel"],
@@ -42,17 +42,41 @@ export default {
       settings: {
         arrows: true,
         infinite: true,
-        responsive: [1000, 3],
-        speed: 500,
+        variableWidth: true,
         slidesToShow: 5,
         slidesToScroll: 5,
-        // dots: true,
-        // fade: true,
-        // focusOnSelect: true,
-        // initialSlide: 2,
-        // accessibility: true,
-        // slidesPerRow: 5,
-        // touchThreshold: 5,
+        speed: 1000,
+        // initialSlide: 0,
+        responsive: [
+          {
+            breakpoint: 1400,
+            settings: {
+              slidesToScroll: 4,
+              slidesToShow: 4,
+            },
+          },
+          {
+            breakpoint: 1024,
+            settings: {
+              slidesToScroll: 3,
+              slidesToShow: 3,
+            },
+          },
+          {
+            breakpoint: 680,
+            settings: {
+              slidesToShow: 2,
+              slidesToScroll: 2,
+            },
+          },
+          {
+            breakpoint: 480,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1,
+            },
+          },
+        ],
       },
     };
   },

@@ -2,8 +2,8 @@
   <section>
     <div v-if="gig" class="purchase-details">
       <div class="pack-and-price flex">
-        <span class="pack">Package details</span>
-        <span class="price"> ${{ gig.price }}</span>
+        <span class="his-pack">Package details</span>
+        <span class="his-price"> ${{ gig.price }}</span>
       </div>
       <div>
         <span>upto 5 logo designs</span>

@@ -1,3 +1,31 @@
-footer.main-footer {
-
+.app-footer{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    .left{
+        display: flex;
+        align-items: center;
+        .copyright{
+            margin-left: 24px;
+            opacity: 0.6;
+        }
+    }
+    .right{
+        svg{
+            // padding-right: 40px;
+            margin-right: 40px;
+            opacity: 0.4;
+        }
+        
+    }
+}
+.app-footer::before{
+    // padding-bottom: 20px;
+    margin-bottom: 20px;
+    background-color: #e4e5e7;
+    content: "";
+    height: 1px;
+    width: 100%;
 }

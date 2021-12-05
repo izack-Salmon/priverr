@@ -7,68 +7,67 @@ export const gigStore = {
     state: {
         gigs: [],
         currGig: null,
-        professional:[
-            {
-                img:"https://res.cloudinary.com/pivarr/image/upload/v1638380308/tagsimg/logo-design_cuoszf.jpg",
-                name:'Logo Design',
-                des:'Build your brand',
+        professional: [{
+                img: "https://res.cloudinary.com/pivarr/image/upload/v1638380308/tagsimg/logo-design_cuoszf.jpg",
+                name: 'Logo Design',
+                des: 'Build your brand',
                 _id: utilService.makeId(),
             },
             {
-                img:"https://res.cloudinary.com/pivarr/image/upload/v1638380360/tagsimg/wordpress_cljj46.jpg",
-                name:'WordPress',
-                des:'Custiomize your site',
+                img: "https://res.cloudinary.com/pivarr/image/upload/v1638380360/tagsimg/wordpress_cljj46.jpg",
+                name: 'WordPress',
+                des: 'Custiomize your site',
                 _id: utilService.makeId()
             },
             {
-                img:"https://res.cloudinary.com/pivarr/image/upload/v1638380400/tagsimg/voiceove_m64zfe.jpg",
-                name:'Voice Over',
-                des:'Share your message',
+                img: "https://res.cloudinary.com/pivarr/image/upload/v1638380400/tagsimg/voiceove_m64zfe.jpg",
+                name: 'Voice Over',
+                des: 'Share your message',
                 _id: utilService.makeId()
             },
             {
-                img:"https://res.cloudinary.com/pivarr/image/upload/v1638380443/tagsimg/animated-explainer_wwrbzu.jpg",
-                name:'Video Explainer',
-                des:'Engage your audience',
+                img: "https://res.cloudinary.com/pivarr/image/upload/v1638380443/tagsimg/animated-explainer_wwrbzu.jpg",
+                name: 'Video Explainer',
+                des: 'Engage your audience',
                 _id: utilService.makeId()
             },
             {
-                img:"https://res.cloudinary.com/pivarr/image/upload/v1638380521/tagsimg/social_zpnnod.jpg",
-                name:'Social Media',
-                des:'Reach more customers',
+                img: "https://res.cloudinary.com/pivarr/image/upload/v1638380521/tagsimg/social_zpnnod.jpg",
+                name: 'Social Media',
+                des: 'Reach more customers',
                 _id: utilService.makeId()
             },
             {
-                img:"https://res.cloudinary.com/pivarr/image/upload/v1638380821/tagsimg/seo_nmnzbj.jpg",
-                name:'SEO',
-                des:'Unlock growth online',
+                img: "https://res.cloudinary.com/pivarr/image/upload/v1638380821/tagsimg/seo_nmnzbj.jpg",
+                name: 'SEO',
+                des: 'Unlock growth online',
                 _id: utilService.makeId()
             },
             {
-                img:"https://res.cloudinary.com/pivarr/image/upload/v1638380545/tagsimg/illustration_t2kfs0.jpg",
-                name:'Illustartion',
-                des:'Color your dreams',
+                img: "https://res.cloudinary.com/pivarr/image/upload/v1638380545/tagsimg/illustration_t2kfs0.jpg",
+                name: 'Illustartion',
+                des: 'Color your dreams',
                 _id: utilService.makeId()
             },
             {
-                img:"https://res.cloudinary.com/pivarr/image/upload/v1638380577/tagsimg/translation_ojuw6w.jpg",
-                name:'Translation',
-                des:'Go global',
+                img: "https://res.cloudinary.com/pivarr/image/upload/v1638380577/tagsimg/translation_ojuw6w.jpg",
+                name: 'Translation',
+                des: 'Go global',
                 _id: utilService.makeId()
             },
             {
-                img:"https://res.cloudinary.com/pivarr/image/upload/v1638380690/tagsimg/data-entry_ky6my9.jpg",
-                name:'Date Entry',
-                des:'Learn your business',
+                img: "https://res.cloudinary.com/pivarr/image/upload/v1638380690/tagsimg/data-entry_ky6my9.jpg",
+                name: 'Date Entry',
+                des: 'Learn your business',
                 _id: utilService.makeId()
             },
             {
-                img:"https://res.cloudinary.com/pivarr/image/upload/v1638380749/tagsimg/book-covers_xdjbu8.jpg",
-                name:'Book covers',
-                des:'Showcase your story',
+                img: "https://res.cloudinary.com/pivarr/image/upload/v1638380749/tagsimg/book-covers_xdjbu8.jpg",
+                name: 'Book covers',
+                des: 'Showcase your story',
                 _id: utilService.makeId()
             },
-            
+
         ],
         // order: false,
         // labels: gigService.getLabes(),
@@ -92,13 +91,16 @@ export const gigStore = {
         gigs(state) {
             return JSON.parse(JSON.stringify(state.gigs))
         },
-        currGig({ currGig }) { return currGig },
+        currGig({ currGig }) {
 
-        professional(state){
+            return currGig
+        },
+
+        professional(state) {
             return state.professional
         }
     },
-    
+
     mutations: {
         addGig(state, { savedGig }) {
             state.gigs.push(savedGig);
@@ -115,6 +117,7 @@ export const gigStore = {
         setGigs(state, { gigs }) {
             state.gigs = gigs;
         },
+
         setGigsSort(state, { sortBy }) {
             if (sortBy === 'txt') {
                 state.gigs.sort((a, b) => {
@@ -133,8 +136,7 @@ export const gigStore = {
         },
         setCurrGig(state, { gig }) {
             state.currGig = gig;
-        }
-
+        },
     },
     actions: {
         loadGigs({ commit, state }) {

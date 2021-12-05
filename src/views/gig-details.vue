@@ -1,5 +1,5 @@
 <template>
-  <section v-if="gig" class="gig-details main-layout">
+  <section v-if="gig" class="gig-details">
     <!-- <div class="page-nav">
       <nav class="page-nav-container">
         <ul class="flex">
@@ -18,7 +18,7 @@
         </ul>
       </nav>
     </div> -->
-    <div class="sticky-wrapper">
+    <div class="sticky-wrapper main-layout">
       <main class="gig-page-holder main-layout">
         <div class="gig-details-container left-float">
           <h1 class="gig-details-title">{{ gig.title }}</h1>
@@ -29,16 +29,22 @@
             </div>
             <div class="profile-name">
               <a href="">{{ gig.owner.fullname }}</a>
-              <span>level 3 seller</span>
+              <span class="gig-owner-level">{{ gig.owner.level }}</span>
             </div>
-            |<span> ⭐4.8</span> <span>(1k+)</span>|
+            <gigStars :gig="gig" />
+            | <span>(1k+)</span>|
           </div>
+          <div class="line"></div>
 
           <div class="seller-main-pic">
-            <img :src="gig.imgUrl[0]" />
+            <caroselDatails ref="c1" :gig="gig" />
+            <!-- <caroselSmall ref="c2" :gig="gig" /> -->
+
+            <!-- <img :src="gig.imgUrl[0]" /> -->
           </div>
 
           <!-- <div class="small-carusell"></div> -->
+
           <div class="covert-purchase">
             <div class="invoicing-box">
               <div class="package-container">
@@ -62,6 +68,7 @@
               </ul>
             </div>
           </div>
+          <gig-reviews-list :owner="getUserReviews"/>
         </div>
         <div class="side-bar-content stickit">
           <div class="invoicing-box">
@@ -71,18 +78,6 @@
             <div class="purchase-details-holder">
               <gig-purchase :gig="gig" @purchaseMsg="purchaseMsg" />
             </div>
-
-            <div v-if="isPurchase">
-              <h4>Order Complited</h4>
-              <p>
-                Order: #FO68C780E5A9
-                <span>Item: {{ gig.discription }}</span>
-              </p>
-
-              <div>
-                <p>Total: ${{ gig.price }}</p>
-              </div>
-            </div>
           </div>
           <div class="contact-box">
             <button class="contact-btn">Contact Seller</button>
@@ -90,13 +85,45 @@
         </div>
       </main>
     </div>
+    <section
+      v-if="isPurchase"
+      :class="[
+        'sign-in',
+        { 'fade-in': isPurchase },
+        { 'fade-out': !isPurchase },
+      ]"
+      @click="exitPurchase($event)"
+    >
+      <div class="sing-in-box">
+        <div class="sing-in-contant">
+          <h4>Order Complited!</h4>
+          <p>
+            Order: #FO68C780E5A9
+            <span>Item: {{ gig.discription }}</span>
+          </p>
+          <div>
+            <p>Total: ${{ gig.price }}</p>
+          </div>
+        </div>
+      </div>
+    </section>
   </section>
 </template>
 
 <script>
 import gigPurchase from "../cmps/gig-purchase.vue";
+import gigStars from "../cmps/gig-stars.vue";
+import gigReviewsList from "../cmps/gig-reviews-list.vue";
+import caroselDatails from "../cmps/carousel-details.vue";
+import caroselSmall from "../cmps/carousel-small.vue";
 export default {
-  components: { gigPurchase },
+  components: {
+    gigPurchase,
+    gigStars,
+    gigReviewsList,
+    caroselDatails,
+    caroselSmall,
+  },
   name: "gigDetails",
   data() {
     return {
@@ -104,7 +131,9 @@ export default {
     };
   },
   created() {
-    this.getGigById();
+    // this.getGigById();
+    this.getUserReviews();
+    
   },
   watch: {
     gigId: {
@@ -115,8 +144,18 @@ export default {
     },
   },
   methods: {
+    async getUserReviews(){
+      await this.$store.dispatch({type:"getUserReviews",ownerId: this.gig.owner._id})
+      return this.$store.getters.currOwner
+      
+    },
     purchaseMsg() {
       this.isPurchase = true;
+    },
+    exitPurchase(ev) {
+      if (ev.srcElement.localName === "section") {
+        this.isPurchase = false;
+      }
     },
   },
   computed: {

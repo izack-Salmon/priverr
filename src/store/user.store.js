@@ -1,4 +1,3 @@
-
 import { userService } from '../services/user.service';
 // import { authService } from '../services/auth-service.js';
 
@@ -6,8 +5,12 @@ export const userStore = {
     state: {
         loginUser: '',
         users: '',
+        currOwner: '',
     },
     getters: {
+        currOwner(state) {
+            return state.currOwner
+        },
         logginUser(state) {
             console.log(state.loginUser);
             return state.loginUser
@@ -28,8 +31,16 @@ export const userStore = {
         logout(state) {
             state.loginUser = '';
         },
+        setCurrOwner(state, { owner }) {
+            state.currOwner = owner;
+        }
     },
     actions: {
+        async getUserReviews({ commit }, { ownerId }) {
+            var owner = await userService.getById(ownerId)
+            commit({ type: 'setCurrOwner', owner })
+
+        },
         //for the start with no backend
         async loadUser({ commit }) {
             var users = await userService.getUsers()
