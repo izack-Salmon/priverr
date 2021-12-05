@@ -15,4 +15,19 @@
     src: url(~@/assets/fonts/domaine/DomaineDispNar-RegularItalic.otf);
     // D:\dev\piverr\src\assets\fonts\domaine\DomaineDispNar-RegularItalic.otf
 }
-
+@font-face {
+    font-family: Macan;
+    src: url(~@/assets/fonts/Macan/macan-bold.woff2);
+}
+@font-face {
+    font-family: Macan-regular;
+    src: url(~@/assets/fonts/Macan/macan-regular.woff2);
+}
+@font-face {
+    font-family: Macan-semi;
+    src: url(~@/assets/fonts/Macan/macan-semibold.woff2);
+}
+@font-face {
+    font-family: Macan-light;
+    src: url(~@/assets/fonts/Macan/macan-light.woff2);
+}
