@@ -1,19 +1,22 @@
 <template>
   <section>
-    <!-- <gig-filter class="main-layout"  /> -->
+    <div class="explore-title main-layout">{{ pagetitle }}</div>
+    <gig-filter class="main-layout" />
     <gig-list class="main-layout" :gigs="gigsToShow" />
   </section>
 </template>
 
 <script>
 // import gigService from "../services/gig-service.js"
-// import gigFilter from "@/cmps/gig-filter.vue";
+import gigFilter from "@/cmps/gig-filter.vue";
 import gigList from "@/cmps/gig-list.vue";
 import { gigService } from "../services/gig.service.js";
 export default {
   name: "explore",
   data() {
-    return {};
+    return {
+      pagetitle: 'Explore'
+    };
   },
   created() {},
   computed: {
@@ -24,12 +27,12 @@ export default {
   mounteds: {},
   components: {
     gigList,
-    // gigFilter
+    gigFilter,
   },
 };
 </script>
 <style>
-.car-box{
+.car-box {
   margin-left: 200px;
 }
 </style>

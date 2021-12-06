@@ -25,8 +25,8 @@
           <form class="search-form" @input="setSearch">
             <svg
               class="search-svg-header"
-              width="19"
-              height="19"
+              width="16"
+              height="16"
               viewBox="0 0 16 16"
               xmlns="http://www.w3.org/2000/svg"
             >
