@@ -7,7 +7,7 @@ export default {
     return {
       smallSettings: {
         infinite: true,
-        slidesToShow: 5,
+        slidesToShow: 10,
         slidesToScroll: 1,
         edgeFriction: 0.35,
       },

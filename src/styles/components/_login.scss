@@ -13,6 +13,9 @@
 }
 .login-form{
     padding-top: 20px;
+    .el-input:first-child{
+        padding-bottom: 16px;
+    }
 }
 .btn-login{
     margin-top: 20px;

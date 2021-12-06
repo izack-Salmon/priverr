@@ -1,5 +1,5 @@
 import { userService } from '../services/user.service';
-// import { authService } from '../services/auth-service.js';
+import { authService } from '../services/auth-service';
 
 export const userStore = {
     state: {
@@ -47,20 +47,18 @@ export const userStore = {
             var users = await userService.getUsers()
             commit({ type: 'loadUser', users })
         },
-        login({ commit }, { user }) {
-            authService.login(user).then(() => {
-                commit({ type: 'login', user })
-            })
+        async login({ commit }, { user }) {
+            await authService.login(user)
+            console.log('im here');
+            commit({ type: 'login', user })
         },
-        logout({ commit }) {
-            authService.logout().then(() => {
-                commit({ type: 'logout' })
-            })
+        async logout({ commit }) {
+            await authService.logout()
+            commit({ type: 'logout' })
         },
-        signup({ commit }, { user }) {
-            authService.signup(user).then(() => {
-                commit({ type: 'login', user })
-            })
+        async signup({ commit }, { user }) {
+            await authService.signup(user)
+            commit({ type: 'login', user })
         }
     },
 }

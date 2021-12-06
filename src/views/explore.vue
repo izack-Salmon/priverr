@@ -15,7 +15,7 @@ export default {
   name: "explore",
   data() {
     return {
-      pagetitle: 'Explore'
+      pagetitle: "Explore",
     };
   },
   created() {},
@@ -32,7 +32,4 @@ export default {
 };
 </script>
 <style>
-.car-box {
-  margin-left: 200px;
-}
 </style>
