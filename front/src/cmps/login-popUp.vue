@@ -1,5 +1,9 @@
 <template>
-  <section @click="exitLogin($event)" class="backgrond-pop">
+  <section
+    v-show="!logedInUser"
+    @click="exitLogin($event)"
+    class="backgrond-pop"
+  >
     <div class="login-pop">
       <div class="sing-in-box">
         <div class="sing-in-contant">
@@ -66,6 +70,10 @@ export default {
   computed: {
     showlogin() {
       return this.showLogin;
+    },
+    logedInUser() {
+      console.log(this.$store.getters.logginUser);
+      return this.$store.getters.logginUser;
     },
   },
   watch: {

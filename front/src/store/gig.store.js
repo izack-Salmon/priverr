@@ -174,11 +174,11 @@ export const gigStore = {
             commit({ type: 'addGig', savedGig });
             return savedGig;
         },
-        removeGig({ commit }, { gigId }) {
+        async removeGig({ commit }, { gigId }) {
             console.log(gigId);
-            var gigId = gigService.remove(gigId)
-            commit({ type: 'removeGig', gigId });
-            return gigId
+            var gig = await gigService.remove(gigId)
+            commit({ type: 'removeGig', gig });
+            return gig
         },
         setFilterBy({ commit, dispatch }, { filterBy }) {
             // return gigService.filterBy(state.gigs, filterBy).then((filterGigs) => {
