@@ -53,25 +53,14 @@
             </div>
             <gig-purchase :gig="gig" @purchaseMsg="purchaseMsg" />
           </div>
-
-          <div class="about-the-seller">
-            <div class="line"></div>
-            <h2>About The Seller</h2>
-
-            <div class="about-profile-info">
-              <div>
-
-              </div>
-            <a href="">{{ gig.owner.fullname }}</a>
-            </div>
-          </div>
+          <about-the-seller :gig="gig"/>
           <gig-reviews-list v-if="owner" :owner="owner" />
         </div>
         <div class="side-bar-content stickit">
           <div class="invoicing-box">
-            <div class="package-container">
+            <!-- <div class="package-container">
               <span>Basic</span>
-            </div>
+            </div> -->
             <div class="purchase-details-holder">
               <gig-purchase :gig="gig" @purchaseMsg="purchaseMsg" />
             </div>
