@@ -9,7 +9,7 @@ var axios = Axios.create({ withCredentials: true, });
 const KEY = 'gigsDB';
 
 //for the start with no backend
-_createGigs()
+// _createGigs()
 
 
 const BASE_URL =
