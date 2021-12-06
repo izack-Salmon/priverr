@@ -1,7 +1,7 @@
 <template>
   <section>
     <div class="explore-title main-layout">{{ pagetitle }}</div>
-    <gig-filter class="main-layout" />
+    <gig-filter class="main-layout" @filter='filter' />
     <gig-list class="main-layout" :gigs="gigsToShow" />
   </section>
 </template>
@@ -11,6 +11,7 @@
 import gigFilter from "@/cmps/gig-filter.vue";
 import gigList from "@/cmps/gig-list.vue";
 import { gigService } from "../services/gig.service.js";
+
 export default {
   name: "explore",
   data() {
@@ -24,15 +25,16 @@ export default {
       return this.$store.getters.gigs;
     },
   },
-  mounteds: {},
+  methods: {
+    filter(filterBy) {
+      console.log('filterBy', filterBy);
+      // this.$store.dispatch({ type: "filterBy", filterBy });
+
+    }
+  },
   components: {
     gigList,
     gigFilter,
   },
 };
 </script>
-<style>
-.car-box {
-  margin-left: 200px;
-}
-</style>

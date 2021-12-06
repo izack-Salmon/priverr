@@ -52,6 +52,8 @@
     line-height: 1.5;
     position: relative; 
     margin-bottom: 8px;  
+    margin-right: 14px;
+
     // transition: border-color .12s cubic-bezier(.215,.61,.355,1);
 }
 
@@ -78,7 +80,6 @@
     padding: 12px 24px;
     position: absolute;
     top: 250px;
-    left: 201px;
     opacity: 0;
     border: 1px solid #dadbdd;
     border-radius: 4px;
@@ -101,6 +102,12 @@
     .input-budgets-warp{
         display: flex;
         justify-content: space-between;
+    }
+
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
     }
 }
 
