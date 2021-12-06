@@ -53,19 +53,16 @@
             </div>
             <gig-purchase :gig="gig" @purchaseMsg="purchaseMsg" />
           </div>
-          <div class="seller-description">
-            <div>
-              <p>Professional Logo Designer</p>
-              <button>Contact Me</button>
-            </div>
 
-            <div>
-              <ul>
-                <li>From <span>United State</span></li>
-                <li>Member since <span>Aug 2011</span></li>
-                <li>Avg.response time <span>1 hour</span></li>
-                <li>Last delivery <span>about 8 hours</span></li>
-              </ul>
+          <div class="about-the-seller">
+            <div class="line"></div>
+            <h2>About The Seller</h2>
+
+            <div class="about-profile-info">
+              <div>
+
+              </div>
+            <a href="">{{ gig.owner.fullname }}</a>
             </div>
           </div>
           <gig-reviews-list v-if="owner" :owner="owner" />
@@ -116,6 +113,7 @@ import gigStars from "../cmps/gig-stars.vue";
 import gigReviewsList from "../cmps/gig-reviews-list.vue";
 import caroselDatails from "../cmps/carousel-details.vue";
 import caroselSmall from "../cmps/carousel-small.vue";
+import aboutTheSeller from "../cmps/about-the-seller.vue"
 export default {
   components: {
     gigPurchase,
@@ -123,6 +121,7 @@ export default {
     gigReviewsList,
     caroselDatails,
     caroselSmall,
+    aboutTheSeller,
   },
   name: "gigDetails",
   data() {
@@ -148,6 +147,7 @@ export default {
       await this.$store.dispatch({
         type: "getUserReviews",
         ownerId: this.gig?.owner._id,
+        
       });
       this.owner = this.$store.getters.currOwner;
     },

@@ -27,9 +27,9 @@ export const userService = {
     // changeScore
 }
 const BASE_URL =
-    process.env.NODE_ENV !== "development"
-        ? "/api/user"
-        : "//localhost:3030/api/user";
+    process.env.NODE_ENV !== "development" ?
+    "/api/user" :
+    "//localhost:3030/api/user";
 
 // Debug technique
 window.userService = userService
@@ -41,7 +41,7 @@ window.userService = userService
 async function getUsers() {
     var users = await asyncStorageService.query(KEY)
     return users
-    // return httpService.get(`user`)
+        // return httpService.get(`user`)
 }
 
 async function getById(userId) {
@@ -51,17 +51,19 @@ async function getById(userId) {
     console.log('user', user);
     // const user = await httpService.get(`user/${userId}`)
     gWatchedUser = user;
+    console.log(user)
     return user;
 }
+
 function remove(userId) {
     return asyncStorageService.remove(KEY, userId)
-    // return httpService.delete(`user/${userId}`)
+        // return httpService.delete(`user/${userId}`)
 }
 
 async function update(user) {
     await asyncStorageService.put(KEY, user)
-    // user = await httpService.put(`user/${user._id}`, user)
-    // Handle case in which admin updates other user's details
+        // user = await httpService.put(`user/${user._id}`, user)
+        // Handle case in which admin updates other user's details
     if (getLoggedinUser()._id === user._id) _saveLocalUser(user)
     return user;
 }
@@ -78,14 +80,14 @@ async function login(userCred) {
 async function signup(userCred) {
     userCred.score = 10000;
     const user = await asyncStorageService.post(KEY, userCred)
-    // const user = await httpService.post('auth/signup', userCred)
-    // socketService.emit('set-user-socket', user._id);
+        // const user = await httpService.post('auth/signup', userCred)
+        // socketService.emit('set-user-socket', user._id);
     return _saveLocalUser(user)
 }
 async function logout() {
     sessionStorage.removeItem(STORAGE_KEY_LOGGEDIN_USER)
-    // socketService.emit('unset-user-socket');
-    // return await httpService.post('auth/logout')
+        // socketService.emit('unset-user-socket');
+        // return await httpService.post('auth/logout')
 }
 
 // async function changeScore(by) {
@@ -117,12 +119,12 @@ function getLoggedinUser() {
 
 // This IIFE functions for Dev purposes 
 // It allows testing of real time updates (such as sockets) by listening to storage events
-(async () => {
+(async() => {
     var user = getLoggedinUser()
-    // Dev Helper: Listens to when localStorage changes in OTHER browser
+        // Dev Helper: Listens to when localStorage changes in OTHER browser
 
     // Here we are listening to changes for the watched user (comming from other browsers)
-    window.addEventListener('storage', async () => {
+    window.addEventListener('storage', async() => {
         if (!gWatchedUser) return;
         const freshUsers = await asyncStorageService.query('user')
         const watchedUser = freshUsers.find(u => u._id === gWatchedUser._id)
@@ -144,8 +146,7 @@ function _createUser(fullname) {
         username: fullname,
         password: '123',
         isSeller: false,
-        reviews: [
-            {
+        reviews: [{
                 "id": utilService.makeId(),
                 "txt": "Very kind and works fast and still shit Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus inventore nisi obcaecati officia libero aperiam id nesciunt dolorum debitis dolor error dolorem placeat fugit, explicabo voluptates neque, asperiores dolore officiis?",
                 "rate": 5,
@@ -178,6 +179,7 @@ function _createUser(fullname) {
         ]
     }
 }
+
 function _createUsers() {
     var users = storageService.load(KEY);
     if (!users || !users.length) {
@@ -192,4 +194,3 @@ function _createUsers() {
 //     var user = getLoggedinUser()
 //     if (user) socketService.emit('set-user-socket', user._id)
 // })();
-

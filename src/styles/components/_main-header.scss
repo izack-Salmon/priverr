@@ -26,6 +26,7 @@
     // justify-content: space-between;
     align-items: center;
     height: 80px;
+    z-index: 10;
     a{
         text-decoration: none;
         color: #62646a;
@@ -158,7 +159,8 @@
         // width: 90%;
         height: 34px;
         input[type=search]{
-            width: 100%;
+            // width: 100%;
+            // width: 293px;
             resize: none;
             outline: none;
             background-color: #fff;
@@ -197,10 +199,21 @@
         top : 7px;
         opacity: 0.5;
     }
-    @include for-narrow-layout{}
-    @include for-normal-layout{}
-    @include for-wide-layout{}
+
+    // @include for-narrow-layout {
+    //     .search-form{
+    //         min-width: 186px;
+    //     }
+    // }
+    // @include for-normal-layout{
+        
+    // }
 }
+
+
+
+
+
 
 /* clears the 'X' from Internet Explorer */
 input[type=search]::-ms-clear,
