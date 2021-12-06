@@ -68,7 +68,7 @@ async function _createGigs() {
     var gUsers = await userService.getUsers()
     console.log(gUsers);
     if (!gigs || !gigs.length) {
-        gigs = [_createGig('music', gUsers.shift()), _createGig('music', gUsers.shift()), _createGig('web dev', gUsers.shift()), _createGig('art', gUsers.shift(),),_createGig('NFT-Art', gUsers.shift())];
+        gigs = [_createGig('music', gUsers.shift()), _createGig('music', gUsers.shift()), _createGig('web dev', gUsers.shift()), _createGig('art', gUsers.shift(),), _createGig('NFT-Art', gUsers.shift())];
         gigs = await Promise.all(gigs)
         // console.log(gigs);
         storageService.store(KEY, gigs);

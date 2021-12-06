@@ -39,10 +39,8 @@ export const userStore = {
     },
     actions: {
         async getUserReviews({ commit }, { ownerId }) {
-            console.log('actions:', ownerId);
-            var owner = await userService.getById(ownerId)
+            var owner = await userService.getById(ownerId);
             commit({ type: 'setCurrOwner', owner })
-
         },
         //for the start with no backend
         async loadUser({ commit }) {
