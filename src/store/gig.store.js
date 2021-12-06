@@ -6,13 +6,9 @@ import { utilService } from "../services/util.service.js";
 export const gigStore = {
     state: {
         gigs: [],
-<<<<<<< HEAD
         currGig: null,
         searchTerm: null,
         filterBy: {},
-=======
-        currGig: '',
->>>>>>> 1a41a8db363e4bbc23c0c1ebf04e2a8598ca2943
         professional: [{
             img: "https://res.cloudinary.com/pivarr/image/upload/v1638380308/tagsimg/logo-design_cuoszf.jpg",
             name: 'Logo Design',
