@@ -32,15 +32,15 @@ export const userStore = {
             state.loginUser = '';
         },
         setCurrOwner(state, { owner }) {
+            console.log('setterowner:', owner)
             state.currOwner = owner;
+
         }
     },
     actions: {
         async getUserReviews({ commit }, { ownerId }) {
-            console.log(ownerId);
-            var owner = await userService.getById(ownerId)
+            var owner = await userService.getById(ownerId);
             commit({ type: 'setCurrOwner', owner })
-
         },
         //for the start with no backend
         async loadUser({ commit }) {

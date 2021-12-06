@@ -53,22 +53,19 @@
             </div>
             <gig-purchase :gig="gig" @purchaseMsg="purchaseMsg" />
           </div>
-          <div class="seller-description">
-            <div>
-              <p>Professional Logo Designer</p>
-              <button>Contact Me</button>
-            </div>
 
-            <div>
-              <ul>
-                <li>From <span>United State</span></li>
-                <li>Member since <span>Aug 2011</span></li>
-                <li>Avg.response time <span>1 hour</span></li>
-                <li>Last delivery <span>about 8 hours</span></li>
-              </ul>
+          <div class="about-the-seller">
+            <div class="line"></div>
+            <h2>About The Seller</h2>
+
+            <div class="about-profile-info">
+              <div>
+
+              </div>
+            <a href="">{{ gig.owner.fullname }}</a>
             </div>
           </div>
-          <gig-reviews-list :owner="getUserReviews" />
+          <gig-reviews-list v-if="owner" :owner="owner" />
         </div>
         <div class="side-bar-content stickit">
           <div class="invoicing-box">
@@ -96,7 +93,7 @@
     >
       <div class="sing-in-box">
         <div class="sing-in-contant">
-          <h4>Order Complited!</h4>
+          <h4>Order Completed!</h4>
           <p>
             Order: #FO68C780E5A9
             <span>Item: {{ gig.discription }}</span>
@@ -116,6 +113,7 @@ import gigStars from "../cmps/gig-stars.vue";
 import gigReviewsList from "../cmps/gig-reviews-list.vue";
 import caroselDatails from "../cmps/carousel-details.vue";
 import caroselSmall from "../cmps/carousel-small.vue";
+import aboutTheSeller from "../cmps/about-the-seller.vue"
 export default {
   components: {
     gigPurchase,
@@ -123,33 +121,35 @@ export default {
     gigReviewsList,
     caroselDatails,
     caroselSmall,
+    aboutTheSeller,
   },
   name: "gigDetails",
   data() {
     return {
       isPurchase: false,
-      // gig: "",
+      gig: "",
+      owner: "",
     };
   },
-  created() {
-    // this.getGigById();
-    this.getUserReviews();
-  },
+  created() {},
   watch: {
     gigId: {
-      handler() {
-        this.$store.dispatch({ type: "getGigByid", gigId: this.gigId });
+      async handler() {
+        await this.$store.dispatch({ type: "getGigByid", gigId: this.gigId });
+        this.setGig();
       },
       immediate: true,
     },
   },
   methods: {
-    async getUserReviews() {
+    async setGig() {
+      this.gig = await this.$store.getters.currGig;
       await this.$store.dispatch({
         type: "getUserReviews",
         ownerId: this.gig?.owner._id,
+        
       });
-      // return this.$store.getters.currOwner;
+      this.owner = this.$store.getters.currOwner;
     },
     purchaseMsg() {
       this.isPurchase = true;
@@ -161,13 +161,10 @@ export default {
     },
   },
   computed: {
-    gig() {
-      // console.log("gig", this.$store.getters.currGig);
-      return this.$store.getters.currGig;
-      // this.gig = this.$store.getters.currGig;
-    },
     gigId() {
-      return this.$route.params.id;
+      if (this.$route.params.id) {
+        return this.$route.params.id;
+      }
     },
   },
 };
