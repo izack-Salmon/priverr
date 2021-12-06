@@ -59,7 +59,7 @@
 
             <div class="about-profile-info">
               <div>
-                
+
               </div>
             <a href="">{{ gig.owner.fullname }}</a>
             </div>
@@ -78,9 +78,7 @@
               </ul>
             </div> -->
           </div>
-
-          <gig-reviews-list :owner="getUserReviews"/>
-
+          <gig-reviews-list :owner="getUserReviews" />
         </div>
         <div class="side-bar-content stickit">
           <div class="invoicing-box">
@@ -140,12 +138,13 @@ export default {
   data() {
     return {
       isPurchase: false,
+      // gig: "",
     };
   },
   created() {
     // this.getGigById();
-    this.getUserReviews();
     
+    this.getUserReviews();
   },
   watch: {
     gigId: {
@@ -156,9 +155,13 @@ export default {
     },
   },
   methods: {
-    async getUserReviews(){
-      await this.$store.dispatch({type:"getUserReviews",ownerId: this.gig.owner._id})
-      return this.$store.getters.currOwner
+    async getUserReviews() {
+      await this.$store.dispatch({
+        type: "getUserReviews",
+        ownerId: this.gig?.owner._id,
+        
+      });
+      return this.$store.getters.currOwner;
     },
     purchaseMsg() {
       this.isPurchase = true;
@@ -171,7 +174,9 @@ export default {
   },
   computed: {
     gig() {
+      // console.log("gig", this.$store.getters.currGig);
       return this.$store.getters.currGig;
+      // this.gig = this.$store.getters.currGig;
     },
     gigId() {
       return this.$route.params.id;

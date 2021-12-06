@@ -3,13 +3,14 @@
 }
 
 html {
-   font-family: Helvetica; 
-//    font-family: Opensans, sans-serif; 
+//    font-family: Helvetica; 
+   font-family: Macan,Helvetica Neue,Helvetica,Arial,sans-serif;; 
    color: $clr2;
    line-height: 1.8;
 }
 
 body {
+    overflow-x: hidden;
      margin: 0;
     // background-image: url(~@/assets/images/seamless-cute-cats-pattern-with-2206818.jpg);
     // background-size: 400px;
