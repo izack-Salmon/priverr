@@ -16,7 +16,7 @@ export default {
   name: "explore",
   data() {
     return {
-      pagetitle: 'Explore'
+      pagetitle: "Explore",
     };
   },
   created() {},
@@ -38,3 +38,8 @@ export default {
   },
 };
 </script>
+<<<<<<< HEAD
+=======
+<style>
+</style>
+>>>>>>> 3159bafea887dd2d81cbd9a7889496d3f565bfa9

@@ -25,7 +25,6 @@
     </div>
   </section>
 </template>
-
 <script>
 export default {
   name: "login",
@@ -46,6 +45,10 @@ export default {
   methods: {
     toggle() {
       this.loginOpened = true;
+    },
+    login() {
+      console.log("hi");
+      this.$store.dispatch({ type: "login", user: this.user });
     },
     hide() {
       //   console.log("hi");

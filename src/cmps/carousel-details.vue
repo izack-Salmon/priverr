@@ -5,7 +5,7 @@
         v-bind="bigSettings"
         ref="c1"
         :asNavFor="$refs.c2"
-        :style="{ height: '430px', width: '100%' }"
+        :style="{ height: '450px', width: '100%' }"
       >
         <img v-for="img in gig.imgUrl" :key="img" :src="img" alt="" />
       </VueSlickCarousel>
@@ -13,7 +13,7 @@
     <template>
       <VueSlickCarousel ref="c2" :asNavFor="$refs.c1" v-bind="smallSettings">
         <img
-          :style="{ height: '60px', width: '15%' }"
+          :style="{ height: '120px', width: '182px' }"
           v-for="img in gig.imgUrl"
           :key="img"
           :src="img"

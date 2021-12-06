@@ -148,31 +148,26 @@ export const gigStore = {
         },
     },
     actions: {
-      loadGigs({ commit, state }) {
-          gigService.query(state.filterBy).then((gigs) => {
-              console.log('gigs in store', gigs);
-                commit({ type: 'setGigs', gigs });
-            });
+        async loadGigs({ commit, state }) {
+            var gigs = await gigService.query(state.filterBy)
+            console.log('gigs in store', gigs);
+            commit({ type: 'setGigs', gigs });
         },
-        updateGig({ commit }, { gig }) {
-            return gigService.save(gig).then((savedGig) => {
-                commit({ type: 'updateGig', gig });
-                return savedGig;
-            });
+        async updateGig({ commit }, { gig }) {
+            var savedGig = gigService.save(gig)
+            commit({ type: 'updateGig', gig });
+            return savedGig;
         },
-        addGig({ commit }, { gig }) {
-            // const newGig = JSON.parse(JSON.stringify(gig))
-            return gigService.save(gig).then((savedGig) => {
-                commit({ type: 'addGig', savedGig });
-                return savedGig;
-            });
+        async addGig({ commit }, { gig }) {
+            var savedGig = gigService.save(gig)
+            commit({ type: 'addGig', savedGig });
+            return savedGig;
         },
         removeGig({ commit }, { gigId }) {
             console.log(gigId);
-            return gigService.remove(gigId)
-                .then(() => {
-                    commit({ type: 'removeGig', gigId });
-                })
+            var gigId = gigService.remove(gigId)
+            commit({ type: 'removeGig', gigId });
+            return gigId
         },
         setFilterBy({ commit, dispatch }, { filterBy }) {
             // return gigService.filterBy(state.gigs, filterBy).then((filterGigs) => {
@@ -180,7 +175,7 @@ export const gigStore = {
             dispatch({ type: 'loadGigs' })
             // })
         },
-        setSearch({ commit, dispatch }, { searchTerm }){
+        setSearch({ commit, dispatch }, { searchTerm }) {
             console.log('set-search-store', searchTerm);
             commit({ type: 'setSearchTerm', searchTerm });
             dispatch({ type: 'loadGigs' })

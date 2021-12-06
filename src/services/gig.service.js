@@ -26,21 +26,21 @@ export const gigService = {
 }
 
 function query(filterBy = {}) {
-    return asyncStorageService.query(KEY);
-    // return axios.get(BASE_URL, { params: filterBy }).then((res) => res.data)
+    // return asyncStorageService.query(KEY);
+    return axios.get(BASE_URL, { params: filterBy }).then((res) => res.data)
 }
 function getById(id) {
-    // return axios.get(BASE_URL + `/${id}`).then((res) => res.data)
-    return asyncStorageService.get(KEY, id);
+    return axios.get(BASE_URL + `/${id}`).then((res) => res.data)
+    // return asyncStorageService.get(KEY, id);
 }
 function remove(id) {
-    // return axios.delete(BASE_URL + `/${id}`).then((res) => res.data)
-    return asyncStorageService.remove(KEY, id);
+    return axios.delete(BASE_URL + `/${id}`).then((res) => res.data)
+    // return asyncStorageService.remove(KEY, id);
 }
 function save(gig) {
-    // return (gig._id) ? axios.put(BASE_URL + `/${gig._id}`, gig).then((res) => res.data) : axios.post(BASE_URL + '/', gig).then((res) => res.data)
-    const savedGig = gig._id ? asyncStorageService.put(KEY, gig) : asyncStorageService.post(KEY, gig);
-    return savedGig;
+    return (gig._id) ? axios.put(BASE_URL + `/${gig._id}`, gig).then((res) => res.data) : axios.post(BASE_URL + '/', gig).then((res) => res.data)
+    // const savedGig = gig._id ? asyncStorageService.put(KEY, gig) : asyncStorageService.post(KEY, gig);
+    // return savedGig;
 }
 
 
