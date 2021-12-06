@@ -1,0 +1,162 @@
+<template>
+  <section v-if="gig" class="gig-details">
+    <!-- <div class="page-nav">
+      <nav class="page-nav-container">
+        <ul class="flex">
+          <li>
+            <a href="">Overview</a>
+          </li>
+          <li>
+            <a href="">Description</a>
+          </li>
+          <li>
+            <a href="">About The Seller</a>
+          </li>
+          <li>
+            <a href="">Reviews</a>
+          </li>
+        </ul>
+      </nav>
+    </div> -->
+    <div class="sticky-wrapper main-layout">
+      <main class="gig-page-holder main-layout">
+        <div class="gig-details-container left-float">
+          <h1 class="gig-details-title">{{ gig.title }}</h1>
+
+          <div class="seller-overview">
+            <div class="details-avatar">
+              <img :src="gig.owner.imgUrl" />
+            </div>
+            <div class="profile-name">
+              <a href="">{{ gig.owner.fullname }}</a>
+              <span class="gig-owner-level">{{ gig.owner.level }}</span>
+            </div>
+            <gigStars :gig="gig" />| <span>(1k+)</span>
+          </div>
+          <div class="line"></div>
+
+          <div class="seller-main-pic">
+            <caroselDatails ref="c1" :gig="gig" />
+            <!-- <caroselSmall ref="c2" :gig="gig" /> -->
+
+            <!-- <img :src="gig.imgUrl[0]" /> -->
+          </div>
+
+          <!-- <div class="small-carusell"></div> -->
+
+          <div class="covert-purchase">
+            <div class="invoicing-box">
+              <div class="package-container">
+                <span>Basic</span>
+              </div>
+            </div>
+            <gig-purchase :gig="gig" @purchaseMsg="purchaseMsg" />
+          </div>
+          <about-the-seller :gig="gig"/>
+          <gig-reviews-list v-if="owner" :owner="owner" />
+        </div>
+        <div class="side-bar-content stickit">
+          <div class="invoicing-box">
+            <!-- <div class="package-container">
+              <span>Basic</span>
+            </div> -->
+            <div class="purchase-details-holder">
+              <gig-purchase :gig="gig" @purchaseMsg="purchaseMsg" />
+            </div>
+          </div>
+          <div class="contact-box">
+            <button class="contact-btn">Contact Seller</button>
+          </div>
+        </div>
+      </main>
+    </div>
+    <section
+      v-if="isPurchase"
+      :class="[
+        'sign-in',
+        { 'fade-in': isPurchase },
+        { 'fade-out': !isPurchase },
+      ]"
+      @click="exitPurchase($event)"
+    >
+      <div class="sing-in-box">
+        <div class="sing-in-contant">
+          <h4>Order Completed!</h4>
+          <p>
+            Order: #FO68C780E5A9
+            <span>Item: {{ gig.discription }}</span>
+          </p>
+          <div>
+            <p>Total: ${{ gig.price }}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </section>
+</template>
+
+<script>
+import gigPurchase from "../cmps/gig-purchase.vue";
+import gigStars from "../cmps/gig-stars.vue";
+import gigReviewsList from "../cmps/gig-reviews-list.vue";
+import caroselDatails from "../cmps/carousel-details.vue";
+import caroselSmall from "../cmps/carousel-small.vue";
+import aboutTheSeller from "../cmps/about-the-seller.vue"
+export default {
+  components: {
+    gigPurchase,
+    gigStars,
+    gigReviewsList,
+    caroselDatails,
+    caroselSmall,
+    aboutTheSeller,
+  },
+  name: "gigDetails",
+  data() {
+    return {
+      isPurchase: false,
+      gig: "",
+      owner: "",
+    };
+  },
+  created() {},
+  watch: {
+    gigId: {
+      async handler() {
+        await this.$store.dispatch({ type: "getGigByid", gigId: this.gigId });
+        this.setGig();
+      },
+      immediate: true,
+    },
+  },
+  methods: {
+    async setGig() {
+      this.gig = await this.$store.getters.currGig;
+      await this.$store.dispatch({
+        type: "getUserReviews",
+        ownerId: this.gig?.owner._id,
+        
+      });
+      this.owner = this.$store.getters.currOwner;
+    },
+    purchaseMsg() {
+      this.isPurchase = true;
+    },
+    exitPurchase(ev) {
+      if (ev.srcElement.localName === "section") {
+        this.isPurchase = false;
+      }
+    },
+  },
+  computed: {
+    gigId() {
+      // if (this.$route.params.id) {
+      return this.$route.params.id;
+      // }
+    },
+  },
+};
+</script>
+
+<style>
+</style>
