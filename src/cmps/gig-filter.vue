@@ -30,10 +30,10 @@
   </div>
 
    <el-select class="delivery-input" @change="filter" v-model="filterBy.deliveryTime" placeholder="Delivery Time">
-    <el-option value="Express 24H">Express 24H</el-option>
-    <el-option value="Up to 3 days">Up to 3 days</el-option>
-    <el-option value="Up to 7 days">Up to 7 days</el-option>
-    <el-option value="Anytime">Anytime</el-option>
+    <el-option value="Express 24H"> Express 24H </el-option>
+    <el-option value="Up to 3 days"> Up to 3 days </el-option>
+    <el-option value="Up to 7 days"> Up to 7 days </el-option>
+    <el-option value="Anytime"> Anytime </el-option>
   </el-select> 
   </section>
 </template>

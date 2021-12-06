@@ -28,7 +28,7 @@ export default {
   methods: {
     filter(filterBy) {
       console.log('filterBy', filterBy);
-      // this.$store.dispatch({ type: "filterBy", filterBy });
+      this.$store.dispatch({ type: "setFilterBy", filterBy });
 
     }
   },
@@ -38,8 +38,3 @@ export default {
   },
 };
 </script>
-<<<<<<< HEAD
-=======
-<style>
-</style>
->>>>>>> 3159bafea887dd2d81cbd9a7889496d3f565bfa9
