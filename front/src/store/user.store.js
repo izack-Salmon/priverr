@@ -26,7 +26,8 @@ export const userStore = {
             state.users = users
         },
         login(state, { user }) {
-            state.loginUser = user.username
+            state.loginUser = user
+            console.log(state.loginUser);
         },
         logout(state) {
             state.loginUser = '';
@@ -49,7 +50,7 @@ export const userStore = {
         },
         async login({ commit }, { user }) {
             await authService.login(user)
-            console.log('im here');
+            console.log(user);
             commit({ type: 'login', user })
         },
         async logout({ commit }) {
