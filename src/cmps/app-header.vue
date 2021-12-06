@@ -1,7 +1,14 @@
 <template>
-  <section :class="[{ 'bgc-white': !isHome },{'gray-border': !isHome}]">
+  <section :class="[{ 'bgc-white': !isHome }, { 'gray-border': !isHome }]">
     <!-- <div class="main-header flex align-center space-between"> -->
-    <div :class="['main-header', 'main-layout', { white: isHome },{ 'bgc-white': !isHome }]">
+    <div
+      :class="[
+        'main-header',
+        'main-layout',
+        { white: isHome },
+        { 'bgc-white': !isHome },
+      ]"
+    >
       <div class="nav-warp">
         <div class="logo-warp">
           <router-link :class="{ white: isHome }" :to="'/'">
@@ -20,7 +27,11 @@
           </router-link>
         </div>
         <div
-          :class="['nav-search',{'srch-visible':!isHome},{'srch-hidden':isHome}]"
+          :class="[
+            'nav-search',
+            { 'srch-visible': !isHome },
+            { 'srch-hidden': isHome },
+          ]"
         >
           <form class="search-form" action="">
             <svg
@@ -44,7 +55,10 @@
         <span>Become a Seller</span> <span>Sign in</span>
         <!-- <div> -->
         <!-- <div class="join-box"> -->
-        <button :class="[{ 'btn-white': isHome }, { 'btn-green': !isHome }]">
+        <button
+          @click="openLogin"
+          :class="[{ 'btn-white': isHome }, { 'btn-green': !isHome }]"
+        >
           Join
         </button>
         <!-- </div> -->
@@ -52,15 +66,20 @@
         <!-- </div> -->
       </div>
     </div>
+    <div></div>
+    <login-pop-up @close="close" v-show="loginOpened" />
   </section>
 </template>
 
 <script>
+import loginPopUp from "../cmps/login-popUp.vue";
 export default {
   data() {
     return {
       isHome: true,
       scrollPosition: null,
+      loginPop: false,
+      loginOpened: false,
     };
   },
   created() {
@@ -77,16 +96,24 @@ export default {
   methods: {
     updateScroll() {
       this.scrollPosition = window.scrollY;
-      this.isHome = ((this.scrollPosition > 10) && (this.$route.name === "Home")) ? false : true;
-      if ((this.scrollPosition < 50) && (this.$route.name !== "Home")){
-        this.isHome = false
+      this.isHome =
+        this.scrollPosition > 10 && this.$route.name === "Home" ? false : true;
+      if (this.scrollPosition < 50 && this.$route.name !== "Home") {
+        this.isHome = false;
       }
+    },
+    close() {
+      this.loginOpened = false;
+    },
+    openLogin() {
+      this.loginOpened = true;
     },
   },
   mounted() {
     window.addEventListener("scroll", this.updateScroll);
   },
   computed: {},
+  components: { loginPopUp },
 };
 </script>
 

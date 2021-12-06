@@ -162,9 +162,9 @@ export default {
   },
   computed: {
     gigId() {
-      if (this.$route.params.id) {
-        return this.$route.params.id;
-      }
+      // if (this.$route.params.id) {
+      return this.$route.params.id;
+      // }
     },
   },
 };

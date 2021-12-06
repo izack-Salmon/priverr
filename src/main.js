@@ -12,6 +12,8 @@ Vue.config.productionTip = false
 Vue.use(ElementUI);
 Vue.use(VueCarousel);
 
+//custom directives 
+
 new Vue({
   router,
   store,
