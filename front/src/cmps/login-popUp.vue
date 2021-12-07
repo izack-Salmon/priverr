@@ -11,7 +11,7 @@
           <form class="login-form" @submit.prevent="login">
             <p class="login-msg">{{ msg }}</p>
             <el-input
-              v-if="SginUp"
+              v-if="sginIn"
               placeholder="Enter fullname"
               v-model="user.fullname"
             ></el-input>
@@ -24,21 +24,21 @@
               placeholder="Please input password"
               v-model="user.password"
             ></el-input>
-            <button @click="login" v-if="!SginUp" class="btn-login">
+            <button @click="login" v-if="!sginIn" class="btn-login">
               continue
             </button>
-            <button @click="sginUp" v-if="SginUp" class="btn-login">
+            <button @click="sginIn" v-if="sginIn" class="btn-login">
               continue
             </button>
             <hr />
           </form>
           <div class="signing-footer">
-            <span v-if="!SginUp">Already a member?</span>
-            <span v-if="SginUp">Not a member yet?</span>
-            <button v-if="!SginUp" @click="getSginIn" class="form-sgin-in">
+            <span v-if="!sginIn">Already a member?</span>
+            <span v-if="sginIn">Not a member yet?</span>
+            <button v-if="!sginIn" @click="getSginIn" class="form-sgin-in">
               Sign In
             </button>
-            <button v-if="SginUp" @click="getSginIn" class="form-sgin-in">
+            <button v-if="sginIn" @click="getSginIn" class="form-sgin-in">
               Join now
             </button>
           </div>
@@ -60,7 +60,7 @@ export default {
       },
       loginOpened: "",
       msg: "",
-      SginUp: false,
+      sginIn: false,
       logeddInUser: "",
     };
   },
@@ -78,12 +78,12 @@ export default {
       }
       var user = this.$store.dispatch({ type: "login", user: this.user });
       Promise.resolve(user).then((user) => {
-        console.log(user);
+        // console.log(user);
       });
       // console.log(user);
     },
     getSginIn() {
-      this.SginUp = !this.SginUp;
+      this.sginIn = !this.sginIn;
     },
     sginUp() {
       if (!this.user.fullname || !this.user.password || !this.user.username) {
@@ -114,7 +114,7 @@ export default {
       return this.showLogin;
     },
     logedInUser() {
-      console.log(this.$store.getters.logginUser);
+      // console.log(this.$store.getters.logginUser);
       return this.$store.getters.logginUser;
     },
   },
@@ -123,7 +123,7 @@ export default {
       handler() {
         // console.log(this.showLogin);
         this.loginOpened = this.showLogin;
-        console.log(this.loginOpened);
+        // console.log(this.loginOpened);
       },
       immediate: true,
     },

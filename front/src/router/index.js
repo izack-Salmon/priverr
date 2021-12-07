@@ -4,7 +4,7 @@ import home from '../views/piverr-app.vue'
 import explore from '../views/explore.vue'
 import gigDetails from '../views/gig-details.vue'
 import gigEdit from '../views/gig-edit.vue'
-import userDetails from '../views/gig-details.vue'
+import userDetails from '../views/user-details.vue'
 import dashboard from '../views/dashboard.vue'
 import store from '../store'
 
