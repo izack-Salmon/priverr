@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <span v-for="index in gig.owner.rate" :key="index">
+  <div class="stars-container" v-if="rate">
+    <span class="star-box" v-for="index in rate" :key="index">
       <span
         class="gig-owener-star"
         aria-hidden="true"
@@ -26,7 +26,14 @@
 <script>
 export default {
   props: ["gig"],
-  created() {},
+  data() {
+    return {
+      rate: 0,
+    };
+  },
+  created() {
+    this.rate = Math.round(this.gig.owner.rate);
+  },
 };
 </script>
 

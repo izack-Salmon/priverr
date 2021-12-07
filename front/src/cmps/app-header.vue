@@ -68,7 +68,23 @@
           Join
         </button>
         <!-- </div> -->
-        <div hidden class="avatar">avatar</div>
+        <!-- <div v-if="userName"> -->
+        <!-- <avatar
+          @avatar-initials="userName"
+          @click="goToUserPage"
+          class="home-Avater"
+          :size="32"
+          v-show="logedInUser"
+          username="g"
+        ></avatar> -->
+        <img
+          v-if="userName"
+          @click="goToUserPage"
+          v-show="logedInUser"
+          class="home-Avater"
+          src="https://fiverr-res.cloudinary.com/t_profile_thumb,q_auto,f_auto/attachments/profile/photo/aff6dad2cb21d22c1d19784d58db2f16-1592918782697/4b68bdcb-1355-4e65-b15e-510f19b4bc3b.jpg"
+          alt=""
+        />
         <!-- </div> -->
       </div>
     </div>
@@ -93,6 +109,7 @@ export default {
       loginPop: false,
       loginOpened: true,
       clickedJoin: false,
+      user: "",
     };
   },
   created() {
@@ -132,17 +149,38 @@ export default {
       console.log("this.searchTerm", this.searchTerm);
       this.$emit("setSearch", this.searchTerm);
     },
+    goToUserPage() {
+      console.log("hi");
+      console.log(this.user);
+      this.$router.push(`/user/:id${this.user.data._id}`);
+    },
   },
   mounted() {
     window.addEventListener("scroll", this.updateScroll);
   },
   computed: {
     logedInUser() {
-      console.log(this.$store.getters.logginUser);
       return this.$store.getters.logginUser;
     },
+    async userName() {
+      var user = await this.$store.getters.logginUser;
+      console.log();
+      Promise.resolve(user).then((backuser) => {
+        this.user = backuser;
+        return this.user.username;
+      });
+    },
   },
-  components: { loginPopUp },
+  // watch: {
+  //   userName: {
+  //     handler() {
+  //       // console.log(userName);
+  //       this.username = userName;
+  //     },
+  //     immediate: true,
+  //   },
+  // },
+  components: { loginPopUp, Avatar },
 };
 </script>
 

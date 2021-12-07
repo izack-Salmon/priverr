@@ -6,6 +6,7 @@ export const userStore = {
         loginUser: '',
         users: '',
         currOwner: '',
+        username: '',
     },
     getters: {
         currOwner(state) {
@@ -18,6 +19,9 @@ export const userStore = {
         //for the start with no backend
         users(state) {
             return state.users
+        },
+        userName(state) {
+            return state.username
         }
     },
     mutations: {
@@ -26,7 +30,9 @@ export const userStore = {
             state.users = users
         },
         login(state, { user }) {
+            console.log(user);
             state.loginUser = user
+            state.username = user.username
             // console.log(state.loginUser);
         },
         logout(state) {
