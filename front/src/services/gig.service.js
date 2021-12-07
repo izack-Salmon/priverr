@@ -73,7 +73,7 @@ async function _createGigs() {
     }
     return gigs;
 }
-async function _createGig(description, user) {
+async function _createGig(description, user,) {
     console.log('user-gig-serv', user);
     var { _id, fullname, imgUrl } = user
     const miniUser = {
@@ -105,3 +105,81 @@ async function _createGig(description, user) {
         ],
     };
 }
+
+
+
+var labalsAimg = [
+    {label:'logo-design', 
+    imgUrls: [
+        'https://res.cloudinary.com/pivarr/image/upload/c_scale,h_393,w_680/v1638715480/logo%20design/seller-3/1_i3unds.png',
+    'https://res.cloudinary.com/pivarr/image/upload/c_scale,h_393,w_680/v1638862335/logo%20design/seller-4/write-signature-and-handmade-unique-logo_1_sz31bt.jpg',
+    'https://res.cloudinary.com/pivarr/image/upload/c_scale,h_393,w_680/v1638862396/logo%20design/seller-4/design-a-modern-minimalist-logo-in-24-hours_j5ykcu.png',
+    'https://res.cloudinary.com/pivarr/image/upload/c_scale,h_393,w_680/v1638863926/logo%20design/seller-5/make-a-simple-premium-cartoon-animal-logo-mascot_vdavv4.png',
+    'https://res.cloudinary.com/pivarr/image/upload/c_scale,h_393,w_680/v1638863922/logo%20design/seller-5/make-a-simple-premium-cartoon-animal-logo-mascot_woo3kj.jpg',
+    'https://res.cloudinary.com/pivarr/image/upload/c_scale,h_393,w_680/v1638863919/logo%20design/seller-5/make-a-simple-premium-cartoon-animal-logo-mascot_1_pwito9.jpg',
+    'https://res.cloudinary.com/pivarr/image/upload/c_scale,h_393,w_680/v1638715480/logo%20design/seller-3/1_i3unds.png',
+    ],
+    title: ['design flat and clean logo design',
+    'design flat and clean logo design',
+    'do profesional modern buisness logo design'
+],
+     },
+    {
+        label: 'social-media',
+        imgUrls: [
+            'https://res.cloudinary.com/pivarr/image/upload/c_scale,h_393,w_680/v1638715332/soicalmedia/person1/1_mgoc7d.jpg',
+            'https://res.cloudinary.com/pivarr/image/upload/v1638866001/soicalmedia/seller-2/boost-youtube-videos-high-platform_enn2sd.png',
+        ],
+        title: ['research the perfect audience to target with facebook ads',
+        'be your social media content and post creator',
+     ]
+    },
+    {
+        label: 'voice-over',
+        imgUrls: [
+            'https://res.cloudinary.com/pivarr/image/upload/c_scale,h_393,w_680/v1638865426/voice-over/audio-delivery-bg_lvsuxh.png',
+            'https://res.cloudinary.com/pivarr/image/upload/c_scale,h_393,w_680/v1638865489/voice-over/seller-1/e9178daf57f10ce3399c993c77b002c15f5f775f_t1eebl.jpg',
+            'https://res.cloudinary.com/pivarr/image/upload/c_scale,h_393,w_680/v1638865532/voice-over/seller-2/67342de45573b46dc31fe8fec17247c3b8e868f5_j5pgex.jpg',
+            'https://res.cloudinary.com/pivarr/image/upload/c_scale,h_393,w_680/v1638865426/voice-over/audio-delivery-bg_lvsuxh.png',
+            'https://res.cloudinary.com/pivarr/image/upload/c_scale,h_393,w_680/v1638865531/voice-over/seller-2/record-an-awesome-voice-over-in-24-hours-with-revisions_hrcqk6.jpg',
+            'https://res.cloudinary.com/pivarr/image/upload/c_scale,h_393,w_680/v1638865603/voice-over/seller-3/13e1bd0f5b4d3d7620a3f7b96ad93e8b9e582976_jnxmst.jpg',
+            'https://res.cloudinary.com/pivarr/image/upload/c_scale,h_393,w_680/v1638865604/voice-over/seller-3/a7b191d6bebcbe1995022a4516e2c190fe4edb85_uhcsms.jpg',
+            'https://res.cloudinary.com/pivarr/image/upload/c_scale,h_393,w_680/v1638865426/voice-over/audio-delivery-bg_lvsuxh.png',
+
+        ],
+        title: ['recored ameriacan deep voices',
+               'record high quality voice overs',
+               'record your kickstarter or croud funding voice over',
+               'record british english voiceover',
+     ]
+    },
+    {
+        label: 'wordpress',
+        imgUrls: [
+            'https://res.cloudinary.com/pivarr/image/upload/c_scale,h_393,w_680/v1638715147/wordpress/person1/1_cfzkte.jpg',
+            'https://res.cloudinary.com/pivarr/image/upload/c_scale,h_393,w_680/v1638715148/wordpress/person1/2_niodln.jpg',
+            'https://res.cloudinary.com/pivarr/image/upload/c_scale,h_393,w_680/v1638715150/wordpress/person1/3_t2qdjv.jpg',
+            'https://res.cloudinary.com/pivarr/image/upload/v1638864757/wordpress/seller-2/speed-up-your-wordpress-website_egwlgj.png',
+            'https://res.cloudinary.com/pivarr/image/upload/v1638864757/wordpress/seller-2/speed-up-your-wordpress-website_egwlgj.png',
+            'https://res.cloudinary.com/pivarr/image/upload/v1638864965/wordpress/seller-3/design-wordpress-landing-page-elementor-pro-responsive-landing-page-squeeze-page_ljoshs.jpg',
+            'https://res.cloudinary.com/pivarr/image/upload/v1638864961/wordpress/seller-3/design-wordpress-landing-page-elementor-pro-responsive-landing-page-squeeze-page_1_yov75o.jpg',
+            'https://res.cloudinary.com/pivarr/image/upload/v1638864959/wordpress/seller-3/1_l3annt_qvktvl.jpg'
+        ],
+        title: ['create clean and modern wordpress website',
+        'develop responsive wordpress website design',
+        'setup modern wordpress website design or blog design',
+        'create aesthetic wordpress websites with elementor pro'
+    ]
+        
+    }
+]
+
+// function setGig (){
+//     for (let i = 0; i < labalsAimg.length; i++) {
+//         let gig = {
+//             label: 
+//         }
+        
+        
+//     }
+// }
