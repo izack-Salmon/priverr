@@ -5,6 +5,7 @@
 .pack-and-price {
     justify-content: space-between;
     align-items: center;
+    font-family: Macan-regular;
 }
 
 .pack-and-price .his-pack {
@@ -24,13 +25,19 @@
     display: flex;
     align-items: center;
     margin: 0 0 8px;
+    .delivery-icon {
+        display: flex;
+    }
+}
+
+.service-line {
+    margin: 0 5px;
 }
 
 .seller-service span {
     font-weight: 600;
     font-size: 14px;
     color: #62646A;
-    margin-left: 5px;
 }
 
 .purch-btn {
@@ -49,4 +56,32 @@
 
 .purch-btn:hover {
     background-color: #169e5e;
+}
+
+.whats-include-title {
+    font-size: 14px;
+    color: #404145
+}
+
+.whats-include {
+    fill: #1dbf73;
+    ul {
+        margin: 8px 0 32px;
+        padding: 0;
+    }
+    li {
+        padding-bottom: 8px;
+        color: #95979d;
+        font: 400 14px Helvetica Neue, Helvetica, Arial, sans-serif;
+        list-style: none;
+    }
+    span {
+        padding-right: 12px;
+    }
+}
+
+.p-purch-info {
+    margin: 16px 0;
+    font-size: 14px;
+    font-family: Macan-regular;
 }

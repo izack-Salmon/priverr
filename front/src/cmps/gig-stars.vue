@@ -1,7 +1,7 @@
 <template>
-  <div>
-    <span v-for="index in gig.owner.rate" :key="index">
-      <span
+  <div class="stars-container">
+    <span class="star-box" v-for="index in gig.owner.rate" :key="index">
+      <span 
         class="gig-owener-star"
         aria-hidden="true"
         style="width: 15px; height: 15px"

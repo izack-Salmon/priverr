@@ -7,12 +7,15 @@
                     <img :src="gig.owner.imgUrl" alt="">
                 </div>
                 <div class="about-seller-info">
-                    <a href="">{{gig.owner.fullname}}</a>
+                    <div class="username-line">
+                        <a href="">{{gig.owner.fullname}}</a>
+                    </div>
+                  
                     <div class="one-liner-rating">
-                        <p class="one-liner">Logo Designer</p>
-                        <div class="orca-rating">
-                            <gigStars :gig="gig" />|<span>(1k+)</span>|
-                            
+                        <p class="one-liner">Perfection is Everything</p>
+                        <div class="rating-flex-box">
+                            <gigStars :gig="gig" />
+                            <div class="profile-rating-amount">(1k+)</div>
                         </div>
                     </div>
                     <button class="about-seller-btn">Contact Me</button>
@@ -22,24 +25,24 @@
             <ul class="seller-stats">
                 <li>
                     From
-                    <strong>Serbia</strong>
+                    <strong>France</strong>
                 </li>
                 <li>
                     Member since
-                    <strong>1 hour</strong>
-                </li>
-                <li>
-                    Avg. response time
                     <strong>Feb 2018</strong>
                 </li>
                 <li>
+                    Avg. response time
+                    <strong>about 2 hours</strong>
+                </li>
+                <li>
                     Last delivery
-                    <strong>about 5 hours</strong>
+                    <strong>about 1 hour</strong>
                 </li>
 
             </ul>
             <article>
-                Hello,<br><br>My name is Radovan and I’m a graphic designer living in Serbia. You will get quality, original an unique logo designs. My personal journal reflects my journeys through design and I share them here with you. Let start and you will see! Thank you.
+                Hello,<br><br> My name is Radovan and I’m a graphic designer living in Serbia. You will get quality, original an unique logo designs. My personal journal reflects my journeys through design and I share them here with you. Let start and you will see! Thank you.
             </article>
           </div>
       </div>

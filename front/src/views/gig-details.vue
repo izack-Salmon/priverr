@@ -30,8 +30,11 @@
             <div class="profile-name">
               <a href="">{{ gig.owner.fullname }}</a>
               <span class="gig-owner-level">{{ gig.owner.level }}</span>
-            </div>
-            <gigStars :gig="gig" />| <span>(1k+)</span>
+            </div><div class="mid-liner">|</div>
+            <gigStars :gig="gig" />
+            <span class="rating-amount">(1k+)</span>
+            <div class="mid-liner">|</div>
+            <span class="que-num">27 Orders in Queue</span>
           </div>
           <div class="line"></div>
 
@@ -53,13 +56,11 @@
             <gig-purchase :gig="gig" @purchaseMsg="purchaseMsg" />
           </div>
           <about-the-seller :gig="gig"/>
+          <gig-review-graph v-if="owner" :owner="owner"/>
           <gig-reviews-list v-if="owner" :owner="owner" />
         </div>
         <div class="side-bar-content stickit">
           <div class="invoicing-box">
-            <!-- <div class="package-container">
-              <span>Basic</span>
-            </div> -->
             <div class="purchase-details-holder">
               <gig-purchase :gig="gig" @purchaseMsg="purchaseMsg" />
             </div>
@@ -102,6 +103,7 @@ import gigReviewsList from "../cmps/gig-reviews-list.vue";
 import caroselDatails from "../cmps/carousel-details.vue";
 import caroselSmall from "../cmps/carousel-small.vue";
 import aboutTheSeller from "../cmps/about-the-seller.vue"
+import gigReviewGraph from "../cmps/gig-review-graph.vue"
 export default {
   components: {
     gigPurchase,
@@ -110,6 +112,7 @@ export default {
     caroselDatails,
     caroselSmall,
     aboutTheSeller,
+    gigReviewGraph,
   },
   name: "gigDetails",
   data() {

@@ -1,6 +1,28 @@
-.gig-owener-star{
-    fill: #ffb33e
+.gig-owener-star {
+    fill: #ffb33e;
 }
-.gig-owner-rate{
+
+.gig-owner-rate {
     padding-left: 4px;
+}
+
+.gig-owner-rate {
+    padding: 0px 0px 0px 4px;
+    color: #ffb33e;
+    font-size: 16px;
+    line-height: 21px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.stars-container {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    .star-box {
+        line-height: 100%;
+    }
+    .star-box:not(:first-child) {
+        margin-left: 3px;
+    }
 }

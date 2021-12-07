@@ -3,9 +3,7 @@
     <div class="hero-container">
       <div class="brand-campaign main-layout">
         <h1 class="hero-tiltle">
-          <span
-            >Find the perfect <i>freelance</i> services for your business</span
-          >
+          <span>Find the perfect <i>freelance</i> services for your business</span>
         </h1>
         <form class="home-search-box">
           <svg
@@ -34,7 +32,13 @@
             </span>
           </ul>
         </div>
+       <div class="hero-snippet hero-gabrielle">Gabrielle, Video Editor</div>
+       <!-- <div class="hero-snippet hero-andrea">Andrea, Fashion Designer</div>
+       <div class="hero-snippet hero-moon">Moon, Marketing Expet</div>
+       <div class="hero-snippet hero-ritika">Ritika, Shoe</div>
+       <div class="hero-snippet hero-zach">Zach, Bar Owner</div> -->
       </div>
+      
     </div>
     <div class="trust-contaner">
       <span class="trusted-by-text">Trusted by:</span>

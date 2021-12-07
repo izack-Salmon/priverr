@@ -84,6 +84,12 @@
     /* animation: fade 2s linear ; */
 }
 
+// .hero-gabrielle
+// .hero-gabrielle
+// .hero-andrea
+// .hero-moon
+// .hero-ritika
+// .hero-zach
 @keyframes fade {
     0% {
         background-image: url("https://res.cloudinary.com/pivarr/image/upload/v1638379118/hero/1_c9jihn.jpg");
@@ -296,4 +302,9 @@
         // padding-left: 32px;
         // padding-right: 32px;
     }
+}
+
+.hero-snippet {
+    float: right;
+    margin-top: 230px;
 }
