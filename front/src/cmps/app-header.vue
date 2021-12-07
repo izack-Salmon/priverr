@@ -56,10 +56,12 @@
       </div>
       <div :class="['nav-bar', { white: isHome }, { 'hover-nav': !isHome }]">
         <router-link :to="'/explore'">Explore</router-link>
-        <span>Become a Seller</span> <span>Sign in</span>
+        <span>Become a Seller</span> <span @click="openSignIn">Sign in</span>
+        <span v-show="logedInUser" @click="logOut">signOut</span>
         <!-- <div> -->
         <!-- <div class="join-box"> -->
         <button
+          v-show="!logedInUser"
           @click="openLogin"
           :class="[{ 'btn-white': isHome }, { 'btn-green': !isHome }]"
         >
@@ -71,11 +73,16 @@
       </div>
     </div>
     <div></div>
-    <login-pop-up @close="close" v-show="loginOpened" />
+    <login-pop-up
+      @close="close"
+      :enterLogin="clickedJoin"
+      v-show="loginOpened"
+    />
   </section>
 </template>
 
 <script>
+import Avatar from "vue-avatar";
 import loginPopUp from "../cmps/login-popUp.vue";
 export default {
   data() {
@@ -84,7 +91,8 @@ export default {
       isHome: true,
       scrollPosition: null,
       loginPop: false,
-      loginOpened: false,
+      loginOpened: true,
+      clickedJoin: false,
     };
   },
   created() {
@@ -107,10 +115,17 @@ export default {
         this.isHome = false;
       }
     },
+    logOut() {
+      this.$store.dispatch({ type: "logout" });
+    },
     close() {
       this.loginOpened = false;
     },
     openLogin() {
+      this.loginOpened = true;
+    },
+    openSignIn() {
+      this.clickedJoin = false;
       this.loginOpened = true;
     },
     setSearch() {
@@ -121,7 +136,12 @@ export default {
   mounted() {
     window.addEventListener("scroll", this.updateScroll);
   },
-  computed: {},
+  computed: {
+    logedInUser() {
+      console.log(this.$store.getters.logginUser);
+      return this.$store.getters.logginUser;
+    },
+  },
   components: { loginPopUp },
 };
 </script>

@@ -34,25 +34,73 @@
       color: $clr7;
     }
   }
-  .slick-prev:before,
-  .slick-next:before {
-     color: rgb(110, 110, 110) !important;  
-    font-size:  48px;
-    // z-index: 10;
-    // width: 48px;
+.slider-package .slick-slider .slick-arrow.slick-prev {
+    left: -8px;
+}
+.slider-package .slick-slider .slick-arrow.slick-prev {
+  left: -17px;
+  border-radius: 30px;
+}
+.slider-package .slick-slider .slick-arrow {
+  background-color: #fff;
+  position: absolute;
+  z-index: 4;
+  top: 50%;
+  width: 48px;
+  height: 48px;
+  margin-top: -24px;
+  text-align: center;
+  -webkit-box-shadow: 0 2px 5px 0 rgb(0 0 0 / 15%);
+  box-shadow: 0 2px 5px 0 rgb(0 0 0 / 15%);
+  border: 0;
+  font-size: 16px;
+  line-height: 100%;
+}
+.slider-package .slick-slider .slick-arrow.slick-prev:after {
+  background-position: 0 -32px;
+}
+.slider-package .slick-slider .slick-arrow:after {
+  content: "";
+  display: inline-block;
+  background: url(https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/arrows.a8b0bad.svg) no-repeat;
+  background-size: 16px 64px;
+  width: 16px;
+  height: 16px;
+  margin-top: 3px;
+}
+.slider-package .slick-slider .slick-arrow.slick-prev {
+  left: -8px;
+}
+.slider-package .slick-slider .slick-arrow.slick-prev {
+  left: -17px;
+  border-radius: 30px;
+}
+.slider-package .slick-slider .slick-arrow {
+  background-color: #fff;
+  position: absolute;
+  z-index: 4;
+  top: 50%;
+  width: 48px;
+  height: 48px;
+  margin-top: -24px;
+  text-align: center;
+  -webkit-box-shadow: 0 2px 5px 0 rgb(0 0 0 / 15%);
+  box-shadow: 0 2px 5px 0 rgb(0 0 0 / 15%);
+  border: 0;
+  font-size: 16px;
+  line-height: 100%;
+}
+.slider-package .slick-slider .slick-arrow:after {
+  content: "";
+  display: inline-block;
+  background: url(https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/arrows.a8b0bad.svg) no-repeat;
+  background-size: 16px 64px;
+  width: 16px;
+  height: 16px;
+  margin-top: 3px;
 
-    border-radius: 30px;
-  }
+}
 
-  .slick-prev{
-    left: -45px;
-  }
-  
-  .slick-arrow {
-    position: absolute;
-    display: block;
-    color: #000;
-  }
   .slick-slider{
     padding-bottom: 10px;
   }

@@ -10,6 +10,7 @@ async function login(req, res) {
     } catch (err) {
         logger.error('Failed to Login ' + err)
         res.status(401).send({ err: 'Failed to Login' })
+        return err
     }
 }
 
@@ -17,7 +18,7 @@ async function signup(req, res) {
     try {
         const { username, password, fullname } = req.body
         // Never log passwords
-        // logger.debug(fullname + ', ' + username + ', ' + password)
+        logger.debug(fullname + ', ' + username + ', ' + password)
         const account = await authService.signup(username, password, fullname)
         logger.debug(`auth.route - new account created: ` + JSON.stringify(account))
         const user = await authService.login(username, password)
@@ -29,7 +30,7 @@ async function signup(req, res) {
     }
 }
 
-async function logout(req, res){
+async function logout(req, res) {
     try {
         // req.session.destroy()
         req.session.user = null;

@@ -12,7 +12,7 @@ export const userStore = {
             return state.currOwner
         },
         logginUser(state) {
-            console.log(state.loginUser);
+            // console.log(state.loginUser);
             return state.loginUser
         },
         //for the start with no backend
@@ -27,14 +27,14 @@ export const userStore = {
         },
         login(state, { user }) {
             state.loginUser = user
-            console.log(state.loginUser);
+            // console.log(state.loginUser);
         },
         logout(state) {
             state.loginUser = '';
         },
         setCurrOwner(state, { owner }) {
             console.log('setterowner:', owner)
-            state.currOwner = owner;
+            // state.currOwner = owner;
 
         }
     },
@@ -49,9 +49,10 @@ export const userStore = {
             commit({ type: 'loadUser', users })
         },
         async login({ commit }, { user }) {
-            await authService.login(user)
-            console.log(user);
+            var user = await authService.login(user)
+            // console.log(user);
             commit({ type: 'login', user })
+            return user
         },
         async logout({ commit }) {
             await authService.logout()
