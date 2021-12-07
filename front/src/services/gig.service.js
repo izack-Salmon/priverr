@@ -60,8 +60,6 @@ function getEmptyGig() {
     };
 }
 
-
-
 async function _createGigs() {
     // console.log('im heere to ');
     var gigs = storageService.load(KEY);
@@ -75,7 +73,6 @@ async function _createGigs() {
     }
     return gigs;
 }
-
 async function _createGig(description, user) {
     console.log('user-gig-serv', user);
     var { _id, fullname, imgUrl } = user

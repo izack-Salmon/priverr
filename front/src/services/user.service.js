@@ -69,25 +69,26 @@ async function update(user) {
 }
 
 async function login(userCred) {
-    const users = await asyncStorageService.query(KEY)
-    const user = users.find(user => user.username === userCred.username)
-    return _saveLocalUser(user)
+    // const users = await asyncStorageService.query(KEY)
+    // const user = users.find(user => user.username === userCred.username)
+    // return _saveLocalUser(user)
 
-    // const user = await httpService.post('auth/login', userCred)
-    // socketService.emit('set-user-socket', user._id);
-    // if (user) return _saveLocalUser(user)
+    const user = await httpService.post('auth/login', userCred)
+    socketService.emit('set-user-socket', user._id);
+    if (user) return _saveLocalUser(user)
+    return user
 }
 async function signup(userCred) {
     userCred.score = 10000;
-    const user = await asyncStorageService.post(KEY, userCred)
-    // const user = await httpService.post('auth/signup', userCred)
-    // socketService.emit('set-user-socket', user._id);
+    // const user = await asyncStorageService.post(KEY, userCred)
+    const user = await httpService.post('auth/signup', userCred)
+    socketService.emit('set-user-socket', user._id);
     return _saveLocalUser(user)
 }
 async function logout() {
-    sessionStorage.removeItem(STORAGE_KEY_LOGGEDIN_USER)
-    // socketService.emit('unset-user-socket');
-    // return await httpService.post('auth/logout')
+    // sessionStorage.removeItem(STORAGE_KEY_LOGGEDIN_USER)
+    socketService.emit('unset-user-socket');
+    return await httpService.post('auth/logout')
 }
 
 // async function changeScore(by) {

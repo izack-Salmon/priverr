@@ -6,6 +6,9 @@
       :style="{ height: '350px', width: '100%' }"
       class="carousel"
     >
+      <template>
+        <div class="custom-arrow"></div>
+      </template>
       <div
         class="imgage-contariner"
         v-for="popularPro in professionalList"
@@ -38,6 +41,7 @@ export default {
   data() {
     return {
       popularPros: [],
+      a: "=>",
 
       settings: {
         arrows: true,

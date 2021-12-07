@@ -9,6 +9,12 @@
         <div class="sing-in-contant">
           <h4 class="form-header">Join Piverr</h4>
           <form class="login-form" @submit.prevent="login">
+            <p class="login-msg">{{ msg }}</p>
+            <el-input
+              v-if="SginUp"
+              placeholder="Enter fullname"
+              v-model="user.fullname"
+            ></el-input>
             <el-input
               placeholder="Enter username"
               v-model="user.username"
@@ -18,11 +24,23 @@
               placeholder="Please input password"
               v-model="user.password"
             ></el-input>
-            <button class="btn-login">continue</button>
+            <button @click="login" v-if="!SginUp" class="btn-login">
+              continue
+            </button>
+            <button @click="sginUp" v-if="SginUp" class="btn-login">
+              continue
+            </button>
             <hr />
           </form>
           <div class="signing-footer">
-            Already a member? <button class="form-sgin-in">Sign In</button>
+            <span v-if="!SginUp">Already a member?</span>
+            <span v-if="SginUp">Not a member yet?</span>
+            <button v-if="!SginUp" @click="getSginIn" class="form-sgin-in">
+              Sign In
+            </button>
+            <button v-if="SginUp" @click="getSginIn" class="form-sgin-in">
+              Join now
+            </button>
           </div>
         </div>
       </div>
@@ -32,15 +50,18 @@
 <script>
 export default {
   name: "login",
-  props: { showLogin: Boolean },
+  props: { showLogin: Boolean, enterLogin: Boolean },
   data() {
     return {
       user: {
         username: "",
         password: "",
-        isAdmin: false,
+        fullname: "",
       },
       loginOpened: "",
+      msg: "",
+      SginUp: false,
+      logeddInUser: "",
     };
   },
   //   created() {
@@ -51,20 +72,41 @@ export default {
       this.loginOpened = true;
     },
     login() {
-      console.log("hi");
-      this.$store.dispatch({ type: "login", user: this.user });
+      if (!this.user.username || !this.user.password) {
+        this.errorMsg("Please enter username/password");
+        return;
+      }
+      var user = this.$store.dispatch({ type: "login", user: this.user });
+      Promise.resolve(user).then((user) => {
+        console.log(user);
+      });
+      // console.log(user);
+    },
+    getSginIn() {
+      this.SginUp = !this.SginUp;
+    },
+    sginUp() {
+      if (!this.user.fullname || !this.user.password || !this.user.username) {
+        this.errorMsg("Please enter username/password");
+        return;
+      }
+      this.$store.dispatch({ type: "signup", user: this.user });
     },
     hide() {
-      //   console.log("hi");
       this.$emit("hide");
       //   this.loginOpened = false;
     },
     exitLogin(ev) {
-      //   console.log("hi");
       if (ev.srcElement.localName === "section") {
         // console.log("im here to");
         this.$emit("close");
       }
+    },
+    errorMsg(msg) {
+      this.msg = msg;
+      setTimeout(() => {
+        this.msg = "";
+      }, 5000);
     },
   },
   computed: {

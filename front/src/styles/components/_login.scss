@@ -13,7 +13,7 @@
 }
 .login-form{
     padding-top: 20px;
-    .el-input:first-child{
+    .el-input:not(:last-child){
         padding-bottom: 16px;
     }
 }
@@ -44,6 +44,10 @@
     text-align: center;
     margin-bottom: 10px;
     // padding-bottom: 10px;
+}
+.login-msg{
+    color: red;
+    text-align: center;
 }
 .signing-footer{
 text-align: center;
