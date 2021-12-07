@@ -41,6 +41,7 @@
         .seller-level {
             color: #7a7d85;
             font-weight: 500;
+            font-family: Macan-regular;
             line-height: 21px;
         }
     }
@@ -83,13 +84,13 @@
     } 
     :nth-child(2){
         color: #b5b6ba; 
+        font-family: Macan-regular;
         font-weight: 400;
         margin: 0px 0px 0px 2px;
     }
 
   
 }
-
 
 .gig-footer {
     padding: 10px 12px;
@@ -101,7 +102,7 @@
     .text-price {
         color: #7a7d85;
         font-size: 10px;
-        font-weight: 700;
+        // font-weight: 700;
         letter-spacing: .5px;
         text-transform: uppercase;
         display: inline-block;
@@ -110,6 +111,7 @@
     }
     .price-span {
         font-size: 18px;
+        font-family: Macan-regular;
         line-height: 20px;
         color: #404145;
         text-align: right;

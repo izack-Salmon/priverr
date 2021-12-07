@@ -16,14 +16,19 @@ export default {
   name: "explore",
   data() {
     return {
-      pagetitle: "Explore",
+      // pagetitle: "Explore",
     };
   },
-  created() {},
+  created() {
+
+  },
   computed: {
     gigsToShow() {
       return this.$store.getters.gigs;
     },
+    pagetitle() {
+      return this.$store.getters.exploreTitle;
+    }
   },
   methods: {
     filter(filterBy) {

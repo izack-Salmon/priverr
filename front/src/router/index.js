@@ -21,6 +21,16 @@ const routes = [{
     component: explore
 },
 {
+    path: '/explore/',
+    name: 'explore/:cat',
+    component: explore
+},
+{
+    path: '/explore/',
+    name: 'explore/:search',
+    component: explore
+},
+{
     path: '/gig/Details/:id',
     name: 'gigDetails',
     component: gigDetails

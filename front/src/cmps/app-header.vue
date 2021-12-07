@@ -33,12 +33,12 @@
             { 'srch-hidden': isHome },
           ]"
         >
-          <form class="search-form" @input="setSearch">
+          <form class="search-form">
             <svg
               class="search-svg-header"
               width="16"
               height="16"
-              viewBox="0 0 16 16"
+              viewBox="0 0 15 16"
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
@@ -50,7 +50,7 @@
               placeholder="Find Services"
               v-model="searchTerm"
             />
-            <button>Search</button>
+            <button @click="setSearch">Search</button>
           </form>
         </div>
       </div>

@@ -3,6 +3,7 @@ const logger = require('../../services/logger.service')
 const ObjectId = require('mongodb').ObjectId
 
 async function query(filterBy) {
+    console.log('filterBy-serviceback', filterBy);
     try {
         // const criteria = _buildCriteria(filterBy)
         const criteria = {};

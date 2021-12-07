@@ -47,6 +47,8 @@
             width: 70.7px;
             margin-left: 10px;
             border-radius: 5px;
+            font-family: Macan;
+            font-size: 14px;
             background-color: transparent;
             cursor: pointer;           
             &:hover{
@@ -116,8 +118,10 @@
 .btn-white {
     color: #fff;
     border: 1px solid #fff;
+    transition: all .2s ease;
     &:hover {
         color: #fff;
+        background-color: #169e5e;
         border: 1px solid $clr1;
     }
 
@@ -126,9 +130,12 @@
 .btn-green {
     color: $clr1;
     border: 1px solid $clr1;
-      
+    // transition: color .5s ease,border .5s ease;
+    transition: all .2s ease;
     &:hover {
     color: #fff;
+    background-color: #169e5e;
+
     }
 }
 
@@ -164,14 +171,15 @@
         height: 34px;
         input[type=search]{
             // width: 100%;
-            // width: 293px;
+            width: 293px;
             resize: none;
             outline: none;
             background-color: #fff;
             font: inherit;
             font-weight: 500;
+            font-family: Macan-regular;
             color: #404145;
-            border: 1px solid #c5c6c9;       
+            border: 1px solid #dadbdd;       
             border-right: 0;
             border-radius: 3px 0 0 3px;
             transition: .15s ease-in-out;
@@ -199,8 +207,8 @@
 
     .search-svg-header {
         position: relative;
-        left: 20px;
-        top : 7px;
+        left: 24px;
+        top: 8px;
         opacity: 0.5;
     }
 
@@ -220,17 +228,17 @@
 
 
 /* clears the 'X' from Internet Explorer */
-input[type=search]::-ms-clear,
-input[type=search]::-ms-reveal {
-  display: none;
-  width: 0;
-  height: 0; 
-}
+// input[type=search]::-ms-clear,
+// input[type=search]::-ms-reveal {
+//   display: none;
+//   width: 0;
+//   height: 0; 
+// }
 
 /* clears the 'X' from Chrome */
-input[type=search]::-webkit-search-decoration,
-input[type=search]::-webkit-search-cancel-button,
-input[type=search]::-webkit-search-results-button,
-input[type=search]::-webkit-search-results-decoration {
-  display: none;
-}
+// input[type=search]::-webkit-search-decoration,
+// input[type=search]::-webkit-search-cancel-button,
+// input[type=search]::-webkit-search-results-button,
+// input[type=search]::-webkit-search-results-decoration {
+//   display: none;
+// }

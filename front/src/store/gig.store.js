@@ -102,7 +102,8 @@ export const gigStore = {
 
         exploreTitle(state) {
              let title = (state.exploreTitle.category !== null)? state.exploreTitle.category :state.exploreTitle.searchTerm
-            return title
+             console.log('title', title);
+             return title
         }
     },
 
@@ -144,7 +145,7 @@ export const gigStore = {
         },
         setSearchTerm(state, { searchTerm }) {
             state.filterBy.searchTerm = searchTerm;
-            state.exploreTitle.searchTerm = searchTerm
+            state.exploreTitle.searchTerm = `Results for "${searchTerm}"`
             state.exploreTitle.category = null;
             console.log('state.filterBy-search', state.filterBy);
             console.log('state.exploreTitle-search', state.exploreTitle);
@@ -183,13 +184,13 @@ export const gigStore = {
         setFilterBy({ commit, dispatch }, { filterBy }) {
             // return gigService.filterBy(state.gigs, filterBy).then((filterGigs) => {
             commit({ type: 'setFilterBy', filterBy });
-            // dispatch({ type: 'loadGigs' })
+            dispatch({ type: 'loadGigs' })
             // })
         },
         setSearch({ commit, dispatch }, { searchTerm }) {
             console.log('set-search-store', searchTerm);
             commit({ type: 'setSearchTerm', searchTerm });
-            // dispatch({ type: 'loadGigs' })
+            dispatch({ type: 'loadGigs' })
         },
         async getGigByid({ commit }, { gigId }) {
             try {
