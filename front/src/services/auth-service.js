@@ -1,5 +1,5 @@
 import Axios from "axios";
-var axios = Axios.create({withCredentials:true,});
+var axios = Axios.create({ withCredentials: true, });
 
 export const authService = {
     login,
@@ -12,13 +12,16 @@ const BASE_URL =
         ? "/api/auth"
         : "//localhost:3030/api/auth";
 
-function login(user) {
-    return axios.post(`${BASE_URL}/login`, user).then((res) => res.data)
+async function login(user) {
+    var user = await axios.post(`${BASE_URL}/login`, user)
+    return user
 }
-function logout() {
-    return axios.post(`${BASE_URL}/logout`).then((res) => res.data)
+async function logout() {
+    var user = await axios.post(`${BASE_URL}/logout`)
+    return user
 }
-function signup(user) {
+async function signup(user) {
     console.log(user);
-    return axios.post(`${BASE_URL}/signup`, user).then((res) => res.data)
+    var user = await axios.post(`${BASE_URL}/signup`, user)
+    return user
 }

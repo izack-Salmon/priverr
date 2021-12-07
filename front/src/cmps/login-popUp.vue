@@ -9,6 +9,12 @@
         <div class="sing-in-contant">
           <h4 class="form-header">Join Piverr</h4>
           <form class="login-form" @submit.prevent="login">
+            <p class="login-msg">{{ msg }}</p>
+            <el-input
+              v-if="sginIn"
+              placeholder="Enter fullname"
+              v-model="user.fullname"
+            ></el-input>
             <el-input
               placeholder="Enter username"
               v-model="user.username"
@@ -18,11 +24,23 @@
               placeholder="Please input password"
               v-model="user.password"
             ></el-input>
-            <button class="btn-login">continue</button>
+            <button @click="login" v-if="!sginIn" class="btn-login">
+              continue
+            </button>
+            <button @click="sginIn" v-if="sginIn" class="btn-login">
+              continue
+            </button>
             <hr />
           </form>
           <div class="signing-footer">
-            Already a member? <button class="form-sgin-in">Sign In</button>
+            <span v-if="!sginIn">Already a member?</span>
+            <span v-if="sginIn">Not a member yet?</span>
+            <button v-if="!sginIn" @click="getSginIn" class="form-sgin-in">
+              Sign In
+            </button>
+            <button v-if="sginIn" @click="getSginIn" class="form-sgin-in">
+              Join now
+            </button>
           </div>
         </div>
       </div>
@@ -32,15 +50,18 @@
 <script>
 export default {
   name: "login",
-  props: { showLogin: Boolean },
+  props: { showLogin: Boolean, enterLogin: Boolean },
   data() {
     return {
       user: {
         username: "",
         password: "",
-        isAdmin: false,
+        fullname: "",
       },
       loginOpened: "",
+      msg: "",
+      sginIn: false,
+      logeddInUser: "",
     };
   },
   //   created() {
@@ -51,20 +72,41 @@ export default {
       this.loginOpened = true;
     },
     login() {
-      console.log("hi");
-      this.$store.dispatch({ type: "login", user: this.user });
+      if (!this.user.username || !this.user.password) {
+        this.errorMsg("Please enter username/password");
+        return;
+      }
+      var user = this.$store.dispatch({ type: "login", user: this.user });
+      Promise.resolve(user).then((user) => {
+        // console.log(user);
+      });
+      // console.log(user);
+    },
+    getSginIn() {
+      this.sginIn = !this.sginIn;
+    },
+    sginUp() {
+      if (!this.user.fullname || !this.user.password || !this.user.username) {
+        this.errorMsg("Please enter username/password");
+        return;
+      }
+      this.$store.dispatch({ type: "signup", user: this.user });
     },
     hide() {
-      //   console.log("hi");
       this.$emit("hide");
       //   this.loginOpened = false;
     },
     exitLogin(ev) {
-      //   console.log("hi");
       if (ev.srcElement.localName === "section") {
         // console.log("im here to");
         this.$emit("close");
       }
+    },
+    errorMsg(msg) {
+      this.msg = msg;
+      setTimeout(() => {
+        this.msg = "";
+      }, 5000);
     },
   },
   computed: {
@@ -72,7 +114,7 @@ export default {
       return this.showLogin;
     },
     logedInUser() {
-      console.log(this.$store.getters.logginUser);
+      // console.log(this.$store.getters.logginUser);
       return this.$store.getters.logginUser;
     },
   },
@@ -81,7 +123,7 @@ export default {
       handler() {
         // console.log(this.showLogin);
         this.loginOpened = this.showLogin;
-        console.log(this.loginOpened);
+        // console.log(this.loginOpened);
       },
       immediate: true,
     },

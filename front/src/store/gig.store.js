@@ -7,7 +7,7 @@ export const gigStore = {
     state: {
         gigs: [],
         currGig: null,
-        searchTerm: null,
+        exploreTitle:{ category: 'Explore', searchTerm: null },
         filterBy: {},
         professional: [{
             img: "https://res.cloudinary.com/pivarr/image/upload/v1638380308/tagsimg/logo-design_cuoszf.jpg",
@@ -98,6 +98,12 @@ export const gigStore = {
 
         professional(state) {
             return state.professional
+        },
+
+        exploreTitle(state) {
+             let title = (state.exploreTitle.category !== null)? state.exploreTitle.category :state.exploreTitle.searchTerm
+             console.log('title', title);
+             return title
         }
     },
 
@@ -132,11 +138,17 @@ export const gigStore = {
             state.order = !state.order;
         },
         setFilterBy(state, { filterBy }) {
-            state.filterBy = filterBy;
+            state.filterBy.deliveryTime = filterBy.deliveryTime;
+            state.filterBy.budget = filterBy.budget;
+            console.log('state.filterBy-filter', state.filterBy);
+
         },
         setSearchTerm(state, { searchTerm }) {
-            state.searchTerm = searchTerm
             state.filterBy.searchTerm = searchTerm;
+            state.exploreTitle.searchTerm = `Results for "${searchTerm}"`
+            state.exploreTitle.category = null;
+            console.log('state.filterBy-search', state.filterBy);
+            console.log('state.exploreTitle-search', state.exploreTitle);
             // const gigsToShow= state.gigs.filter(gig=>{
             //    return ((gig.title).toLowerCase().includes(searchTerm))
             // })

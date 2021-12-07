@@ -50,7 +50,13 @@ export default {
   props: {
     gig: Object,
   },
+  data(){
+    return {
+      // liked: false
+    }
+  }
 };
+//  color:#f74040;
 </script>
 
 <style>

@@ -33,12 +33,12 @@
             { 'srch-hidden': isHome },
           ]"
         >
-          <form class="search-form" @input="setSearch">
+          <form class="search-form">
             <svg
               class="search-svg-header"
               width="16"
               height="16"
-              viewBox="0 0 16 16"
+              viewBox="0 0 15 16"
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
@@ -50,32 +50,55 @@
               placeholder="Find Services"
               v-model="searchTerm"
             />
-            <button>Search</button>
+            <button @click="setSearch">Search</button>
           </form>
         </div>
       </div>
       <div :class="['nav-bar', { white: isHome }, { 'hover-nav': !isHome }]">
         <router-link :to="'/explore'">Explore</router-link>
-        <span>Become a Seller</span> <span>Sign in</span>
+        <span>Become a Seller</span> <span @click="openSignIn">Sign in</span>
+        <span v-show="logedInUser" @click="logOut">signOut</span>
         <!-- <div> -->
         <!-- <div class="join-box"> -->
         <button
+          v-show="!logedInUser"
           @click="openLogin"
           :class="[{ 'btn-white': isHome }, { 'btn-green': !isHome }]"
         >
           Join
         </button>
         <!-- </div> -->
-        <div hidden class="avatar">avatar</div>
+        <!-- <div v-if="userName"> -->
+        <!-- <avatar
+          @avatar-initials="userName"
+          @click="goToUserPage"
+          class="home-Avater"
+          :size="32"
+          v-show="logedInUser"
+          username="g"
+        ></avatar> -->
+        <img
+          v-if="userName"
+          @click="goToUserPage"
+          v-show="logedInUser"
+          class="home-Avater"
+          src="https://fiverr-res.cloudinary.com/t_profile_thumb,q_auto,f_auto/attachments/profile/photo/aff6dad2cb21d22c1d19784d58db2f16-1592918782697/4b68bdcb-1355-4e65-b15e-510f19b4bc3b.jpg"
+          alt=""
+        />
         <!-- </div> -->
       </div>
     </div>
     <div></div>
-    <login-pop-up @close="close" v-show="loginOpened" />
+    <login-pop-up
+      @close="close"
+      :enterLogin="clickedJoin"
+      v-show="loginOpened"
+    />
   </section>
 </template>
 
 <script>
+import Avatar from "vue-avatar";
 import loginPopUp from "../cmps/login-popUp.vue";
 export default {
   data() {
@@ -84,7 +107,9 @@ export default {
       isHome: true,
       scrollPosition: null,
       loginPop: false,
-      loginOpened: false,
+      loginOpened: true,
+      clickedJoin: false,
+      user: "",
     };
   },
   created() {
@@ -107,22 +132,55 @@ export default {
         this.isHome = false;
       }
     },
+    logOut() {
+      this.$store.dispatch({ type: "logout" });
+    },
     close() {
       this.loginOpened = false;
     },
     openLogin() {
       this.loginOpened = true;
     },
+    openSignIn() {
+      this.clickedJoin = false;
+      this.loginOpened = true;
+    },
     setSearch() {
       console.log("this.searchTerm", this.searchTerm);
       this.$emit("setSearch", this.searchTerm);
+    },
+    goToUserPage() {
+      console.log("hi");
+      console.log(this.user);
+      this.$router.push(`/user/:id${this.user.data._id}`);
     },
   },
   mounted() {
     window.addEventListener("scroll", this.updateScroll);
   },
-  computed: {},
-  components: { loginPopUp },
+  computed: {
+    logedInUser() {
+      return this.$store.getters.logginUser;
+    },
+    async userName() {
+      var user = await this.$store.getters.logginUser;
+      console.log();
+      Promise.resolve(user).then((backuser) => {
+        this.user = backuser;
+        return this.user.username;
+      });
+    },
+  },
+  // watch: {
+  //   userName: {
+  //     handler() {
+  //       // console.log(userName);
+  //       this.username = userName;
+  //     },
+  //     immediate: true,
+  //   },
+  // },
+  components: { loginPopUp, Avatar },
 };
 </script>
 

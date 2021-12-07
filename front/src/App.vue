@@ -1,6 +1,13 @@
 <template>
   <div id="app">
-    <appHeader @setSearch="setSearch" :class="['home-header', { 'fixed-header': isFixed },{'rel-header': !isFixed}]" />
+    <appHeader
+      @setSearch="setSearch"
+      :class="[
+        'home-header',
+        { 'fixed-header': isFixed },
+        { 'rel-header': !isFixed },
+      ]"
+    />
     <router-view />
   </div>
 </template>
@@ -20,22 +27,21 @@ export default {
   },
   watch: {
     $route({ name }) {
-      this.isFixed = (name === "Home") ? true : false;
+      this.isFixed = name === "Home" ? true : false;
     },
   },
   created() {
     this.$store.dispatch({ type: "loadGigs" });
     this.$store.dispatch({ type: "loadUser" });
-    this.isFixed = (this.$route.name === "Home") ? true : false;
-
+    this.isFixed = this.$route.name === "Home" ? true : false;
   },
   methods: {
-    setSearch(searchTerm){
-      console.log('searchTerm', searchTerm);
+    setSearch(searchTerm) {
+      console.log("searchTerm", searchTerm);
       this.$store.dispatch({ type: "setSearch", searchTerm });
-      this.$route.push('explore')
-    }
-  }
+      // this.$route.push('explore')
+    },
+  },
 };
 </script>
 

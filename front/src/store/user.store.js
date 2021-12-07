@@ -6,18 +6,22 @@ export const userStore = {
         loginUser: '',
         users: '',
         currOwner: '',
+        username: '',
     },
     getters: {
         currOwner(state) {
             return state.currOwner
         },
         logginUser(state) {
-            console.log(state.loginUser);
+            // console.log(state.loginUser);
             return state.loginUser
         },
         //for the start with no backend
         users(state) {
             return state.users
+        },
+        userName(state) {
+            return state.username
         }
     },
     mutations: {
@@ -26,15 +30,17 @@ export const userStore = {
             state.users = users
         },
         login(state, { user }) {
+            console.log(user);
             state.loginUser = user
-            console.log(state.loginUser);
+            state.username = user.username
+            // console.log(state.loginUser);
         },
         logout(state) {
             state.loginUser = '';
         },
         setCurrOwner(state, { owner }) {
             console.log('setterowner:', owner)
-            state.currOwner = owner;
+            // state.currOwner = owner;
 
         }
     },
@@ -49,9 +55,10 @@ export const userStore = {
             commit({ type: 'loadUser', users })
         },
         async login({ commit }, { user }) {
-            await authService.login(user)
-            console.log(user);
+            var user = await authService.login(user)
+            // console.log(user);
             commit({ type: 'login', user })
+            return user
         },
         async logout({ commit }) {
             await authService.logout()

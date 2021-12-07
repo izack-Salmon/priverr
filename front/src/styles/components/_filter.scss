@@ -11,9 +11,10 @@
     ::placeholder{
         color: #222325;
         font-size: 16px;
-        font-family: Macan-regular;
+        font-family: Macan;
     }
 }
+
 .el-input__inner {
     font-size: 16px;
     font-family: Macan-regular;
@@ -28,20 +29,30 @@
     // font-family: Macan-regular;
 }
 
-
 .el-input.is-focus {
     border-color:#dadbdd ; 
 }
 
-.el-input__inner:focus {
-    border-color:#dadbdd ; 
+.el-select .el-input__inner:focus {
+    border-color:#dadbdd !important; 
+}
+
+
+.el-select .el-input .el-select__caret {
+    color:#222325 !important;
+    font-weight: bolder;
+}
+
+.el-select .el-input__inner::placeholder {
+    color:#222325 !important; 
 }
 
 .btn-budget {
     cursor: pointer;
-    font-family: Macan-regular;
+    // font-family: Macan-regular;
     font-size: 16px;
     color: #222325;
+    // color: #C0C4CC;;
     width: 102px;
     height: 40px;
     padding: 6px 12px;
@@ -52,10 +63,19 @@
     line-height: 1.5;
     position: relative; 
     margin-bottom: 8px;  
+    margin-right: 14px;
+
     // transition: border-color .12s cubic-bezier(.215,.61,.355,1);
 }
 
+.btn-selected{
+    background-color: #e8faf4;
+    border-color: #a6eaca;
+    color: #1dbf73;
+}
+
 .arrow-down {
+    color: #C0C4CC;
     margin-left: 12px;
     position: relative;
     display:inline-block;
@@ -78,7 +98,6 @@
     padding: 12px 24px;
     position: absolute;
     top: 250px;
-    left: 201px;
     opacity: 0;
     border: 1px solid #dadbdd;
     border-radius: 4px;
@@ -101,6 +120,12 @@
     .input-budgets-warp{
         display: flex;
         justify-content: space-between;
+    }
+
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
     }
 }
 
@@ -141,7 +166,33 @@
     border-top: 1px solid #dadbdd;
     padding-top: 15px;
     // padding: 16px 24px;
+
+    .btn-apply {
+        width: 64px;
+        height: 30px;
+        color: #fff;
+        font-family: Macan;
+        background: #1dbf73;
+        padding: 4px 12px;
+        border-radius: 4px;
+        border: none; 
+    }
+
+    .btn-clear {
+        justify-content: flex-end;
+        cursor: pointer;
+        color: #95979d;
+        font-weight: 600;
+        text-decoration: none;
+        font-size: 14px;
+
+        &:hover {
+            color: #1dbf73;
+        }
+    }
 }
+
+
 
 .filter-container{
     display: flex;
