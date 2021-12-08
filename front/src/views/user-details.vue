@@ -67,7 +67,9 @@
             </li>
           </ul>
         </div>
+        <order-list/>
       </div>
+     
     </section>
     <div class="create-a-gig">
       <p>It seems that you don't have any active Gigs. Get selling!</p>
@@ -89,6 +91,7 @@
 </template>
 
 <script>
+import orderList from "../cmps/order-list.vue"
 import Avatar from "vue-avatar";
 export default {
   data() {
@@ -123,7 +126,7 @@ export default {
       return this.$route.params.id;
     },
   },
-  components: { Avatar },
+  components: { Avatar ,orderList},
 };
 </script>
 

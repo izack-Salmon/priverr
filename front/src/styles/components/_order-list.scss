@@ -1,0 +1,33 @@
+.order-list-container {
+    margin-top: 10px;
+    height: 400px;
+    width: 100%;
+    // background-color: green;
+}
+
+.order-list-title {
+    margin: 0;
+    line-height: 100%;
+    color: #4a73e8;
+}
+
+.order-list-head {
+    padding-bottom: 16px;
+}
+
+.que-order {
+    color: #4a73e8;
+}
+
+.order-list-box {
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+}
+
+.order-line {
+    background-color: green;
+    height: 70px;
+}
