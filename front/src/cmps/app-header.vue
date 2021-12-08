@@ -69,31 +69,26 @@
         </button>
         <!-- </div> -->
         <!-- <div v-if="userName"> -->
-        <!-- <avatar
-          @avatar-initials="userName"
-          @click="goToUserPage"
+        <avatar
+          @click.native="goToUserPage"
           class="home-Avater"
           :size="32"
-          v-show="logedInUser"
-          username="g"
-        ></avatar> -->
-        <img
+          v-if="logedInUser"
+          :username="userName"
+        ></avatar>
+        <!-- <img
           v-if="userName"
-          @click="goToUserPage"
+          @click.native="goToUserPage"
           v-show="logedInUser"
           class="home-Avater"
           src="https://fiverr-res.cloudinary.com/t_profile_thumb,q_auto,f_auto/attachments/profile/photo/aff6dad2cb21d22c1d19784d58db2f16-1592918782697/4b68bdcb-1355-4e65-b15e-510f19b4bc3b.jpg"
           alt=""
-        />
+        /> -->
         <!-- </div> -->
       </div>
     </div>
     <div></div>
-    <login-pop-up
-      @close="close"
-      :enterLogin="clickedJoin"
-      v-show="loginOpened"
-    />
+    <login-pop-up @close="close" :enterLogin="clickedJoin" v-if="loginOpened" />
   </section>
 </template>
 
@@ -101,13 +96,14 @@
 import Avatar from "vue-avatar";
 import loginPopUp from "../cmps/login-popUp.vue";
 export default {
+  props: ["isOpen"],
   data() {
     return {
       searchTerm: null,
       isHome: true,
       scrollPosition: null,
       loginPop: false,
-      loginOpened: true,
+      loginOpened: false,
       clickedJoin: false,
       user: "",
     };
@@ -132,11 +128,13 @@ export default {
         this.isHome = false;
       }
     },
-    logOut() {
+    async logOut() {
       this.$store.dispatch({ type: "logout" });
+      this.$router.push(`/`);
     },
     close() {
       this.loginOpened = false;
+      this.$emit("toggleLogin");
     },
     openLogin() {
       this.loginOpened = true;
@@ -152,7 +150,7 @@ export default {
     goToUserPage() {
       console.log("hi");
       console.log(this.user);
-      this.$router.push(`/user/:id${this.user.data._id}`);
+      this.$router.push(`/user/${this.user._id}`);
     },
   },
   mounted() {
@@ -160,15 +158,19 @@ export default {
   },
   computed: {
     logedInUser() {
+      this.user = this.$store.getters.logginUser;
+      console.log(this.user);
       return this.$store.getters.logginUser;
     },
-    async userName() {
-      var user = await this.$store.getters.logginUser;
-      console.log();
-      Promise.resolve(user).then((backuser) => {
-        this.user = backuser;
-        return this.user.username;
-      });
+    userName() {
+      return this.$store.getters.logginUser?.username;
+    },
+  },
+  watch: {
+    isOpen: {
+      handler() {
+        this.loginOpened = this.isOpen;
+      },
     },
   },
   // watch: {

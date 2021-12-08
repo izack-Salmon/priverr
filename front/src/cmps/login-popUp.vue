@@ -1,9 +1,5 @@
 <template>
-  <section
-    v-show="!logedInUser"
-    @click="exitLogin($event)"
-    class="backgrond-pop"
-  >
+  <section @click="exitLogin($event)" class="backgrond-pop">
     <div class="login-pop">
       <div class="sing-in-box">
         <div class="sing-in-contant">
@@ -61,6 +57,7 @@ export default {
       loginOpened: "",
       msg: "",
       sginIn: false,
+      isOpen: false,
       logeddInUser: "",
     };
   },
@@ -69,17 +66,21 @@ export default {
   //   },
   methods: {
     toggle() {
-      this.loginOpened = true;
+      this.isOpen = !this.isOpen;
+      // this.loginOpened = true;
     },
-    login() {
+    async login() {
       if (!this.user.username || !this.user.password) {
         this.errorMsg("Please enter username/password");
         return;
       }
-      var user = this.$store.dispatch({ type: "login", user: this.user });
-      Promise.resolve(user).then((user) => {
-        // console.log(user);
-      });
+      var user = await this.$store.dispatch({ type: "login", user: this.user });
+      console.log(user);
+      if (user) {
+        this.isOpen = false;
+        this.$emit("close");
+      }
+      // console.log(user)
       // console.log(user);
     },
     getSginIn() {
@@ -113,9 +114,9 @@ export default {
     showlogin() {
       return this.showLogin;
     },
-    logedInUser() {
-      // console.log(this.$store.getters.logginUser);
-      return this.$store.getters.logginUser;
+    async logedInUser() {
+      await console.log(this.$store.getters.logginUser);
+      return await this.$store.getters.logginUser;
     },
   },
   watch: {
