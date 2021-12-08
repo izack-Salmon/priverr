@@ -48,11 +48,7 @@
           <!-- <div class="small-carusell"></div> -->
 
           <div class="covert-purchase">
-            <div class="invoicing-box">
-              <div class="package-container">
-                <span>Basic</span>
-              </div>
-            </div>
+           
             <gig-purchase :gig="gig" @purchaseMsg="purchaseMsg" />
           </div>
           <about-the-seller :gig="gig"/>
@@ -160,6 +156,3 @@ export default {
   },
 };
 </script>
-
-<style>
-</style>

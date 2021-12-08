@@ -8,6 +8,116 @@
     }
 }
 
+.reviews-count {
+    margin-right: 5px;
+}
+
+.num-rate-star {
+    color: #4a73e8;
+    padding: 6px;
+}
+
+.star-count-num {
+    font-family: Macan-regular;
+    color: #4a73e8;
+}
+
 .graph-header-details {
     padding-bottom: 20px;
 }
+
+.graph-container {
+    // display: flex;
+    padding-bottom: 24px;
+}
+
+.star-counter-box {
+    padding-right: 16px;
+    max-width: 50%;
+}
+
+.stars-counter {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    white-space: nowrap;
+    td {
+        padding-bottom: 4px;
+        vertical-align: top;
+        font-weight: 400;
+    }
+}
+
+.progress-bar-container {
+    width: 100%;
+    padding: 10px 10px 0 6px;
+    margin: auto;
+}
+
+.prog-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.prog-tubo {
+    position: relative;
+    height: 8px;
+    background: #e4e5e7;
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    border-radius: 999px;
+    span {
+        background-color: #ffb33e;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        z-index: 1;
+        border-radius: 999px;
+    }
+}
+
+// .star-col-2 {
+//     padding: 0 8px;
+//     flex-basis: 50%;
+//     max-width: 50%;
+//     ul {
+//         list-style: none;
+//         list-style-image: none;
+//         margin: 0;
+//         padding: 0;
+//         outline: 0;
+//     }
+//     li {
+//         list-style: none;
+//         list-style-image: none;
+//         margin: 0;
+//         padding: 0;
+//         outline: 0;
+//         display: flex;
+//         justify-content: space-between;
+//         color: #95979d;
+//         padding-bottom: 8px;
+//     }
+//     span {
+//         color: #62646a;
+//         white-space: nowrap;
+//         margin-left: 12px;
+//     }
+// }
+// .ranking {
+//     padding-top: 1px;
+//     border-top: 0;
+//     margin-top: 0;
+// }
+// .text-display-7 {
+//     margin: 0;
+//     padding-bottom: 16px;
+//     font-weight: 600;
+//     font-size: 16px;
+//     line-height: 140%;
+//     color: #404145;
+// }

@@ -113,15 +113,16 @@ export default {
     };
   },
   created() {
-    this.isHome = this.$route.name === "Home" ? true : false;
+    this.isHome = this.$route.name === "Home" 
   },
   // destroy(){
   //       window.removeEventListener('scroll', this.updateScroll)
   // },
   watch: {
     $route({ name }) {
-      this.isHome = name === "Home" ? true : false;
+      this.isHome = name === "Home" 
     },
+    
   },
   methods: {
     updateScroll() {

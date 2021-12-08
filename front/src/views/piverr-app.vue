@@ -32,11 +32,14 @@
             </span>
           </ul>
         </div>
-       <div class="hero-snippet hero-gabrielle">Gabrielle, Video Editor</div>
-       <!-- <div class="hero-snippet hero-andrea">Andrea, Fashion Designer</div>
-       <div class="hero-snippet hero-moon">Moon, Marketing Expet</div>
-       <div class="hero-snippet hero-ritika">Ritika, Shoe</div>
-       <div class="hero-snippet hero-zach">Zach, Bar Owner</div> -->
+        <div class="relative-box "> 
+          <div class="hero-snippet gabrielle">Gabrielle, Video Editor</div>
+          <div class="hero-snippet moon">Moon, Marketing Expet</div>
+          <div class="hero-snippet ritika">Ritika, Shoemaker and Designer</div>
+          <div class="hero-snippet zach">Zach, Bar Owner</div>
+          <div class="hero-snippet andrea">Andrea, Fashion Designer</div>
+        </div>
+         
       </div>
       
     </div>
@@ -65,7 +68,6 @@
         />
       </ul>
     </div>
-    <!-- <popular-gigs :gigs="gigsToShow" /> -->
     <Carousel-popular :gigs="gigsToShow" />
     <gig-categories />
 
@@ -116,5 +118,3 @@ export default {
 };
 </script>
 
-<style>
-</style>

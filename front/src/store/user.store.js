@@ -33,14 +33,14 @@ export const userStore = {
             console.log(user);
             state.loginUser = user
             state.username = user.username
-            // console.log(state.loginUser);
+                // console.log(state.loginUser);
         },
         logout(state) {
             state.loginUser = '';
         },
         setCurrOwner(state, { owner }) {
             console.log('setterowner:', owner)
-            // state.currOwner = owner;
+            state.currOwner = owner;
 
         }
     },
@@ -56,7 +56,7 @@ export const userStore = {
         },
         async login({ commit }, { user }) {
             var user = await authService.login(user)
-            // console.log(user);
+                // console.log(user);
             commit({ type: 'login', user })
             return user
         },
