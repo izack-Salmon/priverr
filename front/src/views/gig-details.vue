@@ -30,7 +30,8 @@
             <div class="profile-name">
               <a href="">{{ gig.owner.fullname }}</a>
               <span class="gig-owner-level">{{ gig.owner.level }}</span>
-            </div><div class="mid-liner">|</div>
+            </div>
+            <div class="mid-liner">|</div>
             <gigStars :gig="gig" />
             <span class="rating-amount">(1k+)</span>
             <div class="mid-liner">|</div>
@@ -48,17 +49,29 @@
           <!-- <div class="small-carusell"></div> -->
 
           <div class="covert-purchase">
-           
-            <gig-purchase :gig="gig" @purchaseMsg="purchaseMsg" />
+            <div class="invoicing-box">
+              <div class="package-container">
+                <span>Basic</span>
+              </div>
+            </div>
+            <gig-purchase
+              @openLogin="showLogin"
+              :gig="gig"
+              @purchaseMsg="purchaseMsg"
+            />
           </div>
-          <about-the-seller :gig="gig"/>
-          <gig-review-graph v-if="owner" :owner="owner"/>
+          <about-the-seller :gig="gig" />
+          <gig-review-graph v-if="owner" :owner="owner" />
           <gig-reviews-list v-if="owner" :owner="owner" />
         </div>
         <div class="side-bar-content stickit">
           <div class="invoicing-box">
             <div class="purchase-details-holder">
-              <gig-purchase :gig="gig" @purchaseMsg="purchaseMsg" />
+              <gig-purchase
+                :gig="gig"
+                @purchaseMsg="purchaseMsg"
+                @openLogin="showLogin"
+              />
             </div>
           </div>
           <div class="contact-box">
@@ -98,8 +111,8 @@ import gigStars from "../cmps/gig-stars.vue";
 import gigReviewsList from "../cmps/gig-reviews-list.vue";
 import caroselDatails from "../cmps/carousel-details.vue";
 import caroselSmall from "../cmps/carousel-small.vue";
-import aboutTheSeller from "../cmps/about-the-seller.vue"
-import gigReviewGraph from "../cmps/gig-review-graph.vue"
+import aboutTheSeller from "../cmps/about-the-seller.vue";
+import gigReviewGraph from "../cmps/gig-review-graph.vue";
 export default {
   components: {
     gigPurchase,
@@ -116,6 +129,7 @@ export default {
       isPurchase: false,
       gig: "",
       owner: "",
+      user: "",
     };
   },
   created() {},
@@ -134,17 +148,29 @@ export default {
       await this.$store.dispatch({
         type: "getUserReviews",
         ownerId: this.gig?.owner._id,
-        
       });
       this.owner = this.$store.getters.currOwner;
+    },
+    setUser() {
+      if (this.$store.getters.loginUser) {
+        this.user = this.$store.getters.loginUser;
+      } else {
+        // need to open login pop up
+        // msg need to look in first
+      }
     },
     purchaseMsg() {
       this.isPurchase = true;
     },
-    exitPurchase(ev) {
+    async exitPurchase(ev) {
+      await this.$store.dispatch({ type: "getGigByid", gigId: this.gigId });
       if (ev.srcElement.localName === "section") {
         this.isPurchase = false;
       }
+    },
+    showLogin() {
+      console.log("2nd");
+      this.$emit("openLogin");
     },
   },
   computed: {

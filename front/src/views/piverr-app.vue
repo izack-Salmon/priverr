@@ -71,7 +71,7 @@
     <Carousel-popular :gigs="gigsToShow" />
     <gig-categories />
 
-    <app-footer />
+    <!-- <app-footer /> -->
   </section>
 </template>
 
@@ -97,6 +97,7 @@ export default {
      setSearch(){
       console.log('searchTerm-piverapp', this.searchTerm);
       this.$store.dispatch({ type: "setSearch", searchTerm :this.searchTerm });
+      this.$router.push({path:'explore', query: { search: this.searchTerm }});
       },
   },
   computed: {

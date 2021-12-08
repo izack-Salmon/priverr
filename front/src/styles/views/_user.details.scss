@@ -1,0 +1,114 @@
+.row{
+    max-width: 1240px;
+    width: 100%;
+    margin: 0 auto;
+    // padding: 0 20px;
+    box-sizing: border-box;
+    position: relative;
+    justify-content: space-between;
+    overflow-x: hidden;
+    padding: 20px 0;
+    margin-top: 40px;
+    display: grid;
+    // grid-template-rows: 400px 800px;
+    grid-template-columns: 1fr 1.5fr;
+    grid-template-rows: 100px 700px;
+
+    .info-column{
+        border-radius: 2px gray;
+        width: 400px;
+
+     
+        .user-card{
+            grid-column-start: 1;
+            grid-column-end: 3;
+            background-color: #fff;
+            border: 1px solid #dadbdd;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 30px;
+            
+            .user-profile{
+                width: 100%;
+
+                .home-Avater{
+                    margin: auto;
+                }
+            
+
+            .user-stats{
+                padding: 0;
+                padding-top: 12px;
+                border-top: 1px solid #dadbdd;
+                li{
+                    list-style-type: none; 
+                    display: flex;
+                    justify-content: space-between;
+
+
+                    svg{
+                        margin-right: 12px;
+                    }
+                }
+                .location{
+                   
+
+                }
+            }
+        }
+           
+            .user-details-name{
+                font-size: 20px;
+                font-weight: 700;
+                color: #222325;
+                text-align: center;
+                display: block;
+                padding-bottom: 10px;
+            }
+        }
+    }
+    .create-a-gig{
+        background-color: #fff;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        padding: 20px 24px;
+        border: 1px solid #ddd;  
+        // margin-top: 16px;
+        height: 76px;
+        display: flex;
+        align-items: center;
+        .become-seller{
+            margin-left: 20px;
+            padding: auto;
+            width: 140px;
+            background-color: #1dbf73;
+            border-radius: 3px;
+            border: 0;
+            color: #fff;
+            height: 34px;
+            font-weight: 700;
+        }
+        .become-seller:hover{
+            cursor: pointer;
+            background-color: #288a5c;
+        }
+
+    }
+    .user-gigs{
+        grid-column-start: 2;
+        padding: 20px;
+        h3{
+            text-align: center;
+        }
+    }
+}
+.user-details-avater{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}

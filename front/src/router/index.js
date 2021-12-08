@@ -6,6 +6,7 @@ import gigDetails from '../views/gig-details.vue'
 import gigEdit from '../views/gig-edit.vue'
 import userDetails from '../views/user-details.vue'
 import dashboard from '../views/dashboard.vue'
+import userAddGig from '../views/user-add-gig.vue'
 import store from '../store'
 
 Vue.use(VueRouter)
@@ -22,7 +23,7 @@ const routes = [{
 },
 {
     path: '/explore/',
-    name: 'explore/:cat',
+    name: 'explore/:tag',
     component: explore
 },
 {
@@ -44,6 +45,11 @@ const routes = [{
     path: '/user/:id',
     name: 'userDetails',
     component: userDetails
+},
+{
+    path: '/user/:id/AddGig',
+    name: 'userAddGig',
+    component: userAddGig
 },
 {
     path: '/user/dashboard',

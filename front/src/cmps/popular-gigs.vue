@@ -3,7 +3,7 @@
     <h2>Popular professional services</h2>
     <div class="populars-container">
       <li v-for="gig in gigs" class="populars-list" :key="gig._id" >
-        <router-link :to="'/explore'">
+        <router-link :to="`/explore/?tags=${gig.tags[0]}`">
         <div class="popular-card">
           <h2>{{gig.tags[0]}}</h2>
         </div>

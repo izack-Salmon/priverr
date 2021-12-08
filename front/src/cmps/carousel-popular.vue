@@ -6,7 +6,7 @@
       :style="{ height: '350px', width: '100%' }"
       class="carousel"
     >
-      <template>
+      <template #prevArrow="">
         <div class="custom-arrow"></div>
       </template>
       <div
@@ -20,7 +20,7 @@
         </h4>
 
         <img
-          @click="routeExplore"
+          @click="routeExplore(popularPro.name)"
           class="popular-img"
           :src="popularPro.img"
           alt=""
@@ -85,8 +85,9 @@ export default {
     };
   },
   methods: {
-    routeExplore() {
-      this.$router.push("/explore");
+    routeExplore(tag) {
+      ({ path: 'register', query: { plan: 'private' }})
+      this.$router.push({path:'explore', query: { tag: tag }});
     },
   },
   computed: {

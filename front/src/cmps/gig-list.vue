@@ -3,10 +3,12 @@
     <div class="gig-list-container">
       <div class="gig-list">
       <div v-for="(gig, idx) in gigs" :key="idx">
-        <gig-preview :gig="gig"></gig-preview>
+        <gig-preview :gig="gig" :idx='idx'></gig-preview>
       </div>
       </div>
     </div>
+ 
+
   <!-- </section> -->
 </template>
 
