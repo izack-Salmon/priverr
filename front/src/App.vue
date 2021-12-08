@@ -1,16 +1,17 @@
 <template>
   <div id="app">
     <appHeader
+      :isOpen="isOpen"
       @setSearch="setSearch"
+      @toggleLogin="closeLogin"
       :class="[
         'home-header',
         { 'fixed-header': isFixed },
         { 'rel-header': !isFixed },
       ]"
     />
-    <router-view />
+    <router-view @openLogin="showLogin" />
     <app-footer />
-
   </div>
 </template>
 
@@ -27,6 +28,7 @@ export default {
   data() {
     return {
       isFixed: true,
+      isOpen: false,
     };
   },
   watch: {
@@ -44,6 +46,13 @@ export default {
       console.log("searchTerm", searchTerm);
       this.$store.dispatch({ type: "setSearch", searchTerm });
       this.$router.push({path:'explore', query: { search: this.searchTerm }});
+    },
+    showLogin() {
+      console.log("got it");
+      this.isOpen = true;
+    },
+    closeLogin() {
+      this.isOpen = false;
     },
   },
 };

@@ -6,7 +6,7 @@
       :style="{ height: '350px', width: '100%' }"
       class="carousel"
     >
-      <template>
+      <template #prevArrow="">
         <div class="custom-arrow"></div>
       </template>
       <div

@@ -101,9 +101,9 @@ export const gigStore = {
         },
 
         exploreTitle(state) {
-             let title = (state.exploreTitle.category !== null)? state.exploreTitle.category :state.exploreTitle.searchTerm
-             console.log('title', title);
-             return title
+            let title = (state.exploreTitle.category !== null) ? state.exploreTitle.category : state.exploreTitle.searchTerm
+            console.log('title', title);
+            return title
         }
     },
 
@@ -180,7 +180,7 @@ export const gigStore = {
         async removeGig({ commit }, { gigId }) {
             console.log(gigId);
             var gig = await gigService.remove(gigId)
-            commit({ type: 'removeGig', gig });
+            commit({ type: 'removeGig', gigId });
             return gig
         },
         setFilterBy({ commit, dispatch }, { filterBy }) {

@@ -65,10 +65,10 @@ function remove(userId) {
 
 async function update(user) {
     // await asyncStorageService.put(KEY, user)
-    user = await httpService.put(`user/${user._id}`, user)
+    var user = await httpService.put(`user/${user._id}`, user)
     // Handle case in which admin updates other user's details
-    if (getLoggedinUser()._id === user._id) _saveLocalUser(user)
-    return user;
+    if (getLoggedinUser()._id === user._id) _saveLocalUser(user.data)
+    return user.data;
 }
 
 async function login(userCred) {
@@ -77,16 +77,16 @@ async function login(userCred) {
     // return _saveLocalUser(user)
 
     const user = await httpService.post('auth/login', userCred)
-    socketService.emit('set-user-socket', user._id);
-    if (user) return _saveLocalUser(user)
-    return user
+    socketService.emit('set-user-socket', user.data._id);
+    if (user.data) return _saveLocalUser(user.data)
+    return user.data
 }
 async function signup(userCred) {
     userCred.score = 10000;
     // const user = await asyncStorageService.post(KEY, userCred)
     const user = await httpService.post('auth/signup', userCred)
-    socketService.emit('set-user-socket', user._id);
-    return _saveLocalUser(user)
+    socketService.emit('set-user-socket', user.data._id);
+    return _saveLocalUser(user.data)
 }
 async function logout() {
     // sessionStorage.removeItem(STORAGE_KEY_LOGGEDIN_USER)
@@ -143,6 +143,7 @@ function getLoggedinUser() {
 
 function _createUser(fullname) {
     return {
+        rate: Math.round(Math.random * utilService.getRandomInt(4, 5) * 10) / 10,
         _id: utilService.makeId(),
         fullname,
         imgUrl: 'https://res.cloudinary.com/pivarr/image/upload/v1638435059/logo%20design/seller-2/avatar_z3dsdo.jpg',

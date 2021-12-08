@@ -14,14 +14,14 @@ const BASE_URL =
 
 async function login(user) {
     var user = await axios.post(`${BASE_URL}/login`, user)
-    return user
+    return user.data
 }
 async function logout() {
     var user = await axios.post(`${BASE_URL}/logout`)
-    return user
+    return user.data
 }
 async function signup(user) {
     console.log(user);
     var user = await axios.post(`${BASE_URL}/signup`, user)
-    return user
+    return user.data
 }
