@@ -22,10 +22,6 @@
         </svg>
       </span>
     </div>
-    <div class="btns-budget flex space-between align-center">
-      <a class="btn-clear" @click="clearBudget"> Clear All </a>
-      <button class="btn-apply" @click="filter"> Apply </button>
-
     <div
       v-if="budgetOpen"
       :class="['budget-warper', { 'show-budget': budgetOpen }]"
@@ -45,7 +41,6 @@
           />
           <i class="left"> $ </i>
         </div>
-
         <div class="input-wrapper flex">
           <label> Max. </label>
           <input
@@ -62,11 +57,10 @@
         </div>
       </div>
       <div class="btns-budget flex space-between align-center">
-        <a class="btn-clear" @click="clearBugget"> Clear All </a>
+        <a class="btn-clear" @click="clearBudget"> Clear All </a>
         <button class="btn-apply" @click="filter">Apply</button>
       </div>
     </div>
-
     <el-select
       class="delivery-input"
       @change="filter"
