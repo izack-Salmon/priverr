@@ -30,10 +30,15 @@ async function getOrderById(req, res) {
 // POST (add Order)
 async function addOrder(req, res) {
     try {
-        const order = req.body;
-        // const user = req.session
+        var order = req.body;
+        const user = req.session.user
         console.log('d', user);
-
+        order.buyer = {
+            id: user._id,
+            fullname: user.fullname,
+            imgUrl: user.imgUrl,
+        }
+        console.log('order', order);
         const addedOrder = await OrderService.add(order)
 
         res.json(addedOrder)

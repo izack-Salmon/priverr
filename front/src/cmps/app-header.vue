@@ -109,17 +109,16 @@ export default {
     };
   },
   created() {
-    this.isHome = this.$route.name === "Home" 
+    this.isHome = this.$route.name === "Home";
   },
   // destroy(){
   //       window.removeEventListener('scroll', this.updateScroll)
   // },
   watch: {
     $route({ name }) {
-      this.isHome = name === "Home"
+      this.isHome = name === "Home";
     },
-     immediate: true,
-
+    immediate: true,
   },
   methods: {
     updateScroll() {
@@ -161,7 +160,7 @@ export default {
   computed: {
     logedInUser() {
       this.user = this.$store.getters.logginUser;
-      console.log(this.user);
+      // console.log(this.user);
       return this.$store.getters.logginUser;
     },
     userName() {

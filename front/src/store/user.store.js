@@ -11,7 +11,7 @@ export const userStore = {
     },
     getters: {
         currOwner(state) {
-            console.log(state.currOwner);
+            // console.log(state.currOwner);
             return state.currOwner
         },
         logginUser(state) {
@@ -26,7 +26,7 @@ export const userStore = {
             return state.username
         },
         userId(state) {
-            console.log(state.UserId);
+            // console.log(state.UserId);
             return state.UserId
         }
     },
@@ -47,7 +47,7 @@ export const userStore = {
 
         },
         setCurrOwner(state, { owner }) {
-            console.log('setterowner:', owner)
+            // console.log('setterowner:', owner)
             state.currOwner = owner;
         }
     },
@@ -63,7 +63,7 @@ export const userStore = {
         },
         async login({ commit }, { user }) {
             var user = await authService.login(user)
-            console.log('user store', user);
+            // console.log('user store', user);
             commit({ type: 'login', user })
             return user
         },

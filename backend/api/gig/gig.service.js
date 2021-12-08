@@ -4,7 +4,7 @@ const ObjectId = require('mongodb').ObjectId
 
 async function query(filterBy) {
     filterBy.budget = JSON.parse(filterBy.budget)
-    console.log('filterBy-serviceback', filterBy);
+    // console.log('filterBy-serviceback', filterBy);
     try {
         const criteria = _buildCriteria(filterBy)
         // const criteria = {};
@@ -74,37 +74,37 @@ function _buildCriteria(filterBy) {
         criteria.title = searchCriteria;
     }
 
-    if (filterBy.deliveryTime !== ''){
-        if (filterBy.deliveryTime === 'Express 24H') criteria.daysToMake = {$lte : 1};
-        else if (filterBy.deliveryTime === 'Up to 3 days')  criteria.daysToMake ={$lte : 3};
-        else if (filterBy.deliveryTime === 'Up to 7 days')  criteria.daysToMake = {$lte : 7};
+    if (filterBy.deliveryTime !== '') {
+        if (filterBy.deliveryTime === 'Express 24H') criteria.daysToMake = { $lte: 1 };
+        else if (filterBy.deliveryTime === 'Up to 3 days') criteria.daysToMake = { $lte: 3 };
+        else if (filterBy.deliveryTime === 'Up to 7 days') criteria.daysToMake = { $lte: 7 };
     }
 
     if (filterBy.tag && filterBy.tag !== '') {
         const newTag = [filterBy.tag.toLowerCase()];
         criteria.tags = { $in: newTag };
-      }
+    }
 
-     
-// console.log('filterBy.budget.min', filterBy.budget.min);
-   if(filterBy.budget.min === 'Any' && typeof (filterBy.budget.max) === 'number'){
-       criteria.price = { $gt : filterBy.budget.min}
-    
-    }else if(filterBy.budget.max === 'Any' && typeof (filterBy.budget.min) === 'number' ){
-        criteria.price = { $lt : filterBy.budget.max}
-    
-    }else if ( typeof (filterBy.budget.min) === 'number' && typeof (filterBy.budget.max) === 'number'){ 
-//    if(filterBy.budget.min !== 'Any' && filterBy.budget.max !== 'Any'
+
+    // console.log('filterBy.budget.min', filterBy.budget.min);
+    if (filterBy.budget.min === 'Any' && typeof (filterBy.budget.max) === 'number') {
+        criteria.price = { $gt: filterBy.budget.min }
+
+    } else if (filterBy.budget.max === 'Any' && typeof (filterBy.budget.min) === 'number') {
+        criteria.price = { $lt: filterBy.budget.max }
+
+    } else if (typeof (filterBy.budget.min) === 'number' && typeof (filterBy.budget.max) === 'number') {
+        //    if(filterBy.budget.min !== 'Any' && filterBy.budget.max !== 'Any'
         // && filterBy.budget.max !== ''&& filterBy.budget.min !== ''){
-        criteria.price = { $gt : filterBy.budget.min, $lt : filterBy.budget.max}
-   } 
-// else {
-//     criteria.price = { $gt : 0, $lt : 5000}
-//    }
+        criteria.price = { $gt: filterBy.budget.min, $lt: filterBy.budget.max }
+    }
+    // else {
+    //     criteria.price = { $gt : 0, $lt : 5000}
+    //    }
     // }
 
     // { $range: [ <start>, <end>, <non-zero step> ] }
-  
+
     return criteria
 }
 
