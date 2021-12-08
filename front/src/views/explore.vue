@@ -1,6 +1,6 @@
 <template>
   <section>
-    <div class="explore-title main-layout">{{ pagetitle }}</div>
+    <div class="explore-title main-layout">{{ pageTitle }}</div>
     <gig-filter class="main-layout" @filter='filter' />
     <gig-list class="main-layout" :gigs="gigsToShow" />
   </section>
@@ -16,19 +16,28 @@ export default {
   name: "explore",
   data() {
     return {
-      // pagetitle: "Explore",
+      pageTitle: "Explore",
     };
   },
   created() {
-
+    if (this.$route.query.tag) {
+        let filterBy={ tag:this.$route.query.tag}
+        this.filter(filterBy);
+        this.pageTitle = this.$route.query.tag;
+    } else if (this.$route.query.search) {
+        this.pageTitle = `Results for "${this.$route.query.search}"`;
+    } else {
+      this.pageTitle = 'Explore'
+    }
   },
   computed: {
     gigsToShow() {
       return this.$store.getters.gigs;
     },
-    pagetitle() {
-      return this.$store.getters.exploreTitle;
-    }
+    // pageTitle() {
+    //   return this.$store.getters.exploreTitle;
+    // }
+    
   },
   methods: {
     filter(filterBy) {

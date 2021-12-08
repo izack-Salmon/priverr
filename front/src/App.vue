@@ -9,16 +9,20 @@
       ]"
     />
     <router-view />
+    <app-footer />
+
   </div>
 </template>
 
 <script>
 import appHeader from "./cmps/app-header.vue";
+import appFooter from "./cmps/app-footer.vue";
 
 export default {
   setup() {},
   components: {
     appHeader,
+    appFooter,
   },
   data() {
     return {
@@ -39,7 +43,7 @@ export default {
     setSearch(searchTerm) {
       console.log("searchTerm", searchTerm);
       this.$store.dispatch({ type: "setSearch", searchTerm });
-      // this.$route.push('explore')
+      this.$router.push({path:'explore', query: { search: this.searchTerm }});
     },
   },
 };

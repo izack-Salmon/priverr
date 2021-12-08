@@ -25,7 +25,7 @@
     </div>
     </div>
     <div class="btns-budget flex space-between align-center">
-      <a class="btn-clear" @click="clearBugget"> Clear All </a>
+      <a class="btn-clear" @click="clearBudget"> Clear All </a>
       <button class="btn-apply" @click="filter"> Apply </button>
 
     </div>
@@ -58,7 +58,11 @@ export default {
     filter(){
       console.log('filterBy', this.filterBy);
       this.budgetOpen = false;
-      if (this.filterBy.budget.min !== 'Any' && this.filterBy.budget.max !== 'Any') this.budgetActive = true;
+      if (this.filterBy.budget.min !== 'Any' && this.filterBy.budget.max !== 'Any') {
+        this.budgetActive = true;
+        this.filterBy.budget.min = parseInt(this.filterBy.budget.min)
+        this.filterBy.budget.max = parseInt(this.filterBy.budget.max)
+        }
       var filterBy = JSON.parse(JSON.stringify(this.filterBy))
       this.$emit('filter', filterBy)
     },
@@ -67,11 +71,12 @@ export default {
       this.budgetOpen = !this.budgetOpen;
     },
 
-    clearBugget(){
+    clearBudget(){
       this.filterBy.budget.min = 'Any';
       this.filterBy.budget.max = 'Any';
       this.budgetActive = false;
       this.budgetOpen = false;
+      this.filter()
     },
   },
   computed: {

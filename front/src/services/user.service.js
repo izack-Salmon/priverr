@@ -41,7 +41,10 @@ window.userService = userService
 async function getUsers() {
     // var users = await asyncStorageService.query(KEY)
     // return users
-    return httpService.get(`user`)
+   const users = await httpService.get(`user`)
+//    Promise.resolve(users).then((res)=>{
+       return users
+//    })
 }
 
 async function getById(userId) {

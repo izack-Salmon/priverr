@@ -99,6 +99,9 @@
     .heart-icon {
         color: #b5b6ba;
     }
+    .heart-icon:onclick {
+        color: red;
+    }
     .text-price {
         color: #7a7d85;
         font-size: 10px;
@@ -136,3 +139,42 @@
 .gig-card:hover .gig-title{
     color:#1dbf73;
 }
+
+// CAROUSEL
+
+// .el-carousel__button {
+//     width: 10px !important;
+//     height: 10px !important;
+//     border-radius: 50% !important;
+// }
+// .el-carousel__container {
+//         position: inherit;
+//     height: 187px !important;;
+//     overflow: hidden;
+//     margin: 0;
+//     padding: 0;
+   
+//     .img-container {
+//         position: absolute;
+//         object-fit: cover;
+//     }
+//     .gig-img {
+//         position: absolute;
+//         object-fit: cover;
+      
+//     }
+
+// }
+
+// .el-carousel__indicators--outside{
+//     position: absolute;
+// }
+
+// .el-carousel__item.is-animating {
+//     height: 393px;
+// }
+
+// .el-carousel__indicators {
+//     position: absolute;
+
+// }

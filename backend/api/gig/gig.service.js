@@ -3,10 +3,11 @@ const logger = require('../../services/logger.service')
 const ObjectId = require('mongodb').ObjectId
 
 async function query(filterBy) {
+    filterBy.budget = JSON.parse(filterBy.budget)
     console.log('filterBy-serviceback', filterBy);
     try {
-        // const criteria = _buildCriteria(filterBy)
-        const criteria = {};
+        const criteria = _buildCriteria(filterBy)
+        // const criteria = {};
         // console.log('filter', filterBy);
         // console.log('criteria', criteria);
         const collection = await dbService.getCollection('gig')
@@ -65,28 +66,45 @@ async function update(gig) {
     }
 }
 function _buildCriteria(filterBy) {
-    const criteria = {}
-    if (filterBy.name) {
-        const nameCriteria = { $regex: filterBy.name, $options: 'i' }
-        criteria.name = nameCriteria
-    }
-    if (filterBy.inStock !== '' && filterBy.inStock !== 'all') {
-        if (filterBy.inStock === 'inStock') criteria.inStock = { $eq: true }
-        else if (filterBy.inStock === 'missing') criteria.inStock = { $eq: false }
+    // console.log('filterBy-criteria', filterBy);
 
-        // criteria.inStock = { $eq: JSON.parse(filterBy.inStock) }
+    const criteria = {}
+    if (filterBy.searchTerm && filterBy.searchTerm !== '') {
+        const searchCriteria = { $regex: filterBy.searchTerm, $options: 'i' }
+        criteria.title = searchCriteria;
     }
-    if (filterBy.labels && filterBy.labels.length) {
-        criteria.labels = { $in: filterBy.labels }
+
+    if (filterBy.deliveryTime !== ''){
+        if (filterBy.deliveryTime === 'Express 24H') criteria.daysToMake = {$lte : 1};
+        else if (filterBy.deliveryTime === 'Up to 3 days')  criteria.daysToMake ={$lte : 3};
+        else if (filterBy.deliveryTime === 'Up to 7 days')  criteria.daysToMake = {$lte : 7};
     }
-    // criteria.$or = [
-    //     {
-    //         name: nameCriteria
-    //     },
-    //     {
-    //         inStock: txtCriteria
-    //     }
-    // ]
+
+    if (filterBy.tag && filterBy.tag !== '') {
+        const newTag = [filterBy.tag.toLowerCase()];
+        criteria.tags = { $in: newTag };
+      }
+
+     
+// console.log('filterBy.budget.min', filterBy.budget.min);
+   if(filterBy.budget.min === 'Any' && typeof (filterBy.budget.max) === 'number'){
+       criteria.price = { $gt : filterBy.budget.min}
+    
+    }else if(filterBy.budget.max === 'Any' && typeof (filterBy.budget.min) === 'number' ){
+        criteria.price = { $lt : filterBy.budget.max}
+    
+    }else if ( typeof (filterBy.budget.min) === 'number' && typeof (filterBy.budget.max) === 'number'){ 
+//    if(filterBy.budget.min !== 'Any' && filterBy.budget.max !== 'Any'
+        // && filterBy.budget.max !== ''&& filterBy.budget.min !== ''){
+        criteria.price = { $gt : filterBy.budget.min, $lt : filterBy.budget.max}
+   } 
+// else {
+//     criteria.price = { $gt : 0, $lt : 5000}
+//    }
+    // }
+
+    // { $range: [ <start>, <end>, <non-zero step> ] }
+  
     return criteria
 }
 

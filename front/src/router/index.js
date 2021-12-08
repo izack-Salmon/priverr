@@ -22,7 +22,7 @@ const routes = [{
 },
 {
     path: '/explore/',
-    name: 'explore/:cat',
+    name: 'explore/:tag',
     component: explore
 },
 {

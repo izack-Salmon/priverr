@@ -40,7 +40,7 @@ export const userStore = {
         },
         setCurrOwner(state, { owner }) {
             console.log('setterowner:', owner)
-            // state.currOwner = owner;
+            state.currOwner = owner;
 
         }
     },

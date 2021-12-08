@@ -73,32 +73,37 @@ async function _createGigs() {
     }
     return gigs;
 }
-async function _createGig(description, user,) {
+function _createGig(imgUrls,label,title, user,) {
+    const levels= ['Level 2 Seller','Level 1 Seller','Top Rated Seller']
+    
     console.log('user-gig-serv', user);
     var { _id, fullname, imgUrl } = user
     const miniUser = {
         _id,
         fullname,
         imgUrl,
-        rate: utilService.getRandomInt(3, 5),
-        level: 'Level 2 Seller',
+        rate: Math.round( Math.random * utilService.getRandomInt(4, 5) * 10 ) / 10,
+        level: levels[utilService.getRandomInt(0, levels.length-1)],
+        orderNum: utilService.getRandomInt(100, 1000)
     }
     // console.log(miniUser);
     return {
-        _id: utilService.makeId(),
-        title: 'I will do 2 minimalist logo design for your buisness',
+        // _id: utilService.makeId(),
+        title: title,
         inStock: true,
         price: utilService.getRandomInt(10, 100),
         owner: miniUser,
         createdAt: Date.now(),
         daysToMake: utilService.getRandomInt(1, 10),
-        description: 'This Gig is of one of many design kinds we offer. Flat design concepts are one of our fortes. For the logo to be timeless it doesn’t need to be with complex structures or patterns. It just needs to be simple, memorable and which gives a distinctive essence to your business',
-        imgUrl: [
-            'https://res.cloudinary.com/pivarr/image/upload/v1638435142/logo%20design/seller-2/1_ti4k8o.png',
-            'https://res.cloudinary.com/pivarr/image/upload/v1638435210/logo%20design/seller-2/2_fo1hs6.png',
-            'https://res.cloudinary.com/pivarr/image/upload/v1638434790/logo%20design/seller-1/1_har5gl.jpg'
-        ],
+        description: `This Gig is of one of many kinds ${label} we offer. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Asperiores nihil necessitatibus eius temporibus dolorum magni, eveniet consectetur quibusdam adipisci deleniti accusantium alias quia ipsa architecto facere quae aut nobis`,
+        imgUrl: imgUrls,
+        // imgUrl: [
+        //     'https://res.cloudinary.com/pivarr/image/upload/v1638435142/logo%20design/seller-2/1_ti4k8o.png',
+        //     'https://res.cloudinary.com/pivarr/image/upload/v1638435210/logo%20design/seller-2/2_fo1hs6.png',
+        //     'https://res.cloudinary.com/pivarr/image/upload/v1638434790/logo%20design/seller-1/1_har5gl.jpg'
+        // ],
         tags: [
+            `${label}`,
             "artisitic",
             "proffesional",
             "accessible"
@@ -109,9 +114,9 @@ async function _createGig(description, user,) {
 
 
 var labalsAimg = [
-    {label:'logo-design', 
+    {label:'logo design', 
     imgUrls: [
-        'https://res.cloudinary.com/pivarr/image/upload/c_scale,h_393,w_680/v1638715480/logo%20design/seller-3/1_i3unds.png',
+    'https://res.cloudinary.com/pivarr/image/upload/c_scale,h_393,w_680/v1638715480/logo%20design/seller-3/1_i3unds.png',
     'https://res.cloudinary.com/pivarr/image/upload/c_scale,h_393,w_680/v1638862335/logo%20design/seller-4/write-signature-and-handmade-unique-logo_1_sz31bt.jpg',
     'https://res.cloudinary.com/pivarr/image/upload/c_scale,h_393,w_680/v1638862396/logo%20design/seller-4/design-a-modern-minimalist-logo-in-24-hours_j5ykcu.png',
     'https://res.cloudinary.com/pivarr/image/upload/c_scale,h_393,w_680/v1638863926/logo%20design/seller-5/make-a-simple-premium-cartoon-animal-logo-mascot_vdavv4.png',
@@ -125,7 +130,7 @@ var labalsAimg = [
 ],
      },
     {
-        label: 'social-media',
+        label: 'social media',
         imgUrls: [
             'https://res.cloudinary.com/pivarr/image/upload/c_scale,h_393,w_680/v1638715332/soicalmedia/person1/1_mgoc7d.jpg',
             'https://res.cloudinary.com/pivarr/image/upload/v1638866001/soicalmedia/seller-2/boost-youtube-videos-high-platform_enn2sd.png',
@@ -135,7 +140,7 @@ var labalsAimg = [
      ]
     },
     {
-        label: 'voice-over',
+        label: 'voice over',
         imgUrls: [
             'https://res.cloudinary.com/pivarr/image/upload/c_scale,h_393,w_680/v1638865426/voice-over/audio-delivery-bg_lvsuxh.png',
             'https://res.cloudinary.com/pivarr/image/upload/c_scale,h_393,w_680/v1638865489/voice-over/seller-1/e9178daf57f10ce3399c993c77b002c15f5f775f_t1eebl.jpg',
@@ -174,12 +179,30 @@ var labalsAimg = [
     }
 ]
 
-// function setGig (){
-//     for (let i = 0; i < labalsAimg.length; i++) {
-//         let gig = {
-//             label: 
-//         }
+// var res = setGig();
+// console.log('res-set gigs', res);
+
+
+async function setGig (){
+   const users=  await userService.getUsers();
+   console.log('users', users);
+for (let i = 0; i < 1; i++) { 
+
+    for (let i = 0; i < labalsAimg.length; i++) {
+        let gig = {
+            label: labalsAimg[i].label,
+            imgUrl: [
+                labalsAimg[i].imgUrls[utilService.getRandomInt(0, labalsAimg[i].imgUrls.length-1)],
+                labalsAimg[i].imgUrls[utilService.getRandomInt(0, labalsAimg[i].imgUrls.length-1)],
+                labalsAimg[i].imgUrls[utilService.getRandomInt(0, labalsAimg[i].imgUrls.length-1)]
+            ],
+            title: `I will ${labalsAimg[i].title[utilService.getRandomInt(0, labalsAimg[i].title.length-1)]}`,
+            user: users[utilService.getRandomInt(0, users.length-1)]
+        }
+        var newGig = _createGig(gig.imgUrl,gig.label,gig.title, gig.user,)
+        console.log('newGig', newGig);
+        save(newGig)
         
-        
-//     }
-// }
+    }
+}
+}
