@@ -1,8 +1,8 @@
 
-import { addOrder, removeOrder } from "../../../backend/api/order/order.controller"
+// import { addOrder, removeOrder } from "../../../backend/api/order/order.controller"
 import { orderService } from "../services/order.service"
 
-export const userStore = {
+export const orderStore = {
     state: {
         orders: '',
     },
@@ -16,12 +16,13 @@ export const userStore = {
         //for the start with no backend
         loadOrders(state, { orders }) {
             state.orders = orders
+            console.log(state.orders);
         },
         removeOrder(state, { orderId }) {
             const idx = state.orders.findIndex((currOrder) => currOrder._id === orderId);
             state.orders.splice(idx, 1);
         },
-        addGig(state, { savedOrder }) {
+        addOrder(state, { savedOrder }) {
             state.orders.push(savedOrder);
         },
     },
@@ -39,7 +40,8 @@ export const userStore = {
         },
         async addOrder({ commit }, { order }) {
             var savedOrder = orderService.save(order)
-            commit({ type: 'addGig', savedOrder });
+            // console.log('this 2');
+            commit({ type: 'addOrder', savedOrder });
             return savedOrder;
         },
     }

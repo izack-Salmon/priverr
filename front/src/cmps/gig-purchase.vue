@@ -160,6 +160,7 @@ export default {
         this.$emit("openLogin");
         return;
       }
+      this.$emit("sendOrder");
     },
   },
 };
