@@ -55,9 +55,10 @@
               </div>
             </div>
             <gig-purchase
-              @openLogin="showLogin"
               :gig="gig"
               @purchaseMsg="purchaseMsg"
+              @openLogin="showLogin"
+              @sendOrder="sendOrder"
             />
           </div>
           <about-the-seller :gig="gig" />
@@ -71,6 +72,7 @@
                 :gig="gig"
                 @purchaseMsg="purchaseMsg"
                 @openLogin="showLogin"
+                @sendOrder="sendOrder"
               />
             </div>
           </div>
@@ -129,7 +131,7 @@ export default {
       isPurchase: false,
       gig: "",
       owner: "",
-      user: "",
+      order: "",
     };
   },
   created() {},
@@ -151,19 +153,26 @@ export default {
       });
       this.owner = this.$store.getters.currOwner;
     },
-    setUser() {
-      if (this.$store.getters.loginUser) {
-        this.user = this.$store.getters.loginUser;
-      } else {
-        // need to open login pop up
-        // msg need to look in first
-      }
+    sendOrder() {
+      this.order = {
+        createdAt: Date.now(),
+        seller: {
+          _id: this.owner._id,
+        },
+        gig: {
+          _id: this.gig._id,
+          title: this.gig.title,
+          price: this.gig.price,
+        },
+      };
+      console.log("this.oder", this.order);
+      this.$store.dispatch({ type: "addOrder", order: this.order });
     },
     purchaseMsg() {
       this.isPurchase = true;
     },
     async exitPurchase(ev) {
-      await this.$store.dispatch({ type: "getGigByid", gigId: this.gigId });
+      // await this.$store.dispatch({ type: "getGigByid", gigId: this.gigId });
       if (ev.srcElement.localName === "section") {
         this.isPurchase = false;
       }

@@ -7,8 +7,8 @@ export const gigStore = {
     state: {
         gigs: [],
         currGig: null,
-        exploreTitle:{ category: 'Explore', searchTerm: null },
-        filterBy: {budget:{min:'ANY',max:'ANY'}},
+        exploreTitle: { category: 'Explore', searchTerm: null },
+        filterBy: { budget: { min: 'ANY', max: 'ANY' } },
         professional: [{
             img: "https://res.cloudinary.com/pivarr/image/upload/v1638380308/tagsimg/logo-design_cuoszf.jpg",
             name: 'Logo Design',
@@ -161,11 +161,11 @@ export const gigStore = {
     },
     actions: {
         async loadGigs({ commit, state }) {
-            console.log('state.filterBY', state.filterBy);
+            // console.log('state.filterBY', state.filterBy);
             var gigs = await gigService.query(state.filterBy)
             console.log('gigs in store', gigs);
             commit({ type: 'setGigs', gigs });
-            commit({type: 'clearFilter'})
+            commit({ type: 'clearFilter' })
         },
         async updateGig({ commit }, { gig }) {
             var savedGig = gigService.save(gig)

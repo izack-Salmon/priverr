@@ -41,10 +41,10 @@ window.userService = userService
 async function getUsers() {
     // var users = await asyncStorageService.query(KEY)
     // return users
-   const users = await httpService.get(`user`)
-//    Promise.resolve(users).then((res)=>{
-       return users
-//    })
+    const users = await httpService.get(`user`)
+    //    Promise.resolve(users).then((res)=>{
+    return users
+    //    })
 }
 
 async function getById(userId) {
@@ -54,7 +54,7 @@ async function getById(userId) {
     // console.log('user', user);
     const user = await httpService.get(`user/${userId}`)
     gWatchedUser = user;
-    console.log(user)
+    // console.log(user)
     return user;
 }
 

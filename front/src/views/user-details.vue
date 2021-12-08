@@ -101,10 +101,12 @@ export default {
     };
   },
   created() {
+    // need to come for the back end for the start
     this.user = this.$store.getters.logginUser;
     this.gigs = this.$store.getters.gigs;
     this.gigs = this.gigs.filter((gig) => gig.owner._id === this.user._id);
     console.log("gigs", this.gig);
+    this.$store.dispatch({ type: "loadOrders" });
   },
   methods: {
     GoToCrateGig() {
