@@ -50,6 +50,7 @@
         </router-link>
       </div>
     </div>
+
   </section>
 </template>
 

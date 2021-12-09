@@ -74,6 +74,12 @@ export const userStore = {
         async signup({ commit }, { user }) {
             await authService.signup(user)
             commit({ type: 'login', user })
-        }
+        },
+        async removeSellerGig({ commit }, { gigId }) {
+            // console.log(gigId);
+            // var gig = await userService.removeGig(gigId)
+            // commit({ type: 'removeOrder', gig });
+            // return gig
+        },
     },
 }
