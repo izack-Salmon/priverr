@@ -97,11 +97,12 @@ export default {
     },
    saveGig(){
       this.user = this.$store.getters.logginUser;
-      if (this.$route.params.id) this.newGig._id = this.$route.params.id
-console.log('this.newGig', this.newGig);
-    
+      if (this.$route.params.id) {
+        this.newGig._id = this.$route.params.id
+        }
+      console.log('this.newGig', this.newGig);
      this.$store.dispatch({ type: "addGig", gig: this.newGig });
-     this.$router.push(`/user/${this.newGig.owner._id}`)
+    //  this.$router.push(`/user/${this.newGig.owner._id}`)
     }
   }
 };

@@ -175,11 +175,12 @@ export const gigStore = {
         async addGig({ commit }, { gig }) {
             console.log('add', gig);
             var savedGig = await gigService.save(gig)
-            if (gig._id){
-                commit({ type: 'updateGig', gig });
-            } else {
+            // if (gig._id){
+                // commit({ type: 'updateGig', gig });
+            // } else {
+                console.log('hi add store');
                 commit({ type: 'addGig', savedGig });
-            }
+            // }
             return savedGig;
         },
         async removeGig({ commit }, { gigId }) {

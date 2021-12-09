@@ -73,7 +73,7 @@
     </section>
     <div class="create-a-gig">
       <p>It seems that you don't have any active Gigs. Get selling!</p>
-      <button @click="GoToCrateGig" class="become-seller">
+      <button @click="GoToAddGig" class="become-seller">
         Create a New Gig
       </button>
     </div>
@@ -113,9 +113,13 @@ export default {
     this.$store.dispatch({ type: "loadOrders" });
   },
   methods: {
-    GoToCrateGig() {
+    ordersToShow() {
+       console.log('go store')
+      return this.$store.getters.orders;
+    },
+    
+    GoToAddGig() {
       this.$router.push(`/user/${this.user._id}/editGig`);
-      console.log("hi");
     },
 
     loadGigs(){
