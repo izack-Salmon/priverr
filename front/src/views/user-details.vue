@@ -79,12 +79,13 @@
     </div>
     <div class="user-gigs">
       <section>
-        <h3>My orders</h3>
-        <ul>
-          <li v-for="gig in gigs" :key="gig._id">
-            {{ gig.title }}
-          </li>
-        </ul>
+        <h3>Active Gigs</h3>
+        <div class="active-gigs">
+          <div v-for="gig in gigs" :key="gig._id">
+            <!-- {{gig.title}} -->
+           <seller-gigs :gig="gig" @loadGigs='loadGigs' />
+          </div>
+        </div>
       </section>
     </div>
   </div>
@@ -92,6 +93,8 @@
 
 <script>
 import orderList from "../cmps/order-list.vue"
+import SellerGigs from '../cmps/seller-gigs.vue';
+
 import Avatar from "vue-avatar";
 export default {
   data() {
@@ -103,21 +106,23 @@ export default {
   created() {
     // need to come for the back end for the start
     this.user = this.$store.getters.logginUser;
-    this.gigs = this.$store.getters.gigs;
-    this.gigs = this.gigs.filter((gig) => gig.owner._id === this.user._id);
-    console.log("gigs", this.gig);
-    
-
+    // this.gigs = this.$store.getters.gigs;
+    // this.gigs = this.gigs.filter((gig) => gig.owner._id === this.user._id);
+    // console.log("gigs", this.gig);
+    this.loadGigs();
+    this.$store.dispatch({ type: "loadOrders" });
   },
   methods: {
     GoToCrateGig() {
-      this.$router.push(`/user/${this.user._id}/AddGig`);
+      this.$router.push(`/user/${this.user._id}/editGig`);
       console.log("hi");
     },
-    ordersToShow() {
-       console.log('go store')
-      return this.$store.getters.orders;
-    },
+
+    loadGigs(){
+      this.gigs = this.$store.getters.gigs;
+      this.gigs = this.gigs.filter((gig) => gig.owner._id === this.user._id);
+       console.log("gigs", this.gig);
+    }
   },
   watch: {
     userId: {
@@ -134,7 +139,7 @@ export default {
       return this.$route.params.id;
     },
   },
-  components: { Avatar ,orderList},
+  components: { Avatar ,orderList, SellerGigs},
 };
 </script>
 

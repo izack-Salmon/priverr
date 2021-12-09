@@ -3,9 +3,11 @@ const logger = require('../../services/logger.service')
 const ObjectId = require('mongodb').ObjectId
 
 async function query(filterBy) {
-    // console.log('1dkkk', req.session);
-    filterBy.budget = JSON.parse(filterBy.budget)
-    console.log('filterBy-serviceback', filterBy);
+    console.log('filterBy', filterBy);
+    if (filterBy.budget) {
+        filterBy.budget = JSON.parse(filterBy.budget)
+    }
+    // console.log('filterBy-serviceback', filterBy);
     try {
         const criteria = _buildCriteria(filterBy)
         // const criteria = {};
@@ -67,7 +69,7 @@ async function update(gig) {
     }
 }
 function _buildCriteria(filterBy) {
-    // console.log('filterBy-criteria', filterBy);
+    console.log('filterBy-criteria', filterBy);
 
     const criteria = {}
     if (filterBy.searchTerm && filterBy.searchTerm !== '') {
@@ -87,24 +89,21 @@ function _buildCriteria(filterBy) {
         criteria.tags = { $in: newTag };
     }
 
+if (filterBy.budget) {
 
-    // console.log('filterBy.budget.min', filterBy.budget.min);
-    if (filterBy.budget.min === 'Any' && typeof (filterBy.budget.max) === 'number') {
+    if (filterBy.budget.min === null && typeof (filterBy.budget.max) === 'number') {
+        criteria.price = { $lt: filterBy.budget.max }
+        
+    } else if (filterBy.budget.max === null && typeof (filterBy.budget.min) === 'number') {
         criteria.price = { $gt: filterBy.budget.min }
 
-    } else if (filterBy.budget.max === 'Any' && typeof (filterBy.budget.min) === 'number') {
-        criteria.price = { $lt: filterBy.budget.max }
-
     } else if (typeof (filterBy.budget.min) === 'number' && typeof (filterBy.budget.max) === 'number') {
-        //    if(filterBy.budget.min !== 'Any' && filterBy.budget.max !== 'Any'
-        // && filterBy.budget.max !== ''&& filterBy.budget.min !== ''){
         criteria.price = { $gt: filterBy.budget.min, $lt: filterBy.budget.max }
-    }
-    // else {
-    //     criteria.price = { $gt : 0, $lt : 5000}
-    //    }
-    // }
-
+    } else {
+        criteria.price = { $gt : 0, $lt : 5000}
+       }
+   
+}
     // { $range: [ <start>, <end>, <non-zero step> ] }
 
     return criteria

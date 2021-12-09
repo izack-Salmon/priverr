@@ -6,7 +6,7 @@ import gigDetails from '../views/gig-details.vue'
 import gigEdit from '../views/gig-edit.vue'
 import userDetails from '../views/user-details.vue'
 import dashboard from '../views/dashboard.vue'
-import userAddGig from '../views/user-add-gig.vue'
+import userEditGig from '../views/user-edit-gig.vue'
 import store from '../store'
 
 Vue.use(VueRouter)
@@ -42,14 +42,24 @@ const routes = [{
     component: gigEdit
 },
 {
+    path: '/gig/edit/:id',
+    name: 'gigEdit',
+    component: gigEdit
+},
+{
     path: '/user/:id',
     name: 'userDetails',
     component: userDetails
 },
 {
-    path: '/user/:id/AddGig',
-    name: 'userAddGig',
-    component: userAddGig
+    path: '/user/:id/editGig',
+    name: 'userEditGig',
+    component: userEditGig
+},
+{
+    path: '/user/:id/editGig/:id',
+    name: 'userEditGig',
+    component: userEditGig
 },
 {
     path: '/user/dashboard',

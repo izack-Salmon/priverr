@@ -73,17 +73,17 @@ async function _createGigs() {
     }
     return gigs;
 }
-function _createGig(imgUrls, label, title, user,) {
-    const levels = ['Level 2 Seller', 'Level 1 Seller', 'Top Rated Seller']
-
+function _createGig(imgUrls,label,title, user,) {
+    const levels= ['Level 2 Seller','Level 1 Seller','Top Rated Seller']
+    const rates = [4.7,4.8,4.9,4.6,4.5, ]
     console.log('user-gig-serv', user);
     var { _id, fullname, imgUrl } = user
     const miniUser = {
         _id,
         fullname,
         imgUrl,
-        rate: Math.round(Math.random * utilService.getRandomInt(4, 5) * 10) / 10,
-        level: levels[utilService.getRandomInt(0, levels.length - 1)],
+        rate: rates[utilService.getRandomInt(0, levels.length-1)],
+        level: levels[utilService.getRandomInt(0, levels.length-1)],
         orderNum: utilService.getRandomInt(100, 1000)
     }
     // console.log(miniUser);
