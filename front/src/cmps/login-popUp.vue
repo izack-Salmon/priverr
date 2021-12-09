@@ -3,11 +3,12 @@
     <div class="login-pop">
       <div class="sing-in-box">
         <div class="sing-in-contant">
-          <h4 class="form-header">Join Piverr</h4>
-          <form class="login-form" @submit.prevent="login">
+          <h4 v-if="sginIn" class="form-header">Login</h4>
+          <h4 v-else class="form-header">Join Piverr</h4>
+          <form class="login-form" @submit.prevent="">
             <p class="login-msg">{{ msg }}</p>
             <el-input
-              v-if="sginIn"
+              v-if="!sginIn"
               placeholder="Enter fullname"
               v-model="user.fullname"
             ></el-input>
@@ -20,8 +21,10 @@
               placeholder="Please input password"
               v-model="user.password"
             ></el-input>
-            <button v-if="!sginIn" class="btn-login">continue</button>
-            <button v-if="sginIn" class="btn-login">continue</button>
+            <button v-if="sginIn" @click="login" class="btn-login">
+              Continue
+            </button>
+            <button v-else @click="sginUp" class="btn-login">Continue</button>
             <hr />
           </form>
           <div class="signing-footer">
@@ -83,6 +86,7 @@ export default {
       this.sginIn = !this.sginIn;
     },
     sginUp() {
+      console.log("im here");
       if (!this.user.fullname || !this.user.password || !this.user.username) {
         this.errorMsg("Please enter username/password");
         return;

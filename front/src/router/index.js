@@ -57,7 +57,7 @@ const routes = [{
     component: userEditGig
 },
 {
-    path: '/user/:id/editGig/:id',
+    path: '/user/:id/editGig/:gigId',
     name: 'userEditGig',
     component: userEditGig
 },

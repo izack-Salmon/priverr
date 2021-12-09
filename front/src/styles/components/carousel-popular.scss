@@ -100,6 +100,19 @@
   margin-top: 3px;
 
 }
+.slick-arrow::before{
+  // background: url();
+  // background: image-set();
+ color: rgb(75, 75, 75);
+//  left: 10px;
+ font-size: 40px;
+}
+.slick-arrow.slick-next {
+  // position: relative;
+
+  // left: 10px;
+}
+
 
   .slick-slider{
     padding-bottom: 10px;
