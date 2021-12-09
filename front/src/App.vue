@@ -45,7 +45,10 @@ export default {
     setSearch(searchTerm) {
       console.log("searchTerm", searchTerm);
       this.$store.dispatch({ type: "setSearch", searchTerm });
-      this.$router.push({path:'explore', query: { search: this.searchTerm }});
+      this.$router.push({
+        path: "explore",
+        query: { search: this.searchTerm },
+      });
     },
     showLogin() {
       console.log("got it");

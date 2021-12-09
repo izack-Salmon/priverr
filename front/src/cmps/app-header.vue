@@ -131,7 +131,6 @@ export default {
     },
     async logOut() {
       this.$store.dispatch({ type: "logout" });
-      this.$router.push(`/`);
     },
     close() {
       this.loginOpened = false;

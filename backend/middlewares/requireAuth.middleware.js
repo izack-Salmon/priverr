@@ -19,7 +19,7 @@ function requireAdmin(req, res, next) {
 }
 
 
-// module.exports = requireAuth
+module.exports = requireAuth
 
 module.exports = {
   requireAuth,
