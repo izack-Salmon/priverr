@@ -67,7 +67,7 @@
             </li>
           </ul>
         </div>
-        <order-list/>
+        <order-list :orders="ordersToShow()" />
       </div>
      
     </section>
@@ -134,6 +134,7 @@ export default {
     },
   },
   computed: {
+  
     userId() {
       return this.$route.params.id;
     },

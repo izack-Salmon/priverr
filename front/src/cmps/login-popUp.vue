@@ -20,12 +20,8 @@
               placeholder="Please input password"
               v-model="user.password"
             ></el-input>
-            <button @click="login" v-if="!sginIn" class="btn-login">
-              continue
-            </button>
-            <button @click="sginIn" v-if="sginIn" class="btn-login">
-              continue
-            </button>
+            <button v-if="!sginIn" class="btn-login">continue</button>
+            <button v-if="sginIn" class="btn-login">continue</button>
             <hr />
           </form>
           <div class="signing-footer">

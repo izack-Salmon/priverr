@@ -1,5 +1,6 @@
 import Axios from 'axios'
-import { router } from '@/router'
+
+import router from '../router/index.js'
 
 const BASE_URL = process.env.NODE_ENV === 'production'
     ? '/api/'
@@ -41,7 +42,7 @@ async function ajax(endpoint, method = 'GET', data = null) {
             // Depends on routing startegy - hash or history
             // window.location.assign('/#/login')
             // window.location.assign('/login')
-            router.push('/login')
+            // router.push('/login')
         }
         throw err
     }

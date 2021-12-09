@@ -84,6 +84,7 @@ function _buildCriteria(filterBy) {
     }
 
     if (filterBy.tag && filterBy.tag !== '') {
+        console.log('im here');
         const newTag = [filterBy.tag.toLowerCase()];
         criteria.tags = { $in: newTag };
     }

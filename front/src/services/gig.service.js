@@ -73,17 +73,28 @@ async function _createGigs() {
     }
     return gigs;
 }
+<<<<<<< HEAD
 function _createGig(imgUrls,label,title, user,) {
     const levels= ['Level 2 Seller','Level 1 Seller','Top Rated Seller']
     const rates = [4.7,4.8,4.9,4.6,4.5, ]
+=======
+function _createGig(imgUrls, label, title, user,) {
+    const levels = ['Level 2 Seller', 'Level 1 Seller', 'Top Rated Seller']
+
+>>>>>>> 10f3b2eeba95622bb8312fb82e75879a6f324fba
     console.log('user-gig-serv', user);
     var { _id, fullname, imgUrl } = user
     const miniUser = {
         _id,
         fullname,
         imgUrl,
+<<<<<<< HEAD
         rate: rates[utilService.getRandomInt(0, levels.length-1)],
         level: levels[utilService.getRandomInt(0, levels.length-1)],
+=======
+        rate: Math.round(Math.random * utilService.getRandomInt(4, 5) * 10) / 10,
+        level: levels[utilService.getRandomInt(0, levels.length - 1)],
+>>>>>>> 10f3b2eeba95622bb8312fb82e75879a6f324fba
         orderNum: utilService.getRandomInt(100, 1000)
     }
     // console.log(miniUser);
@@ -114,21 +125,22 @@ function _createGig(imgUrls,label,title, user,) {
 
 
 var labalsAimg = [
-    {label:'logo design', 
-    imgUrls: [
-    'https://res.cloudinary.com/pivarr/image/upload/c_scale,h_393,w_680/v1638715480/logo%20design/seller-3/1_i3unds.png',
-    'https://res.cloudinary.com/pivarr/image/upload/c_scale,h_393,w_680/v1638862335/logo%20design/seller-4/write-signature-and-handmade-unique-logo_1_sz31bt.jpg',
-    'https://res.cloudinary.com/pivarr/image/upload/c_scale,h_393,w_680/v1638862396/logo%20design/seller-4/design-a-modern-minimalist-logo-in-24-hours_j5ykcu.png',
-    'https://res.cloudinary.com/pivarr/image/upload/c_scale,h_393,w_680/v1638863926/logo%20design/seller-5/make-a-simple-premium-cartoon-animal-logo-mascot_vdavv4.png',
-    'https://res.cloudinary.com/pivarr/image/upload/c_scale,h_393,w_680/v1638863922/logo%20design/seller-5/make-a-simple-premium-cartoon-animal-logo-mascot_woo3kj.jpg',
-    'https://res.cloudinary.com/pivarr/image/upload/c_scale,h_393,w_680/v1638863919/logo%20design/seller-5/make-a-simple-premium-cartoon-animal-logo-mascot_1_pwito9.jpg',
-    'https://res.cloudinary.com/pivarr/image/upload/c_scale,h_393,w_680/v1638715480/logo%20design/seller-3/1_i3unds.png',
-    ],
-    title: ['design flat and clean logo design',
-    'design flat and clean logo design',
-    'do profesional modern buisness logo design'
-],
-     },
+    {
+        label: 'logo design',
+        imgUrls: [
+            'https://res.cloudinary.com/pivarr/image/upload/c_scale,h_393,w_680/v1638715480/logo%20design/seller-3/1_i3unds.png',
+            'https://res.cloudinary.com/pivarr/image/upload/c_scale,h_393,w_680/v1638862335/logo%20design/seller-4/write-signature-and-handmade-unique-logo_1_sz31bt.jpg',
+            'https://res.cloudinary.com/pivarr/image/upload/c_scale,h_393,w_680/v1638862396/logo%20design/seller-4/design-a-modern-minimalist-logo-in-24-hours_j5ykcu.png',
+            'https://res.cloudinary.com/pivarr/image/upload/c_scale,h_393,w_680/v1638863926/logo%20design/seller-5/make-a-simple-premium-cartoon-animal-logo-mascot_vdavv4.png',
+            'https://res.cloudinary.com/pivarr/image/upload/c_scale,h_393,w_680/v1638863922/logo%20design/seller-5/make-a-simple-premium-cartoon-animal-logo-mascot_woo3kj.jpg',
+            'https://res.cloudinary.com/pivarr/image/upload/c_scale,h_393,w_680/v1638863919/logo%20design/seller-5/make-a-simple-premium-cartoon-animal-logo-mascot_1_pwito9.jpg',
+            'https://res.cloudinary.com/pivarr/image/upload/c_scale,h_393,w_680/v1638715480/logo%20design/seller-3/1_i3unds.png',
+        ],
+        title: ['design flat and clean logo design',
+            'design flat and clean logo design',
+            'do profesional modern buisness logo design'
+        ],
+    },
     {
         label: 'social media',
         imgUrls: [
@@ -136,8 +148,8 @@ var labalsAimg = [
             'https://res.cloudinary.com/pivarr/image/upload/v1638866001/soicalmedia/seller-2/boost-youtube-videos-high-platform_enn2sd.png',
         ],
         title: ['research the perfect audience to target with facebook ads',
-        'be your social media content and post creator',
-     ]
+            'be your social media content and post creator',
+        ]
     },
     {
         label: 'voice over',
@@ -153,10 +165,10 @@ var labalsAimg = [
 
         ],
         title: ['recored ameriacan deep voices',
-               'record high quality voice overs',
-               'record your kickstarter or croud funding voice over',
-               'record british english voiceover',
-     ]
+            'record high quality voice overs',
+            'record your kickstarter or croud funding voice over',
+            'record british english voiceover',
+        ]
     },
     {
         label: 'wordpress',
@@ -171,11 +183,11 @@ var labalsAimg = [
             'https://res.cloudinary.com/pivarr/image/upload/v1638864959/wordpress/seller-3/1_l3annt_qvktvl.jpg'
         ],
         title: ['create clean and modern wordpress website',
-        'develop responsive wordpress website design',
-        'setup modern wordpress website design or blog design',
-        'create aesthetic wordpress websites with elementor pro'
-    ]
-        
+            'develop responsive wordpress website design',
+            'setup modern wordpress website design or blog design',
+            'create aesthetic wordpress websites with elementor pro'
+        ]
+
     }
 ]
 
@@ -183,26 +195,26 @@ var labalsAimg = [
 // console.log('res-set gigs', res);
 
 
-async function setGig (){
-   const users=  await userService.getUsers();
-   console.log('users', users);
-for (let i = 0; i < 1; i++) { 
+async function setGig() {
+    const users = await userService.getUsers();
+    console.log('users', users);
+    for (let i = 0; i < 1; i++) {
 
-    for (let i = 0; i < labalsAimg.length; i++) {
-        let gig = {
-            label: labalsAimg[i].label,
-            imgUrl: [
-                labalsAimg[i].imgUrls[utilService.getRandomInt(0, labalsAimg[i].imgUrls.length-1)],
-                labalsAimg[i].imgUrls[utilService.getRandomInt(0, labalsAimg[i].imgUrls.length-1)],
-                labalsAimg[i].imgUrls[utilService.getRandomInt(0, labalsAimg[i].imgUrls.length-1)]
-            ],
-            title: `I will ${labalsAimg[i].title[utilService.getRandomInt(0, labalsAimg[i].title.length-1)]}`,
-            user: users[utilService.getRandomInt(0, users.length-1)]
+        for (let i = 0; i < labalsAimg.length; i++) {
+            let gig = {
+                label: labalsAimg[i].label,
+                imgUrl: [
+                    labalsAimg[i].imgUrls[utilService.getRandomInt(0, labalsAimg[i].imgUrls.length - 1)],
+                    labalsAimg[i].imgUrls[utilService.getRandomInt(0, labalsAimg[i].imgUrls.length - 1)],
+                    labalsAimg[i].imgUrls[utilService.getRandomInt(0, labalsAimg[i].imgUrls.length - 1)]
+                ],
+                title: `I will ${labalsAimg[i].title[utilService.getRandomInt(0, labalsAimg[i].title.length - 1)]}`,
+                user: users[utilService.getRandomInt(0, users.length - 1)]
+            }
+            var newGig = _createGig(gig.imgUrl, gig.label, gig.title, gig.user,)
+            console.log('newGig', newGig);
+            save(newGig)
+
         }
-        var newGig = _createGig(gig.imgUrl,gig.label,gig.title, gig.user,)
-        console.log('newGig', newGig);
-        save(newGig)
-        
     }
-}
 }

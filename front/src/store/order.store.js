@@ -7,13 +7,12 @@ export const orderStore = {
         orders: '',
     },
     getters: {
-        //for the start with no backend
         orders(state) {
+            // console.log(state.orders);
             return state.orders
         },
     },
     mutations: {
-        //for the start with no backend
         loadOrders(state, { orders }) {
             state.orders = orders
             console.log(state.orders);
@@ -23,13 +22,16 @@ export const orderStore = {
             state.orders.splice(idx, 1);
         },
         addOrder(state, { savedOrder }) {
+            if (!state.orders) {
+                state.orders = []
+            }
             state.orders.push(savedOrder);
         },
     },
     actions: {
         async loadOrders({ commit, state }) {
             var orders = await orderService.query(state.filterBy)
-            // console.log('orders in store', orders);
+            console.log('orders in store', orders);
             commit({ type: 'loadOrders', orders });
         },
         async removeOrder({ commit }, { orderId }) {
@@ -39,7 +41,8 @@ export const orderStore = {
             return order
         },
         async addOrder({ commit }, { order }) {
-            var savedOrder = orderService.save(order)
+            console.log(order);
+            var savedOrder = await orderService.save(order)
             // console.log('this 2');
             commit({ type: 'addOrder', savedOrder });
             return savedOrder;

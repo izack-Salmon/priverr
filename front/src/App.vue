@@ -39,13 +39,17 @@ export default {
   created() {
     this.$store.dispatch({ type: "loadGigs" });
     this.$store.dispatch({ type: "loadUser" });
+    this.$store.dispatch({ type: "loadOrders" });
     this.isFixed = this.$route.name === "Home" ? true : false;
   },
   methods: {
     setSearch(searchTerm) {
       console.log("searchTerm", searchTerm);
       this.$store.dispatch({ type: "setSearch", searchTerm });
-      this.$router.push({path:'explore', query: { search: this.searchTerm }});
+      this.$router.push({
+        path: "explore",
+        query: { search: this.searchTerm },
+      });
     },
     showLogin() {
       console.log("got it");
