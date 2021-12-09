@@ -11,15 +11,18 @@
       </VueSlickCarousel>
     </template>
     <template>
-      <VueSlickCarousel ref="c2" :asNavFor="$refs.c1" v-bind="smallSettings">
-        <img
-          :style="{ height: '120px', width: '182px' }"
-          v-for="img in gig.imgUrl"
-          :key="img"
-          :src="img"
-          alt=""
-        />
-      </VueSlickCarousel>
+      <div class="img-datils">
+        <VueSlickCarousel ref="c2" :asNavFor="$refs.c1" v-bind="smallSettings">
+          <img
+            class="details-img"
+            :style="{ height: '120px', width: '50px' }"
+            v-for="img in gig.imgUrl"
+            :key="img"
+            :src="img"
+            alt=""
+          />
+        </VueSlickCarousel>
+      </div>
     </template>
   </section>
 </template>
@@ -38,6 +41,7 @@ export default {
         focusOnSelect: true,
       },
       smallSettings: {
+        adaptiveHeight: true,
         focusOnSelect: true,
         infinite: true,
         slidesToShow: 3,

@@ -75,7 +75,7 @@ async function login(userCred) {
     // const users = await asyncStorageService.query(KEY)
     // const user = users.find(user => user.username === userCred.username)
     // return _saveLocalUser(user)
-
+    console.log('hi');
     const user = await httpService.post('auth/login', userCred)
     socketService.emit('set-user-socket', user.data._id);
     if (user.data) return _saveLocalUser(user.data)

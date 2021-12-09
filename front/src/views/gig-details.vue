@@ -156,6 +156,7 @@ export default {
     sendOrder() {
       this.order = {
         createdAt: Date.now(),
+        status: "pending",
         seller: {
           _id: this.owner._id,
         },

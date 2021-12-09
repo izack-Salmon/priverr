@@ -10,12 +10,13 @@ async function login(req, res) {
     } catch (err) {
         logger.error('Failed to Login ' + err)
         res.status(401).send({ err: 'Failed to Login' })
-        return err
+        return res.err
     }
 }
 
 async function signup(req, res) {
     try {
+        console.log(req.body);
         const { username, password, fullname } = req.body
         // Never log passwords
         logger.debug(fullname + ', ' + username + ', ' + password)

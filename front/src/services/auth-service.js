@@ -1,4 +1,5 @@
 import Axios from "axios";
+import { socketService, SOCKET_EVENT_USER_UPDATED } from './socket.service'
 var axios = Axios.create({ withCredentials: true, });
 
 export const authService = {
@@ -13,6 +14,7 @@ const BASE_URL =
         : "//localhost:3030/api/auth";
 
 async function login(user) {
+    console.log('hi');
     var user = await axios.post(`${BASE_URL}/login`, user)
     return user.data
 }

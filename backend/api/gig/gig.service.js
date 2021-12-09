@@ -3,8 +3,9 @@ const logger = require('../../services/logger.service')
 const ObjectId = require('mongodb').ObjectId
 
 async function query(filterBy) {
+    // console.log('1dkkk', req.session);
     filterBy.budget = JSON.parse(filterBy.budget)
-    // console.log('filterBy-serviceback', filterBy);
+    console.log('filterBy-serviceback', filterBy);
     try {
         const criteria = _buildCriteria(filterBy)
         // const criteria = {};
@@ -81,6 +82,7 @@ function _buildCriteria(filterBy) {
     }
 
     if (filterBy.tag && filterBy.tag !== '') {
+        console.log('im here');
         const newTag = [filterBy.tag.toLowerCase()];
         criteria.tags = { $in: newTag };
     }
