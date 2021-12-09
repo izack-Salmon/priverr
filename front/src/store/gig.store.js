@@ -160,6 +160,16 @@ export const gigStore = {
         }
     },
     actions: {
+        
+        //hope to do get gigs by user id back to front ;)
+
+        // async loadGigs({ commit, state }) {
+        //     var gigs = await gigService.query(state.filterBy)
+        //     gigs = await gigs.filter(
+        //         (gig) => gig.owner._id === this.user._id
+        //       );
+        //     commit({ type: 'setUserGigs', userGigs });
+        // },
         async loadGigs({ commit, state }) {
             // console.log('state.filterBY', state.filterBy);
             var gigs = await gigService.query(state.filterBy)
@@ -173,12 +183,11 @@ export const gigStore = {
             return savedGig;
         },
         async addGig({ commit }, { gig }) {
-            console.log('add', gig);
             var savedGig = await gigService.save(gig)
             if (gig._id){
-                commit({ type: 'updateGig', gig });
+            commit({ type: 'updateGig', gig });
             } else {
-                commit({ type: 'addGig', savedGig });
+            commit({ type: 'addGig', savedGig });
             }
             return savedGig;
         },
@@ -202,8 +211,8 @@ export const gigStore = {
         async getGigByid({ commit }, { gigId }) {
             try {
                 const gig = await gigService.getById(gigId);
-                // console.log(gig);
                 commit({ type: 'setCurrGig', gig })
+                return gig
             } catch (err) {
                 console.log('userStore: Error in getGigByid', err)
                 throw err

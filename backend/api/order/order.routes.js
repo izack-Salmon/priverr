@@ -5,10 +5,10 @@ const { getOrders, getOrderById, addOrder, updateOrder, removeOrder } = require(
 const router = express.Router()
 
 // middleware that is specific to this router
-router.use(requireAuth)
+// router.use(requireAuth)
 
-// router.get('/', getOrders)
-router.get('/', log, getOrders)
+router.get('/', getOrders)
+// router.get('/', log, getOrders)
 router.get('/:id', getOrderById)
 // router.post('/', requireAuth, addOrder)
 router.post('/', addOrder)

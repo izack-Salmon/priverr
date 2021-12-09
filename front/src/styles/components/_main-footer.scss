@@ -1,4 +1,12 @@
 .app-footer{
+    .logo-footer{
+        width: 77px;
+        height: 23px;
+        opacity: 0.4;
+        position: relative;
+        bottom: 4px;
+        // padding-bottom: ;
+    }
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -13,12 +21,14 @@
         }
     }
     .right{
-        svg{
-            // padding-right: 40px;
+        svg:not(:last-child){
             margin-right: 40px;
+            // padding-right: 40px;
+        }
+        svg{
+            
             opacity: 0.4;
         }
-        
     }
 }
 .app-footer::before{

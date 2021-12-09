@@ -4,7 +4,7 @@
       <div class="user-card">
         <div class="user-profile">
           <avatar
-            v-if="user.imgUrl"
+            v-if="user"
             @click.native="goToUserPage"
             class="home-Avater"
             :size="150"
@@ -67,33 +67,34 @@
             </li>
           </ul>
         </div>
-        <order-list :orders="ordersToShow()" />
+      
       </div>
-     
-    </section>
-    <div class="create-a-gig">
-      <p>It seems that you don't have any active Gigs. Get selling!</p>
-      <button @click="GoToCrateGig" class="become-seller">
-        Create a New Gig
-      </button>
-    </div>
-    <div class="user-gigs">
+        <!-- <div class="user-gigs">
       <section>
         <h3>Active Gigs</h3>
-        <div class="active-gigs">
+        <div v-if="gigs" class="active-gigs">
           <div v-for="gig in gigs" :key="gig._id">
-            <!-- {{gig.title}} -->
-           <seller-gigs :gig="gig" @loadGigs='loadGigs' />
+            <seller-gigs :gig="gig" @loadGigs="loadUserGigs" />
           </div>
         </div>
       </section>
+    </div> -->
+    </section>
+    <div class="create-a-gig">
+      <p>It seems that you don't have any active Gigs. Get selling!</p>
+      <button @click="goToCrateGig" class="become-seller">
+        Create a New Gig
+      </button>
     </div>
+      <div class="user-gigs">
+          <order-list :orders="ordersToShow()" />
+      </div>
   </div>
 </template>
 
 <script>
-import orderList from "../cmps/order-list.vue"
-import SellerGigs from '../cmps/seller-gigs.vue';
+import orderList from "../cmps/order-list.vue";
+import SellerGigs from "../cmps/seller-gigs.vue";
 
 import Avatar from "vue-avatar";
 export default {
@@ -101,32 +102,33 @@ export default {
     return {
       user: "",
       gigs: "",
+      // userGigs: "",
     };
   },
-  created() {
-    // need to come for the back end for the start
-    this.user = this.$store.getters.logginUser;
-    // this.gigs = this.$store.getters.gigs;
-    // this.gigs = this.gigs.filter((gig) => gig.owner._id === this.user._id);
-    // console.log("gigs", this.gig);
-    this.loadGigs();
-    this.$store.dispatch({ type: "loadOrders" });
+  async created() {
+    await this.$store.dispatch({ type: "loadGigs" });
+    this.user = await this.$store.getters.logginUser;
+    await this.loadUserGigs();
+    await this.$store.dispatch({ type: "loadOrders" });
   },
   methods: {
-     ordersToShow() {
-       console.log('go store')
+    goToCrateGig() {
+      this.$router.push(`/user/${this.user._id}/editGig`);
+      // console.log("hi");
+    },
+    ordersToShow() {
+      // console.log("go store");
       return this.$store.getters.orders;
     },
-    GoToCrateGig() {
-      this.$router.push(`/user/${this.user._id}/editGig`);
-      console.log("hi");
-    },
 
-    loadGigs(){
+    async loadUserGigs() {
       this.gigs = this.$store.getters.gigs;
-      this.gigs = this.gigs.filter((gig) => gig.owner._id === this.user._id);
-       console.log("gigs", this.gig);
-    }
+      console.log("gigs", this.gigs);
+      this.gigs = await this.gigs.filter(
+        (gig) => gig.owner._id === this.user._id
+      );
+      console.log("this.userGigs", this.gigs);
+    },
   },
   watch: {
     userId: {
@@ -138,12 +140,11 @@ export default {
     },
   },
   computed: {
-  
     userId() {
       return this.$route.params.id;
     },
   },
-  components: { Avatar ,orderList, SellerGigs},
+  components: { Avatar, orderList, SellerGigs },
 };
 </script>
 

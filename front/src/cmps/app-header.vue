@@ -57,7 +57,7 @@
       <div :class="['nav-bar', { white: isHome }, { 'hover-nav': !isHome }]">
         <router-link :to="'/explore'">Explore</router-link>
         <span>Become a Seller</span> <span @click="openSignIn">Sign in</span>
-        <span v-show="logedInUser" @click="logOut">signOut</span>
+        <span v-show="logedInUser" @click="logOut">Sign Out</span>
         <!-- <div> -->
         <!-- <div class="join-box"> -->
         <button

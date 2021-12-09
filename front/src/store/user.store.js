@@ -3,7 +3,7 @@ import { authService } from '../services/auth-service';
 
 export const userStore = {
     state: {
-        loginUser: '',
+        loginUser: userService.getLoggedinUser(),
         users: '',
         currOwner: '',
         username: '',
