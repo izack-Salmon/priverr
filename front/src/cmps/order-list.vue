@@ -35,7 +35,7 @@
                         </div>
                         <span class="slash-betw">/</span>
                         <div>
-                            <button class="reject-btn">Reject</button>   
+                            <button  @click="setReject(order._id)" class="reject-btn">Reject</button>   
                         </div>
                     </div>
                     <div v-else-if="order.status ==='accepted'" class="order-accepted">
@@ -55,6 +55,7 @@ export default {
     props:['orders'],
     data(){
         return{
+            orders:[],
             pendings:0,
         }
     },
@@ -63,6 +64,9 @@ export default {
         this.queNum()
     },
     methods:{
+        OrdersToShow(){
+            
+        },
         queNum(){
         var count = 0
         this.orders.forEach(order => { 
