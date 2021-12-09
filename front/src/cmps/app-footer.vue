@@ -1,7 +1,7 @@
 <template>
   <section class="app-footer main-layout">
     <div class="left">
-      <svg
+      <!-- <svg
         width="91"
         height="27"
         viewBox="0 0 91 27"
@@ -18,7 +18,8 @@
             d="m90.4 23.3c0 2.1-1.6 3.7-3.8 3.7s-3.8-1.6-3.8-3.7 1.6-3.7 3.8-3.7c2.2-.1 3.8 1.5 3.8 3.7zm-.7 0c0-1.8-1.3-3.1-3.1-3.1s-3.1 1.3-3.1 3.1 1.3 3.1 3.1 3.1 3.1-1.4 3.1-3.1zm-1.7.8.1.9h-.7l-.1-.9c0-.3-.2-.5-.5-.5h-.8v1.4h-.7v-3.5h1.4c.7 0 1.2.4 1.2 1.1 0 .4-.2.6-.5.8.4.1.5.3.6.7zm-1.9-1h.7c.4 0 .5-.3.5-.5 0-.3-.2-.5-.5-.5h-.7z"
           ></path>
         </g>
-      </svg>
+      </svg> -->
+      <img class="logo-footer" src="../assets/imgs/Piverr_Logo.png" alt="" />
       <p class="text-body-2 legal">
         <span class="copyright">© Piverr International Ltd. 2021</span>
       </p>

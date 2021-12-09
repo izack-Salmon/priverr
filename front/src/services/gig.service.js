@@ -38,6 +38,7 @@ function remove(id) {
     // return asyncStorageService.remove(KEY, id);
 }
 function save(gig) {
+    console.log('gig', gig);
     return (gig._id) ? axios.put(BASE_URL + `/${gig._id}`, gig).then((res) => res.data) : axios.post(BASE_URL + '/', gig).then((res) => res.data)
     // const savedGig = gig._id ? asyncStorageService.put(KEY, gig) : asyncStorageService.post(KEY, gig);
     // return savedGig;
@@ -73,17 +74,17 @@ async function _createGigs() {
     }
     return gigs;
 }
-function _createGig(imgUrls,label,title, user,) {
-    const levels= ['Level 2 Seller','Level 1 Seller','Top Rated Seller']
-    const rates = [4.7,4.8,4.9,4.6,4.5, ]
+function _createGig(imgUrls, label, title, user,) {
+    const levels = ['Level 2 Seller', 'Level 1 Seller', 'Top Rated Seller']
+    const rates = [4.7, 4.8, 4.9, 4.6, 4.5,]
     console.log('user-gig-serv', user);
     var { _id, fullname, imgUrl } = user
     const miniUser = {
         _id,
         fullname,
         imgUrl,
-        rate: rates[utilService.getRandomInt(0, levels.length-1)],
-        level: levels[utilService.getRandomInt(0, levels.length-1)],
+        rate: rates[utilService.getRandomInt(0, levels.length - 1)],
+        level: levels[utilService.getRandomInt(0, levels.length - 1)],
         orderNum: utilService.getRandomInt(100, 1000)
     }
     // console.log(miniUser);
