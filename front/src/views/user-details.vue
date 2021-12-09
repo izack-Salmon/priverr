@@ -67,7 +67,7 @@
             </li>
           </ul>
         </div>
-        <order-list/>
+        <order-list :orders="ordersToShow()" />
       </div>
      
     </section>
@@ -106,12 +106,17 @@ export default {
     this.gigs = this.$store.getters.gigs;
     this.gigs = this.gigs.filter((gig) => gig.owner._id === this.user._id);
     console.log("gigs", this.gig);
-    this.$store.dispatch({ type: "loadOrders" });
+    
+
   },
   methods: {
     GoToCrateGig() {
       this.$router.push(`/user/${this.user._id}/AddGig`);
       console.log("hi");
+    },
+    ordersToShow() {
+       console.log('go store')
+      return this.$store.getters.orders;
     },
   },
   watch: {
@@ -124,6 +129,7 @@ export default {
     },
   },
   computed: {
+  
     userId() {
       return this.$route.params.id;
     },
