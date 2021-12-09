@@ -1,4 +1,4 @@
-.row{
+.row {
     max-width: 1240px;
     width: 100%;
     margin: 0 auto;
@@ -13,13 +13,10 @@
     // grid-template-rows: 400px 800px;
     grid-template-columns: 1fr 1.5fr;
     grid-template-rows: 100px 700px;
-
-    .info-column{
+    .info-column {
         border-radius: 2px gray;
         width: 400px;
-
-     
-        .user-card{
+        .user-card {
             grid-column-start: 1;
             grid-column-end: 3;
             background-color: #fff;
@@ -28,37 +25,27 @@
             flex-direction: column;
             align-items: center;
             padding: 30px;
-            
-            .user-profile{
+            .user-profile {
                 width: 100%;
-
-                .home-Avater{
+                .home-Avater {
                     margin: auto;
                 }
-            
-
-            .user-stats{
-                padding: 0;
-                padding-top: 12px;
-                border-top: 1px solid #dadbdd;
-                li{
-                    list-style-type: none; 
-                    display: flex;
-                    justify-content: space-between;
-
-
-                    svg{
-                        margin-right: 12px;
+                .user-stats {
+                    padding: 0;
+                    padding-top: 12px;
+                    border-top: 1px solid #dadbdd;
+                    li {
+                        list-style-type: none;
+                        display: flex;
+                        justify-content: space-between;
+                        svg {
+                            margin-right: 12px;
+                        }
                     }
-                }
-                .location{
-                   
-
+                    .location {}
                 }
             }
-        }
-           
-            .user-details-name{
+            .user-details-name {
                 font-size: 20px;
                 font-weight: 700;
                 color: #222325;
@@ -68,7 +55,7 @@
             }
         }
     }
-    .create-a-gig{
+    .create-a-gig {
         background-color: #fff;
         display: -webkit-box;
         display: -ms-flexbox;
@@ -77,12 +64,12 @@
         -ms-flex-pack: justify;
         justify-content: space-between;
         padding: 20px 24px;
-        border: 1px solid #ddd;  
+        border: 1px solid #ddd;
         // margin-top: 16px;
         height: 76px;
         display: flex;
         align-items: center;
-        .become-seller{
+        .become-seller {
             margin-left: 20px;
             padding: auto;
             width: 140px;
@@ -93,21 +80,21 @@
             height: 34px;
             font-weight: 700;
         }
-        .become-seller:hover{
+        .become-seller:hover {
             cursor: pointer;
             background-color: #288a5c;
         }
-
     }
-    .user-gigs{
+    .user-gigs {
         grid-column-start: 2;
-        padding: 20px;
-        h3{
-            text-align: center;
-        }
+        // padding: 20px;
+        // h3 {
+        //     text-align: center;
+        // }
     }
 }
-.user-details-avater{
+
+.user-details-avater {
     width: 150px;
     height: 150px;
     border-radius: 50%;

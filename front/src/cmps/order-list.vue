@@ -6,7 +6,7 @@
         <div class="order-list-box">
             <ul>
                 <li class="order-line" v-for="order in orders" :key="order._id">
-                    <div>
+                    <!-- <div>
                         <button type="button" class="close-btn" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -43,7 +43,7 @@
                     </div>
                     <div v-else-if="order.status === 'rejected'" class="order-rejected">
                         Rejected!
-                    </div>
+                    </div> -->
                 </li>
             </ul>
         </div>
@@ -55,7 +55,7 @@ export default {
     props:['orders'],
     data(){
         return{
-            orders:[],
+            userOrders:[],
             pendings:0,
         }
     },
@@ -64,8 +64,12 @@ export default {
         this.queNum()
     },
     methods:{
-        OrdersToShow(){
-            
+        showUserOrders(){
+        //    var userOrders =[]
+        //    const userId = orders.
+        //    this.orders.forEach(order => {
+        //        if(user)
+        //    });
         },
         queNum(){
         var count = 0

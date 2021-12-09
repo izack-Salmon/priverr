@@ -2,28 +2,30 @@
     margin-top: 10px;
     height: 400px;
     width: 100%;
-    overflow-y: scroll;
-    direction: rtl;
 }
 
 .order-line {
-    margin-left: 10px;
+    padding: 16px 24px;
+    border: 1px solid #e4e5e7;
+    border-radius: 4px;
     display: flex;
-    height: 50px;
-    margin-bottom: 20px;
-    direction: ltr;
 }
 
 .order-list-title {
-    text-align: left;
     margin: 0;
-    margin-left: 10px;
     line-height: 100%;
-    color: #4a73e8;
+    font-size: 16px;
+    font-family: Macan-regular;
 }
 
 .order-list-head {
+    display: flex;
     padding-bottom: 20px;
+}
+
+.contain-hr {
+    width: 100%;
+    hr {}
 }
 
 .que-order {

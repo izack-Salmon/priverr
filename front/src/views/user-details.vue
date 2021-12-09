@@ -113,6 +113,10 @@ export default {
     this.$store.dispatch({ type: "loadOrders" });
   },
   methods: {
+     ordersToShow() {
+       console.log('go store')
+      return this.$store.getters.orders;
+    },
     GoToCrateGig() {
       this.$router.push(`/user/${this.user._id}/editGig`);
       console.log("hi");
