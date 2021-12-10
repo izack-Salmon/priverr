@@ -98,7 +98,7 @@ async function add(user) {
             fullname: user.fullname,
             isAdmin: false,
             isSeller: false,
-            imgUrl: 'https://res.cloudinary.com/pivarr/image/upload/v1638981573/avatar_jhr3lq.png',
+            imgUrl: 'https://res.cloudinary.com/pivarr/image/upload/v1639125254/download_1_qwagl4.png',
             reviews: _getRandomReview(),
         }
         const collection = await dbService.getCollection('user')

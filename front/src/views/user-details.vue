@@ -4,19 +4,18 @@
       <div class="user-card">
         <div class="user-profile">
           <avatar
-            v-if="user"
             @click.native="goToUserPage"
             class="home-Avater"
             :size="150"
             :src="user.imgUrl"
           ></avatar>
-          <avatar
+          <!-- <avatar
             v-else
             @click.native="goToUserPage"
             class="home-Avater"
             :size="150"
             :username="userName"
-          ></avatar>
+          ></avatar> -->
           <div class="user-details-name">{{ user.fullname }}</div>
           <ul class="user-stats">
             <li class="location">
@@ -67,9 +66,8 @@
             </li>
           </ul>
         </div>
-      
       </div>
-        <!-- <div class="user-gigs">
+      <!-- <div class="user-gigs">
       <section>
         <h3>Active Gigs</h3>
         <div v-if="gigs" class="active-gigs">
@@ -86,9 +84,9 @@
         Create a New Gig
       </button>
     </div>
-      <div class="user-gigs">
-          <order-list :orders="ordersToShow()" />
-      </div>
+    <div class="user-gigs">
+      <order-list :orders="ordersToShow()" />
+    </div>
   </div>
 </template>
 
@@ -106,8 +104,8 @@ export default {
     };
   },
   async created() {
+    this.user = this.$store.getters.logginUser;
     await this.$store.dispatch({ type: "loadGigs" });
-    this.user = await this.$store.getters.logginUser;
     await this.loadUserGigs();
     await this.$store.dispatch({ type: "loadOrders" });
   },

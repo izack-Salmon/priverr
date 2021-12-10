@@ -41,7 +41,7 @@
 
           <div class="seller-main-pic">
             <caroselDatails ref="c1" :gig="gig" />
-            <!-- <caroselSmall ref="c2" :gig="gig" /> -->
+            <caroselSmall ref="c2" :gig="gig" />
 
             <!-- <img :src="gig.imgUrl[0]" /> -->
           </div>
@@ -164,9 +164,15 @@ export default {
           _id: this.gig._id,
           title: this.gig.title,
           price: this.gig.price,
+          imgUrl: this.gig.imgUrl[0],
         },
       };
       console.log("this.oder", this.order);
+
+      // socketService.on("order-added", (order) => {
+      //   // console.log(order);
+      //   // showSuccessMsg(`Order was added, check it out ${order.seller._id}`);
+      // });
       this.$store.dispatch({ type: "addOrder", order: this.order });
     },
     purchaseMsg() {
