@@ -86,7 +86,7 @@
         Create a New Gig
       </button>
     </div>
-      <div class="user-gigs">
+      <div class="order-grid-box">
           <order-list :orders="ordersToShow()" />
       </div>
   </div>
