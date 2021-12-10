@@ -11,15 +11,14 @@
       </VueSlickCarousel>
     </template>
     <template>
-      <div class="img-datils">
+      <div class="img-datails">
         <VueSlickCarousel ref="c2" :asNavFor="$refs.c1" v-bind="smallSettings">
           <img
             class="details-img"
-            :style="{ height: '120px', width: '50px' }"
+            :style="{ height: '60px', width: '100px' }"
             v-for="img in gig.imgUrl"
             :key="img"
             :src="img"
-            alt=""
           />
         </VueSlickCarousel>
       </div>
@@ -41,10 +40,11 @@ export default {
         focusOnSelect: true,
       },
       smallSettings: {
+        variableWidth: true,
         adaptiveHeight: true,
         focusOnSelect: true,
         infinite: true,
-        slidesToShow: 3,
+        slidesToShow: 2,
         slidesToScroll: 1,
       },
     };

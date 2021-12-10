@@ -3,12 +3,13 @@ import io from 'socket.io-client'
 export const SOCKET_EMIT_USER_WATCH = 'user-watch';
 export const SOCKET_EVENT_USER_UPDATED = 'user-updated';
 export const SOCKET_EVENT_REVIEW_ADDED = 'review-added';
+export const SOCKET_EVENT_ORDER_ADDED = 'order-added'
 export const SOCKET_EVENT_REVIEW_ABOUT_YOU = 'review-about-you';
 
 
 const baseUrl = (process.env.NODE_ENV === 'production') ? '' : '//localhost:3030'
-export const socketService = createSocketService()
-// export const socketService = createDummySocketService()
+// export const socketService = createSocketService()
+export const socketService = createDummySocketService()
 
 window.socketService = socketService
 
@@ -24,8 +25,16 @@ function createSocketService() {
       socket = io(baseUrl)
     },
     on(eventName, cb) {
-      socket.on(eventName, cb)
+      if (cb.buyer._id) {
+
+      } else {
+
+        socket.on(eventName, cb)
+      }
     },
+    // on(eventName, cb) {
+    //   socket.on(eventName, cb)
+    // },
     off(eventName, cb = null) {
       if (!socket) return;
       if (!cb) socket.removeAllListeners(eventName)

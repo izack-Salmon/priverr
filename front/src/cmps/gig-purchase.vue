@@ -137,9 +137,12 @@
               Vector File
             </li>
           </ul>
+          <div v-if="purchMsg" class="purchase-msg">
+            Thanks you for purchase form {{ gig.owner.fullname }}
+          </div>
         </div>
       </div>
-      <button class="purch-btn" @click="purchaseMsg">
+      <button v-if="!purchMsg" class="purch-btn" @click="purchase">
         Continue (${{ gig.price }})
       </button>
     </div>
@@ -147,13 +150,19 @@
 </template>
 
 <script>
+import { socketService } from "../services/socket.service";
 export default {
   name: "gigPurchase",
   props: {
     gig: Object,
   },
+  data() {
+    return {
+      purchMsg: false,
+    };
+  },
   methods: {
-    purchaseMsg() {
+    purchase() {
       console.log("hi");
       // this.$emit("purchaseMsg");
       if (!this.$store.getters.logginUser) {
@@ -161,6 +170,14 @@ export default {
         return;
       }
       this.$emit("sendOrder");
+
+      this.purchaseMsg();
+    },
+    purchaseMsg() {
+      this.purchMsg = true;
+      setTimeout(() => {
+        this.purchMsg = false;
+      }, 5000);
     },
   },
 };

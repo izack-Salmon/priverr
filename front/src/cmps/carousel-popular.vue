@@ -86,8 +86,9 @@ export default {
   },
   methods: {
     routeExplore(tag) {
-      ({ path: 'register', query: { plan: 'private' }})
-      this.$router.push({path:'explore', query: { tag: tag }});
+      ({ path: "register", query: { plan: "private" } });
+      this.$router.push({ path: "explore", query: { tag: tag } });
+      window.scrollTo(0, 0);
     },
   },
   computed: {
