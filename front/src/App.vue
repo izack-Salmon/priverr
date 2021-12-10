@@ -16,6 +16,7 @@
 </template>
 
 <script>
+import { socketService } from "./services/socket.service.js";
 import appHeader from "./cmps/app-header.vue";
 import appFooter from "./cmps/app-footer.vue";
 
@@ -37,6 +38,7 @@ export default {
     },
   },
   created() {
+    socketService.setup();
     this.$store.dispatch({ type: "loadGigs" });
     this.$store.dispatch({ type: "loadUser" });
     this.$store.dispatch({ type: "loadOrders" });
@@ -51,6 +53,7 @@ export default {
         query: { search: this.searchTerm },
       });
     },
+
     showLogin() {
       console.log("got it");
       this.isOpen = true;

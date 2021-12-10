@@ -96,11 +96,20 @@
     opacity: 0;
 }
 
+.floating-stars {
+    position: absolute;
+    bottom: 20px;
+    svg {
+        margin-right: 3px;
+        color: #ffb33e;
+    }
+}
+
 .gabrielle {
     animation: infinite namefade1 36s cubic-bezier(0.91, 0.04, 0.9, 1);
 }
 
-.moon {
+.andrea {
     animation: infinite namefade2 36s cubic-bezier(0.91, 0.04, 0.9, 1);
 }
 
@@ -108,11 +117,11 @@
     animation: infinite namefade3 36s cubic-bezier(0.91, 0.04, 0.9, 1);
 }
 
-.zach {
+.linda {
     animation: infinite namefade4 36s cubic-bezier(0.91, 0.04, 0.9, 1);
 }
 
-.andrea {
+.moon {
     animation: infinite namefade5 36s cubic-bezier(0.91, 0.04, 0.9, 1);
 }
 
@@ -212,53 +221,6 @@
     }
 }
 
-// @keyframes namefade1 {
-//     0% {
-//         opacity: 1;
-//     }
-//     17% {
-//         opacity: 1;
-//     }
-//     19% {
-//         opacity: 0.2;
-//     }
-//     20% {
-//         opacity: 1;
-//     }
-//     37% {
-//         opacity: 1;
-//     }
-//     39% {
-//         opacity: 0.1;
-//     }
-//     40% {
-//         opacity: 1;
-//     }
-//     57% {
-//         opacity: 1;
-//     }
-//     59% {
-//         opacity: 0.1;
-//     }
-//     60% {
-//         opacity: 1;
-//     }
-//     77% {
-//         opacity: 1;
-//     }
-//     79% {
-//         opacity: 0.1;
-//     }
-//     80% {
-//         opacity: 1;
-//     }
-//     97% {
-//         opacity: 1;
-//     }
-//     99% {
-//         opacity: 0.1;
-//     }
-// }
 @keyframes fade {
     0% {
         background-image: url("https://res.cloudinary.com/pivarr/image/upload/v1638379118/hero/1_c9jihn.jpg");
@@ -267,28 +229,28 @@
         background-image: url("https://res.cloudinary.com/pivarr/image/upload/v1638379118/hero/1_c9jihn.jpg");
     }
     20% {
-        background-image: url("https://res.cloudinary.com/pivarr/image/upload/v1639060945/hero/fdfddf_v9nprm.jpg");
+        background-image: url("https://res.cloudinary.com/pivarr/image/upload/v1639123794/hero/hero-pink_m9kka5.jpg");
     }
     38% {
-        background-image: url("https://res.cloudinary.com/pivarr/image/upload/v1639060945/hero/fdfddf_v9nprm.jpg");
+        background-image: url("https://res.cloudinary.com/pivarr/image/upload/v1639123794/hero/hero-pink_m9kka5.jpg");
     }
     40% {
-        background-image: url("https://res.cloudinary.com/pivarr/image/upload/v1638379447/hero/3_jwygvs.jpg");
+        background-image: url("https://res.cloudinary.com/pivarr/image/upload/v1638379344/hero/4_hfzpys.jpg");
     }
     58% {
-        background-image: url("https://res.cloudinary.com/pivarr/image/upload/v1638379447/hero/3_jwygvs.jpg");
+        background-image: url("https://res.cloudinary.com/pivarr/image/upload/v1638379344/hero/4_hfzpys.jpg");
     }
     60% {
-        background-image: url("https://res.cloudinary.com/pivarr/image/upload/v1638379344/hero/4_hfzpys.jpg");
+        background-image: url("https://res.cloudinary.com/pivarr/image/upload/v1639122394/hero/hero-blue-bgc_bawu96.jpg");
     }
     78% {
-        background-image: url("https://res.cloudinary.com/pivarr/image/upload/v1638379344/hero/4_hfzpys.jpg");
+        background-image: url("https://res.cloudinary.com/pivarr/image/upload/v1639122394/hero/hero-blue-bgc_bawu96.jpg");
     }
     80% {
-        background-image: url("https://res.cloudinary.com/pivarr/image/upload/v1638379631/hero/5_vajd7a.jpg");
+        background-image: url("https://res.cloudinary.com/pivarr/image/upload/v1638387421/hero/2_i0r5wm.jpg");
     }
     98% {
-        background-image: url("https://res.cloudinary.com/pivarr/image/upload/v1638379631/hero/5_vajd7a.jpg");
+        background-image: url("https://res.cloudinary.com/pivarr/image/upload/v1638387421/hero/2_i0r5wm.jpg");
     }
 }
 

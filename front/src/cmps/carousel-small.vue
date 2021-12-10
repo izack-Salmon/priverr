@@ -6,6 +6,7 @@ export default {
   data() {
     return {
       smallSettings: {
+        variableWidth: true,
         infinite: true,
         slidesToShow: 10,
         slidesToScroll: 1,
@@ -20,5 +21,4 @@ export default {
 </script>
 
 <style>
-
 </style>
