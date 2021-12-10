@@ -77,15 +77,18 @@ export default {
     created(){
         console.log('orders: ',this.orders)
         this.showUserOrders()
-        this.queNum()
+        
     },
     methods:{
         showUserOrders(){
            var userOrders = []
            const userId = orders._id
            this.orders.forEach(order => {
-               if(user){}
+               if(user){
+                   
+               }
            });
+           this.orders.queNum()
         },
         queNum(){
         var count = 0
