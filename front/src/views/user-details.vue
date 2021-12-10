@@ -69,16 +69,16 @@
         </div>
       
       </div>
-        <!-- <div class="user-gigs">
-      <section>
-        <h3>Active Gigs</h3>
+      <div class="user-gigs">
+      <section class="seller-gigs">
+        <h3> <span> Active Gigs </span> </h3>
         <div v-if="gigs" class="active-gigs">
           <div v-for="gig in gigs" :key="gig._id">
             <seller-gigs :gig="gig" @loadGigs="loadUserGigs" />
           </div>
         </div>
       </section>
-    </div> -->
+    </div>
     </section>
     <div class="create-a-gig">
       <p>It seems that you don't have any active Gigs. Get selling!</p>
@@ -86,9 +86,9 @@
         Create a New Gig
       </button>
     </div>
-      <div class="user-gigs">
-          <order-list :orders="ordersToShow()" />
-      </div>
+      <!-- <div class="order-grid-box"> -->
+          <!-- <order-list :orders="ordersToShow()" /> -->
+      <!-- </div> -->
   </div>
 </template>
 

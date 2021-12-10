@@ -55,7 +55,7 @@
         </div>
       </div>
       <div :class="['nav-bar', { white: isHome }, { 'hover-nav': !isHome }]">
-        <router-link :to="'/explore'">Explore</router-link>
+        <span @click="goToExplore"> Explore </span>
         <span>Become a Seller</span> <span @click="openSignIn">Sign in</span>
         <span v-show="logedInUser" @click="logOut">Sign Out</span>
         <!-- <div> -->
@@ -110,6 +110,8 @@ export default {
   },
   created() {
     this.isHome = this.$route.name === "Home";
+    if (window.top && this.$route.name !== "Home") this.isHome = false;
+    console.log('created', window.scrollY);
   },
   // destroy(){
   //       window.removeEventListener('scroll', this.updateScroll)
@@ -122,12 +124,15 @@ export default {
   },
   methods: {
     updateScroll() {
+      console.log('im here');
+      if (this.$route.name !== "Home") this.isHome = false;
       this.scrollPosition = window.scrollY;
       this.isHome =
-        this.scrollPosition > 10 && this.$route.name === "Home" ? false : true;
+        this.scrollPosition > 20 && this.$route.name === "Home" ? false : true;
       if (this.scrollPosition < 50 && this.$route.name !== "Home") {
         this.isHome = false;
       }
+      if (window.top && this.$route.name !== "Home") this.isHome = false;
     },
     async logOut() {
       this.$store.dispatch({ type: "logout" });
@@ -152,6 +157,12 @@ export default {
       console.log(this.user);
       this.$router.push(`/user/${this.user._id}`);
     },
+   async goToExplore() {
+     window.scrollTo(0, 0)
+      await this.updateScroll()
+      this.$router.push('/explore');
+    }
+
   },
   mounted() {
     window.addEventListener("scroll", this.updateScroll);
