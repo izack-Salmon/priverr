@@ -34,7 +34,7 @@ export default {
   },
   watch: {
     $route({ name }) {
-      this.isFixed = name === "Home" ? true : false;
+      this.isFixed = name === "Home" 
     },
   },
   created() {
@@ -42,7 +42,7 @@ export default {
     this.$store.dispatch({ type: "loadGigs" });
     this.$store.dispatch({ type: "loadUser" });
     this.$store.dispatch({ type: "loadOrders" });
-    this.isFixed = this.$route.name === "Home" ? true : false;
+    this.isFixed = this.$route.name === "Home" 
   },
   methods: {
     setSearch(searchTerm) {

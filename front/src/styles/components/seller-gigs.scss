@@ -1,7 +1,23 @@
+.seller-gigs {
+    h3 {
+        margin: 30px 0;
+        color: #222325;
+        // #7a7d85
+        width: 100%; 
+        border-bottom: 1px solid #dadbdd;; 
+        line-height: 0.1em;
+    }
+
+     h3 span { 
+         background:#fff; 
+         padding: 0 15px 0  0; 
+     }
+}
+
 .active-gigs {
     display: grid;
 
-    margin-top: 50px;
+    // margin-top: 50px;
     margin-bottom: 97px;
     // grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
         // grid-template-columns: repeat(3, 1fr); 
@@ -18,8 +34,8 @@
     }
     
     @include for-wide-layout {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 16px;
+        // grid-template-columns: repeat(3, 1fr);
+        // gap: 16px;
     }
 
 }
@@ -29,7 +45,7 @@
     border: 1px solid #e4e5e7;
     box-shadow: 0 10px 16px rgb(0 0 0 / 14%);
     width: 100%;
-    min-width: 245px;
+    min-width: 180px;
 
     .gig-img {
         display: block;

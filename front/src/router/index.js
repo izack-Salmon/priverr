@@ -23,12 +23,12 @@ const routes = [{
 },
 {
     path: '/explore/:tag',
-    name: 'explore/',
+    name: 'exploreTag',
     component: explore
 },
 {
     path: '/explore/:search',
-    name: 'explore/',
+    name: 'exploreSearch',
     component: explore
 },
 {

@@ -1,57 +1,78 @@
 <template>
   <section class="main-layout">
-    <form class="from-add-gig" action="">
-      <label for="">Title</label
-      ><el-input
+  
+    <!-- <h2>Edit Gig</h2> -->
+    <form class="form-add-gig" action="">
+    <div class="flex space-between">
+      <div>
+      <label for="">Gig Title
+        <el-input
         class="add-gig-input-tilte"
         maxlength="100"
-        placeholder="I will"
-        v-model="newGig.title"
-      ></el-input>
+        placeholder="I will do something i'm realy good at"
+        v-model="newGig.title">
+        </el-input>
+    </label>
 
-      <label for="">Price</label
-      ><el-input-number
+      <p> Category </p>
+        <el-select v-model="tag" clearable placeholder="Select Category">
+          <el-option
+            v-for="label in labels"
+            :key="label"
+            :label="label"
+            :value="label">
+          </el-option>
+        </el-select>
+    
+   <div class="inputs-num flex space-between">
+      <label for=""> Price
+        <el-input-number
         class="add-gig-input-number"
         v-model="newGig.price"
       ></el-input-number>
+    </label>
 
-      <!-- <el-select v-model="value" placeholder="Select">
-    <el-option
-      v-for="tag in tags"
-      :key="item.value"
-      :label="item.label"
-      :value="item.value">
-    </el-option>
-  </el-select> -->
-
-      <label>Days to make</label>
+      <label>Days to make
       <el-input-number
         class="add-gig-input-number"
-        v-model="newGig.daysToMake"
-      ></el-input-number>
-      <el-input
-        type="textarea"
-        :rows="4"
-        placeholder="Description"
-        v-model="newGig.description"
-      >
-      </el-input>
+        v-model="newGig.daysToMake">
+        </el-input-number>
+      </label>
+    </div>
+</div>
 
-      <div class="img-upload-container">
+   <div class="img-upload-container flex align-center">
+      <p>  </p>
         <label class="upload-btn" for="uploadImg">
-          Choose file
-          <!-- <img :src="require('../assets/upload.png')" alt="" /> -->
+          <!-- v-if="!isLoading" -->
+          <!-- Choose file -->
+          <img class="upload-img" :src="require('../assets/imgs/add-img.png')" alt="" />
         </label>
+        
+        <!-- <div v-else class="upload-img"> <i class="el-icon-loading"> </i></div> -->
+      
         <input
           class="orgainUpload-btn"
           type="file"
           id="uploadImg"
-          @change="onUploadImg"
-        />
+          @change="onUploadImg" />
         <!-- <img v-else :src="require('../assets/loader.gif')" alt="" /> -->
       </div>
+  </div>
+      <label for=""> Description
+      <el-input
+        type="textarea"
+        :rows="4"
+        placeholder="Description"
+        v-model="newGig.description">
+      </el-input>
+    </label>
 
-      <button class="save-btn" @click="saveGig">Save</button>
+   
+      <div class="flex space-between" >
+      <button class="cancel-btn" @click="cancelEdit"> Cancel </button>
+      <button class="save-btn" @click="saveGig"> Save </button>
+      </div>
     </form>
   </section>
 </template>
@@ -62,17 +83,18 @@ import { uploadImg } from "@/services/cloudinary.service";
 export default {
   data() {
     return {
-      tags: [
-        "Voice Over",
-        "Logo Design",
-        "Wordpress",
-        "Video Explainer",
-        "Social Media",
-        "Illustration",
-        "Translation",
-        "Date Entry",
-        "Book Covers",
+      labels: [
+        "VOICE OVER",
+        "LOGO DESIGN",
+        "WORDPRESS",
+        "VIDEO EXPLAINER",
+        "SOCIAL MEDIA",
+        "ILLUSTRATION",
+        "TRANSLATION",
+        "DATE ENTRY",
+        "BOOK COVERS",
       ],
+      tag: "",
       user: "",
       newGig: {
         title: "",
@@ -84,10 +106,11 @@ export default {
           fullname: "",
           imgUrl: "",
           rate: "",
-          level: 0,
+          level: "",
         },
       },
       savedGig: "",
+      isLoading: false,
     };
   },
   created() {
@@ -108,22 +131,26 @@ export default {
       // console.log("ev", ev);
       // console.log("ev.target.files[0]", ev.target.files[0]);
 
-      // this.isLoading = true
+      this.isLoading = true
       let res = await uploadImg(ev);
       // console.log(res);
       this.newGig.imgUrl.push(res.url);
       // console.log("this.newGig.imgUrl", this.newGig.imgUrl);
-      // this.isLoading = false
+      this.isLoading = false
     },
     async saveGig() {
       console.log("im h1111");
       this.user = this.$store.getters.logginUser;
       console.log(this.$route.params);
       console.log("this.newGig", this.newGig);
-
+      this.newGig.tags = [this.tag];
       await this.$store.dispatch({ type: "addGig", gig: this.newGig });
       this.$router.push(`/user/${this.newGig.owner._id}`);
     },
+
+    cancelEdit(){
+           this.$router.push(`/user/${this.newGig.owner._id}`);
+    }
   },
 };
 </script>

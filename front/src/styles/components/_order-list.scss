@@ -5,12 +5,14 @@
 }
 
 .order-line {
+    box-shadow: 0 3px 5px rgb(0 0 0 / 14%);
     padding: 16px 24px;
     border: 1px solid #e4e5e7;
     border-radius: 4px;
     display: flex;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     justify-content: space-between;
+    transition: 1s;
 }
 
 .order-gig-img {
@@ -66,8 +68,6 @@
     align-items: center;
 }
 
-.order-timing {}
-
 .orderer-profile {
     display: flex;
     .orderer-pic-box {
@@ -105,17 +105,17 @@
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    width: 74px;
     span {
         font-size: 14px;
         font-family: Macan-regular;
     }
     .status-stamp {
-        font-family: Macan;
         background: #fd8b16;
         color: #fff;
         font-family: Macan;
         font-size: 10px;
-        border-radius: 10px;
+        border-radius: 8px;
         border: 1px solid #fd8b16;
         padding: 3px;
     }
@@ -129,6 +129,16 @@
         border: 1px solid #1dbf73;
         padding: 3px;
     }
+    .rejected {
+        font-family: Macan;
+        background: rgb(252, 87, 87);
+        color: #fff;
+        font-family: Macan;
+        font-size: 10px;
+        border-radius: 10px;
+        border: 1px solid rgb(252, 87, 87);
+        padding: 3px;
+    }
 }
 
 .order-panding {
@@ -136,17 +146,23 @@
 }
 
 .order-accepted {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     color: #1dbf73;
     font-size: 20px;
-    margin-left: 10px;
-    padding: 10px 20px;
+    max-width: 160px;
+    width: 100%;
 }
 
-.order-reject {
+.order-rejected {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     color: rgb(252, 87, 87);
     font-size: 20px;
-    margin-left: 10px;
-    padding: 10px 20px;
+    max-width: 160px;
+    width: 100%;
 }
 
 .accept-btn {
@@ -167,6 +183,12 @@
 }
 
 .accept-btn:hover {
+    // background-color: #1dbf73;
+    border: 2px solid #1dbf73;
+    border-radius: 50%;
+}
+
+.accept-btn:active {
     // background-color: #1dbf73;
     border: 2px solid #1dbf73;
     border-radius: 50%;
@@ -219,5 +241,7 @@
 
 .options-wrapper {
     display: flex;
-    margin-left: 10px;
+    max-width: 160px;
+    width: 100%;
+    // margin-left: 10px;
 }

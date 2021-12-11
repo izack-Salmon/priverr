@@ -1,4 +1,3 @@
-
 // import { addOrder, removeOrder } from "../../../backend/api/order/order.controller"
 import { orderService } from "../services/order.service"
 
@@ -43,7 +42,7 @@ export const orderStore = {
         async addOrder({ commit }, { order }) {
             console.log(order);
             var savedOrder = await orderService.save(order)
-            // console.log('this 2');
+                // console.log('this 2');
             commit({ type: 'addOrder', savedOrder });
             return savedOrder;
         },
