@@ -55,9 +55,11 @@
         </div>
       </div>
       <div :class="['nav-bar', { white: isHome }, { 'hover-nav': !isHome }]">
-        <span @click="goToExplore"> Explore </span>
-        <span>Become a Seller</span> <span @click="openSignIn">Sign in</span>
-        <span v-show="logedInUser" @click="logOut">Sign Out</span>
+        <router-link :to="'/explore'">Explore</router-link>
+        <span @click="goToExplore" :class="{isExactActive: true}"> Explore </span>
+        <span > Become a Seller </span> 
+        <span @click="openSignIn" v-if="!logedInUser"> Sign In </span>
+        <span v-else @click="logOut"> Sign Out </span>
         <!-- <div> -->
         <!-- <div class="join-box"> -->
         <button
@@ -100,7 +102,7 @@ export default {
   data() {
     return {
       searchTerm: null,
-      isHome: true,
+      isHome: false,
       scrollPosition: null,
       loginPop: false,
       loginOpened: false,
@@ -111,12 +113,17 @@ export default {
   created() {
     this.isHome = this.$route.name === "Home";
     if (window.top && this.$route.name !== "Home") this.isHome = false;
-    console.log('created', window.scrollY);
   },
   // destroy(){
   //       window.removeEventListener('scroll', this.updateScroll)
   // },
   watch: {
+    isOpen: {
+      handler() {
+        this.loginOpened = this.isOpen;
+      },
+    },
+
     $route({ name }) {
       this.isHome = name === "Home";
     },
@@ -124,15 +131,12 @@ export default {
   },
   methods: {
     updateScroll() {
-      console.log('im here');
-      if (this.$route.name !== "Home") this.isHome = false;
       this.scrollPosition = window.scrollY;
+      
       this.isHome =
-        this.scrollPosition > 20 && this.$route.name === "Home" ? false : true;
-      if (this.scrollPosition < 50 && this.$route.name !== "Home") {
-        this.isHome = false;
-      }
-      if (window.top && this.$route.name !== "Home") this.isHome = false;
+        this.scrollPosition > 10 && this.$route.name === "Home" ? false : true;
+      if (this.scrollPosition < 50 && this.$route.name !== "Home") this.isHome = false;
+      if (this.$route.name !== "Home") this.isHome = false;
     },
     async logOut() {
       this.$store.dispatch({ type: "logout" });
@@ -176,23 +180,9 @@ export default {
     userName() {
       return this.$store.getters.logginUser?.username;
     },
+
   },
-  watch: {
-    isOpen: {
-      handler() {
-        this.loginOpened = this.isOpen;
-      },
-    },
-  },
-  // watch: {
-  //   userName: {
-  //     handler() {
-  //       // console.log(userName);
-  //       this.username = userName;
-  //     },
-  //     immediate: true,
-  //   },
-  // },
+
   components: { loginPopUp, Avatar },
 };
 </script>
