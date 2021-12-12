@@ -111,17 +111,7 @@ export default {
     this.connect();
   },
   methods: {
-<<<<<<< HEAD
-    connect() {
-      console.log(this.user._id);
-      socketService.on(this.user._id, (data) => {
-        console.log("databackoffice", data);
-      });
-    },
-    goToCrateGig() {
-=======
     goToEditGig() {
->>>>>>> 0f7e6c94f0a4f5e21ac0ab5e18904c85e04e5c20
       this.$router.push(`/user/${this.user._id}/editGig`);
       // console.log("hi");
     },
