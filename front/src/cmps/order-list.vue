@@ -2,8 +2,8 @@
   <section class="order-list-container">
     <header class="order-list-head">
       <h2 class="order-list-title">
-        <span class="t-title-span"
-          ><span class="que-order">{{ pendings }}</span> Orders In Que
+        <span class="order-list-title-span"
+          ><span class="que-order">{{ pendings }}</span> Orders In Queue
         </span>
       </h2>
     </header>
