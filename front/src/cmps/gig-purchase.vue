@@ -27,7 +27,7 @@
               ></path>
               <path d="M9 4H7v5h5V7H9V4z"></path>
             </svg> </span
-          ><span class="service-line">{{gig.daysToMake}} Days Delivery</span>
+          ><span class="service-line">{{ gig.daysToMake }} Days Delivery</span>
           <span
             class="lFICM06 revisions-icon"
             aria-hidden="true"
@@ -138,7 +138,7 @@
             </li>
           </ul>
           <div v-if="purchMsg" class="purchase-msg">
-            Thanks you for purchase form {{ gig.owner.fullname }}
+            Thank you for purchase from {{ gig.owner.fullname }}
           </div>
         </div>
       </div>
