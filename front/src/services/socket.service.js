@@ -5,7 +5,7 @@ export const SOCKET_EVENT_USER_UPDATED = 'user-updated';
 export const SOCKET_EVENT_REVIEW_ADDED = 'review-added';
 export const SOCKET_EVENT_ORDER_ADDED = 'order-added'
 export const SOCKET_EVENT_REVIEW_ABOUT_YOU = 'review-about-you';
-
+export const SOCKET_EVENT_ORDER_STATUS = 'order-status'
 
 const baseUrl = (process.env.NODE_ENV === 'production') ? '' : '//localhost:3030'
 // export const socketService = createSocketService()
@@ -15,7 +15,7 @@ window.socketService = socketService
 
 // var socketIsReady = false;
 
-// socketService.setup()
+socketService.setup()
 
 
 function createSocketService() {
@@ -25,12 +25,7 @@ function createSocketService() {
       socket = io(baseUrl)
     },
     on(eventName, cb) {
-      if (cb.buyer._id) {
-
-      } else {
-
-        socket.on(eventName, cb)
-      }
+      socket.on(eventName, cb)
     },
     // on(eventName, cb) {
     //   socket.on(eventName, cb)
@@ -63,7 +58,9 @@ function createDummySocketService() {
       this.setup()
     },
     on(eventName, cb) {
+      console.log('iiiiiiiiiiiii');
       listenersMap[eventName] = [...(listenersMap[eventName] || []), cb]
+      console.log(listenersMap);
     },
     off(eventName, cb) {
       if (!listenersMap[eventName]) return

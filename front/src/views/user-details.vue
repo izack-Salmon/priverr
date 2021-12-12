@@ -68,15 +68,15 @@
         </div>
       </div>
       <div class="user-gigs">
-      <section class="seller-gigs">
-        <h3> <span> Active Gigs </span> </h3>
-        <div v-if="gigs" class="active-gigs">
-          <div v-for="gig in gigs" :key="gig._id">
-            <seller-gigs :gig="gig" @loadGigs="loadUserGigs" />
+        <section class="seller-gigs">
+          <h3><span> Active Gigs </span></h3>
+          <div v-if="gigs" class="active-gigs">
+            <div v-for="gig in gigs" :key="gig._id">
+              <seller-gigs :gig="gig" @loadGigs="loadUserGigs" />
+            </div>
           </div>
-        </div>
-      </section>
-    </div>
+        </section>
+      </div>
     </section>
     <div class="create-a-gig">
       <p>It seems that you don't have any active Gigs. Get selling!</p>
@@ -84,16 +84,16 @@
         Create a New Gig
       </button>
     </div>
-      <div class="order-grid-box">
-          <order-list :orders="ordersToShow()" />
-      </div>
+    <div class="order-grid-box">
+      <order-list :orders="ordersToShow()" />
+    </div>
   </div>
 </template>
 
 <script>
 import orderList from "../cmps/order-list.vue";
 import SellerGigs from "../cmps/seller-gigs.vue";
-
+import { socketService } from "../services/socket.service";
 import Avatar from "vue-avatar";
 export default {
   data() {
@@ -108,15 +108,22 @@ export default {
     await this.$store.dispatch({ type: "loadGigs" });
     await this.loadUserGigs();
     await this.$store.dispatch({ type: "loadOrders" });
+    this.connect();
   },
   methods: {
+    connect() {
+      console.log(this.user._id);
+      socketService.on(this.user._id, (data) => {
+        console.log("databackoffice", data);
+      });
+    },
     goToCrateGig() {
       this.$router.push(`/user/${this.user._id}/editGig`);
       // console.log("hi");
     },
     ordersToShow() {
       // console.log("go store");
-      return JSON.parse(JSON.stringify(this.$store.getters.orders)) ;
+      return JSON.parse(JSON.stringify(this.$store.getters.orders));
     },
 
     async loadUserGigs() {

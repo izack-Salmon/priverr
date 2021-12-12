@@ -19,7 +19,11 @@
           ></path>
         </g>
       </svg> -->
-      <img class="logo-footer" src="../assets/imgs/Piverr_Logo.png" alt="" />
+      <img
+        class="logo-footer"
+        src="https://res.cloudinary.com/pivarr/image/upload/c_scale,h_23,w_77/v1639239435/piverr_g_wvvw73.png"
+        alt=""
+      />
       <p class="text-body-2 legal">
         <span class="copyright">© Piverr International Ltd. 2021</span>
       </p>
