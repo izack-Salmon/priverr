@@ -79,7 +79,12 @@
       </div>
     </section>
     <div class="create-a-gig">
-      <p>It seems that you don't have any active Gigs. Get selling!</p>
+      <p v-if="!gigs">
+        It seems that you don't have any active Gigs. Get selling!
+      </p>
+      <p v-if="gigs">
+        You have <span>{{ gigs.length }}</span> active gigs.
+      </p>
       <button @click="goToEditGig" class="become-seller">
         Create a New Gig
       </button>
