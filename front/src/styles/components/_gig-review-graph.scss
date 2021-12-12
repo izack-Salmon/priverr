@@ -27,13 +27,14 @@
 }
 
 .graph-container {
-    // display: flex;
+    display: flex;
     padding-bottom: 24px;
 }
 
 .star-counter-box {
     padding-right: 16px;
     max-width: 50%;
+    flex-basis: 50%
 }
 
 .stars-counter {
@@ -71,6 +72,8 @@
     flex-grow: 1;
     border-radius: 999px;
     span {
+        display: flex;
+        align-content: center;
         background-color: #ffb33e;
         height: 100%;
         position: absolute;
@@ -80,44 +83,48 @@
     }
 }
 
-// .star-col-2 {
-//     padding: 0 8px;
-//     flex-basis: 50%;
-//     max-width: 50%;
-//     ul {
-//         list-style: none;
-//         list-style-image: none;
-//         margin: 0;
-//         padding: 0;
-//         outline: 0;
-//     }
-//     li {
-//         list-style: none;
-//         list-style-image: none;
-//         margin: 0;
-//         padding: 0;
-//         outline: 0;
-//         display: flex;
-//         justify-content: space-between;
-//         color: #95979d;
-//         padding-bottom: 8px;
-//     }
-//     span {
-//         color: #62646a;
-//         white-space: nowrap;
-//         margin-left: 12px;
-//     }
-// }
-// .ranking {
-//     padding-top: 1px;
-//     border-top: 0;
-//     margin-top: 0;
-// }
-// .text-display-7 {
-//     margin: 0;
-//     padding-bottom: 16px;
-//     font-weight: 600;
-//     font-size: 16px;
-//     line-height: 140%;
-//     color: #404145;
-// }
+.star-col-2 {
+    padding: 0 8px;
+    flex-basis: 50%;
+    max-width: 50%;
+    padding-top: 2px;
+    ul {
+        list-style: none;
+        list-style-image: none;
+        margin: 0;
+        padding: 0;
+        outline: 0;
+    }
+    li {
+        font-family: Macan-regular;
+        list-style: none;
+        list-style-image: none;
+        margin: 0;
+        padding: 0;
+        outline: 0;
+        display: flex;
+        justify-content: space-between;
+        color: #95979d;
+        padding-bottom: 8px;
+    }
+    span {
+        color: #62646a;
+        white-space: nowrap;
+        margin-left: 12px;
+    }
+}
+
+.ranking {
+    padding-top: 1px;
+    border-top: 0;
+    margin-top: 0;
+}
+
+.text-display-7 {
+    margin: 0;
+    padding-bottom: 16px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 140%;
+    color: #404145;
+}
