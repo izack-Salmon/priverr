@@ -90,7 +90,7 @@
       </button>
     </div>
     <div class="order-grid-box">
-      <order-list :orders="ordersToShow()" />
+      <order-list v-if="ordersToShow" :orders="ordersToShow()" />
     </div>
   </div>
 </template>
