@@ -80,7 +80,7 @@
     </section>
     <div class="create-a-gig">
       <p>It seems that you don't have any active Gigs. Get selling!</p>
-      <button @click="goToCrateGig" class="become-seller">
+      <button @click="goToEditGig" class="become-seller">
         Create a New Gig
       </button>
     </div>
@@ -111,6 +111,7 @@ export default {
     this.connect();
   },
   methods: {
+<<<<<<< HEAD
     connect() {
       console.log(this.user._id);
       socketService.on(this.user._id, (data) => {
@@ -118,6 +119,9 @@ export default {
       });
     },
     goToCrateGig() {
+=======
+    goToEditGig() {
+>>>>>>> 0f7e6c94f0a4f5e21ac0ab5e18904c85e04e5c20
       this.$router.push(`/user/${this.user._id}/editGig`);
       // console.log("hi");
     },
