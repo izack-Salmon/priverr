@@ -163,7 +163,7 @@ function _getRandomReview() {
         'Isuruin built us a well organized site with everything we asked for. He understood our needs and delivered a great site for our new business. Thanks again Isuruin',
         'Thank you so much! Glad that you choose me to give reality to your imagination and was delivered as you wanted.',
         'Awesome design. Exceeded expectations significantly. In fact, he did so well that Im already hiring him for another project. Hard to beat that! Great communication too',
-        'Added an addition to my website. Thank you I’d recommend Isuruin to others',
+        'Added an addition to my website. Thank you Id recommend Isuruin to others',
         'Excellent designs. Willing to make adjustments according to your needs.',
         'great freelancer really recommend this guy he does a solid job!',
         'Amazing Person, understand well the rquirments and very very supportive nd quick, will use this seller services in future projects.',]

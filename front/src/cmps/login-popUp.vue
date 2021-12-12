@@ -43,6 +43,10 @@
   </section>
 </template>
 <script>
+import {
+  socketService,
+  SOCKET_EVENT_ORDER_STATUS,
+} from "../services/socket.service";
 export default {
   name: "login",
   props: { showLogin: Boolean, enterLogin: Boolean },
@@ -76,6 +80,19 @@ export default {
       var user = await this.$store.dispatch({ type: "login", user: this.user });
       console.log(user);
       if (user) {
+        socketService.on(user._id, (data) => {
+          console.log("im conccted");
+        });
+        // socketService.on(SOCKET_EVENT_ORDER_STATUS, (user) => {
+        //   console.log(user);
+        //   console.log("THE USER IS LOGIN");
+        // });
+        // socketService.emit(SOCKET_EVENT_ORDER_STATUS, "my name is izack");
+        // socketService.on(SOCKET_EVENT_ORDER_STATUS, (data) => {
+        //   if (data.user._id === user._id) {
+        //   }
+        //   console.log(data);
+        // });
         this.isOpen = false;
         this.$emit("close");
       }

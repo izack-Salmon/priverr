@@ -69,7 +69,7 @@ async function update(gig) {
     }
 }
 function _buildCriteria(filterBy) {
-    console.log('filterBy-criteria', filterBy);
+    // console.log('filterBy-criteria', filterBy);
 
     const criteria = {}
     if (filterBy.searchTerm && filterBy.searchTerm !== '') {
@@ -85,10 +85,11 @@ function _buildCriteria(filterBy) {
 
     if (filterBy.tag && filterBy.tag !== '') {
         console.log('im here');
-        const newTag = [filterBy.tag.toLowerCase()];
+        // const newTag = [filterBy.tag.toLowerCase()];
+        const newTag = [filterBy.tag.toUpperCase()];
         criteria.tags = { $in: newTag };
     }
-
+    
 if (filterBy.budget) {
 
     if (filterBy.budget.min === null && typeof (filterBy.budget.max) === 'number') {

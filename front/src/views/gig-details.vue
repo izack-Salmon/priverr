@@ -115,6 +115,7 @@ import caroselDatails from "../cmps/carousel-details.vue";
 import caroselSmall from "../cmps/carousel-small.vue";
 import aboutTheSeller from "../cmps/about-the-seller.vue";
 import gigReviewGraph from "../cmps/gig-review-graph.vue";
+import { socketService } from "../services/socket.service";
 export default {
   components: {
     gigPurchase,
@@ -167,13 +168,14 @@ export default {
           imgUrl: this.gig.imgUrl[0],
         },
       };
-      console.log("this.oder", this.order);
-
+      // console.log("this.oder", this.order);
       // socketService.on("order-added", (order) => {
       //   // console.log(order);
       //   // showSuccessMsg(`Order was added, check it out ${order.seller._id}`);
       // });
       this.$store.dispatch({ type: "addOrder", order: this.order });
+      // console.log(this.owner._id);
+      // socketService.emit(this.owner._id, "i buy the gig");
     },
     purchaseMsg() {
       this.isPurchase = true;
