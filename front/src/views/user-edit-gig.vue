@@ -134,15 +134,15 @@ export default {
       this.isLoading = true
       let res = await uploadImg(ev);
       // console.log(res);
+      // let strImgStart = res.substring(0, 1)
       this.newGig.imgUrl.push(res.url);
       // console.log("this.newGig.imgUrl", this.newGig.imgUrl);
       this.isLoading = false
     },
     async saveGig() {
-      console.log("im h1111");
       this.user = this.$store.getters.logginUser;
-      console.log(this.$route.params);
-      console.log("this.newGig", this.newGig);
+      // console.log(this.$route.params);
+      // console.log("this.newGig", this.newGig);
       this.newGig.tags = [this.tag];
       await this.$store.dispatch({ type: "addGig", gig: this.newGig });
       this.$router.push(`/user/${this.newGig.owner._id}`);

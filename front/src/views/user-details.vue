@@ -80,7 +80,7 @@
     </section>
     <div class="create-a-gig">
       <p>It seems that you don't have any active Gigs. Get selling!</p>
-      <button @click="goToCrateGig" class="become-seller">
+      <button @click="goToEditGig" class="become-seller">
         Create a New Gig
       </button>
     </div>
@@ -110,7 +110,7 @@ export default {
     await this.$store.dispatch({ type: "loadOrders" });
   },
   methods: {
-    goToCrateGig() {
+    goToEditGig() {
       this.$router.push(`/user/${this.user._id}/editGig`);
       // console.log("hi");
     },

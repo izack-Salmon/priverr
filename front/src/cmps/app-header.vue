@@ -15,13 +15,13 @@
             <img
               v-if="isHome"
               class="logo"
-              src="../assets/imgs/Piverr_w_Logo.png"
+              src="https://res.cloudinary.com/pivarr/image/upload/c_scale,w_89/v1639142285/piverr_w_upldrh.png"
               alt="logo"
             />
             <img
               v-else
               class="logo"
-              src="../assets/imgs/Piverr_Logo.png"
+              src="https://res.cloudinary.com/pivarr/image/upload/c_scale,w_89/v1639142285/piverr_b_o7vyd0.png"
               alt="logo"
             />
           </router-link>
@@ -56,7 +56,7 @@
       </div>
       <div :class="['nav-bar', { white: isHome }, { 'hover-nav': !isHome }]">
         <router-link :to="'/explore'">Explore</router-link>
-        <span @click="goToExplore" :class="{isExactActive: true}"> Explore </span>
+        <!-- <span @click="goToExplore" :class="{isExactActive: true}"> Explore </span> -->
         <span > Become a Seller </span> 
         <span @click="openSignIn" v-if="!logedInUser"> Sign In </span>
         <span v-else @click="logOut"> Sign Out </span>
