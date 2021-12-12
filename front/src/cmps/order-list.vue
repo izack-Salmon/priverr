@@ -1,7 +1,7 @@
 <template>
     <section class="order-list-container" >
         <header class="order-list-head">
-            <h2 class="order-list-title"> <span class="que-order">{{pendings}}</span> Orders In Que </h2>
+            <h2 class="order-list-title"> <span class="order-list-title-span"><span class="que-order">{{pendings}}</span> Orders In Que </span ></h2>
         </header> 
         <div v-if="ordersToShow" class="order-list-box">
             <ul>
