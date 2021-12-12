@@ -141,12 +141,13 @@ export const gigStore = {
             state.filterBy.deliveryTime = filterBy.deliveryTime;
             console.log('filterBy.budget', filterBy.budget);
             state.filterBy.budget = filterBy.budget;
-            state.filterBy.tag = filterBy.tag;
+            if(filterBy.tag) state.filterBy.tag = filterBy.tag;
             console.log('state.filterBy-filter', state.filterBy);
 
         },
         setSearchTerm(state, { searchTerm }) {
             state.filterBy.searchTerm = searchTerm;
+            // state.filterBy.category = searchTerm;
             state.exploreTitle.searchTerm = `Results for "${searchTerm}"`
             state.exploreTitle.category = null;
             console.log('state.filterBy-search', state.filterBy);
@@ -175,7 +176,7 @@ export const gigStore = {
             var gigs = await gigService.query(state.filterBy)
             console.log('gigs in store', gigs);
             commit({ type: 'setGigs', gigs });
-            commit({ type: 'clearFilter' })
+            // commit({ type: 'clearFilter' })
         },
         async updateGig({ commit }, { gig }) {
             var savedGig = gigService.save(gig)

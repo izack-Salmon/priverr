@@ -1,5 +1,5 @@
 .order-list-container {
-    margin-top: 10px;
+    // margin-top: 10px;
     height: 400px;
     width: 100%;
 }
@@ -26,9 +26,20 @@
 
 .order-list-title {
     margin: 0;
+    margin-bottom: 5px;
     line-height: 100%;
     font-size: 16px;
     font-family: Macan-regular;
+    // margin: 30px 0;
+    color: #222325;
+    width: 100%;
+    border-bottom: 1px solid #dadbdd;
+    line-height: 0.1em;
+}
+
+.order-list-title-span {
+    background: #fff;
+    padding: 0 15px 0 0;
 }
 
 .order-list-head {
@@ -52,7 +63,7 @@
 }
 
 .que-order {
-    color: #4a73e8;
+    color: #1dbf73;
 }
 
 .order-list-box {
