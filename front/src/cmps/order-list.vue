@@ -1,7 +1,7 @@
 <template>
     <section class="order-list-container" >
         <header class="order-list-head">
-            <h2 class="order-list-title"> <span class="order-list-title-span"><span class="que-order">{{pendings}}</span> Orders In Que </span ></h2>
+            <h2 class="order-list-title"> <span class="order-list-title-span"><span class="que-order">{{pendings}}</span> Orders In Queue </span ></h2>
         </header> 
         <div v-if="ordersToShow" class="order-list-box">
             <ul>
@@ -75,62 +75,59 @@
 
 <script>
 export default {
-    props:['orders'],
-    data(){
-        return{
-            ordersToShow:'',
-            pendings:0,
-            user:'',
-        }
-    },
-    created(){
-        //  this.ordersToShow = this.$store.getters.ordersSeller;
-        this.getLogInUser()
-        this.showUserOrders()
-        
-    },
+  props: ["orders"],
+  data() {
+    return {
+      ordersToShow: "",
+      pendings: 0,
+      user: "",
+    };
+  },
+  created() {
+    //  this.ordersToShow = this.$store.getters.ordersSeller;
+    this.getLogInUser();
+    this.showUserOrders();
+  },
     methods:{
-        setOrderTime(order){
-            const dateObj = new Date(order.createdAt).toLocaleString().split(',')[1]
-            return dateObj
-        },
-        setOrderDate(order){
-            const dateObj = new Date(order.createdAt).toLocaleString().split(',')[0]
-            return dateObj
-        },
-        getLogInUser(){
-           this.user = this.$store.getters.logginUser  
-        },
-        showUserOrders(){
-            // console.log('orderlist',this.orders[0].seller._id);
+    setOrderTime(order){
+        const dateObj = new Date(order.createdAt).toLocaleString().split(',')[1]
+        return dateObj
+    },
+    setOrderDate(order){
+        const dateObj = new Date(order.createdAt).toLocaleString().split(',')[0]
+        return dateObj
+    },
+    getLogInUser(){
+        this.user = this.$store.getters.logginUser  
+    },
+    showUserOrders(){
+        // console.log('orderlist',this.orders[0].seller._id);
 
-           this.ordersToShow = this.orders.filter((order) => {
-               return order.seller._id === this.user._id
-           });
-           console.log(this.ordersToShow);
-           this.queNum()
-        },
-        queNum(){
+        this.ordersToShow = this.orders.filter((order) => {
+            return order.seller._id === this.user._id
+        });
+        console.log(this.ordersToShow);
+        this.queNum()
+    },
+    queNum(){
         var count = 0
         this.ordersToShow.forEach(order => { 
             if(order.status === 'pending'){ count++ }
         });
         this.pendings = count;
-        },
-        setAccept(order){
-            // console.log('setAcc',order);
-            order.status = 'accepted'
-            // console.log('setAcc',order.status);
-           return order.status
-        },
-        setReject(order){
-            order.status = 'rejected'
-           return order.status
-        }
     },
-    computed:{
-
-    }
-}
+    setAccept(order){
+        // console.log('setAcc',order);
+        order.status = 'accepted'
+        // console.log('setAcc',order.status);
+        return order.status
+    },
+    setReject(order){
+        order.status = 'rejected'
+        return order.status
+    }, 
+  },
+  computed: {},
+};
 </script>
 

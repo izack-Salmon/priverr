@@ -4,6 +4,7 @@
       :isOpen="isOpen"
       @setSearch="setSearch"
       @toggleLogin="closeLogin"
+      :notification="notification"
       :class="[
         'home-header',
         { 'fixed-header': isFixed },
@@ -30,11 +31,25 @@ export default {
     return {
       isFixed: true,
       isOpen: false,
+      notification: 0,
     };
   },
   watch: {
     $route({ name }) {
-      this.isFixed = name === "Home" 
+      this.isFixed = name === "Home";
+    },
+    user: {
+      handler() {
+        if (this.$store.getters.logginUser) {
+          console.log("user changed", this.$store.getters.logginUser);
+          socketService.emit(
+            "set-user-socket",
+            this.$store.getters.logginUser._id
+          );
+          socketService.on("purchase", this.socketCheck);
+        }
+      },
+      immediate: true,
     },
   },
   created() {
@@ -42,7 +57,12 @@ export default {
     this.$store.dispatch({ type: "loadGigs" });
     this.$store.dispatch({ type: "loadUser" });
     this.$store.dispatch({ type: "loadOrders" });
-    this.isFixed = this.$route.name === "Home" 
+    this.isFixed = this.$route.name === "Home";
+  },
+  computed: {
+    user() {
+      return this.$store.getters.logginUser;
+    },
   },
   methods: {
     setSearch(searchTerm) {
@@ -60,6 +80,13 @@ export default {
     },
     closeLogin() {
       this.isOpen = false;
+    },
+    socketCheck(data) {
+      console.log("got the socket", data);
+      this.notification += 1;
+      // console.log(this.notification);
+
+      // this.$emit("notification");
     },
   },
 };

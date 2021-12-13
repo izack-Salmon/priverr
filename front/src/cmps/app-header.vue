@@ -9,7 +9,11 @@
         { 'bgc-white': !isHome },
       ]"
     >
+    <button class="btn-nav-ham side-nav-trigger">
+          <svg  width="23" height="19" viewBox="0 0 23 19"><rect y="16" width="23" height="3" rx="1.5" fill="#555"></rect><rect width="23" height="3" rx="1.5" fill="#555"></rect><rect y="8" width="23" height="3" rx="1.5" fill="#555"></rect>
+        </svg></button>
       <div class="nav-warp">
+        
         <div class="logo-warp">
           <router-link :class="{ white: isHome }" :to="'/'">
             <img
@@ -55,17 +59,17 @@
         </div>
       </div>
       <div :class="['nav-bar', { white: isHome }, { 'hover-nav': !isHome }]">
-        <router-link :to="'/explore'">Explore</router-link>
+        <router-link class="explore-link" :to="'/explore'">Explore</router-link>
         <!-- <span @click="goToExplore" :class="{isExactActive: true}"> Explore </span> -->
-        <span > Become a Seller </span> 
-        <span @click="openSignIn" v-if="!logedInUser"> Sign In </span>
-        <span v-else @click="logOut"> Sign Out </span>
+        <span class="become-seller-link"> Become a Seller </span> 
+        <span class="nav-log-btn" @click="openSignIn" v-if="!logedInUser"> Sign In </span>
+        <span class="nav-log-btn" v-else @click="logOut"> Sign Out </span>
         <!-- <div> -->
         <!-- <div class="join-box"> -->
         <button
           v-show="!logedInUser"
           @click="openLogin"
-          :class="[{ 'btn-white': isHome }, { 'btn-green': !isHome }]"
+          :class="['join-btn',{ 'btn-white': isHome }, { 'btn-green': !isHome }]"
         >
           Join
         </button>
@@ -78,6 +82,10 @@
           v-if="logedInUser"
           :username="userName"
         ></avatar>
+
+        <div v-if="notifications" class="notification">
+          <div class="notification-number">{{ notifications }}</div>
+        </div>
         <!-- <img
           v-if="userName"
           @click.native="goToUserPage"
@@ -98,7 +106,7 @@
 import Avatar from "vue-avatar";
 import loginPopUp from "../cmps/login-popUp.vue";
 export default {
-  props: ["isOpen"],
+  props: ["isOpen", "notification"],
   data() {
     return {
       searchTerm: null,
@@ -107,6 +115,8 @@ export default {
       loginPop: false,
       loginOpened: false,
       clickedJoin: false,
+      // notificationsNumber: 0,
+      notifications: 0,
       user: "",
     };
   },
@@ -123,19 +133,25 @@ export default {
         this.loginOpened = this.isOpen;
       },
     },
-
     $route({ name }) {
       this.isHome = name === "Home";
+    },
+    notification: {
+      handler() {
+        this.notifications = this.notification;
+        console.log(this.notification);
+      },
     },
     immediate: true,
   },
   methods: {
     updateScroll() {
       this.scrollPosition = window.scrollY;
-      
+
       this.isHome =
         this.scrollPosition > 10 && this.$route.name === "Home" ? false : true;
-      if (this.scrollPosition < 50 && this.$route.name !== "Home") this.isHome = false;
+      if (this.scrollPosition < 50 && this.$route.name !== "Home")
+        this.isHome = false;
       if (this.$route.name !== "Home") this.isHome = false;
     },
     async logOut() {
@@ -161,12 +177,11 @@ export default {
       console.log(this.user);
       this.$router.push(`/user/${this.user._id}`);
     },
-   async goToExplore() {
-     window.scrollTo(0, 0)
-      await this.updateScroll()
-      this.$router.push('/explore');
-    }
-
+    async goToExplore() {
+      window.scrollTo(0, 0);
+      await this.updateScroll();
+      this.$router.push("/explore");
+    },
   },
   mounted() {
     window.addEventListener("scroll", this.updateScroll);
@@ -180,7 +195,6 @@ export default {
     userName() {
       return this.$store.getters.logginUser?.username;
     },
-
   },
 
   components: { loginPopUp, Avatar },

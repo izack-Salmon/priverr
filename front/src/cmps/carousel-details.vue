@@ -2,10 +2,11 @@
   <section>
     <template>
       <VueSlickCarousel
+        class="big-carousel"
         v-bind="bigSettings"
         ref="c1"
         :asNavFor="$refs.c2"
-        :style="{ height: '450px', width: '100%' }"
+        :style="{ height: '100%', width: '100%' }"
       >
         <img v-for="img in gig.imgUrl" :key="img" :src="img" alt="" />
       </VueSlickCarousel>

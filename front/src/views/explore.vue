@@ -41,7 +41,7 @@ export default {
   },
   methods: {
     filter(filterBy) {
-      console.log('filterBy', filterBy);
+      // console.log('filterBy', filterBy);
       this.$store.dispatch({ type: "setFilterBy", filterBy });
 
     }

@@ -139,10 +139,10 @@ export const gigStore = {
         },
         setFilterBy(state, { filterBy }) {
             state.filterBy.deliveryTime = filterBy.deliveryTime;
-            console.log('filterBy.budget', filterBy.budget);
+            // console.log('filterBy.budget', filterBy.budget);
             state.filterBy.budget = filterBy.budget;
             if(filterBy.tag) state.filterBy.tag = filterBy.tag;
-            console.log('state.filterBy-filter', state.filterBy);
+            // console.log('state.filterBy-filter', state.filterBy);
 
         },
         setSearchTerm(state, { searchTerm }) {
@@ -150,8 +150,8 @@ export const gigStore = {
             // state.filterBy.category = searchTerm;
             state.exploreTitle.searchTerm = `Results for "${searchTerm}"`
             state.exploreTitle.category = null;
-            console.log('state.filterBy-search', state.filterBy);
-            console.log('state.exploreTitle-search', state.exploreTitle);
+            // console.log('state.filterBy-search', state.filterBy);
+            // console.log('state.exploreTitle-search', state.exploreTitle);
         },
         setCurrGig(state, { gig }) {
             state.currGig = gig;
