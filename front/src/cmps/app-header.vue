@@ -9,7 +9,11 @@
         { 'bgc-white': !isHome },
       ]"
     >
+    <button class="btn-nav-ham side-nav-trigger">
+          <svg  width="23" height="19" viewBox="0 0 23 19"><rect y="16" width="23" height="3" rx="1.5" fill="#555"></rect><rect width="23" height="3" rx="1.5" fill="#555"></rect><rect y="8" width="23" height="3" rx="1.5" fill="#555"></rect>
+        </svg></button>
       <div class="nav-warp">
+        
         <div class="logo-warp">
           <router-link :class="{ white: isHome }" :to="'/'">
             <img
@@ -55,17 +59,17 @@
         </div>
       </div>
       <div :class="['nav-bar', { white: isHome }, { 'hover-nav': !isHome }]">
-        <router-link :to="'/explore'">Explore</router-link>
+        <router-link class="explore-link" :to="'/explore'">Explore</router-link>
         <!-- <span @click="goToExplore" :class="{isExactActive: true}"> Explore </span> -->
-        <span> Become a Seller </span>
-        <span @click="openSignIn" v-if="!logedInUser"> Sign In </span>
-        <span v-else @click="logOut"> Sign Out </span>
+        <span class="become-seller-link"> Become a Seller </span> 
+        <span class="nav-log-btn" @click="openSignIn" v-if="!logedInUser"> Sign In </span>
+        <span class="nav-log-btn" v-else @click="logOut"> Sign Out </span>
         <!-- <div> -->
         <!-- <div class="join-box"> -->
         <button
           v-show="!logedInUser"
           @click="openLogin"
-          :class="[{ 'btn-white': isHome }, { 'btn-green': !isHome }]"
+          :class="['join-btn',{ 'btn-white': isHome }, { 'btn-green': !isHome }]"
         >
           Join
         </button>
