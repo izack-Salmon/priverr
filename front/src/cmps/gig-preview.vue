@@ -1,16 +1,21 @@
 <template>
   <section class="gig-preview">
     <div class="gig-card">
-      <!-- <router-link class="gig-title" :to="'/gig/details/' + gig._id"> -->
-      <img class="gig-img" :src="gig.imgUrl[0]" contextmenu=""/>
-        <!-- <el-carousel indicator-position="outside" :autoplay="false"> -->
-    <!-- <el-carousel-item v-for="(item,idx) in gig.imgUrl" :key="idx"> -->
-      <!-- <div class="img-container"> -->
-            <!-- <img class="gig-img" :src="gig.imgUrl[idx]" contextmenu=""/> -->
-<!-- </div> -->
-    <!-- </el-carousel-item> -->
-  <!-- </el-carousel> -->
-      <!-- </router-link> -->
+      <!-- <img class="gig-img" :src="gig.imgUrl[0]" contextmenu=""/> -->
+       <div class="preview-slider">
+        <div class="card-img">
+                <img :src="currentImage" alt="">
+                <div class="actions">
+                    <span @click="prevImage" class="arrow prev">
+                       &#8249;
+                    </span>
+                    <span @click="nextImage" class="arrow next">
+                        &#8250;
+                    </span>
+                </div>
+            </div>
+
+          </div>    
 
       <div class="seller-info flex align-center">
         <img :src="gig.owner.imgUrl" />
@@ -62,11 +67,47 @@ export default {
   },
   data(){
     return {
-      // liked: false
+       activeImage: 0,
     }
+  },
+  computed: {
+   currentImage() {
+                return this.gig.imgUrl[this.activeImage];
+            }
+  },
+  methods: {
+     nextImage() {
+                var active = this.activeImage + 1;
+                if(active >= this.gig.imgUrl.length) {
+                    active = 0;
+                }
+                this.activateImage(active);
+            },
+            // Go backwards on the images array 
+            // or go at the last image
+            prevImage() {
+                var active = this.activeImage - 1;
+                if(active < 0) {
+                    active = this.gig.imgUrl.length - 1;
+                }
+                this.activateImage(active);
+            },
+              activateImage(imageIndex) {
+                this.activeImage = imageIndex;
+            }
   }
 };
 //  color:#f74040;
+      // <!-- <router-link class="gig-title" :to="'/gig/details/' + gig._id"> -->
+
+//   <!-- <el-carousel indicator-position="outside" :autoplay="false"> -->
+//     <!-- <el-carousel-item v-for="(item,idx) in gig.imgUrl" :key="idx"> -->
+//       <!-- <div class="img-container"> -->
+//             <!-- <img class="gig-img" :src="gig.imgUrl[idx]" contextmenu=""/> -->
+// <!-- </div> -->
+//     <!-- </el-carousel-item> -->
+//   <!-- </el-carousel> -->
+//       <!-- </router-link> -->
 </script>
 
 <style>

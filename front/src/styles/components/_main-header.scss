@@ -16,24 +16,60 @@
 
 .nav-warp {
     // width: 1400px;
-    width: 100%;
+    // width: 100%;
     display: flex;
     align-items: center;
 }
 // #7a7d85
 .main-header {
     display: flex;
-    // justify-content: space-between;
+    // width: 200px;
+    justify-content: space-between;
     align-items: center;
     height: 80px;
     z-index: 10;
+    margin: 0;
+    padding: 24px;
     a{
         text-decoration: none;
         color: #62646a;
         // font-weight: 800;
     }
 
-    .nav-bar{
+    .btn-nav-ham {
+        background: none;
+        border: 0;
+        outline: none;
+        margin-top: 8px;
+        margin-right: 15px;
+        padding: 1px 6px;
+        padding-bottom: 6px;
+    }   
+
+    .explore-link,.become-seller-link ,.nav-log-btn{
+        display: none;
+    }
+    // .nav-bar{
+  
+    // }
+
+    .logo-warp {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    @include for-narrow-layout {
+        margin-left: 32px;
+        margin-right: 32px;
+        padding: 0;
+
+
+        .btn-nav-ham {
+            display: none;
+        }
+
+     .nav-bar{
         color: #62646a;
         font-weight: 600;
         width: 825px;
@@ -42,7 +78,35 @@
         justify-content: flex-end;
         align-items: center;
         margin: 0px 0px 0px 16px;
-       
+
+        .hover-nav >*:not(:nth-child(6)){
+            &:hover{
+                color: $clr1;
+            }
+        }
+        .explore-link {
+            &:hover{
+                color: $clr1;
+            }
+            @include for-normal-layout {
+                display: block;
+            }
+        }
+
+        .become-seller-link, .nav-log-btn {
+                display: block;
+                &:hover{
+                    color: $clr1;
+                }
+        }
+
+        // .nav-log-btn {
+        //         display: block;
+        //         &:hover{
+        //             color: $clr1;
+        //         }
+        // }
+
         button {
             width: 70.7px;
             margin-left: 10px;
@@ -66,26 +130,38 @@
             cursor: pointer;
         }
     
-    }
+      }
     
-    .white {
-        color: #fff;
-    }
-    .home-Avater{
-        border-radius: 50%;
-        width: 32px;
-        height: 32px;
-        object-fit: cover;
-        justify-content: center;
-        min-width: 1em;
-        margin-left: 24px;
-    }
-    .home-Avater:hover{
-        cursor: pointer;
-        padding: 0;
-        // margin-left: 24px;
-    }
+        .white {
+            color: #fff;
+        }
+        .home-Avater{
+            border-radius: 50%;
+            width: 32px;
+            height: 32px;
+            object-fit: cover;
+            justify-content: center;
+            min-width: 1em;
+            margin-left: 24px;
+        }
+        .home-Avater:hover{
+            cursor: pointer;
+            padding: 0;
+            // margin-left: 24px;
+        }
 
+        .logo-warp {
+            height: auto;
+            min-width: 106px;
+            margin: 4px 0 0;
+            justify-content: left;  
+        }
+        
+   } 
+
+   @include for-between-layout {
+     margin: 0 auto;
+   }
     
 }
 
@@ -109,11 +185,7 @@
     border-bottom: 1px solid #e4e5e7;
 }
 
-.hover-nav >*:not(:nth-child(6)){
-    &:hover{
-        color: $clr1;
-    }
-}
+
 
 .main-header .white a{
     color: #fff;
@@ -131,34 +203,53 @@
     }
 
 .btn-white {
-    color: #fff;
-    border: 1px solid #fff;
-    transition: all .2s ease;
-    &:hover {
-        color: #fff;
-        background-color: #169e5e;
-        border: 1px solid $clr1;
-    }
+    background-color: transparent;
+    border: none;
+    color: #62646a;
+    font-size: 16px;
+    font-family: Macan;
 
+  
+    @include for-narrow-layout {
+            
+        & {
+            color: #fff;
+            border: 1px solid #fff;
+            transition: all .2s ease;
+            &:hover {
+                color: #fff;
+                background-color: #169e5e;
+                border: 1px solid $clr1;
+            }
+    
+        }
+        }
 }
 
 .btn-green {
-    color: $clr1;
-    border: 1px solid $clr1;
-    // transition: color .5s ease,border .5s ease;
-    transition: all .2s ease;
-    &:hover {
-    color: #fff;
-    background-color: #169e5e;
 
-    }
+    background-color: transparent;
+    border: none;
+    color: #62646a;
+    font-size: 16px;
+    font-family: Macan;
+    @include for-narrow-layout {
+            
+        & {
+            color: $clr1;
+            border: 1px solid $clr1;
+            // transition: color .5s ease,border .5s ease;
+            transition: all .2s ease;
+            &:hover {
+            color: #fff;
+            background-color: #169e5e;
+
+    } 
+    
+        }
+        }
 }
 
-.logo-warp {
-    height: auto;
-    min-width: 106px;
-    margin: 4px 0 0;  
-}
 
 .logo {
     width: 89px;
@@ -178,7 +269,17 @@
 }
 
 .nav-search {
-    min-width: 412px;
+        display: none;
+    
+    @include for-normal-layout {
+        display: block;
+        width: 230px;
+    }
+    @include for-wide-layout {
+       width: 412px;
+    }
+
+    // min-width: 412px;
     .search-form{
         display: flex;
         position: relative;
@@ -203,8 +304,11 @@
        }
 
        button {
-        padding: 8px 16px;
+        display: none;
+     
+        @include for-normal-layout {
         display: block;
+        padding: 8px 16px;
         font-size: 14px;
         font-weight: 700;
         border: 1px solid $clr1;
@@ -212,7 +316,8 @@
         background-color: $clr1;
         color: #fff;
         width: 80px;
-        cursor: pointer;           
+        cursor: pointer; 
+        }
       }
 
       button:hover {
@@ -227,14 +332,26 @@
         opacity: 0.5;
     }
 
-    // @include for-narrow-layout {
-    //     .search-form{
-    //         min-width: 186px;
-    //     }
-    // }
-    // @include for-normal-layout{
-        
-    // }
+    
+ 
+    
+    @include for-wide-layout {
+       
+    }
+
+    @include for-between-layout {
+        .nav-search{
+            .search-form{
+                button {
+                    display: block;
+                }
+            }  
+            }
+    }
+    
+    @include for-widest-layout {
+     
+    }
 }
 
 

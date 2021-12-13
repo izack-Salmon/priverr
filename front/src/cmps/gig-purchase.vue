@@ -138,7 +138,7 @@
             </li>
           </ul>
           <div v-if="purchMsg" class="purchase-msg">
-            Thanks you for purchase form {{ gig.owner.fullname }}
+            Thank you for purchase from {{ gig.owner.fullname }}
           </div>
         </div>
       </div>
