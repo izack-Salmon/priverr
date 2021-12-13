@@ -2,20 +2,18 @@
   <section class="gig-preview">
     <div class="gig-card">
       <!-- <img class="gig-img" :src="gig.imgUrl[0]" contextmenu=""/> -->
-       <div class="preview-slider">
+       <!-- <div class="preview-slider"> -->
         <div class="card-img">
-                <img :src="currentImage" alt="">
+                <img @click="goToDetails" :src="currentImage" alt="">
                 <div class="actions">
                     <span @click="prevImage" class="arrow prev">
-                       &#8249;
                     </span>
                     <span @click="nextImage" class="arrow next">
-                        &#8250;
                     </span>
                 </div>
             </div>
 
-          </div>    
+          <!-- </div>     -->
 
       <div class="seller-info flex align-center">
         <img :src="gig.owner.imgUrl" />
@@ -76,6 +74,9 @@ export default {
             }
   },
   methods: {
+    goToDetails(){
+      this.$router.push(`/gig/details/${this.gig._id}`);
+    },
      nextImage() {
                 var active = this.activeImage + 1;
                 if(active >= this.gig.imgUrl.length) {

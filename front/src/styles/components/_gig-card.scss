@@ -14,7 +14,7 @@
     }
     .seller-info {
         line-height: 120%;
-        padding: 12px 12px 8px;
+        padding: 0 12px 8px;
         height: 54px;
         width: 100%;
 
@@ -143,31 +143,36 @@
 // CAROUSEL
 
 .card-img {
+    cursor: pointer;
     position: relative;
     overflow: hidden;
     .arrow {
+        cursor: pointer;
         display: flex;
        justify-content: center;
         width: 25px;
+        height: 30px;
         background-color: #fff;
         position: absolute;
         bottom: 50%;
         opacity: 0;
-        border: 1px solid #e4e5e7;
+        // border: 1px solid #e4e5e7;
+        background: url(https://res.cloudinary.com/pivarr/image/upload/v1639405056/carousel-arrows.b9dde63_zbtc43.svg);
 
     }
 
     .arrow.prev {
-        border-radius: 0 50% 50% 0;
+        // border-radius: 0 50% 50% 0;
         left: -30px;
         transition: left .2s;
       
     }
 
     .arrow.next {
-        border-radius: 50%  0 0 50%;
+        // border-radius: 50%  0 0 50%;
         right: -30px;
         transition: right .2s;
+        background-position: -25px 0;
       
     }
     
