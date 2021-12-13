@@ -101,12 +101,12 @@ export default {
         this.user = this.$store.getters.logginUser  
     },
     showUserOrders(){
-        // console.log('orderlist',this.orders[0].seller._id);
-
-        this.ordersToShow = this.orders.filter((order) => {
+        var OrderArr = this.orders.filter((order) => {
             return order.seller._id === this.user._id
         });
+        this.ordersToShow = OrderArr.reverse()
         console.log(this.ordersToShow);
+       
         this.queNum()
     },
     queNum(){
