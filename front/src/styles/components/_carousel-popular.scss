@@ -110,13 +110,13 @@
     // margin: 0%;
     // 
   }
-
+  // .big-carousel{
+  //   height: 600px;
+  // }
 
   @include for-wide-layout {
-    .carousel-continer{
-      // margin: 0 32px;
-      // width: 80%;
-
+    .seller-main-pic{
+      height: 500px;
     }
 }
   @include for-between-layout {

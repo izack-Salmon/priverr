@@ -150,6 +150,25 @@
             // margin-left: 24px;
         }
 
+        .notification{
+            position: relative;
+            height: 20px;
+            width: 20px;
+            font-size: 14px;
+            right: 12px;
+            bottom: 12px;
+            border-radius: 100%;
+            border: 1px solid rgb(255, 255, 255);
+            
+    
+            .notification-number{
+                width: 50%;
+                height: 50%;
+                margin:auto;
+                transform: translate(15%, -20%);
+            }
+        }
+
         .logo-warp {
             height: auto;
             min-width: 106px;

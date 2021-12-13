@@ -90,7 +90,7 @@
       </button>
     </div>
     <div class="order-grid-box">
-      <order-list v-if="ordersToShow" :orders="ordersToShow()" />
+      <order-list v-if="orders" :orders="orders" />
     </div>
   </div>
 </template>
@@ -105,6 +105,7 @@ export default {
     return {
       user: "",
       gigs: "",
+      orders: "",
       // userGigs: "",
     };
   },
@@ -113,7 +114,9 @@ export default {
     await this.$store.dispatch({ type: "loadGigs" });
     await this.loadUserGigs();
     await this.$store.dispatch({ type: "loadOrders" });
-    this.connect();
+    this.ordersToShow();
+    socketService.on("purchase", this.socketCheck);
+    // this.connect();
   },
   methods: {
     goToEditGig() {
@@ -122,7 +125,7 @@ export default {
     },
     ordersToShow() {
       // console.log("go store");
-      return JSON.parse(JSON.stringify(this.$store.getters.orders));
+      this.orders = JSON.parse(JSON.stringify(this.$store.getters.orders));
     },
 
     async loadUserGigs() {

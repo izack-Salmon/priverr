@@ -169,13 +169,12 @@ export default {
         },
       };
       // console.log("this.oder", this.order);
+      // socketService
       // socketService.on("order-added", (order) => {
       //   // console.log(order);
       //   // showSuccessMsg(`Order was added, check it out ${order.seller._id}`);
       // });
       this.$store.dispatch({ type: "addOrder", order: this.order });
-      // console.log(this.owner._id);
-      // socketService.emit(this.owner._id, "i buy the gig");
     },
     purchaseMsg() {
       this.isPurchase = true;
