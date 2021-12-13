@@ -18,7 +18,7 @@
                                 
                             <div class="orderer-user">{{order.buyer.fullname}}</div>  
                                 <div class="order-timing">
-                                    1 hour ago
+                                    <!-- 1 hour ago -->
                                 </div>  
 
                             </div>
@@ -29,7 +29,10 @@
                         <span>Price</span>
                         <span class="order-price-num">${{order.gig.price}}</span>
                     </div>
-                   
+                   <div class="order-price-box">
+                       <span>Date</span>
+                       <span class="order-price-num">{{setOrderDate(order)}}</span>
+                   </div>
                     <div class="order-status-box">
                         <span>Status</span>
                         <span class="" v-if="order.status === 'accepted'">
@@ -87,14 +90,22 @@ export default {
         
     },
     methods:{
+        setOrderTime(order){
+            const dateObj = new Date(order.createdAt).toLocaleString().split(',')[1]
+            return dateObj
+        },
+        setOrderDate(order){
+            const dateObj = new Date(order.createdAt).toLocaleString().split(',')[0]
+            return dateObj
+        },
         getLogInUser(){
            this.user = this.$store.getters.logginUser  
         },
         showUserOrders(){
             // console.log('orderlist',this.orders[0].seller._id);
-           this.ordersToShow = this.orders.filter((order) => {
-               return order.seller._id === this.user._id  
 
+           this.ordersToShow = this.orders.filter((order) => {
+               return order.seller._id === this.user._id
            });
            console.log(this.ordersToShow);
            this.queNum()
@@ -107,9 +118,9 @@ export default {
         this.pendings = count;
         },
         setAccept(order){
-            console.log('setAcc',order);
+            // console.log('setAcc',order);
             order.status = 'accepted'
-            console.log('setAcc',order.status);
+            // console.log('setAcc',order.status);
            return order.status
         },
         setReject(order){

@@ -1,18 +1,13 @@
 .row {
-    // max-width: 1240px;
     width: 100%;
     margin: 0 auto;
-    // padding: 0 20px;
     box-sizing: border-box;
     position: relative;
     justify-content: space-between;
-    // overflow-x: hidden;
     padding: 20px 0;
     margin-top: 40px;
     display: grid;
-    // grid-template-rows: 400px 800px;
-    grid-template-columns: 8fr 12fr;
-    // grid-auto-rows: minmax(min-content, max-content);
+    grid-template-columns: 6fr 12fr;
     grid-template-rows: 100px 1200px;
     .info-column {
         border-radius: 2px gray;
