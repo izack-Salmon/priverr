@@ -24,7 +24,8 @@ export const orderStore = {
             if (!state.orders) {
                 state.orders = []
             }
-            state.orders.push(savedOrder);
+            state.orders.unshift(savedOrder.ops[0]);
+            console.log('state orders', state.orders);
         },
     },
     actions: {
@@ -42,7 +43,7 @@ export const orderStore = {
         async addOrder({ commit }, { order }) {
             console.log(order);
             var savedOrder = await orderService.save(order)
-                // console.log('this 2');
+            // console.log('this 2');
             commit({ type: 'addOrder', savedOrder });
             return savedOrder;
         },

@@ -57,7 +57,7 @@
       <div :class="['nav-bar', { white: isHome }, { 'hover-nav': !isHome }]">
         <router-link :to="'/explore'">Explore</router-link>
         <!-- <span @click="goToExplore" :class="{isExactActive: true}"> Explore </span> -->
-        <span > Become a Seller </span> 
+        <span> Become a Seller </span>
         <span @click="openSignIn" v-if="!logedInUser"> Sign In </span>
         <span v-else @click="logOut"> Sign Out </span>
         <!-- <div> -->
@@ -78,6 +78,10 @@
           v-if="logedInUser"
           :username="userName"
         ></avatar>
+
+        <div v-if="notifications" class="notification">
+          <div class="notification-number">{{ notifications }}</div>
+        </div>
         <!-- <img
           v-if="userName"
           @click.native="goToUserPage"
@@ -98,7 +102,7 @@
 import Avatar from "vue-avatar";
 import loginPopUp from "../cmps/login-popUp.vue";
 export default {
-  props: ["isOpen"],
+  props: ["isOpen", "notification"],
   data() {
     return {
       searchTerm: null,
@@ -107,6 +111,8 @@ export default {
       loginPop: false,
       loginOpened: false,
       clickedJoin: false,
+      // notificationsNumber: 0,
+      notifications: 0,
       user: "",
     };
   },
@@ -123,19 +129,25 @@ export default {
         this.loginOpened = this.isOpen;
       },
     },
-
     $route({ name }) {
       this.isHome = name === "Home";
+    },
+    notification: {
+      handler() {
+        this.notifications = this.notification;
+        console.log(this.notification);
+      },
     },
     immediate: true,
   },
   methods: {
     updateScroll() {
       this.scrollPosition = window.scrollY;
-      
+
       this.isHome =
         this.scrollPosition > 10 && this.$route.name === "Home" ? false : true;
-      if (this.scrollPosition < 50 && this.$route.name !== "Home") this.isHome = false;
+      if (this.scrollPosition < 50 && this.$route.name !== "Home")
+        this.isHome = false;
       if (this.$route.name !== "Home") this.isHome = false;
     },
     async logOut() {
@@ -161,12 +173,11 @@ export default {
       console.log(this.user);
       this.$router.push(`/user/${this.user._id}`);
     },
-   async goToExplore() {
-     window.scrollTo(0, 0)
-      await this.updateScroll()
-      this.$router.push('/explore');
-    }
-
+    async goToExplore() {
+      window.scrollTo(0, 0);
+      await this.updateScroll();
+      this.$router.push("/explore");
+    },
   },
   mounted() {
     window.addEventListener("scroll", this.updateScroll);
@@ -180,7 +191,6 @@ export default {
     userName() {
       return this.$store.getters.logginUser?.username;
     },
-
   },
 
   components: { loginPopUp, Avatar },

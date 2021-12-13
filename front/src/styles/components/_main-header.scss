@@ -71,6 +71,28 @@
     .white {
         color: #fff;
     }
+    .notification{
+        position: relative;
+        height: 20px;
+        width: 20px;
+        font-size: 14px;
+        right: 12px;
+        bottom: 12px;
+        border-radius: 100%;
+        border: 1px solid rgb(255, 0, 0);        ;
+        background: red;
+        
+        
+        .notification-number{
+            font-family: Macan;
+            color: #fff;
+            width: 50%;
+            height: 50%;
+            margin:auto;
+            transform: translate(15%, -20%);
+        }
+           
+    }
     .home-Avater{
         border-radius: 50%;
         width: 32px;
