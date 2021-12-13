@@ -169,11 +169,10 @@ export default {
       this.loginOpened = true;
     },
     setSearch() {
-      console.log("this.searchTerm", this.searchTerm);
+      // console.log("this.searchTerm", this.searchTerm);
       this.$emit("setSearch", this.searchTerm);
     },
     goToUserPage() {
-      console.log("hi");
       console.log(this.user);
       this.$router.push(`/user/${this.user._id}`);
     },
