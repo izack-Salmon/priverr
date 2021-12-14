@@ -108,14 +108,19 @@
         text-decoration: underline;
     }
     @include for-narrow-layout {
-        padding: 0 0 0 12px;
+        display: flex;
+        align-items: center;
+        padding: 0 0px 2px 12px;
         font-family: Macan-regular;
-        font-size: 14px;
+        font-size: 16px;
     }
 }
 
 .res-pad-left {
     padding-left: 38px;
+    @include for-narrow-layout {
+        padding: 0;
+    }
 }
 
 .seller-main-pic {
@@ -317,6 +322,7 @@ $break-widest: 1760px;
 .que-num {
     display: none;
     @include for-narrow-layout {
+        display: block;
         font-family: Macan-regular;
         font-size: 14px;
     }
