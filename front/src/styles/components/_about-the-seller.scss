@@ -1,6 +1,6 @@
 // About The Seller
 .about-the-seller {
-    margin-top: 80px;
+    margin-top: 40px;
     margin-bottom: 24px;
     border-top: 1px solid #dadbdd;
     h2 {
@@ -9,6 +9,18 @@
         font-size: 20px;
         line-height: 28px;
         padding: 25px 0;
+    }
+    @include for-narrow-layout {
+        margin-top: 80px;
+        margin-bottom: 24px;
+        border-top: 1px solid #dadbdd;
+        h2 {
+            margin: 0;
+            color: #404145;
+            font-size: 20px;
+            line-height: 28px;
+            padding: 25px 0;
+        }
     }
 }
 
@@ -36,6 +48,8 @@
     height: 110px;
     line-height: 130%;
     img {
+        width: 110px;
+        height: 110px;
         border-radius: 50%;
     }
 }
@@ -125,11 +139,14 @@
         flex-flow: row wrap;
     }
     li {
+        @include for-narrow-layout {
+            width: 50%;
+        }
         line-height: 130%;
         font-family: Macan-regular;
         padding: 0 0 16px;
         list-style: none;
-        width: 50%;
+        width: 100%;
         color: #7a7d85;
     }
     strong {
