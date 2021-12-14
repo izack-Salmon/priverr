@@ -27,14 +27,26 @@
 }
 
 .graph-container {
+    @include for-narrow-layout {
+        display: flex;
+        padding-bottom: 24px;
+        flex-direction: row;
+    }
+    flex-direction: column;
     display: flex;
     padding-bottom: 24px;
 }
 
 .star-counter-box {
+    @include for-narrow-layout {
+        padding-right: 16px;
+        max-width: 50%;
+        flex-basis: 50%
+    }
     padding-right: 16px;
-    max-width: 50%;
-    flex-basis: 50%
+    padding-bottom: 15px;
+    max-width: 100%;
+    flex-basis: 100%
 }
 
 .stars-counter {
@@ -84,9 +96,39 @@
 }
 
 .star-col-2 {
+    @include for-narrow-layout {
+        padding: 0 8px;
+        flex-basis: 50%;
+        max-width: 50%;
+        padding-top: 2px;
+        ul {
+            list-style: none;
+            list-style-image: none;
+            margin: 0;
+            padding: 0;
+            outline: 0;
+        }
+        li {
+            font-family: Macan-regular;
+            list-style: none;
+            list-style-image: none;
+            margin: 0;
+            padding: 0;
+            outline: 0;
+            display: flex;
+            justify-content: space-between;
+            color: #95979d;
+            padding-bottom: 8px;
+        }
+        span {
+            color: #62646a;
+            white-space: nowrap;
+            margin-left: 12px;
+        }
+    }
     padding: 0 8px;
     flex-basis: 50%;
-    max-width: 50%;
+    max-width: 100%;
     padding-top: 2px;
     ul {
         list-style: none;

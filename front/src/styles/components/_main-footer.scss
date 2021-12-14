@@ -1,5 +1,5 @@
-.app-footer{
-    .logo-footer{
+.app-footer {
+    .logo-footer {
         width: 77px;
         height: 23px;
         opacity: 0.4;
@@ -12,26 +12,26 @@
     align-items: center;
     justify-content: space-between;
     margin-bottom: 15px;
-    .left{
+    .left {
         display: flex;
         align-items: center;
-        .copyright{
+        .copyright {
             margin-left: 24px;
             opacity: 0.6;
         }
     }
-    .right{
-        svg:not(:last-child){
+    .right {
+        svg:not(:last-child) {
             margin-right: 40px;
             // padding-right: 40px;
         }
-        svg{
-            
+        svg {
             opacity: 0.4;
         }
     }
 }
-.app-footer::before{
+
+.app-footer::before {
     // padding-bottom: 20px;
     margin-bottom: 20px;
     background-color: #e4e5e7;

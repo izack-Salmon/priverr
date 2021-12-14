@@ -42,8 +42,5 @@ async function addOrder(req, res) {
 }
 //order store mutations
 function addOrder(state, { savedOrder }) {
-    if (!state.orders) {
-        state.orders = []
-    }
     state.orders.push(savedOrder);
 }

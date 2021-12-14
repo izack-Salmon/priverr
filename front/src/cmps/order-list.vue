@@ -18,7 +18,7 @@
                                 
                             <div class="orderer-user">{{order.buyer.fullname}}</div>  
                                 <div class="order-timing">
-                                    <!-- 1 hour ago -->
+                                    {{setOrderTime(order)}}
                                 </div>  
 
                             </div>

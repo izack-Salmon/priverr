@@ -24,17 +24,21 @@
           <h1 class="gig-details-title">{{ gig.title }}</h1>
 
           <div class="seller-overview">
-            <div class="details-avatar">
-              <img :src="gig.owner.imgUrl" />
+            <div class="flex ">
+              <div class="details-avatar">
+                <img :src="gig.owner.imgUrl" />
+              </div>
+              <div class="profile-name">
+                <a href="">{{ gig.owner.fullname }}</a>
+                <span class="gig-owner-level">{{ gig.owner.level }}</span>
+              </div>
             </div>
-            <div class="profile-name">
-              <a href="">{{ gig.owner.fullname }}</a>
-              <span class="gig-owner-level">{{ gig.owner.level }}</span>
+            <div class="mid-liner righty">|</div>
+            <div class="flex res-pad-left">
+              <gigStars :gig="gig" />
+              <span class="rating-amount">(1k+)</span>
             </div>
-            <div class="mid-liner">|</div>
-            <gigStars :gig="gig" />
-            <span class="rating-amount">(1k+)</span>
-            <div class="mid-liner">|</div>
+            <div class="mid-liner righty">|</div>
             <span class="que-num">27 Orders in Queue</span>
           </div>
           <div class="line"></div>
@@ -49,11 +53,6 @@
           <!-- <div class="small-carusell"></div> -->
 
           <div class="covert-purchase">
-            <div class="invoicing-box">
-              <div class="package-container">
-                <span>Basic</span>
-              </div>
-            </div>
             <gig-purchase
               :gig="gig"
               @purchaseMsg="purchaseMsg"
