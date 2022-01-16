@@ -16,10 +16,14 @@ const BASE_URL =
         : "//localhost:3030/api/auth";
 
 async function login(user) {
-    console.log('hi');
-    var user = await axios.post(`${BASE_URL}/login`, user)
-    if (user.data) return _saveLocalUser(user.data)
-    return user.data
+    try {
+        var user = await axios.post(`${BASE_URL}/login`, user)
+        console.log('auth-service');
+        if (user.data) return _saveLocalUser(user.data)
+        return user.data
+    } catch (err) {
+        return 'Invalid username or password'
+    }
 }
 async function logout() {
     var user = await axios.post(`${BASE_URL}/logout`)
@@ -29,9 +33,9 @@ async function logout() {
 async function signup(user) {
     console.log(user);
     var user = await axios.post(`${BASE_URL}/signup`, user)
-    return _saveLocalUser(user.data)
-    // if (user.data) return _saveLocalUser(user.data)
-    // return user.data
+    // return _saveLocalUser(user.data)
+    if (user.data) return _saveLocalUser(user.data)
+    return user.data
 }
 
 

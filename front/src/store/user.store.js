@@ -63,7 +63,8 @@ export const userStore = {
         },
         async login({ commit }, { user }) {
             var user = await authService.login(user)
-            // console.log('user store', user);
+            if (typeof user === 'string') return user
+            console.log('user store', user);
             commit({ type: 'login', user })
             return user
         },
@@ -74,6 +75,7 @@ export const userStore = {
         async signup({ commit }, { user }) {
             await authService.signup(user)
             commit({ type: 'login', user })
+            return user
         },
         async removeSellerGig({ commit }, { gigId }) {
             // console.log(gigId);

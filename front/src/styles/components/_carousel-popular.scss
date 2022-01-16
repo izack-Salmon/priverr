@@ -18,9 +18,9 @@
   }
   
   .carousel-continer {
-      // margin: auto;
-      width: 80%;
-      // width: 100%;
+      margin: auto;
+    //   width: 80%;
+      width: 60%;
       h2 {
           margin-bottom: 13px;
           font-size: 32px;
@@ -78,7 +78,7 @@
   }
   
   .slick-list {
-      padding-right: 50px;
+    //   padding-right: 50px;
       margin: 0 -181px;
   }
   
@@ -123,18 +123,20 @@
       .seller-main-pic {
           height: 500px;
       }
+      .carousel-continer {
+        width: 100%;
+      }
   }
   
   @include for-between-layout {
-      .carousel-continer {
-          // width: 100%;
-          margin: auto;
-      }
   }
   
   .img-datails {
       display: none;
       @include for-narrow-layout {
           display: block;
+          .carousel-continer {
+             
+          }
       }
   }

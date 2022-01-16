@@ -43,10 +43,7 @@
   </section>
 </template>
 <script>
-import {
-  socketService,
-  SOCKET_EVENT_ORDER_STATUS,
-} from "../services/socket.service";
+import { socketService } from "../services/socket.service";
 export default {
   name: "login",
   props: { showLogin: Boolean, enterLogin: Boolean },
@@ -73,42 +70,41 @@ export default {
       // this.loginOpened = true;
     },
     async login() {
+      console.log(this.user.username, this.user.password);
       if (!this.user.username || !this.user.password) {
         this.errorMsg("Please enter username/password");
         return;
       }
       var user = await this.$store.dispatch({ type: "login", user: this.user });
-      console.log(user);
+      if (typeof user === "string") {
+        this.errorMsg(user);
+        return;
+      }
       if (user) {
         socketService.on(user._id, (data) => {
           console.log("im conccted");
         });
-        // socketService.on(SOCKET_EVENT_ORDER_STATUS, (user) => {
-        //   console.log(user);
-        //   console.log("THE USER IS LOGIN");
-        // });
-        // socketService.emit(SOCKET_EVENT_ORDER_STATUS, "my name is izack");
-        // socketService.on(SOCKET_EVENT_ORDER_STATUS, (data) => {
-        //   if (data.user._id === user._id) {
-        //   }
-        //   console.log(data);
-        // });
         this.isOpen = false;
         this.$emit("close");
       }
-      // console.log(user)
-      // console.log(user);
     },
     getSginIn() {
       this.sginIn = !this.sginIn;
     },
     sginUp() {
-      console.log("im here");
       if (!this.user.fullname || !this.user.password || !this.user.username) {
         this.errorMsg("Please enter username/password");
         return;
       }
-      this.$store.dispatch({ type: "signup", user: this.user });
+      var user = this.$store.dispatch({ type: "signup", user: this.user });
+
+      if (user) {
+        socketService.on(user._id, (data) => {
+          console.log("im conccted");
+        });
+        this.isOpen = false;
+        this.$emit("close");
+      }
     },
     hide() {
       this.$emit("hide");
@@ -116,7 +112,6 @@ export default {
     },
     exitLogin(ev) {
       if (ev.srcElement.localName === "section") {
-        // console.log("im here to");
         this.$emit("close");
       }
     },
