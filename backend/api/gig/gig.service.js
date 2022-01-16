@@ -89,22 +89,22 @@ function _buildCriteria(filterBy) {
         const newTag = [filterBy.tag.toUpperCase()];
         criteria.tags = { $in: newTag };
     }
-    
-if (filterBy.budget) {
 
-    if (filterBy.budget.min === null && typeof (filterBy.budget.max) === 'number') {
-        criteria.price = { $lt: filterBy.budget.max }
-        
-    } else if (filterBy.budget.max === null && typeof (filterBy.budget.min) === 'number') {
-        criteria.price = { $gt: filterBy.budget.min }
+    if (filterBy.budget) {
 
-    } else if (typeof (filterBy.budget.min) === 'number' && typeof (filterBy.budget.max) === 'number') {
-        criteria.price = { $gt: filterBy.budget.min, $lt: filterBy.budget.max }
-    } else {
-        criteria.price = { $gt : 0, $lt : 5000}
-       }
-   
-}
+        if (filterBy.budget.min === null && typeof (filterBy.budget.max) === 'number') {
+            criteria.price = { $lt: filterBy.budget.max }
+
+        } else if (filterBy.budget.max === null && typeof (filterBy.budget.min) === 'number') {
+            criteria.price = { $gt: filterBy.budget.min }
+
+        } else if (typeof (filterBy.budget.min) === 'number' && typeof (filterBy.budget.max) === 'number') {
+            criteria.price = { $gt: filterBy.budget.min, $lt: filterBy.budget.max }
+        } else {
+            criteria.price = { $gt: 0, $lt: 5000 }
+        }
+
+    }
     // { $range: [ <start>, <end>, <non-zero step> ] }
 
     return criteria

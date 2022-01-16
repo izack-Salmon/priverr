@@ -24,7 +24,6 @@
         <span :class="[{ white: isHome },'sidebar-link']" @click="goToHome">Home</span>
     </div>
       <div class="nav-warp">
-        
         <div class="logo-warp">
           <router-link :class="{ white: isHome }" :to="'/'">
             <img
@@ -94,7 +93,7 @@
         ></avatar>
 
         <div v-if="notifications" class="notification">
-          <div class="notification-number">{{ notifications }}</div>
+          <span class="notification-number">{{ notifications }}</span>
         </div>
         <!-- <img
           v-if="userName"

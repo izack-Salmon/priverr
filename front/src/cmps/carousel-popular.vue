@@ -1,11 +1,7 @@
 <template>
   <div class="carousel-continer main-layout">
     <h2>Popular professional services</h2>
-    <VueSlickCarousel
-      v-bind="settings"
-      :style="{ height: '350px', width: '100%' }"
-      class="carousel"
-    >
+    <VueSlickCarousel v-bind="settings" class="carousel">
       <template #prevArrow="">
         <div class="custom-arrow"></div>
       </template>
@@ -50,7 +46,6 @@ export default {
         slidesToShow: 5,
         slidesToScroll: 5,
         speed: 1000,
-        // initialSlide: 0,
         responsive: [
           {
             breakpoint: 1400,

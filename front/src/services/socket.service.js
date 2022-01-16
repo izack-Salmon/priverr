@@ -58,7 +58,6 @@ function createDummySocketService() {
       this.setup()
     },
     on(eventName, cb) {
-      console.log('iiiiiiiiiiiii');
       listenersMap[eventName] = [...(listenersMap[eventName] || []), cb]
       console.log(listenersMap);
     },
