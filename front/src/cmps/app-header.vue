@@ -1,17 +1,28 @@
 <template>
   <section :class="[{ 'bgc-white': !isHome }, { 'gray-border': !isHome }]">
     <!-- <div class="main-header flex align-center space-between"> -->
+      <div :class="[{'sidebar-overlay':isMenuOpen},{hide:!isMenuOpen}]" @click="toggleMenu"></div>
     <div
       :class="[
         'main-header',
         'main-layout',
         { white: isHome },
         { 'bgc-white': !isHome },
-      ]"
-    >
-    <button class="btn-nav-ham side-nav-trigger">
-          <svg  width="23" height="19" viewBox="0 0 23 19"><rect y="16" width="23" height="3" rx="1.5" fill="#555"></rect><rect width="23" height="3" rx="1.5" fill="#555"></rect><rect y="8" width="23" height="3" rx="1.5" fill="#555"></rect>
-        </svg></button>
+      ]" >
+    <button class="btn-nav-ham side-nav-trigger" @click="toggleMenu">
+        <svg  width="23" height="19" viewBox="0 0 23 19"><rect y="16" width="23" height="3" rx="1.5" fill="#555"></rect><rect width="23" height="3" rx="1.5" fill="#555"></rect><rect y="8" width="23" height="3" rx="1.5" fill="#555"></rect>
+        </svg>
+    </button>
+    <div :class="[{sidebar:isMenuOpen},{'hide-sidebar':!isMenuOpen}]">
+        <button v-show="!logedInUser" @click="openLogin(true)" class="join-sidebar-btn">
+          Join Piverr
+        </button>
+        <span class="sidebar-link" @click="openLogin(false)" v-if="!logedInUser"> Sign In </span>
+        <span class="sidebar-link" v-else @click="logOut"> Sign Out </span>
+        <span class="sidebar-link" @click="goToExplore">Explore</span> 
+        <h6> General </h6>
+        <span :class="[{ white: isHome },'sidebar-link']" @click="goToHome">Home</span>
+    </div>
       <div class="nav-warp">
         
         <div class="logo-warp">
@@ -62,15 +73,14 @@
         <router-link class="explore-link" :to="'/explore'">Explore</router-link>
         <!-- <span @click="goToExplore" :class="{isExactActive: true}"> Explore </span> -->
         <span class="become-seller-link"> Become a Seller </span> 
-        <span class="nav-log-btn" @click="openSignIn" v-if="!logedInUser"> Sign In </span>
+        <span class="nav-log-btn" @click="openLogin(false)" v-if="!logedInUser"> Sign In </span>
         <span class="nav-log-btn" v-else @click="logOut"> Sign Out </span>
         <!-- <div> -->
         <!-- <div class="join-box"> -->
         <button
           v-show="!logedInUser"
-          @click="openLogin"
-          :class="['join-btn',{ 'btn-white': isHome }, { 'btn-green': !isHome }]"
-        >
+          @click="openLogin(true)"
+          :class="['join-btn',{ 'btn-white': isHome }, { 'btn-green': !isHome }]">
           Join
         </button>
         <!-- </div> -->
@@ -98,7 +108,7 @@
       </div>
     </div>
     <div></div>
-    <login-pop-up @close="close" :enterLogin="clickedJoin" v-if="loginOpened" />
+    <login-pop-up @close="close" :enterjoin="clickedJoin" v-if="loginOpened" />
   </section>
 </template>
 
@@ -118,15 +128,16 @@ export default {
       // notificationsNumber: 0,
       notifications: 0,
       user: "",
+      isMenuOpen: false,
     };
   },
   created() {
     this.isHome = this.$route.name === "Home";
     if (window.top && this.$route.name !== "Home") this.isHome = false;
   },
-  // destroy(){
-  //       window.removeEventListener('scroll', this.updateScroll)
-  // },
+  destroy(){
+        window.removeEventListener('scroll', this.updateScroll)
+  },
   watch: {
     isOpen: {
       handler() {
@@ -161,13 +172,17 @@ export default {
       this.loginOpened = false;
       this.$emit("toggleLogin");
     },
-    openLogin() {
+    openLogin(isJoin) {
+      this.clickedJoin = isJoin;
+      // this.clickedJoin = true;
       this.loginOpened = true;
+      this.isMenuOpen = false;
     },
-    openSignIn() {
-      this.clickedJoin = false;
-      this.loginOpened = true;
-    },
+    // openSignIn() {
+    //   this.clickedJoin = false;
+    //   this.loginOpened = true;
+    //   this.isMenuOpen = false;
+    // },
     setSearch() {
       // console.log("this.searchTerm", this.searchTerm);
       this.$emit("setSearch", this.searchTerm);
@@ -176,11 +191,18 @@ export default {
       console.log(this.user);
       this.$router.push(`/user/${this.user._id}`);
     },
-    async goToExplore() {
-      window.scrollTo(0, 0);
-      await this.updateScroll();
+    goToExplore() {
+      this.isMenuOpen = false;
       this.$router.push("/explore");
     },
+    goToHome(){
+      this.isMenuOpen = false;
+      this.$router.push("/")
+    },
+    toggleMenu() {
+      this.isMenuOpen = !this.isMenuOpen
+    },
+ 
   },
   mounted() {
     window.addEventListener("scroll", this.updateScroll);

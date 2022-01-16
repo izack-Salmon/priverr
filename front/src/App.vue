@@ -66,23 +66,23 @@ export default {
   },
   methods: {
     setSearch(searchTerm) {
-      console.log("searchTerm", searchTerm);
+      // console.log("searchTerm", searchTerm);
       this.$store.dispatch({ type: "setSearch", searchTerm });
       this.$router.push({
         path: "explore",
-        query: { search: this.searchTerm },
+        query: { search: searchTerm },
       });
     },
 
     showLogin() {
-      console.log("got it");
+      // console.log("got it");
       this.isOpen = true;
     },
     closeLogin() {
       this.isOpen = false;
     },
     socketCheck(data) {
-      console.log("got the socket", data);
+      // console.log("got the socket", data);
       this.notification += 1;
       // console.log(this.notification);
 

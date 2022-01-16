@@ -34,7 +34,7 @@
               class="span-popular"
               v-for="popular in populars"
               :key="popular"
-            >
+              @click="popularSearch(popular)" >
               {{ popular }}
             </span>
           </ul>
@@ -134,6 +134,10 @@ export default {
         query: { search: this.searchTerm },
       });
     },
+    popularSearch(popularTerm) {
+      this.searchTerm = popularTerm;
+      this.setSearch();
+    }
   },
   computed: {
     gigsToShow() {

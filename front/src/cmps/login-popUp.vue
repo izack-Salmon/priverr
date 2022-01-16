@@ -49,7 +49,7 @@ import {
 } from "../services/socket.service";
 export default {
   name: "login",
-  props: { showLogin: Boolean, enterLogin: Boolean },
+  props: { showLogin: Boolean, enterjoin: Boolean },
   data() {
     return {
       user: {
@@ -64,9 +64,10 @@ export default {
       logeddInUser: "",
     };
   },
-  //   created() {
-  //     // this.loginOpened = this.showLogin;
-  //   },
+    created() {
+      // this.loginOpened = this.showLogin;
+      this.sginIn = !this.enterjoin
+    },
   methods: {
     toggle() {
       this.isOpen = !this.isOpen;

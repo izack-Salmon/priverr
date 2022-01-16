@@ -2,18 +2,13 @@
   <section class="gig-preview">
     <div class="gig-card">
       <!-- <img class="gig-img" :src="gig.imgUrl[0]" contextmenu=""/> -->
-       <!-- <div class="preview-slider"> -->
-        <div class="card-img">
-                <img @click="goToDetails" :src="currentImage" alt="">
+                <img class="gig-img" @click="goToDetails" :src="currentImage" alt="">
                 <div class="actions">
                     <span @click="prevImage" class="arrow prev">
                     </span>
                     <span @click="nextImage" class="arrow next">
                     </span>
                 </div>
-            </div>
-
-          <!-- </div>     -->
 
       <div class="seller-info flex align-center">
         <img :src="gig.owner.imgUrl" />
@@ -40,7 +35,7 @@
       </div>
 
       <div class="gig-footer flex space-between">
-        <span class="heart-icon" aria-hidden="true" style="width: 16px; height: 16px;">
+        <span @click="toggleHeart" :class="['heart-icon',{'heart-Liked':isLiked}]" aria-hidden="true" style="width: 16px; height: 16px;">
         <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
         <path fill="currentColor" d="M14.4469 1.95625C12.7344 0.496875 10.1875 0.759375 8.61561 2.38125L7.99999 3.01562L7.38436 2.38125C5.81561 0.759375 3.26561 0.496875 1.55311 1.95625C-0.409388 3.63125 -0.512513 6.6375 1.24374 8.45312L7.29061 14.6969C7.68124 15.1 8.31561 15.1 8.70624 14.6969L14.7531 8.45312C16.5125 6.6375 16.4094 3.63125 14.4469 1.95625Z">
           </path>
@@ -66,14 +61,18 @@ export default {
   data(){
     return {
        activeImage: 0,
+       isLiked: false,
     }
   },
   computed: {
-   currentImage() {
+    currentImage() {
                 return this.gig.imgUrl[this.activeImage];
-            }
+            },
   },
   methods: {
+    toggleHeart() {
+      this.isLiked = !this.isLiked;
+    },
     goToDetails(){
       this.$router.push(`/gig/details/${this.gig._id}`);
     },
@@ -95,20 +94,13 @@ export default {
             },
               activateImage(imageIndex) {
                 this.activeImage = imageIndex;
+                // console.log('activeImage', activeImage);
+                // console.log('gig', gig);
             }
   }
 };
 //  color:#f74040;
-      // <!-- <router-link class="gig-title" :to="'/gig/details/' + gig._id"> -->
 
-//   <!-- <el-carousel indicator-position="outside" :autoplay="false"> -->
-//     <!-- <el-carousel-item v-for="(item,idx) in gig.imgUrl" :key="idx"> -->
-//       <!-- <div class="img-container"> -->
-//             <!-- <img class="gig-img" :src="gig.imgUrl[idx]" contextmenu=""/> -->
-// <!-- </div> -->
-//     <!-- </el-carousel-item> -->
-//   <!-- </el-carousel> -->
-//       <!-- </router-link> -->
 </script>
 
 <style>
