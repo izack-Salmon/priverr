@@ -126,12 +126,12 @@ export default {
     async onUploadImg(ev) {
       this.isLoading = true
       let res = await uploadImg(ev);
-      const scale= 'c_scale,h_393,w_680'
-      let strImgStart = res.url.substring(0, 47)
-      let strImgEnd = res.url.substring(46, str.length)
-      var strImgWithScale = `${strImgStart}${scale}${strImgEnd}`
-      this.newGig.imgUrl.push(strImgWithScale);
-      // this.newGig.imgUrl.push(res.url);
+      // const scale= 'c_scale,h_393,w_680'
+      // let strImgStart = res.url.substring(0, 47)
+      // let strImgEnd = res.url.substring(46, str.length)
+      // var strImgWithScale = `${strImgStart}${scale}${strImgEnd}`
+      // this.newGig.imgUrl.push(strImgWithScale);
+      this.newGig.imgUrl.push(res.url);
       this.isLoading = false
     },
     async saveGig() {
