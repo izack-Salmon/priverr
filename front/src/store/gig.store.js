@@ -8,7 +8,7 @@ export const gigStore = {
         gigs: [],
         currGig: null,
         exploreTitle: { category: 'Explore', searchTerm: null },
-        filterBy: { budget: { min: 0, max: 5000 }, deliveryTime: '' },
+        filterBy: { budget: '', deliveryTime: '' },
         professional: [{
             img: "https://res.cloudinary.com/pivarr/image/upload/v1638380308/tagsimg/logo-design_cuoszf.jpg",
             name: 'Logo Design',
@@ -141,8 +141,10 @@ export const gigStore = {
             state.filterBy.deliveryTime = filterBy.deliveryTime;
             // console.log('filterBy.budget', filterBy.budget);
             state.filterBy.budget = filterBy.budget;
-            if(filterBy.tag) state.filterBy.tag = filterBy.tag;
-            // console.log('state.filterBy-filter', state.filterBy);
+            if(filterBy.tag) {
+                state.filterBy.tag = filterBy.tag;
+                state.filterBy.searchTerm = '';
+            }
 
         },
         setSearchTerm(state, { searchTerm }) {
@@ -174,9 +176,8 @@ export const gigStore = {
         async loadGigs({ commit, state }) {
             // console.log('state.filterBY', state.filterBy);
             var gigs = await gigService.query(state.filterBy)
-            // console.log('gigs in store', gigs);
             commit({ type: 'setGigs', gigs });
-            // commit({ type: 'clearFilter' })
+            commit({ type: 'clearFilter' })
         },
         async updateGig({ commit }, { gig }) {
             var savedGig = gigService.save(gig)
@@ -205,7 +206,6 @@ export const gigStore = {
             // })
         },
         setSearch({ commit, dispatch }, { searchTerm }) {
-            // console.log('set-search-store', searchTerm);
             commit({ type: 'setSearchTerm', searchTerm });
             dispatch({ type: 'loadGigs' })
         },

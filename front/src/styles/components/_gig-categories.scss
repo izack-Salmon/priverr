@@ -1,9 +1,9 @@
 .categories-tiltle{
     margin-bottom: 0px;
     padding-bottom: 0px;
-    padding-top: 96px;
-    font-size: 32px;
-    line-height: 120px;
+    padding-top: 30px;
+    font-size: 29px;
+    line-height: 50px;
     color: $clr7;
 }
 .categories-list{
@@ -16,7 +16,7 @@
         width: 50%;
         padding-bottom: 55px;
         padding: 0 10px 48px;
-    
+        
         a{
             padding-top: 8px;
             text-decoration: none;
@@ -43,7 +43,7 @@
             width: 48px;
             border-bottom: 2px solid #c5c6c9;
             transition: border-color .2s ease-in-out,padding .2s ease-in-out;
-           
+            
         }
         a:hover::after{
             padding: 0 20px 8px;
@@ -57,12 +57,17 @@
 }
 
 @include for-normal-layout {
-    .categories-list{
-    li{
-        width: 50%;
-       
+    .categories-tiltle{
+        line-height: 120px; 
+        font-size: 32px;
+        padding-top: 96px;
     }
-}
+    .categories-list{
+        li{
+            width: 50%;
+            
+        }
+    }
 }
 @include for-normal-layout {
     .categories-list{

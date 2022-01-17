@@ -12,7 +12,6 @@ async function query(filterBy) {
         // const criteria = {};
         const collection = await dbService.getCollection('gig')
         var gigs = await collection.find(criteria).toArray()
-        // console.log('gigs:', gigs);
         return gigs
     } catch (err) {
         logger.error('cannot find gigs', err)
@@ -65,15 +64,14 @@ async function update(gig) {
     }
 }
 function _buildCriteria(filterBy) {
-    // console.log('filterBy-criteria', filterBy);
 
     const criteria = {}
     if (filterBy.searchTerm && filterBy.searchTerm !== '') {
         const searchCriteria = { $regex: filterBy.searchTerm, $options: 'i' }
         criteria.title = searchCriteria;
     }
-    if (filterBy.deliveryTime !== '') {
-       criteria.daysToMake = { $lte: filterBy.deliveryTime };
+    if (filterBy.deliveryTime && filterBy.deliveryTime !== '') {
+       criteria.daysToMake = { $lte: +filterBy.deliveryTime };
     }
     if (filterBy.tag && filterBy.tag !== '') {
         // const newTag = [filterBy.tag.toLowerCase()];

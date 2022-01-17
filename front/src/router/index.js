@@ -53,7 +53,7 @@ const routes = [{
 },
 {
     path: '/user/:id/editGig',
-    name: 'userEditGig',
+    name: 'userAddGig',
     component: userEditGig
 },
 {

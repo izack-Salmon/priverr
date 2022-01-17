@@ -183,7 +183,6 @@ export default {
     //   this.isMenuOpen = false;
     // },
     setSearch() {
-      // console.log("this.searchTerm", this.searchTerm);
       this.$emit("setSearch", this.searchTerm);
     },
     goToUserPage() {

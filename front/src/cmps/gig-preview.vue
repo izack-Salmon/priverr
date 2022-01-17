@@ -94,8 +94,6 @@ export default {
             },
               activateImage(imageIndex) {
                 this.activeImage = imageIndex;
-                // console.log('activeImage', activeImage);
-                // console.log('gig', gig);
             }
   }
 };

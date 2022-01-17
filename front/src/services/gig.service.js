@@ -65,7 +65,7 @@ async function _createGigs() {
     // console.log('im heere to ');
     var gigs = storageService.load(KEY);
     var gUsers = await userService.getUsers()
-    console.log(gUsers);
+    // console.log(gUsers);
     if (!gigs || !gigs.length) {
         gigs = [_createGig('music', gUsers.shift()), _createGig('music', gUsers.shift()), _createGig('web dev', gUsers.shift()), _createGig('art', gUsers.shift(),), _createGig('NFT-Art', gUsers.shift())];
         gigs = await Promise.all(gigs)
@@ -77,7 +77,7 @@ async function _createGigs() {
 function _createGig(imgUrls, label, title, user,) {
     const levels = ['Level 2 Seller', 'Level 1 Seller', 'Top Rated Seller']
     const rates = [4.7, 4.8, 4.9, 4.6, 4.5,]
-    console.log('user-gig-serv', user);
+    // console.log('user-gig-serv', user);
     var { _id, fullname, imgUrl } = user
     const miniUser = {
         _id,
@@ -188,7 +188,7 @@ var labalsAimg = [
 
 async function setGig() {
     const users = await userService.getUsers();
-    console.log('users', users);
+    // console.log('users', users);
     for (let i = 0; i < 1; i++) {
 
         for (let i = 0; i < labalsAimg.length; i++) {
@@ -203,7 +203,7 @@ async function setGig() {
                 user: users[utilService.getRandomInt(0, users.length - 1)]
             }
             var newGig = _createGig(gig.imgUrl, gig.label, gig.title, gig.user,)
-            console.log('newGig', newGig);
+            // console.log('newGig', newGig);
             save(newGig)
 
         }
@@ -215,7 +215,7 @@ async function setGig() {
 
 async function setLabelGig() {
     const users = await userService.getUsers();
-    console.log('users', users);
+    // console.log('users', users);
     // for (let i = 0; i < 1; i++) {
 
         for (let i = 0; i < logoImgUrls.length; i++) {
@@ -227,7 +227,6 @@ async function setLabelGig() {
                 user: users[utilService.getRandomInt(10, users.length - 1)]
             }
             var newGig = _createGig(gig.imgUrl, gig.label, gig.title, gig.user,)
-            console.log('newGig', newGig);
             save(newGig)
 
         }

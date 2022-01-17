@@ -116,37 +116,26 @@ export default {
   created() {
     if (this.$route.params.gigId) {
       // this.newGig._id = this.$route.params.gigId;
-      // console.log(this.$store.getters.currGig);
       this.newGig = JSON.parse(JSON.stringify(this.$store.getters.currGig));
-      // console.log(this.newGig);
     }
     this.user = this.$store.getters.logginUser;
-    // console.log(this.user);
     const { fullname, imgUrl, rate, level, _id } = this.user;
     this.newGig.owner = { fullname, imgUrl, _id };
-    // console.log(this.newGig);
   },
   methods: {
     async onUploadImg(ev) {
-      // console.log("ev", ev);
-      // console.log("ev.target.files[0]", ev.target.files[0]);
-
       this.isLoading = true
       let res = await uploadImg(ev);
-      // console.log(res);
-      // const scale= 'c_scale,h_393,w_680'
-      // let strImgStart = res.url.substring(0, 47)
-      // let strImgEnd = res.url.substring(46, str.length)
-      // var strImgWithScale = `${strImgStart}${scale}${strImgEnd}`
-      // this.newGig.imgUrl.push(strImgWithScale);
-      this.newGig.imgUrl.push(res.url);
-      // console.log("this.newGig.imgUrl", this.newGig.imgUrl);
+      const scale= 'c_scale,h_393,w_680'
+      let strImgStart = res.url.substring(0, 47)
+      let strImgEnd = res.url.substring(46, str.length)
+      var strImgWithScale = `${strImgStart}${scale}${strImgEnd}`
+      this.newGig.imgUrl.push(strImgWithScale);
+      // this.newGig.imgUrl.push(res.url);
       this.isLoading = false
     },
     async saveGig() {
       this.user = this.$store.getters.logginUser;
-      // console.log(this.$route.params);
-      // console.log("this.newGig", this.newGig);
       this.newGig.tags = [this.tag];
       await this.$store.dispatch({ type: "addGig", gig: this.newGig });
       this.$router.push(`/user/${this.newGig.owner._id}`);

@@ -128,7 +128,6 @@ export default {
       return this.showLogin;
     },
     async logedInUser() {
-      await console.log(this.$store.getters.logginUser);
       return await this.$store.getters.logginUser;
     },
   },

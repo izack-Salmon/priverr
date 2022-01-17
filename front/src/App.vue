@@ -41,7 +41,7 @@ export default {
     user: {
       handler() {
         if (this.$store.getters.logginUser) {
-          console.log("user changed", this.$store.getters.logginUser);
+          // console.log("user changed", this.$store.getters.logginUser);
           socketService.emit(
             "set-user-socket",
             this.$store.getters.logginUser._id
@@ -66,7 +66,6 @@ export default {
   },
   methods: {
     setSearch(searchTerm) {
-      // console.log("searchTerm", searchTerm);
       this.$store.dispatch({ type: "setSearch", searchTerm });
       this.$router.push({
         path: "explore",
@@ -75,7 +74,6 @@ export default {
     },
 
     showLogin() {
-      // console.log("got it");
       this.isOpen = true;
     },
     closeLogin() {

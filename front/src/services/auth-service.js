@@ -18,7 +18,7 @@ const BASE_URL =
 async function login(user) {
     try {
         var user = await axios.post(`${BASE_URL}/login`, user)
-        console.log('auth-service');
+        // console.log('auth-service');
         if (user.data) return _saveLocalUser(user.data)
         return user.data
     } catch (err) {
@@ -31,7 +31,7 @@ async function logout() {
     return user.data
 }
 async function signup(user) {
-    console.log(user);
+    // console.log(user);
     var user = await axios.post(`${BASE_URL}/signup`, user)
     // return _saveLocalUser(user.data)
     if (user.data) return _saveLocalUser(user.data)
