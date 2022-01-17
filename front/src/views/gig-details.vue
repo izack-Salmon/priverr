@@ -167,7 +167,6 @@ export default {
           imgUrl: this.gig.imgUrl[0],
         },
       };
-      // console.log("this.oder", this.order);
       // socketService
       // socketService.on("order-added", (order) => {
       //   // console.log(order);
@@ -185,7 +184,6 @@ export default {
       }
     },
     showLogin() {
-      console.log("2nd");
       this.$emit("openLogin");
     },
   },

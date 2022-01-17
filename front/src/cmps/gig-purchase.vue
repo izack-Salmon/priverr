@@ -163,7 +163,6 @@ export default {
   },
   methods: {
     purchase() {
-      console.log("hi");
       // this.$emit("purchaseMsg");
       if (!this.$store.getters.logginUser) {
         this.$emit("openLogin");

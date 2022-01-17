@@ -36,7 +36,7 @@ export const userStore = {
             state.users = users
         },
         login(state, { user }) {
-            console.log(user);
+            // console.log(user);
             state.loginUser = user
             state.username = user.username
             state.UserId = user._id;
@@ -64,7 +64,7 @@ export const userStore = {
         async login({ commit }, { user }) {
             var user = await authService.login(user)
             if (typeof user === 'string') return user
-            console.log('user store', user);
+            // console.log('user store', user);
             commit({ type: 'login', user })
             return user
         },

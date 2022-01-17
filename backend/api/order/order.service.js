@@ -3,7 +3,7 @@ const logger = require('../../services/logger.service')
 const ObjectId = require('mongodb').ObjectId
 
 async function query(filterBy) {
-    console.log('filterBy-serviceback', filterBy);
+    // console.log('filterBy-serviceback', filterBy);
     try {
         const criteria = _buildCriteria(filterBy)
         // const criteria = {};
@@ -47,7 +47,7 @@ async function add(order) {
     try {
         const collection = await dbService.getCollection('order')
         const addedOrder = await collection.insertOne(order)
-        console.log('addedOrder.ops', addedOrder.ops);
+        // console.log('addedOrder.ops', addedOrder.ops);
         return addedOrder
     } catch (err) {
         logger.error('cannot insert order', err)

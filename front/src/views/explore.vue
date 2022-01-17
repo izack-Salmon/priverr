@@ -42,6 +42,18 @@ export default {
   beforeUpdate() {
     this.showLoader = false;
   },
+  destroy() {
+    this.filter({});
+  },
+  watch: {
+    $route({query}){
+      if (query.search) this.pageTitle = `Results for "${query.search}"`;
+      else {
+      this.pageTitle = "Explore";
+      this.filter({});
+    }
+    }
+  },
   computed: {
     gigsToShow() {
       this.showLoader = false;
@@ -53,7 +65,6 @@ export default {
   },
   methods: {
     filter(filterBy) {
-      // console.log('filterBy', filterBy);
       this.$store.dispatch({ type: "setFilterBy", filterBy });
     },
   },

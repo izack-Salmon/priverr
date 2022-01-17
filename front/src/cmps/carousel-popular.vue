@@ -88,7 +88,7 @@ export default {
   },
   computed: {
     professionalList() {
-      console.log(this.$store.getters.professional);
+      // console.log(this.$store.getters.professional);
       return this.$store.getters.professional;
     },
   },

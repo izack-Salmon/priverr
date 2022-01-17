@@ -8,7 +8,7 @@ export const gigStore = {
         gigs: [],
         currGig: null,
         exploreTitle: { category: 'Explore', searchTerm: null },
-        filterBy: { budget: { min: 'ANY', max: 'ANY' } },
+        filterBy: { budget: '', deliveryTime: '' },
         professional: [{
             img: "https://res.cloudinary.com/pivarr/image/upload/v1638380308/tagsimg/logo-design_cuoszf.jpg",
             name: 'Logo Design',
@@ -103,7 +103,7 @@ export const gigStore = {
 
         exploreTitle(state) {
             let title = (state.exploreTitle.category !== null) ? state.exploreTitle.category : state.exploreTitle.searchTerm
-            console.log('title', title);
+            // console.log('title', title);
             return title
         }
     },
@@ -143,8 +143,10 @@ export const gigStore = {
             state.filterBy.deliveryTime = filterBy.deliveryTime;
             // console.log('filterBy.budget', filterBy.budget);
             state.filterBy.budget = filterBy.budget;
-            if(filterBy.tag) state.filterBy.tag = filterBy.tag;
-            // console.log('state.filterBy-filter', state.filterBy);
+            if(filterBy.tag) {
+                state.filterBy.tag = filterBy.tag;
+                state.filterBy.searchTerm = '';
+            }
 
         },
         setSearchTerm(state, { searchTerm }) {
@@ -176,9 +178,8 @@ export const gigStore = {
         async loadGigs({ commit, state }) {
             console.log('state.filterBY', state.filterBy);
             var gigs = await gigService.query(state.filterBy)
-            console.log('gigs in store', gigs);
             commit({ type: 'setGigs', gigs });
-            // commit({ type: 'clearFilter' })
+            commit({ type: 'clearFilter' })
         },
         async updateGig({ commit }, { gig }) {
             var savedGig = gigService.save(gig)
@@ -195,7 +196,7 @@ export const gigStore = {
             return savedGig;
         },
         async removeGig({ commit }, { gigId }) {
-            console.log(gigId);
+            // console.log(gigId);
             var gig = await gigService.remove(gigId)
             commit({ type: 'removeGig', gigId });
             return gig
@@ -207,7 +208,6 @@ export const gigStore = {
             // })
         },
         setSearch({ commit, dispatch }, { searchTerm }) {
-            console.log('set-search-store', searchTerm);
             commit({ type: 'setSearchTerm', searchTerm });
             dispatch({ type: 'loadGigs' })
         },

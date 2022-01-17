@@ -123,20 +123,16 @@ export default {
   methods: {
     goToEditGig() {
       this.$router.push(`/user/${this.user._id}/editGig`);
-      // console.log("hi");
     },
     ordersToShow() {
-      // console.log("go store");
       this.orders = JSON.parse(JSON.stringify(this.$store.getters.orders));
     },
 
     async loadUserGigs() {
       this.gigs = this.$store.getters.gigs;
-      console.log("gigs", this.gigs);
       this.gigs = await this.gigs.filter(
         (gig) => gig.owner._id === this.user._id
       );
-      console.log("this.userGigs", this.gigs);
     },
   },
   watch: {

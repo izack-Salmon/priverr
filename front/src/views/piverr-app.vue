@@ -290,7 +290,6 @@ export default {
   },
   methods: {
     setSearch() {
-      // console.log('searchTerm-piverapp', this.searchTerm);
       this.$store.dispatch({ type: "setSearch", searchTerm: this.searchTerm });
       this.$router.push({
         path: "explore",
