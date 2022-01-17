@@ -185,7 +185,7 @@ export default {
       }
     },
     showLogin() {
-      console.log("2nd");
+      // console.log("2nd");
       this.$emit("openLogin");
     },
   },

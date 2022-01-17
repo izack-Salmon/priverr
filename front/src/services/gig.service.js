@@ -38,7 +38,7 @@ function remove(id) {
     // return asyncStorageService.remove(KEY, id);
 }
 function save(gig) {
-    console.log('gig', gig);
+    // console.log('gig', gig);
     return (gig._id) ? axios.put(BASE_URL + `/${gig._id}`, gig).then((res) => res.data) : axios.post(BASE_URL + '/', gig).then((res) => res.data)
     // const savedGig = gig._id ? asyncStorageService.put(KEY, gig) : asyncStorageService.post(KEY, gig);
     // return savedGig;

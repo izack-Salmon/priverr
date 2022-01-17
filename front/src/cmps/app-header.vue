@@ -149,7 +149,7 @@ export default {
     notification: {
       handler() {
         this.notifications = this.notification;
-        console.log(this.notification);
+        // console.log(this.notification);
       },
     },
     immediate: true,
@@ -187,7 +187,7 @@ export default {
       this.$emit("setSearch", this.searchTerm);
     },
     goToUserPage() {
-      console.log(this.user);
+      // console.log(this.user);
       this.$router.push(`/user/${this.user._id}`);
     },
     goToExplore() {

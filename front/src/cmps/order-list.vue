@@ -105,7 +105,7 @@ export default {
             return order.seller._id === this.user._id
         });
         this.ordersToShow = OrderArr.reverse()
-        console.log(this.ordersToShow);
+        // console.log(this.ordersToShow);
        
         this.queNum()
     },

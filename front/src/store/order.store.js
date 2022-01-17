@@ -14,7 +14,7 @@ export const orderStore = {
     mutations: {
         loadOrders(state, { orders }) {
             state.orders = orders
-            console.log(state.orders);
+            // console.log(state.orders);
         },
         removeOrder(state, { orderId }) {
             const idx = state.orders.findIndex((currOrder) => currOrder._id === orderId);
@@ -25,13 +25,13 @@ export const orderStore = {
                 state.orders = []
             }
             state.orders.unshift(savedOrder.ops[0]);
-            console.log('state orders', state.orders);
+            // console.log('state orders', state.orders);
         },
     },
     actions: {
         async loadOrders({ commit, state }) {
             var orders = await orderService.query(state.filterBy)
-            console.log('orders in store', orders);
+            // console.log('orders in store', orders);
             commit({ type: 'loadOrders', orders });
         },
         async removeOrder({ commit }, { orderId }) {
@@ -41,7 +41,7 @@ export const orderStore = {
             return order
         },
         async addOrder({ commit }, { order }) {
-            console.log(order);
+            // console.log(order);
             var savedOrder = await orderService.save(order)
             // console.log('this 2');
             commit({ type: 'addOrder', savedOrder });

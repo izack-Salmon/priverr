@@ -89,14 +89,27 @@ export default {
   },
   methods: {
     filter() {
-      console.log("filterBy", this.filterBy);
+      var filterBy = {deliveryTime: '', budget: { min: 0, max: 5000 }}
       this.budgetOpen = false;
-      if (this.filterBy.budget.min !== 'Any' && this.filterBy.budget.max !== 'Any') {
+      
+      if (this.filterBy.budget.min !== 'Any'){
         this.budgetActive = true;
-        this.filterBy.budget.min = parseInt(this.filterBy.budget.min)
-        this.filterBy.budget.max = parseInt(this.filterBy.budget.max)
-        }
-      var filterBy = JSON.parse(JSON.stringify(this.filterBy))
+        filterBy.budget.min = parseInt(this.filterBy.budget.min)
+      }
+      if (this.filterBy.budget.max !== 'Any'){
+        this.budgetActive = true;
+        filterBy.budget.max = parseInt(this.filterBy.budget.max)
+      }
+      if (this.filterBy.deliveryTime === 'Express 24H') filterBy.deliveryTime = 1;
+      else if (this.filterBy.deliveryTime === 'Up to 3 days') filterBy.deliveryTime = 3;
+      else if (this.filterBy.deliveryTime === 'Up to 7 days') filterBy.deliveryTime = 7;
+
+      // if (this.filterBy.budget.min !== 'Any' && this.filterBy.budget.max !== 'Any') {
+      //   this.budgetActive = true;
+      //   this.filterBy.budget.min = parseInt(this.filterBy.budget.min)
+      //   this.filterBy.budget.max = parseInt(this.filterBy.budget.max)
+      //   }
+      // var filterBy = JSON.parse(JSON.stringify(this.filterBy))
       this.$emit('filter', filterBy)
     },
 

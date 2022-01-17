@@ -41,6 +41,11 @@ export default {
   beforeUpdate() {
     this.showLoader = false;
   },
+  watch: {
+    $route({query}){
+      if (query.search) this.pageTitle = `Results for "${query.search}"`;
+    }
+  },
   computed: {
     gigsToShow() {
       this.showLoader = false;

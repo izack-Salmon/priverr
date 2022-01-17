@@ -71,7 +71,7 @@ export default {
       // this.loginOpened = true;
     },
     async login() {
-      console.log(this.user.username, this.user.password);
+      // console.log(this.user.username, this.user.password);
       if (!this.user.username || !this.user.password) {
         this.errorMsg("Please enter username/password");
         return;
@@ -83,7 +83,7 @@ export default {
       }
       if (user) {
         socketService.on(user._id, (data) => {
-          console.log("im conccted");
+          // console.log("im conccted");
         });
         this.isOpen = false;
         this.$emit("close");
@@ -101,7 +101,7 @@ export default {
 
       if (user) {
         socketService.on(user._id, (data) => {
-          console.log("im conccted");
+          // console.log("im conccted");
         });
         this.isOpen = false;
         this.$emit("close");

@@ -3,7 +3,7 @@ import VueRouter from 'vue-router'
 import home from '../views/piverr-app.vue'
 import explore from '../views/explore.vue'
 import gigDetails from '../views/gig-details.vue'
-import gigEdit from '../views/gig-edit.vue'
+// import gigEdit from '../views/gig-edit.vue'
 import userDetails from '../views/user-details.vue'
 import dashboard from '../views/dashboard.vue'
 import userEditGig from '../views/user-edit-gig.vue'
@@ -36,16 +36,16 @@ const routes = [{
     name: 'gigDetails',
     component: gigDetails
 },
-{
-    path: '/gig/edit',
-    name: 'gigEdit',
-    component: gigEdit
-},
-{
-    path: '/gig/edit/:id',
-    name: 'gigEdit',
-    component: gigEdit
-},
+// {
+//     path: '/gig/edit',
+//     name: 'gigEdit',
+//     component: gigEdit
+// },
+// {
+//     path: '/gig/edit/:id',
+//     name: 'gigEdit',
+//     component: gigEdit
+// },
 {
     path: '/user/:id',
     name: 'userDetails',

@@ -42,7 +42,7 @@ export default {
         type: "getGigByid",
         gigId: this.gig._id,
       });
-      console.log(gig);
+      // console.log(gig);
       this.$router.push(`/user/${this.gig.owner._id}/editGig/${this.gig._id}`);
     },
   },

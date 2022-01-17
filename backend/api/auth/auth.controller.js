@@ -18,7 +18,7 @@ async function login(req, res) {
 
 async function signup(req, res) {
     try {
-        console.log(req.body);
+        // console.log(req.body);
         const { username, password, fullname } = req.body
         // Never log passwords
         logger.debug(fullname + ', ' + username + ', ' + password)

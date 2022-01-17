@@ -17,7 +17,7 @@
 export default {
   props: ["gigs"],
   created() {
-    console.log(this.gig);
+    // console.log(this.gig);
   },
 
 }
