@@ -61,10 +61,10 @@ export default {
       logeddInUser: "",
     };
   },
-    created() {
-      // this.loginOpened = this.showLogin;
-      this.sginIn = !this.enterjoin
-    },
+  created() {
+    // this.loginOpened = this.showLogin;
+    this.sginIn = !this.enterjoin;
+  },
   methods: {
     toggle() {
       this.isOpen = !this.isOpen;
@@ -92,12 +92,16 @@ export default {
     getSginIn() {
       this.sginIn = !this.sginIn;
     },
-    sginUp() {
+    async sginUp() {
       if (!this.user.fullname || !this.user.password || !this.user.username) {
         this.errorMsg("Please enter username/password");
         return;
       }
-      var user = this.$store.dispatch({ type: "signup", user: this.user });
+      var user = await this.$store.dispatch({
+        type: "signup",
+        user: this.user,
+      });
+      console.log(user);
 
       if (user) {
         socketService.on(user._id, (data) => {

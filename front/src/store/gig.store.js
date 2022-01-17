@@ -81,6 +81,7 @@ export const gigStore = {
             return state.labels
         },
         gigsToShow(state) {
+            console.log(state.filterBy);
             return gigService.filterGigs(state.gigs, state.filterBy);
         },
         activeGigsLeft(state) {
@@ -138,6 +139,7 @@ export const gigStore = {
             state.order = !state.order;
         },
         setFilterBy(state, { filterBy }) {
+            console.log(filterBy);
             state.filterBy.deliveryTime = filterBy.deliveryTime;
             // console.log('filterBy.budget', filterBy.budget);
             state.filterBy.budget = filterBy.budget;
@@ -172,7 +174,7 @@ export const gigStore = {
         //     commit({ type: 'setUserGigs', userGigs });
         // },
         async loadGigs({ commit, state }) {
-            // console.log('state.filterBY', state.filterBy);
+            console.log('state.filterBY', state.filterBy);
             var gigs = await gigService.query(state.filterBy)
             console.log('gigs in store', gigs);
             commit({ type: 'setGigs', gigs });

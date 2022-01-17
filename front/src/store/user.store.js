@@ -73,7 +73,7 @@ export const userStore = {
             commit({ type: 'logout' })
         },
         async signup({ commit }, { user }) {
-            await authService.signup(user)
+        var user = await authService.signup(user)
             commit({ type: 'login', user })
             return user
         },
