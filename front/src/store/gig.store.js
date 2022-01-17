@@ -176,7 +176,6 @@ export const gigStore = {
         //     commit({ type: 'setUserGigs', userGigs });
         // },
         async loadGigs({ commit, state }) {
-            console.log('state.filterBY', state.filterBy);
             var gigs = await gigService.query(state.filterBy)
             commit({ type: 'setGigs', gigs });
             commit({ type: 'clearFilter' })
