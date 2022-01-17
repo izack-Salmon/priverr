@@ -25,6 +25,7 @@ export default {
     return {
       pageTitle: "Explore",
       showLoader: true,
+      gigs: "",
     };
   },
   created() {

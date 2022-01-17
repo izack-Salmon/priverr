@@ -106,14 +106,16 @@ export default {
       user: "",
       gigs: "",
       orders: "",
+      filterBy: {},
       // userGigs: "",
     };
   },
   async created() {
     this.user = this.$store.getters.logginUser;
+    this.filterBy = { id: this.user._id };
     await this.$store.dispatch({ type: "loadGigs" });
     await this.loadUserGigs();
-    await this.$store.dispatch({ type: "loadOrders" });
+    await this.$store.dispatch({ type: "loadOrders", filterBy: this.filterBy });
     this.ordersToShow();
     socketService.on("purchase", this.socketCheck);
     // this.connect();

@@ -29,8 +29,8 @@ export const orderStore = {
         },
     },
     actions: {
-        async loadOrders({ commit, state }) {
-            var orders = await orderService.query(state.filterBy)
+        async loadOrders({ commit }, { filterBy }) {
+            var orders = await orderService.query(filterBy)
             console.log('orders in store', orders);
             commit({ type: 'loadOrders', orders });
         },

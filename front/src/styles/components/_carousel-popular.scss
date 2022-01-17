@@ -18,8 +18,8 @@
   }
   
   .carousel-continer {
-      margin: auto;
-    //   width: 80%;
+        margin: auto;
+    margin-bottom: 96px;
       width: 60%;
       h2 {
           margin-bottom: 13px;
@@ -124,7 +124,7 @@
           height: 500px;
       }
       .carousel-continer {
-        width: 100%;
+        width: 80%;
       }
   }
   
@@ -136,7 +136,8 @@
       @include for-narrow-layout {
           display: block;
           .carousel-continer {
-             
+            //   margin: ;
+            margin-bottom: 80px;
           }
       }
   }
