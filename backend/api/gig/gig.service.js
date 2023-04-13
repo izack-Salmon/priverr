@@ -1,6 +1,6 @@
 const dbService = require('../../services/db.service')
 const logger = require('../../services/logger.service')
-const ObjectId = require('mongodb').ObjectId
+const { ObjectId } = require('mongodb');
 
 async function query(filterBy) {
     if (filterBy.budget) {
@@ -71,7 +71,7 @@ function _buildCriteria(filterBy) {
         criteria.title = searchCriteria;
     }
     if (filterBy.deliveryTime && filterBy.deliveryTime !== '') {
-       criteria.daysToMake = { $lte: +filterBy.deliveryTime };
+        criteria.daysToMake = { $lte: +filterBy.deliveryTime };
     }
     if (filterBy.tag && filterBy.tag !== '') {
         // const newTag = [filterBy.tag.toLowerCase()];
