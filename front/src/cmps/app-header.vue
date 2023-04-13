@@ -166,6 +166,7 @@ export default {
     },
     async logOut() {
       this.$store.dispatch({ type: "logout" });
+      if (this.$route.name !== 'Home') this.$router.push(`/`);
     },
     close() {
       this.loginOpened = false;

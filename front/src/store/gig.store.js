@@ -143,7 +143,7 @@ export const gigStore = {
             state.filterBy.deliveryTime = filterBy.deliveryTime;
             // console.log('filterBy.budget', filterBy.budget);
             state.filterBy.budget = filterBy.budget;
-            if(filterBy.tag) {
+            if (filterBy.tag) {
                 state.filterBy.tag = filterBy.tag;
                 state.filterBy.searchTerm = '';
             }
@@ -165,7 +165,7 @@ export const gigStore = {
         }
     },
     actions: {
-        
+
         //hope to do get gigs by user id back to front ;)
 
         // async loadGigs({ commit, state }) {
@@ -188,10 +188,10 @@ export const gigStore = {
         },
         async addGig({ commit }, { gig }) {
             var savedGig = await gigService.save(gig)
-            if (gig._id){
-            commit({ type: 'updateGig', gig });
+            if (gig._id) {
+                commit({ type: 'updateGig', gig });
             } else {
-            commit({ type: 'addGig', savedGig });
+                commit({ type: 'addGig', savedGig });
             }
             return savedGig;
         },
